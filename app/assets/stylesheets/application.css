@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ .logo {
+   font-family: Fredoka One;
+   font-size: 30px;
+   color: rgb(249, 77, 31);
+ }
+
+ .white {
+   color: white;
+ }
