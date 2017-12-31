@@ -9,7 +9,7 @@ export const receiveCurrentUser = user => {
   };
 };
 
-export const receiveSessionErrors = errors => {
+export const receiveErrors = errors => {
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors
@@ -17,28 +17,27 @@ export const receiveSessionErrors = errors => {
 };
 
 export const signup = user => dispatch => {
-  return SessionAPIUtil.signup(user).then(currentUser => {
+  return SessionAPIUtil.signup(user).then((currentUser) => {
     dispatch(receiveCurrentUser(currentUser));
-  }, errors => {
-    dispatch(receiveSessionErrors(errors));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
   });
 };
 
 export const login = user => dispatch => {
-  return SessionAPIUtil.login(user).then(currentUser => {
+  return SessionAPIUtil.login(user).then((currentUser) => {
     console.log("logged in");
     dispatch(receiveCurrentUser(currentUser));
-  }, errors => {
+  }, (errors) => {
     console.log("failing");
-    dispatch(receiveSessionErrors(errors));
+    dispatch(receiveErrors(errors));
   });
 };
 
 export const logout = () => dispatch => {
   return SessionAPIUtil.logout().then(() => {
     dispatch(receiveCurrentUser(null));
-    console.log("logged out");
-  }, errors => {
-    dispatch(receiveSessionErrors(errors));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
   });
 };
