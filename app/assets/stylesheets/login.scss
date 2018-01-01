@@ -1,0 +1,29 @@
+.login-nav {
+  height: 55px;
+  background: white;
+  width: 100%;
+  // display: flex;
+  // justify-content: space-around;
+}
+
+.login-ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-ul li {
+  margin-top: 8px;
+}
+
+.logo {
+  margin-left: 200px;
+}
+
+.signup-button {
+  padding: 10px;
+  border: 1px solid #ccccd1;
+  border-radius: 0;
+  color: #606065;
+  margin-right: 200px;
+}
