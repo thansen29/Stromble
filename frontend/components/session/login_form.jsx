@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props){
@@ -13,7 +14,9 @@ class LoginForm extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.login(user);
+    this.props.login(user).then(() => {
+      this.props.history.push("/dashboard");
+    });
     this.setState({
       email: "",
       password: ""
@@ -29,10 +32,13 @@ class LoginForm extends React.Component {
   render(){
     return (
       <section className="background-container">
-        <img src="http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg" alt="autumn" />
+        <img
+          src="http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg"
+          alt="autumn" />
+
           <nav className="login-nav">
             <ul className="login-ul">
-              <li className="logo">stromble</li>
+              <Link to="/"><li className="logo">stromble</li></Link>
               <li>
                 <button className="signup-button">
                   Sign Up
@@ -45,13 +51,28 @@ class LoginForm extends React.Component {
             <h1>Log In</h1>
 
             <section className="input-container">
-              <input className="input" type="text" placeholder="Your Email" />
+              <input
+                onChange={this.handleChange("email")}
+                value={this.state.email}
+                className="input" type="text"
+                placeholder="Your Email" />
 
-              <input className="input" type="password" placeholder="Password" />
 
-              <input className="submit" type="submit" value="Demo Log In" />
+              <input
+                onChange={this.handleChange("password")}
+                value={this.state.password}
+                className="input" type="password"
+                placeholder="Password" />
 
-              <input className="submit" type="submit" value="Log In" />
+              <button
+                className="submit"
+                onClick={this.handleDemoSubmit}>
+                Demo Log In
+              </button>
+
+              <button className="submit">
+                Log In
+              </button>
 
               <div className="forgot-pw"></div>
           </section>
@@ -60,5 +81,14 @@ class LoginForm extends React.Component {
     );
   }
 }
+// <input
+//   className="submit"
+//   type="submit"
+//   value="Demo Log In" />
+//
+// <input
+//   className="submit"
+//   type="submit"
+//   value="Log In" />
 
 export default LoginForm;

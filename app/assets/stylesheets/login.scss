@@ -12,8 +12,6 @@ img {
   height: 55px;
   background: white;
   width: 100%;
-  // display: flex;
-  // justify-content: space-around;
 }
 
 .login-ul {
@@ -36,6 +34,10 @@ img {
   border-radius: 1px;
   color: #606065;
   margin-right: 240px;
+}
+
+.signup-button:hover {
+  background: whitesmoke;
 }
 
 .login-form {
