@@ -29,7 +29,24 @@ class LoginForm extends React.Component {
     };
   }
 
+  handleErrors(){
+    if(this.props.errors.length > 0){
+      return (
+        this.props.errors[0]
+      );
+    }
+  }
+
   render(){
+    let errorMessage;
+    if(this.props.errors.length > 0){
+      errorMessage =
+      <div className="alert-errors">
+        <div className="alert-message">
+          {this.handleErrors()}
+        </div>
+      </div>;
+    }
     return (
       <section className="background-container">
         <img
@@ -49,6 +66,8 @@ class LoginForm extends React.Component {
 
           <form className="login-form" onSubmit={this.handleSubmit}>
             <h1>Log In</h1>
+
+            {errorMessage}
 
             <section className="input-container">
               <input
@@ -92,3 +111,11 @@ class LoginForm extends React.Component {
 //   value="Log In" />
 
 export default LoginForm;
+
+
+
+// {redStripe}
+// <div className="alert-message">
+//   {this.handleErrors()}
+// </div>
+// {closingTag}

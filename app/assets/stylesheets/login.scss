@@ -101,4 +101,17 @@ img {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 20px;
   padding-top: 10px;
+  padding-bottom: 75px;
+}
+
+.alert-errors {
+  background: #d9534f;
+}
+
+.alert-message {
+  color: white;
+  font-size: 12px;
+  box-sizing: border-box;
+  padding: 16px;
+  text-align: center;
 }
