@@ -1,5 +1,5 @@
 import React from 'react';
-// import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
+import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import { Route } from 'react-router-dom';
 
 const App = () => (
@@ -8,7 +8,7 @@ const App = () => (
       <h1>Stromble</h1>
     </header>
 
-    {/* routes go here */}
+    {/*<AuthRoute path="/login" component={SessionContainer}></AuthRoute>*/}
   </div>
 );
 
