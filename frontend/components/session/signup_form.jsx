@@ -61,10 +61,12 @@ class SignupForm extends React.Component {
             <li><h1>Here to join?</h1></li>
             <li><a href="#" onClick={this.openModal}>Use my email</a></li>
             <li>
-              <button className="login-button">
-                <i className="fa fa-user" aria-hidden="true"></i>
-                LOG IN
-              </button>
+              <Link to="/login">
+                <button className="login-button">
+                  <i className="fa fa-user" aria-hidden="true"></i>
+                  LOG IN
+                </button>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -106,6 +108,8 @@ class SignupForm extends React.Component {
           <div className="terms">
             By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>
           </div>
+
+          <button className="signup-submit">Sign Up</button>
 
           </form>
 
