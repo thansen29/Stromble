@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   handleSubmit(e){
@@ -35,6 +36,21 @@ class LoginForm extends React.Component {
         this.props.errors[0]
       );
     }
+  }
+
+  handleDemoSubmit(e){
+    e.preventDefault();
+    const user = {
+      email: "guest",
+      password: "password"
+    };
+    this.setState({
+      email: "guest",
+      password: "password"
+    });
+    this.props.login(user).then(() => {
+      this.props.history.push("/dashboard");
+    });
   }
 
   render(){
