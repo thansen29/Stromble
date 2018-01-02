@@ -1,14 +1,15 @@
 import React from 'react';
-// import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
+import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import { Route } from 'react-router-dom';
+import loginContainer from './session/login_container';
+import signupContainer from './session/signup_container';
+// import dashboardContainer from './dashboard/dashboard_container';
 
 const App = () => (
   <div>
-    <header>
-      <h1>Stromble</h1>
-    </header>
-
-    {/* routes go here */}
+    {<AuthRoute path="/login" component={loginContainer}></AuthRoute>}
+    {<Route exact path="/" component={signupContainer}></Route>}
+    {/*<ProtectedRoute exact path="/dashboard" component={dashboardContainer}></ProtectedRoute>*/}
   </div>
 );
 

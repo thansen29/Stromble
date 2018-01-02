@@ -1,0 +1,117 @@
+.background-container {
+  position: relative;
+}
+
+img {
+  position: absolute;
+  width: 100%;
+}
+
+.login-nav {
+  position: relative;
+  height: 55px;
+  background: white;
+  width: 100%;
+}
+
+.login-ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-ul li {
+  margin-top: 8px;
+}
+
+.logo {
+  margin-left: 240px;
+}
+
+.signup-button {
+  padding: 8px 12px;
+  border: 1px solid #ccccd1;
+  border-radius: 1px;
+  color: #606065;
+  margin-right: 240px;
+}
+
+.signup-button:hover {
+  background: whitesmoke;
+}
+
+.login-form {
+  position: absolute;
+  left: 39%;
+  top: 125px;
+  width: 400px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.login-form h1 {
+  color: #eee;
+  text-align: center;
+  background: rgba(0,0,0,0.5);
+  border-radius: 3px;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.input-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  font-size: 14px;
+  width: 70%;
+  padding: 12px 10px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid #666;
+  color: #CCC;
+  margin: 6px 0;
+}
+
+.input:focus {
+  border: 2px solid rgb(69, 135, 240);
+  background: white;
+  color: black;
+}
+
+.submit {
+  margin-top: 50px;
+  width: 75%;
+  height: 8%;
+  box-sizing: border-box;
+  background: #fc4c02;
+  color: white;
+  text-align: center;
+}
+
+.forgot-pw {
+  font-size: 12px;
+  width: 90%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 75px;
+}
+
+.alert-errors {
+  background: #d9534f;
+}
+
+.alert-message {
+  color: white;
+  font-size: 12px;
+  box-sizing: border-box;
+  padding: 16px;
+  text-align: center;
+}
