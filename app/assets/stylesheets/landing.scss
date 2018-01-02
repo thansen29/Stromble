@@ -1,0 +1,52 @@
+.landing-nav {
+  position: relative;
+  height: 65px;
+  background: white;
+  width: 100%;
+}
+
+.landing-ul {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.landing-ul h1 {
+  font-size: 24px;
+  color: dimgrey;
+  font-weight: 100;
+  margin-top: -5px;
+}
+
+.landing-ul a {
+  color: dimgrey;
+  text-decoration: underline;
+}
+
+.landing-ul a:hover {
+  color: darkslategrey;
+}
+
+.landing-ul li:last-of-type{
+  // margin-left: 1200px;
+  margin-right: -240px;
+  margin-top: -25px;
+}
+
+.login-button {
+  background: #fc4c02;
+  width: 120px;
+  height: 70px;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 1px;
+  // position: absolute;
+  // right: 0;
+}
+
+.fa-user {
+  margin-right: 4px;
+}
