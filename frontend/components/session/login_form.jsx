@@ -8,9 +8,23 @@ class LoginForm extends React.Component {
       email: "",
       password: ""
     };
+    // this.errors = this.props.errors;
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
+
+  // componentDidMount(){
+  //   if(this.props.errors.length > 0 ){
+  //     this.errors = [];
+  //   }
+  // }
+
+  // componentWillReceiveProps(nextProps){
+  //   if(this.props.errors.length > 0){
+  //     this.errors = this.props.errors;
+  //   }
+  // }
 
   handleSubmit(e){
     e.preventDefault();
@@ -38,6 +52,12 @@ class LoginForm extends React.Component {
       );
     }
   }
+
+  // handleErrors(){
+  //   if(this.errors.length > 0){
+  //     return this.errors[0];
+  //   }
+  // }
 
   handleDemoSubmit(e){
     e.preventDefault();

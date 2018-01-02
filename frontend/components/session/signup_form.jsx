@@ -57,6 +57,13 @@ class SignupForm extends React.Component {
   }
 
   render(){
+    let errorMessage = this.handleErrors();
+    if(errorMessage){
+      errorMessage =
+      <div className="signup-errors">
+        {errorMessage}
+      </div>;
+    }
 
     return (
       <section className="background-container">
@@ -100,6 +107,7 @@ class SignupForm extends React.Component {
               value={this.state.email}
               onChange={this.handleChange('email')}
             />
+          {errorMessage}
 
           <label htmlFor="password">New password</label>
             <i className="fa fa-eye show" aria-hidden="true"></i>
@@ -110,6 +118,7 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.handleChange('password')}
             />
+          {errorMessage}
 
           <div className="terms">
             By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>

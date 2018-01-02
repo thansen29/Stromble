@@ -21,16 +21,17 @@ export const signup = user => dispatch => {
     dispatch(receiveCurrentUser(currentUser));
   }, (errors) => {
     dispatch(receiveErrors(errors));
+    //dispatch clear errors
   });
 };
 
 export const login = user => dispatch => {
   return SessionAPIUtil.login(user).then((currentUser) => {
-    console.log("logged in");
     dispatch(receiveCurrentUser(currentUser));
   }, (errors) => {
-    console.log("failing");
     dispatch(receiveErrors(errors));
+    //dispatch clear errors
+    
   });
 };
 
