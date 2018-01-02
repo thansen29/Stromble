@@ -31,6 +31,16 @@ class SignupForm extends React.Component {
     };
   }
 
+  closeModal(){
+    const modal = document.getElementById("modal-container");
+    modal.classList.add("is-closed");
+  }
+
+  openModal(){
+    const modal = document.getElementById("modal-container");
+    modal.classList.remove("is-closed");
+  }
+
   sampleImage(){
     const img1 = <img src='http://res.cloudinary.com/stromble/image/upload/v1514660639/pexels-photo-302804_oy0xnz.jpg' />;
     const img2 = <img src='http://res.cloudinary.com/stromble/image/upload/v1514660638/road-sun-rays-path_t4dtzb.jpg' />;
@@ -49,7 +59,7 @@ class SignupForm extends React.Component {
         <nav className="landing-nav">
           <ul className="landing-ul">
             <li><h1>Here to join?</h1></li>
-            <li><a href="#">Use my email</a></li>
+            <li><a href="#" onClick={this.openModal}>Use my email</a></li>
             <li>
               <button className="login-button">
                 <i className="fa fa-user" aria-hidden="true"></i>
@@ -59,7 +69,7 @@ class SignupForm extends React.Component {
           </ul>
         </nav>
 
-        <section className="modal-form">
+        <section id="modal-container" className="is-closed">
           <section className="modal-screen"></section>
 
           <form onSubmit={this.handleSubmit} className="signup-form">

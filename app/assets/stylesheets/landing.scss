@@ -86,6 +86,7 @@
   font-size: 32px;
   color: #ccc;
   align-self: flex-end;
+  font-weight: 100;
 }
 
 .modal-close:hover {
@@ -172,4 +173,12 @@
 
 .after a {
   color: #fc4c02;
+}
+
+.is-open {
+  display: block;
+}
+
+.is-closed {
+  display: none;
 }
