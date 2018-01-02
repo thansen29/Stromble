@@ -9,6 +9,7 @@ class SignupForm extends React.Component {
       password: ""
     };
 
+    this.image = this.sampleImage();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -31,6 +32,12 @@ class SignupForm extends React.Component {
     };
   }
 
+  handleErrors(){
+    if(this.props.errors.length > 0){
+      return this.props.errors[0];
+    }
+  }
+
   closeModal(){
     const modal = document.getElementById("modal-container");
     modal.classList.add("is-closed");
@@ -50,11 +57,10 @@ class SignupForm extends React.Component {
   }
 
   render(){
-    const image = this.sampleImage();
 
     return (
       <section className="background-container">
-        { image }
+        { this.image }
         <Link to="/"><div className="top-left logo white">stromble</div></Link>
         <nav className="landing-nav">
           <ul className="landing-ul">

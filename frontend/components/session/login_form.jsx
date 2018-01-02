@@ -30,6 +30,7 @@ class LoginForm extends React.Component {
     };
   }
 
+//clean up in a bit
   handleErrors(){
     if(this.props.errors.length > 0){
       return (
@@ -54,12 +55,12 @@ class LoginForm extends React.Component {
   }
 
   render(){
-    let errorMessage;
-    if(this.props.errors.length > 0){
+    let errorMessage = this.handleErrors();
+    if(errorMessage){
       errorMessage =
       <div className="alert-errors">
         <div className="alert-message">
-          {this.handleErrors()}
+          {errorMessage}
         </div>
       </div>;
     }
@@ -116,22 +117,5 @@ class LoginForm extends React.Component {
     );
   }
 }
-// <input
-//   className="submit"
-//   type="submit"
-//   value="Demo Log In" />
-//
-// <input
-//   className="submit"
-//   type="submit"
-//   value="Log In" />
 
 export default LoginForm;
-
-
-
-// {redStripe}
-// <div className="alert-message">
-//   {this.handleErrors()}
-// </div>
-// {closingTag}
