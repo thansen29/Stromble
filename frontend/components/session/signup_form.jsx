@@ -52,18 +52,63 @@ class SignupForm extends React.Component {
             <li><a href="#">Use my email</a></li>
             <li>
               <button className="login-button">
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <i className="fa fa-user" aria-hidden="true"></i>
                 LOG IN
               </button>
             </li>
           </ul>
         </nav>
 
+        <section className="modal-form">
+          <section className="modal-screen"></section>
+
+          <form onSubmit={this.handleSubmit} className="signup-form">
+            <span
+              className="modal-close"
+              onClick={this.closeModal}>
+              X
+            </span>
+
+            <header className="form-header">
+              <h1>Sign up for free</h1>
+              <h3>Join for the tracking. Stay for the community.</h3>
+            </header>
+
+            <label htmlFor="email">Email</label>
+            <input
+              className="landing-input"
+              id="email"
+              type="text"
+              value={this.state.email}
+              onChange={this.handleChange('email')}
+            />
+
+          <label htmlFor="password">New password</label>
+            <i className="fa fa-eye show" aria-hidden="true"></i>
+            <input
+              className="landing-input"
+              id="password"
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange('password')}
+            />
+
+          <div className="terms">
+            By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>
+          </div>
+
+          </form>
+
+            <span
+              className="after">
+              Already have an account? <Link to="/login">Log in</Link>
+            </span>
+        </section>
+
 
       </section>
     );
   }
-
 
 }
 

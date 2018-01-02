@@ -8,7 +8,7 @@ import signupContainer from './session/signup_container';
 const App = () => (
   <div>
     {<AuthRoute path="/login" component={loginContainer}></AuthRoute>}
-    {<AuthRoute exact path="/" component={signupContainer}></AuthRoute>}
+    {<Route exact path="/" component={signupContainer}></Route>}
     {/*<ProtectedRoute exact path="/dashboard" component={dashboardContainer}></ProtectedRoute>*/}
   </div>
 );
