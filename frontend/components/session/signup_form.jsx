@@ -45,7 +45,7 @@ class SignupForm extends React.Component {
     return (
       <section className="background-container">
         { image }
-
+        <Link to="/"><div className="top-left logo white">stromble</div></Link>
         <nav className="landing-nav">
           <ul className="landing-ul">
             <li><h1>Here to join?</h1></li>

@@ -1,3 +1,10 @@
+.top-left {
+  position: absolute;
+  z-index: 5;
+  top: 75px;
+  left: -200px;
+}
+
 .landing-nav {
   position: relative;
   height: 65px;
