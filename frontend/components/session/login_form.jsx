@@ -9,10 +9,13 @@ class LoginForm extends React.Component {
       email: "",
       password: ""
     };
-
     this.props.clearErrors();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.closeModal();
   }
 
   handleSubmit(e){
@@ -82,6 +85,7 @@ class LoginForm extends React.Component {
                     signup={this.props.signup}
                     clearErrors={this.props.clearErrors}
                     closeModal={this.props.closeModal}
+                    path={this.props.match.path}
                   /> :
                     null
                 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import LandingIndex from './landing_index';
 
 class SignupForm extends React.Component {
@@ -11,7 +11,7 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clickClose = this.handleSubmit.bind(this);
+    this.handleLoginClick = this.handleLoginClick.bind(this);
     // this.passwordError = null;
     // this.emailError = null;
   }
@@ -60,6 +60,20 @@ class SignupForm extends React.Component {
   //   // e.preventDefault();
   //   this.props.closeModal();
   // }
+
+  handleLoginClick(){
+    if(this.props.path){
+      return <span onClick={this.props.closeModal}> Log in</span>;
+    } else {
+      return (
+        <span>
+          <Link to="/login"> Log in</Link>
+        </span>
+      );
+    }
+
+
+  }
 
   render(){
     // this.handleErrors();
@@ -120,7 +134,7 @@ class SignupForm extends React.Component {
 
           <span
             className="after">
-            Already have an account? <Link to="/login">Log in</Link>
+            Already have an account? {this.handleLoginClick()}
           </span>
 
       </section>
@@ -128,5 +142,5 @@ class SignupForm extends React.Component {
   }
 
 }
-
+// <Link to="/login">Log in</Link>
 export default SignupForm;

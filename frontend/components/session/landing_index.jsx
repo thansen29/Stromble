@@ -5,7 +5,6 @@ import SignupForm from './signup_form';
 class LandingIndex extends React.Component {
   constructor(props){
     super(props);
-    this.clickSignup = this.clickSignup.bind(this);
     this.image = null;
   }
 
@@ -31,7 +30,7 @@ class LandingIndex extends React.Component {
           <ul className="landing-ul">
             <li><h1>Here to join?</h1></li>
             <li>
-              <p onClick={this.clickSignup}>Use my email</p>
+              <p onClick={this.props.openModal}>Use my email</p>
               {this.props.ui ?
                 <SignupForm
                   signup={this.props.signup}

@@ -175,8 +175,12 @@
   z-index: 4;
 }
 
-.after a {
+.after span {
   color: #fc4c02;
+}
+
+.after span:hover {
+  cursor: pointer;
 }
 
 .signup-submit {
