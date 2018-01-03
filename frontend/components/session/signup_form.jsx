@@ -21,11 +21,11 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e){
-    debugger
     // may need to adjust this to handle the create profile modal
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.signup(user).then(() => {
+      this.props.closeModal();
       this.props.history.push("/dashboard");
     });
     this.setState({
