@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import LandingIndex from './landing_index';
 
-//need to access the store from here to get state.errors.session
 class SignupForm extends React.Component {
   constructor(props){
     super(props);
@@ -14,8 +13,6 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLoginClick = this.handleLoginClick.bind(this);
-    // this.passwordError = null;
-    // this.emailError = null;
   }
 
   componentDidMount(){
@@ -27,11 +24,12 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     delete user['hidden'];
+    delete user['errors'];
     this.props.signup(user).then(() => {
       this.props.closeModal();
       this.props.history.push("/dashboard");
     });
-    // this.handleErrors();
+
     this.setState({
       email: "",
       password: ""
@@ -42,21 +40,6 @@ class SignupForm extends React.Component {
     return e => {
       this.setState({ [field]: e.target.value });
     };
-  }
-
-  handleErrors(){
-      // if(this.props.errors.length === 2 ){
-      //   this.emailError = this.props.errors[0];
-      //   this.passwordError = this.props.errors[1];
-      // }
-      // if(this.props.errors.length === 1){
-      //   if(this.props.errors.join().includes("Password")){
-      //     this.passwordError = this.props.errors[0];
-      //   }
-      //   else {
-      //     this.emailError = this.props.errors[0];
-      //   }
-      // }
   }
 
 
@@ -70,24 +53,9 @@ class SignupForm extends React.Component {
         </span>
       );
     }
-
-
   }
 
   render(){
-    // this.handleErrors();
-    // let errorEmail;
-    // let errorPassword;
-    // if(this.emailError) {
-    //   errorEmail = <div className="signup-errors">{this.emailError}</div>;
-    // }
-    // if(this.passwordError) {
-    //   errorPassword = <div className="signup-errors">{this.passwordError}</div>;
-    // }
-
-    // let email
-
-
     return (
       <section id="modal-container">
         <section className="modal-screen"></section>
