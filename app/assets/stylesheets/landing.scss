@@ -76,7 +76,7 @@
   top: 100px;
   left: 50%;
   margin-left: -220px;
-  padding: 20px;
+  padding: 0 20px 35px 20px;
   background: #fff;
   z-index: 3;
   border-radius: 2px;
@@ -91,6 +91,7 @@
   color: #ccc;
   align-self: flex-end;
   font-weight: 100;
+  margin-top: 10px;
 }
 
 .modal-close:hover {
@@ -124,8 +125,8 @@
   width: 80%;
   padding: 17px;
   background: white;
-  border: 1px solid #aaa;
-  border-radius: 3px;
+  border: 1px solid #ccccd1;
+  border-radius: 4px;
   margin: 15px 0 20px 0;
 }
 
@@ -136,7 +137,7 @@
 .fa-eye {
   position: absolute;
   right: 25px;
-  bottom: 200px;
+  bottom: 210px;
   margin-right: 25px;
 }
 
@@ -159,7 +160,7 @@
 .fa-eye-slash {
   position: absolute;
   right: 25px;
-  bottom: 200px;
+  bottom: 210px;
   margin-right: 25px;
 }
 
@@ -215,7 +216,7 @@
   font-size: 18px;
   font-weight: 350;
   align-self: flex-end;
-  margin-right: 30px;
+  margin-right: 27px;
   border-radius: 4px;
   background: #fc4c02;
   color: white;
