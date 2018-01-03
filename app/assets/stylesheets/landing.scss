@@ -135,7 +135,7 @@
 .fa-eye {
   position: absolute;
   right: 25px;
-  bottom: 225px;
+  bottom: 200px;
   margin-right: 25px;
 }
 
@@ -158,7 +158,7 @@
 .fa-eye-slash {
   position: absolute;
   right: 25px;
-  bottom: 225px;
+  bottom: 200px;
   margin-right: 25px;
 }
 
@@ -218,6 +218,11 @@
   border-radius: 4px;
   background: #fc4c02;
   color: white;
+}
+
+.signup-submit:hover {
+  background-color: #c93d02;
+  border-color: #bf3a02;
 }
 
 .error-message {

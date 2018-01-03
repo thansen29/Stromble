@@ -99,10 +99,6 @@ class SignupForm extends React.Component {
 
         <span className="error-message">{ this.props.errors.password }</span>
 
-        <div className="terms">
-          By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>
-        </div>
-
         <button className="signup-submit">Sign Up</button>
 
         </form>
@@ -117,5 +113,9 @@ class SignupForm extends React.Component {
   }
 
 }
+// will add in a fun terms at some point in the future
+// <div className="terms">
+//   By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>
+// </div>
 
 export default SignupForm;
