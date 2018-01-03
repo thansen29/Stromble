@@ -24,8 +24,9 @@ class LandingIndex extends React.Component {
   render(){
     return (
       <section className="background-container">
-        { this.image }
         <div className="top-left logo white">stromble</div>
+        { this.image }
+
         <nav className="landing-nav">
           <ul className="landing-ul">
             <li><h1>Here to join?</h1></li>
