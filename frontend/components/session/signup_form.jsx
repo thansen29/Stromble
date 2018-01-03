@@ -9,11 +9,14 @@ class SignupForm extends React.Component {
       password: ""
     };
 
-    this.props.clearErrors();
-    this.image = this.sampleImage();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.passwordError = null;
     this.emailError = null;
+  }
+
+  componentDidMount(){
+    this.props.clearErrors();
+    this.image = this.sampleImage();
   }
 
   handleSubmit(e){
@@ -69,25 +72,6 @@ class SignupForm extends React.Component {
   }
 
   render(){
-    // let errorMessage = this.handleErrors();
-    // let errorEmail;
-    // let errorPassword;
-    // if(errorMessage){
-    //   errorMessage =
-    //   <div className="signup-errors">
-    //     {errorMessage}
-    //   </div>;
-    // }
-
-    // if(this.errorPassword){
-    //   errorPassword =
-    //     <div className="signup-errors">{errorMessage}</div>;
-    // } else {
-    //   this.errorPassword = false;
-    //   errorEmail =
-    //     <div className="signup-errors">{errorMessage}</div>;
-    //
-    // }
     this.handleErrors();
     let errorEmail;
     let errorPassword;
