@@ -9,6 +9,7 @@ class SignupForm extends React.Component {
       password: ""
     };
 
+    this.props.clearErrors();
     this.image = this.sampleImage();
     this.handleSubmit = this.handleSubmit.bind(this);
   }
