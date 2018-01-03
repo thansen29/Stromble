@@ -2,12 +2,14 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import LandingIndex from './landing_index';
 
+//need to access the store from here to get state.errors.session
 class SignupForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      hidden: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,10 +26,12 @@ class SignupForm extends React.Component {
     // may need to adjust this to handle the create profile modal
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    delete user['hidden'];
     this.props.signup(user).then(() => {
       this.props.closeModal();
       this.props.history.push("/dashboard");
     });
+    // this.handleErrors();
     this.setState({
       email: "",
       password: ""
@@ -81,6 +85,8 @@ class SignupForm extends React.Component {
     //   errorPassword = <div className="signup-errors">{this.passwordError}</div>;
     // }
 
+    // let email
+
 
     return (
       <section id="modal-container">
@@ -106,10 +112,12 @@ class SignupForm extends React.Component {
             value={this.state.email}
             onChange={this.handleChange('email')}
           />
-        {/*errorEmail*/}
+
+        <span className="error-message">{ this.props.errors.email }</span>
 
         <label htmlFor="password">New password</label>
           <i className="fa fa-eye show" aria-hidden="true"></i>
+
           <input
             className="landing-input"
             id="password"
@@ -117,7 +125,8 @@ class SignupForm extends React.Component {
             value={this.state.password}
             onChange={this.handleChange('password')}
           />
-        {/*errorPassword*/}
+
+        <span className="error-message">{ this.props.errors.password }</span>
 
         <div className="terms">
           By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>

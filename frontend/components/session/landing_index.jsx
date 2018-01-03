@@ -37,6 +37,7 @@ class LandingIndex extends React.Component {
                   clearErrors={this.props.clearErrors}
                   closeModal={this.props.closeModal}
                   history={this.props.history}
+                  errors={this.props.errors}
                 /> :
                   null
               }
@@ -55,4 +56,5 @@ class LandingIndex extends React.Component {
     );
   }
 }
+
 export default LandingIndex;

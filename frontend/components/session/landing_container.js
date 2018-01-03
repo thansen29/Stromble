@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import LandingIndex from './landing_index';
 import { signup, clearErrors, openModal, closeModal } from '../../actions/session/session_actions';
+import SignupForm from './signup_form';
 
 const mapStateToProps = state => {
   return {
@@ -18,4 +19,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingIndex, SignupForm);

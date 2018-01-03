@@ -168,7 +168,7 @@
 
 .after {
   position: absolute;
-  top: 645px;
+  top: 660px;
   left: 46%;
   color: white;
   font-size: 12px;
@@ -197,11 +197,10 @@
   color: white;
 }
 
-.signup-errors {
+.error-message {
   font-size: 12px;
   color: red;
-  width: 100%;
-  margin-left: 55px;
-  margin-top: -5px;
-  margin-bottom: 10px;
+  width: 88%;
+  margin-top: -10px;
+  margin-bottom: 15px;
  }
