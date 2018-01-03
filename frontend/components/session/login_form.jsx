@@ -35,13 +35,6 @@ class LoginForm extends React.Component {
     };
   }
 
-  // handleErrors(){
-  //   debugger
-  //   if(this.props.errors.length > 0){
-  //     return this.props.errors[0];
-  //   }
-  // }
-
   handleErrors(){
     return (
       <div className="alert-errors">
@@ -76,7 +69,6 @@ class LoginForm extends React.Component {
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
         <h1>Log In</h1>
-
         { errorMessage }
 
         <section className="input-container">
@@ -85,7 +77,6 @@ class LoginForm extends React.Component {
             value={this.state.email}
             className="input" type="text"
             placeholder="Your Email" />
-
 
           <input
             onChange={this.handleChange("password")}
@@ -106,8 +97,6 @@ class LoginForm extends React.Component {
           <div className="forgot-pw"></div>
         </section>
       </form>
-
-
     );
   }
 
