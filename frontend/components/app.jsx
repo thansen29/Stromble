@@ -7,8 +7,8 @@ import landingContainer from './session/landing_container';
 
 const App = () => (
   <div>
-    <AuthRoute path="/login" component={loginContainer}></AuthRoute>
-    {/*make auth later*/}<Route exact path="/" component={landingContainer}></Route>
+    <Route path="/login" component={loginContainer}></Route>
+    {/*^^make auth later*/}<Route exact path="/" component={landingContainer}></Route>
     {/*<ProtectedRoute exact path="/dashboard" component={dashboardContainer}></ProtectedRoute>*/}
   </div>
 );

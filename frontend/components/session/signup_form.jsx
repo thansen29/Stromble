@@ -40,26 +40,21 @@ class SignupForm extends React.Component {
     };
   }
 
-  // handleErrors(){
-  //     if(this.props.errors.length === 2 ){
-  //       this.emailError = this.props.errors[0];
-  //       this.passwordError = this.props.errors[1];
-  //     }
-  //     if(this.props.errors.length === 1){
-  //       if(this.props.errors.join().includes("Password")){
-  //         this.passwordError = this.props.errors[0];
-  //       }
-  //       else {
-  //         this.emailError = this.props.errors[0];
-  //       }
-  //     }
-  // }
+  handleErrors(){
+      // if(this.props.errors.length === 2 ){
+      //   this.emailError = this.props.errors[0];
+      //   this.passwordError = this.props.errors[1];
+      // }
+      // if(this.props.errors.length === 1){
+      //   if(this.props.errors.join().includes("Password")){
+      //     this.passwordError = this.props.errors[0];
+      //   }
+      //   else {
+      //     this.emailError = this.props.errors[0];
+      //   }
+      // }
+  }
 
-  // clickClose(){
-  //   debugger
-  //   // e.preventDefault();
-  //   this.props.closeModal();
-  // }
 
   handleLoginClick(){
     if(this.props.path){
@@ -142,5 +137,5 @@ class SignupForm extends React.Component {
   }
 
 }
-// <Link to="/login">Log in</Link>
+
 export default SignupForm;
