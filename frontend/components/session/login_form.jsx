@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SignUpForm from './signup_form';
 
 class LoginForm extends React.Component {
   constructor(props){
@@ -73,9 +74,17 @@ class LoginForm extends React.Component {
             <ul className="login-ul">
               <Link to="/"><li className="logo">stromble</li></Link>
               <li>
-                <button className="signup-button">
+                <button onClick={this.props.openModal} className="signup-button">
                   Sign Up
                 </button>
+                {this.props.ui ?
+                  <SignUpForm
+                    signup={this.props.signup}
+                    clearErrors={this.props.clearErrors}
+                    closeModal={this.props.closeModal}
+                  /> :
+                    null
+                }
               </li>
             </ul>
           </nav>

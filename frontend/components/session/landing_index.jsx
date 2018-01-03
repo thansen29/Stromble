@@ -5,9 +5,6 @@ import SignupForm from './signup_form';
 class LandingIndex extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //   showComponent: false
-    // };
     this.clickSignup = this.clickSignup.bind(this);
     this.image = null;
   }
@@ -23,13 +20,6 @@ class LandingIndex extends React.Component {
     const img3 = <img src='http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg' />;
     const imagesArr = [img1, img2, img3];
     return imagesArr[Math.floor(Math.random()*imagesArr.length)];
-  }
-
-  clickSignup(){
-    // this.setState({
-    //   showComponent: true
-    // });
-    this.props.openModal();
   }
 
   render(){
