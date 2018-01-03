@@ -25,9 +25,13 @@
   margin-top: -5px;
 }
 
-.landing-ul a {
+.landing-ul p {
   color: dimgrey;
   text-decoration: underline;
+}
+
+.landing-ul p:hover {
+  cursor: pointer;
 }
 
 .landing-ul a:hover {

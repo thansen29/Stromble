@@ -33,7 +33,6 @@ class LandingIndex extends React.Component {
   }
 
   render(){
-    debugger
     return (
       <section className="background-container">
         { this.image }
