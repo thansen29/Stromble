@@ -86,6 +86,8 @@ class LoginForm extends React.Component {
                     clearErrors={this.props.clearErrors}
                     closeModal={this.props.closeModal}
                     path={this.props.match.path}
+                    history={this.props.history}
+                    errors={this.props.errors}
                   /> :
                     null
                 }

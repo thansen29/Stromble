@@ -25,15 +25,9 @@ class SignupForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     delete user['hidden'];
-    delete user['errors'];
     this.props.signup(user).then(() => {
       this.props.closeModal();
       this.props.history.push("/dashboard");
-    });
-
-    this.setState({
-      email: "",
-      password: ""
     });
   }
 
