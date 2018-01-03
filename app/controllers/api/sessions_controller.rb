@@ -5,7 +5,8 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render :show
     else
-      render json: ['The username or password did not match. Please try again'], status: 401
+      render json: { credentials: 'The username or password did not match. Please try again'},
+      status: 401
     end
   end
 
@@ -15,6 +16,6 @@ class Api::SessionsController < ApplicationController
     else
       logout
       render json: {}
-    end 
+    end
   end
 end

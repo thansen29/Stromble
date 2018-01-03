@@ -35,10 +35,21 @@ class LoginForm extends React.Component {
     };
   }
 
+  // handleErrors(){
+  //   debugger
+  //   if(this.props.errors.length > 0){
+  //     return this.props.errors[0];
+  //   }
+  // }
+
   handleErrors(){
-    if(this.props.errors.length > 0){
-      return this.props.errors[0];
-    }
+    return (
+      <div className="alert-errors">
+        <div className="alert-message">
+          {this.props.errors.credentials}
+        </div>
+      </div>
+    );
   }
 
   handleDemoSubmit(e){
@@ -57,21 +68,16 @@ class LoginForm extends React.Component {
   }
 
   render(){
-    let errorMessage = this.handleErrors();
-    if(errorMessage){
-      errorMessage =
-      <div className="alert-errors">
-        <div className="alert-message">
-          {errorMessage}
-        </div>
-      </div>;
+    let errorMessage;
+    if(this.props.errors.credentials){
+      errorMessage = this.handleErrors();
     }
 
     return (
       <form className="login-form" onSubmit={this.handleSubmit}>
         <h1>Log In</h1>
 
-        {errorMessage}
+        { errorMessage }
 
         <section className="input-container">
           <input
