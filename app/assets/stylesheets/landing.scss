@@ -155,6 +155,29 @@
   text-decoration: underline;
 }
 
+.fa-eye-slash {
+  position: absolute;
+  right: 25px;
+  bottom: 225px;
+  margin-right: 25px;
+}
+
+.fa-eye-slash::after {
+  content: "  Hide";
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.hide {
+  color: #aaa;
+}
+
+.hide:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .terms {
   align-self: flex-start;
   margin-left: 25px;

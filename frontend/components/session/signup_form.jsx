@@ -8,11 +8,12 @@ class SignupForm extends React.Component {
     this.state = {
       email: "",
       password: "",
-      hidden: false
+      hidden: true
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.toggleShow = this.toggleShow.bind(this);
   }
 
   componentDidMount(){
@@ -55,6 +56,10 @@ class SignupForm extends React.Component {
     }
   }
 
+  toggleShow(){
+    this.setState({ hidden: !this.state.hidden });
+  }
+
   render(){
     return (
       <section id="modal-container">
@@ -84,12 +89,16 @@ class SignupForm extends React.Component {
         <span className="error-message">{ this.props.errors.email }</span>
 
         <label htmlFor="password">New password</label>
-          <i className="fa fa-eye show" aria-hidden="true"></i>
+          <i
+            className={`${ this.state.hidden ? 'fa fa-eye show' : 'fa fa-eye-slash hide'}`}
+            onClick={this.toggleShow}
+            aria-hidden="true">
+          </i>
 
           <input
             className="landing-input"
             id="password"
-            type="password"
+            type={`${ this.state.hidden ? 'password' : 'text'}`}
             value={this.state.password}
             onChange={this.handleChange('password')}
           />
