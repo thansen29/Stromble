@@ -36,6 +36,7 @@ class LandingIndex extends React.Component {
                   signup={this.props.signup}
                   clearErrors={this.props.clearErrors}
                   closeModal={this.props.closeModal}
+                  history={this.props.history}
                 /> :
                   null
               }
