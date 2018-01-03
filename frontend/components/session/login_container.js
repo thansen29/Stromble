@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import LoginForm from './login_form';
+import LoginIndex from './login_index';
 import { login, clearErrors, openModal, closeModal, signup } from '../../actions/session/session_actions';
 import SignupForm from './signup_form';
 
@@ -20,4 +20,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm, SignupForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginIndex, SignupForm);

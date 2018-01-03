@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignUpForm from './signup_form';
 
 class LoginForm extends React.Component {
   constructor(props){
@@ -9,13 +8,13 @@ class LoginForm extends React.Component {
       email: "",
       password: ""
     };
-    this.props.clearErrors();
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   componentDidMount(){
     this.props.closeModal();
+    this.props.clearErrors();
   }
 
   handleSubmit(e){
@@ -67,69 +66,45 @@ class LoginForm extends React.Component {
         </div>
       </div>;
     }
+
     return (
-      <section className="background-container">
-        <img
-          src="http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg"
-          alt="autumn" />
+      <form className="login-form" onSubmit={this.handleSubmit}>
+        <h1>Log In</h1>
 
-          <nav className="login-nav">
-            <ul className="login-ul">
-              <Link to="/"><li className="logo">stromble</li></Link>
-              <li>
-                <button onClick={this.props.openModal} className="signup-button">
-                  Sign Up
-                </button>
-                {this.props.ui ?
-                  <SignUpForm
-                    signup={this.props.signup}
-                    clearErrors={this.props.clearErrors}
-                    closeModal={this.props.closeModal}
-                    path={this.props.match.path}
-                    history={this.props.history}
-                    errors={this.props.errors}
-                  /> :
-                    null
-                }
-              </li>
-            </ul>
-          </nav>
+        {errorMessage}
 
-          <form className="login-form" onSubmit={this.handleSubmit}>
-            <h1>Log In</h1>
-
-            {errorMessage}
-
-            <section className="input-container">
-              <input
-                onChange={this.handleChange("email")}
-                value={this.state.email}
-                className="input" type="text"
-                placeholder="Your Email" />
+        <section className="input-container">
+          <input
+            onChange={this.handleChange("email")}
+            value={this.state.email}
+            className="input" type="text"
+            placeholder="Your Email" />
 
 
-              <input
-                onChange={this.handleChange("password")}
-                value={this.state.password}
-                className="input" type="password"
-                placeholder="Password" />
+          <input
+            onChange={this.handleChange("password")}
+            value={this.state.password}
+            className="input" type="password"
+            placeholder="Password" />
 
-              <button
-                className="submit"
-                onClick={this.handleDemoSubmit}>
-                Demo Log In
-              </button>
+          <button
+            className="submit"
+            onClick={this.handleDemoSubmit}>
+            Demo Log In
+          </button>
 
-              <button className="submit">
-                Log In
-              </button>
+          <button className="submit">
+            Log In
+          </button>
 
-              <div className="forgot-pw"></div>
-          </section>
-          </form>
-    </section>
+          <div className="forgot-pw"></div>
+        </section>
+      </form>
+
+
     );
   }
+
 }
 
 export default LoginForm;
