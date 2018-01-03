@@ -5,11 +5,10 @@ import SignupForm from './signup_form';
 class LandingIndex extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      showComponent: false
-    };
+    // this.state = {
+    //   showComponent: false
+    // };
     this.clickSignup = this.clickSignup.bind(this);
-
     this.image = null;
   }
 
@@ -27,9 +26,10 @@ class LandingIndex extends React.Component {
   }
 
   clickSignup(){
-    this.setState({
-      showComponent: true
-    });
+    // this.setState({
+    //   showComponent: true
+    // });
+    this.props.openModal();
   }
 
   render(){
@@ -42,8 +42,12 @@ class LandingIndex extends React.Component {
             <li><h1>Here to join?</h1></li>
             <li>
               <p onClick={this.clickSignup}>Use my email</p>
-              {this.state.showComponent ?
-                <SignupForm props={this.props} /> :
+              {this.props.ui ?
+                <SignupForm
+                  signup={this.props.signup}
+                  clearErrors={this.props.clearErrors}
+                  closeModal={this.props.closeModal}
+                /> :
                   null
               }
             </li>

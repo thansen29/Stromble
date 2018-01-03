@@ -11,16 +11,17 @@ class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.passwordError = null;
-    this.emailError = null;
+    this.clickClose = this.handleSubmit.bind(this);
+    // this.passwordError = null;
+    // this.emailError = null;
   }
 
   componentDidMount(){
-    // this.props.clearErrors();
-    // this.image = this.sampleImage();
+    this.props.clearErrors();
   }
 
   handleSubmit(e){
+    debugger
     // may need to adjust this to handle the create profile modal
     e.preventDefault();
     const user = Object.assign({}, this.state);
@@ -54,15 +55,11 @@ class SignupForm extends React.Component {
   //     }
   // }
 
-  closeModal(){
-    const modal = document.getElementById("modal-container");
-    modal.classList.add("is-closed");
-  }
-
-  openModal(){
-    const modal = document.getElementById("modal-container");
-    modal.classList.remove("is-closed");
-  }
+  // clickClose(){
+  //   debugger
+  //   // e.preventDefault();
+  //   this.props.closeModal();
+  // }
 
   render(){
     // this.handleErrors();
@@ -76,17 +73,16 @@ class SignupForm extends React.Component {
     // }
 
 
-    console.log("in render");
     return (
-      <section id="modal-container" className="is-closed">
+      <section id="modal-container">
         <section className="modal-screen"></section>
 
         <form onSubmit={this.handleSubmit} className="signup-form">
-          <span
+          <div
             className="modal-close"
-            onClick={this.closeModal}>
+            onClick={this.props.closeModal}>
             X
-          </span>
+          </div>
 
           <header className="form-header">
             <h1>Sign up for free</h1>

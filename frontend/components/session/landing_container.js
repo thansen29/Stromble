@@ -1,17 +1,20 @@
 import { connect } from 'react-redux';
 import LandingIndex from './landing_index';
-import { signup, clearErrors } from '../../actions/session/session_actions';
+import { signup, clearErrors, openModal, closeModal } from '../../actions/session/session_actions';
 
 const mapStateToProps = state => {
   return {
-    errors: state.errors.session
+    errors: state.errors.session,
+    ui: state.ui['is-open']
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     signup: user => dispatch(signup(user)),
-    clearErrors: () => dispatch(clearErrors())
+    clearErrors: () => dispatch(clearErrors()),
+    openModal: () => dispatch(openModal()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
