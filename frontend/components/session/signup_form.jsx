@@ -12,6 +12,8 @@ class SignupForm extends React.Component {
     this.props.clearErrors();
     this.image = this.sampleImage();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.passwordError = null;
+    this.emailError = null;
   }
 
   handleSubmit(e){
@@ -34,9 +36,18 @@ class SignupForm extends React.Component {
   }
 
   handleErrors(){
-    if(this.props.errors.length > 0){
-      return this.props.errors[0];
-    }
+      if(this.props.errors.length === 2 ){
+        this.emailError = this.props.errors[0];
+        this.passwordError = this.props.errors[1];
+      }
+      if(this.props.errors.length === 1){
+        if(this.props.errors.join().includes("Password")){
+          this.passwordError = this.props.errors[0];
+        }
+        else {
+          this.emailError = this.props.errors[0];
+        }
+      }
   }
 
   closeModal(){
@@ -58,12 +69,33 @@ class SignupForm extends React.Component {
   }
 
   render(){
-    let errorMessage = this.handleErrors();
-    if(errorMessage){
-      errorMessage =
-      <div className="signup-errors">
-        {errorMessage}
-      </div>;
+    // let errorMessage = this.handleErrors();
+    // let errorEmail;
+    // let errorPassword;
+    // if(errorMessage){
+    //   errorMessage =
+    //   <div className="signup-errors">
+    //     {errorMessage}
+    //   </div>;
+    // }
+
+    // if(this.errorPassword){
+    //   errorPassword =
+    //     <div className="signup-errors">{errorMessage}</div>;
+    // } else {
+    //   this.errorPassword = false;
+    //   errorEmail =
+    //     <div className="signup-errors">{errorMessage}</div>;
+    //
+    // }
+    this.handleErrors();
+    let errorEmail;
+    let errorPassword;
+    if(this.emailError) {
+      errorEmail = <div className="signup-errors">{this.emailError}</div>;
+    }
+    if(this.passwordError) {
+      errorPassword = <div className="signup-errors">{this.passwordError}</div>;
     }
 
     return (
@@ -108,7 +140,7 @@ class SignupForm extends React.Component {
               value={this.state.email}
               onChange={this.handleChange('email')}
             />
-          {errorMessage}
+          {errorEmail}
 
           <label htmlFor="password">New password</label>
             <i className="fa fa-eye show" aria-hidden="true"></i>
@@ -119,7 +151,7 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.handleChange('password')}
             />
-          {errorMessage}
+          {errorPassword}
 
           <div className="terms">
             By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>
