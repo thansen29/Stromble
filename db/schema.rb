@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104145218) do
+ActiveRecord::Schema.define(version: 20180104161705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 20180104145218) do
     t.datetime "date", null: false
     t.datetime "time", null: false
     t.string "title", null: false
-    t.string "type"
     t.text "description"
     t.boolean "private", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "duration_hr", default: 1, null: false
+    t.string "activity_type"
     t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
