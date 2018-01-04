@@ -81,7 +81,7 @@ class SignupForm extends React.Component {
           <div
             className="modal-close"
             onClick={this.props.closeModal}>
-            X
+            &times;
           </div>
 
           <header className="form-header">
