@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171231213902) do
+ActiveRecord::Schema.define(version: 20180104145218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,27 @@ ActiveRecord::Schema.define(version: 20171231213902) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.float "distance"
+    t.string "distance_unit", default: "miles", null: false
+    t.integer "duration_min", default: 0, null: false
+    t.integer "duration_s", default: 0, null: false
+    t.float "elevation"
+    t.string "elevation_unit", default: "feet", null: false
+    t.string "sport", default: "Run", null: false
+    t.datetime "date", null: false
+    t.datetime "time", null: false
+    t.string "title", null: false
+    t.string "type"
+    t.text "description"
+    t.boolean "private", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "duration_hr", default: 1, null: false
+    t.index ["user_id"], name: "index_workouts_on_user_id"
   end
 
 end
