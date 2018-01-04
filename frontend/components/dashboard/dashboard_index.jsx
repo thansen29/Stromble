@@ -13,7 +13,8 @@ class DashboardIndex extends React.Component {
         <Navbar />
 
         <button className="signup-submit logout" onClick={this.props.logout}>Log out</button>
-
+        <br />
+      <Link to="/workouts/new">Temporary link to workout form</Link>
       </section>
     );
   }

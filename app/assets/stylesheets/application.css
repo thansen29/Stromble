@@ -80,3 +80,13 @@
  color: white;
  text-shadow: 2px 2px black;
 }
+
+.unlocked {
+  background-image: url('unlocked.svg');
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 25px;
+  align-self: flex-end;
+  margin-left: 5px;
+  margin-bottom: 18px;
+}

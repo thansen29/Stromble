@@ -12,15 +12,21 @@
 
 .workout-form {
   display: flex;
+  flex-wrap: wrap;
   color: #2d2d32;
-  margin-top: 4%;
   font-family: 'Roboto';
+}
+
+.workout-row {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #ccccd1;
 }
 
 .field-container {
   padding-right: 40px;
   padding-bottom: 50px;
-  border-bottom: 1px solid #ccccd1;
+  padding-top: 50px;
 }
 
 .workout-input {
@@ -40,4 +46,30 @@
 
 .right-line {
   border-style: solid none solid solid;
+}
+
+.workout-description {
+  padding: 10px;
+  text-align: left;
+  width: 500px;
+  height: 125px;
+  resize: vertical;
+  overflow: auto;
+  font-weight: 200;
+}
+
+.private {
+  align-self: flex-end;
+  margin-bottom: 20px;
+  margin-left: 5px;
+}
+
+.checkbox {
+  align-self: flex-end;
+  margin-bottom: 20px;
+  margin-left: -685px;
+}
+
+.workout-create {
+  
 }
