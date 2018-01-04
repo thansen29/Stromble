@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SignUpForm from './signup_form';
+import SignupContainer from './signup_container';
 import LoginForm from './login_form';
 
-const LoginIndex = ({openModal, closeModal, ui, signup, login, clearErrors, path, history, errors}) => {
+const LoginIndex = ({openModal, closeModal, ui, signup, login, clearErrors, history, errors}) => {
   return (
     <section className="background-container">
       <img
@@ -18,15 +18,7 @@ const LoginIndex = ({openModal, closeModal, ui, signup, login, clearErrors, path
                 Sign Up
               </button>
               {ui ?
-                <SignUpForm
-                  signup={signup}
-                  clearErrors={clearErrors}
-                  closeModal={closeModal}
-                  path={path}
-                  history={history}
-                  errors={errors}
-                /> :
-                  null
+                <SignupContainer history={history}/> : null
               }
             </li>
           </ul>

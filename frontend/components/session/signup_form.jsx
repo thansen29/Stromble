@@ -39,7 +39,7 @@ class SignupForm extends React.Component {
 
 
   handleLoginClick(){
-    if(this.props.path){
+    if(this.props.match){
       return <span onClick={this.props.closeModal}> Log in</span>;
     } else {
       return (
