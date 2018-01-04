@@ -23,4 +23,8 @@
 #
 
 class Workout < ApplicationRecord
+  validates :user, :distance_unit, :duration_hr, :duration_min, :duration_s,
+  :elevation_unit, :sport, :date, :time, :title, :private
+
+  belongs_to :user
 end
