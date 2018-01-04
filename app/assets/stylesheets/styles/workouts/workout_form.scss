@@ -1,13 +1,43 @@
+.form-container {
+  margin-left: 16%;
+  margin-right: 16%;
+}
+
+.form-container h1 {
+  font-size: 30px;
+  font-weight: 300;
+  padding-top: 50px;
+  opacity: 0.9;
+}
+
 .workout-form {
+  display: flex;
   color: #2d2d32;
+  margin-top: 4%;
+  font-family: 'Roboto';
+}
+
+.field-container {
+  padding-right: 40px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #ccccd1;
 }
 
 .workout-input {
   box-sizing: border-box;
+  margin-top: 10px;
   font-size: 14px;
   height: 34px;
   background-color: white;
   border: 1px solid #ccccd1;
   color: #666;
+  text-align: center;
+}
 
+.workout-input:focus {
+  border: 1px solid rgb(13, 107, 167);
+}
+
+.right-line {
+  border-style: solid none solid solid;
 }

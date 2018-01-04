@@ -41,6 +41,7 @@
 
 .upload-button {
   margin-right: 250px;
+  /* margin-right: 17%; */
   background-image: url('plus.svg');
   background-repeat: no-repeat;
   height: 24px;
@@ -72,6 +73,7 @@
  font-size: 30px;
  color: rgb(249, 77, 31);
  margin-left: 250px;
+ /* margin-left: 150%; */
 }
 
 .white {
