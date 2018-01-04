@@ -26,7 +26,7 @@ class LandingIndex extends React.Component {
       <section className="background-container">
         <div className="top-left logo white">stromble</div>
         { this.image }
-
+        <div className="improvise white">Improvise. Adapt. Overcome</div>
         <nav className="landing-nav">
           <ul className="landing-ul">
             <li><h1>Here to join?</h1></li>
