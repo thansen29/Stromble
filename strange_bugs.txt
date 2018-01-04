@@ -2,3 +2,8 @@ Boolean default value for a column. Validating for presence will always
 fail whenever that value comes in as false. It doesn't recognize that as
 being there, so we have to validate if the column includes whatever we
 specify, aka true or false
+
+
+***
+Make sure that all traces of the thing are removed though. So if the thing is represented by a foreign key in a different slice of state, you should remove it from there as well
+***
