@@ -3,6 +3,7 @@ export const RECEIVE_WORKOUTS = 'RECEIVE_WORKOUTS';
 export const RECEIVE_WORKOUT = 'RECEIVE_WORKOUT';
 export const REMOVE_WORKOUT = 'REMOVE_WORKOUT';
 export const RECEIVE_WORKOUT_ERRORS = 'RECEIVE_WORKOUT_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const receiveWorkouts = workouts => {
   return {
@@ -29,6 +30,12 @@ export const receiveErrors = errors => {
   return {
     type: RECEIVE_WORKOUT_ERRORS,
     errors
+  };
+};
+
+export const clearErrors = () => {
+  return {
+    type: CLEAR_ERRORS
   };
 };
 

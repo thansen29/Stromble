@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_ERRORS } from '../actions/session/session_actions';
+import { RECEIVE_CURRENT_USER } from '../actions/session/session_actions';
 
 const defaultState = {
   currentUser: null,

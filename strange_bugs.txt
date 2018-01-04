@@ -1,0 +1,4 @@
+Boolean default value for a column. Validating for presence will always
+fail whenever that value comes in as false. It doesn't recognize that as
+being there, so we have to validate if the column includes whatever we
+specify, aka true or false
