@@ -8,7 +8,9 @@ class SignupForm extends React.Component {
     this.state = {
       email: "",
       password: "",
-      hidden: true
+      hidden: true,
+      emailError: false,
+      passwordError: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,11 +22,26 @@ class SignupForm extends React.Component {
     this.props.clearErrors();
   }
 
+  componentWillReceiveProps(newProps){
+    if(newProps.errors.hasOwnProperty('email')){
+      this.setState({ emailError: true });
+    } else {
+      this.setState({ emailError: false });
+    }
+    if(newProps.errors.hasOwnProperty('password')){
+      this.setState({ passwordError: true });
+    } else {
+      this.setState({ passwordError: false});
+    }
+  }
+
   handleSubmit(e){
     // may need to adjust this to handle the create profile modal
     e.preventDefault();
     const user = Object.assign({}, this.state);
     delete user['hidden'];
+    delete user['emailError'];
+    delete user['passwordError'];
     this.props.signup(user).then(() => {
       this.props.closeModal();
       this.props.history.push("/dashboard");
@@ -55,6 +72,7 @@ class SignupForm extends React.Component {
   }
 
   render(){
+    // debugger
     return (
       <section id="modal-container">
         <section className="modal-screen"></section>
@@ -73,7 +91,7 @@ class SignupForm extends React.Component {
 
           <label htmlFor="email">Email</label>
           <input
-            className="landing-input"
+            className={ this.state.emailError ? 'errors' : 'landing-input'}
             id="email"
             type="text"
             value={this.state.email}
@@ -90,7 +108,7 @@ class SignupForm extends React.Component {
           </i>
 
           <input
-            className="landing-input"
+            className={ this.state.passwordError ? 'errors' : 'landing-input'}
             id="password"
             type={`${ this.state.hidden ? 'password' : 'text'}`}
             value={this.state.password}
