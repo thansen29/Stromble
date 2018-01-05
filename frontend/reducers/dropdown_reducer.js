@@ -1,16 +1,13 @@
 import { OPEN_DROPDOWN, CLOSE_DROPDOWN } from '../actions/dropdowns/dropdown_actions';
 
 const defaultState = {
-  "isOpen": false
+  component: null
 };
 
 const dropdownReducer = (state = defaultState, action) => {
-  let newState;
   switch (action.type) {
     case OPEN_DROPDOWN:
-      newState = Object.assign({}, state);
-      newState["isOpen"] = true;
-      return newState;
+      return { component: [action.component] };
     case CLOSE_DROPDOWN:
       return defaultState;
     default:

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import WorkoutIndex from './workout_index';
 import { createWorkout } from '../../actions/workouts/workout_actions';
+import { showDropdown } from '../../actions/dropdowns/dropdown_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createWorkout: workout => dispatch(createWorkout(workout))
+    createWorkout: workout => dispatch(createWorkout(workout)),
+    showDropdown: component => dispatch(showDropdown(component))
   };
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
-// import DropdownComponent from './dropdown_component';
+import DropdownComponent from '../dropdowns/dropdown_component';
 
 class WorkoutForm extends React.Component {
   constructor(props){
