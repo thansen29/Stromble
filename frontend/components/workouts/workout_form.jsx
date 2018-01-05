@@ -9,7 +9,7 @@ class WorkoutForm extends React.Component {
     //careful of the state currently string and coming in as something else
     this.state = {
       distance: "",
-      distanceUnit: "miles",
+      distance_unit: "miles",
       duration_hr: '01',
       duration_min: '00',
       duration_s: '00',
@@ -19,7 +19,7 @@ class WorkoutForm extends React.Component {
       date: "",
       time: "",
       title: "",
-      activity_type: "",
+      activity_type: "Type",
       descripton: "",
       private: "false"
     };
@@ -44,18 +44,18 @@ class WorkoutForm extends React.Component {
     return e => {
       this.setState( { [field]: e.target.value } );
     };
+
   }
 
   handleSelect(field){
     return e => {
-      this.setState({ [field]: e });
+      this.setState({ [field]: e.value });
     };
   }
 
   render(){
-    const { distanceUnit } = this.state;
+    const { distance_unit, elevation_unit, sport, activity_type } = this.state;
   	// const value = selectedOption && selectedOption.value;
-    // debugger
     return (
       <main className="form-container">
         <h1>Manual Entry</h1>
@@ -71,10 +71,9 @@ class WorkoutForm extends React.Component {
                   value={this.state.distance}
                   onChange={this.handleChange('distance')} />
                 <Select
-                  tabIndex="0"
-                  className="distance-select"
-                  value={distanceUnit}
-                  onChange={this.handleSelect('distanceUnit')}
+                  className="select distance-select"
+                  value={distance_unit}
+                  onChange={this.handleSelect('distance_unit')}
                   clearable={false}
                   searchable={false}
                   options={[
@@ -91,17 +90,17 @@ class WorkoutForm extends React.Component {
               <label htmlFor="duration">Duration</label><br/>
               <div className="input-wrapper">
                 <input
-                  className="workout-input right-line"
+                  className="workout-input right-line duration-box"
                   type="number"
                   value={this.state.duration_hr}
                   onChange={this.handleChange('duration_hr')} />
                 <input
-                  className="workout-input right-line"
+                  className="workout-input right-line duration-box"
                   type="number"
                   value={this.state.duration_min}
                   onChange={this.handleChange('duration_min')} />
                 <input
-                  className="workout-input"
+                  className="workout-input duration-box"
                   type="number"
                   value={this.state.duration_s}
                   onChange={this.handleChange('duration_s')} />
@@ -116,69 +115,106 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.elevation}
                   onChange={this.handleChange('elevation')} />
-                elevation_unit
+                <Select
+                  className="select distance-select"
+                  value={elevation_unit}
+                  onChange={this.handleSelect('elevation_unit')}
+                  clearable={false}
+                  searchable={false}
+                  options={[
+                    { value: 'meters', label: 'meters' },
+                    { value: 'feet', label: 'feet' }
+                  ]}
+                />
               </div>
             </div>
           </section>
 
-          <section className="workout-row">
+
+          <section className="mid-row">
             <div className="field-container">
               <label htmlFor="sport">Sport</label><br/>
               <div className="input-wrapper">
-                Sport Type
+                <Select
+                  className="select sport-select"
+                  value={sport}
+                  onChange={this.handleSelect('sport')}
+                  clearable={false}
+                  searchable={false}
+                  options={[
+                    { value: 'Run', label: 'Run' },
+                    { value: 'Ride', label: 'Ride' }
+                  ]}
+                />
               </div>
             </div>
 
-            <div className="field-container">
+            {/*TODO: make the time input be actually time*/}
+            <div className="field-container date-container">
               <label htmlFor="date-time">Date &amp; Time</label><br/>
               <div className="input-wrapper">
                 <input
-                  className="workout-input right-line"
+                  className="workout-input right-line datetime"
                   type="date"
                   value={this.state.date}
                   onChange={this.handleChange('date')} />
                 <input
-                  className="workout-input"
+                  className="workout-input datetime"
                   type="text"
-                  value={this.state.date}
+                  value={this.state.time}
                   onChange={this.handleChange('time')} />
-              </div>
-            </div>
-
-            <div className="field-container">
-              <label htmlFor="title">Title</label><br/>
-              <div className="input-wrapper">
-                <input
-                  className="workout-input title-input"
-                  type="text"
-                  value={this.state.title}
-                  onChange={this.handleChange('title')} />
               </div>
             </div>
           </section>
 
-          <section className="workout-row">
-            <div className="field-container">
-              <label htmlFor="activity-type">title type</label><br/>
-              <div className="input-wrapper">
-                Typedropdown
-              </div>
+          <div className="field-container title-input">
+            <label htmlFor="title">Title</label><br/>
+            <div className="input-wrapper">
+              <input
+                className="workout-input title-input"
+                type="text"
+                value={this.state.title}
+                onChange={this.handleChange('title')} />
             </div>
+          </div>
+
+
+          <section className="workout-row bottom-row">
+            <section className="bottom-container">
+              <div className="field-container">
+                <label htmlFor="activity-type">{this.state.sport} type</label><br/>
+                <div className="input-wrapper">
+                  <Select
+                    className="select sport-select"
+                    value={activity_type}
+                    onChange={this.handleSelect('activity_type')}
+                    clearable={false}
+                    searchable={false}
+                    options={[
+                      { value: 'Race', label: 'Race' },
+                      { value: 'Workout', label: 'Workout' }
+                    ]}
+                  />
+                </div>
+              </div>
+            </section>
 
             <div className="field-container">
               <label htmlFor="description">Description</label><br/>
               <div className="input-wrapper">
                 <textarea
-                  className="workout-input workout-description"
+                  className="workout-input workout-description title-input"
                   value={this.state.description}
                   onChange={this.handleChange('description')}
                   placeholder="How did it go? Were you tired or rested? How was the weather?" />
               </div>
             </div>
 
-            <input className="checkbox" type="checkbox" />
-            <span className="unlocked"></span>
-            <span className="private">Private</span>
+            <div className="privacy">
+              <input className="checkbox" type="checkbox" />
+              <div className="unlocked"></div>
+
+            </div>
           </section>
 
           <div className="workout-submit">

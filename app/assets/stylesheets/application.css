@@ -86,7 +86,30 @@
   background-repeat: no-repeat;
   width: 20px;
   height: 25px;
-  align-self: flex-end;
-  margin-left: 5px;
-  margin-bottom: 18px;
+  margin-left: 20px;
+  margin-top: -22px;
+}
+
+.locked {
+  background-image: url('locked.svg');
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 25px;
+  margin-left: 20px;
+  margin-top: -22px;
+}
+
+.unlocked:after {
+  content: "Private";
+  margin-left: 30px;
+  font-size: 13px;
+  position: absolute;
+  bottom: -510px;
+}
+.locked:after {
+  content: "Private";
+  margin-left: 30px;
+  font-size: 13px;
+  position: absolute;
+  bottom: -510px;
 }

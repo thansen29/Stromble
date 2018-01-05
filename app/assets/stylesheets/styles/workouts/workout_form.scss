@@ -31,7 +31,6 @@
 
 .workout-input {
   box-sizing: border-box;
-  // margin-top: 10px;
   font-size: 14px;
   height: 34px;
   background-color: white;
@@ -64,12 +63,6 @@
   margin-left: 5px;
 }
 
-.checkbox {
-  align-self: flex-end;
-  margin-bottom: 20px;
-  margin-left: -685px;
-}
-
 .workout-submit button{
   margin-top: 40px;
   padding: 10px;
@@ -91,25 +84,58 @@
   }
 
 }
-.distance-select{
+
+.mid-row {
+  display: flex;
+  margin-bottom: -45px;
+}
+
+.bottom-row {
+  border-top: 1px solid #ccccd1;
+  display: flex;
+  flex-direction: column;
+  height: 425px;
+}
+
+.bottom-container {
+  margin-bottom: -45px;
+}
+
+.duration-box {
+  width: 75px;
+}
+
+.select {
   height: 32px;
-  width: 125px;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
   text-align: center;
   border: 1px solid #ccccd1;
   color: #2d2d32;
   transition: background-color 300ms;
 }
 
-.distance-select:hover{
+.select:hover{
   cursor: pointer;
   background: rgb(242, 242, 249);
 }
 
-.distance-select:focus {
+.select:focus {
   border: 1px solid rgb(13, 107, 167);
+}
+
+.distance-select {
+  width: 125px;
+}
+
+.sport-select {
+  width: 272px;
+}
+
+.datetime {
+  width: 112.5px;
+}
+
+.title-input {
+  width: 540px;
 }
 
 .Select-value {
