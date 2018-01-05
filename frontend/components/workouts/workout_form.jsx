@@ -161,13 +161,12 @@ class WorkoutForm extends React.Component {
             </div>
           </section>
 
-          {/*TODO: this needs to render at the front*/}
           <section className="mid-row">
             <div className="field-container">
               <label htmlFor="sport">Sport</label><br/>
               <div className="input-wrapper">
                 <input
-                  className="workout-input select"
+                  className="workout-input select sporty-input"
                   placeholder={sport}
                   value={sport}
                   onChange={this.handleChange('sport')}
@@ -213,7 +212,7 @@ class WorkoutForm extends React.Component {
                 <label htmlFor="activity-type">{this.state.sport} type</label><br/>
                 <div className="input-wrapper activity-input">
                   <input
-                    className="workout-input select"
+                    className="workout-input select activity-input-field"
                     placeholder={activity_type}
                     value={activity_type}
                     onChange={this.handleChange('activity_type')}
