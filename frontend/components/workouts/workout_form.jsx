@@ -1,28 +1,35 @@
 import React from 'react';
+import Select from 'react-select';
+import { Link } from 'react-router-dom';
 // import DropdownComponent from './dropdown_component';
 
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
     //careful of the state currently string and coming in as something else
+    // this.state = {
+    //   distance: "",
+    //   distance_unit: "miles",
+    //   duration_hr: '01',
+    //   duration_min: '00',
+    //   duration_s: '00',
+    //   elevation: "",
+    //   elevation_unit: "feet",
+    //   sport: "Run",
+    //   date: "",
+    //   time: "",
+    //   title: "",
+    //   activity_type: "",
+    //   descripton: "",
+    //   private: "false"
+    // };
+
     this.state = {
-      distance: "",
-      distance_unit: "miles",
-      duration_hr: '01',
-      duration_min: '00',
-      duration_s: '00',
-      elevation: "",
-      elevation_unit: "feet",
-      sport: "Run",
-      date: "",
-      time: "",
-      title: "",
-      activity_type: "",
-      descripton: "",
-      private: "false"
+      selectedOption: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount(){
@@ -43,7 +50,15 @@ class WorkoutForm extends React.Component {
     };
   }
 
+  handleSelect(selectedOption){
+    this.setState({ selectedOption });
+    console.log(`Selected: ${selectedOption.label}`);
+  }
+
   render(){
+    const { selectedOption } = this.state;
+  	const value = selectedOption && selectedOption.value;
+    // debugger
     return (
       <main className="form-container">
         <h1>Manual Entry</h1>
@@ -57,12 +72,17 @@ class WorkoutForm extends React.Component {
                 type="number"
                 value={this.state.distance}
                 onChange={this.handleChange('distance')} />
-              <select className="workout-input">
-                <option value={this.state.distance_unit}>kilometers</option>
-                <option value={this.state.distance_unit}>meters</option>
-                <option value={this.state.distance_unit}>miles</option>
-                <option value={this.state.distance_unit}>yards</option>
-              </select>
+              <Select
+                className="workout-input"
+                value={value}
+                onChange={this.handleChange}
+                options={[
+                  { value: 'kilometers', label: 'kilometers' },
+                  { value: 'meters', label: 'meters' },
+                  { value: 'miles', label: 'miles' },
+                  { value: 'yards', label: 'yards' }
+                ]}
+              />
             </div>
 
             <div className="field-container">
@@ -144,7 +164,10 @@ class WorkoutForm extends React.Component {
               <span className="private">Private</span>
           </section>
 
+          <div className="workout-submit">
             <button className="workout-create">Create</button>
+            <Link to="/dashboard">Cancel</Link>
+          </div>
         </form>
       </main>
     );
@@ -152,5 +175,12 @@ class WorkoutForm extends React.Component {
 
 }
 // <i class="fa fa-lock" aria-hidden="true"></i>
+
+// <select className="workout-input">
+//   <option value={this.state.distance_unit}>kilometers</option>
+//   <option value={this.state.distance_unit}>meters</option>
+//   <option value={this.state.distance_unit}>miles</option>
+//   <option value={this.state.distance_unit}>yards</option>
+// </select>
 
 export default WorkoutForm;
