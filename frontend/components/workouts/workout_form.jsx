@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 // import DropdownComponent from '../dropdowns/dropdown_component';
 import DistanceUnit from '../select_boxes/distance_unit';
 import ElevationUnit from '../select_boxes/elevation_unit';
+import Sport from '../select_boxes/sport';
+import ActivityType from '../select_boxes/activity_type';
 
 class WorkoutForm extends React.Component {
   constructor(props){
@@ -153,6 +155,8 @@ class WorkoutForm extends React.Component {
                   onClick={this.handleDropdown(<ElevationUnit />)}
                 />
               </div>
+              {this.props.component ? this.props.component[0].type.name === 'ElevationUnit' ? this.props.component : null : null }
+
 
             </div>
           </section>
@@ -162,18 +166,15 @@ class WorkoutForm extends React.Component {
             <div className="field-container">
               <label htmlFor="sport">Sport</label><br/>
               <div className="input-wrapper">
-                <Select
-                  className="select sport-select"
+                <input
+                  className="workout-input select"
+                  placeholder={sport}
                   value={sport}
-                  onChange={this.handleSelect('sport')}
-                  clearable={false}
-                  searchable={false}
-                  options={[
-                    { value: 'Run', label: 'Run' },
-                    { value: 'Ride', label: 'Ride' }
-                  ]}
+                  onChange={this.handleChange('sport')}
+                  onClick={this.handleDropdown(<Sport />)}
                 />
               </div>
+              {this.props.component ? this.props.component[0].type.name === 'Sport' ? this.props.component : null : null }
             </div>
 
             {/*TODO: decision about date and time inputs*/}
@@ -210,19 +211,17 @@ class WorkoutForm extends React.Component {
             <section className="bottom-container">
               <div className="field-container">
                 <label htmlFor="activity-type">{this.state.sport} type</label><br/>
-                <div className="input-wrapper">
-                  <Select
-                    className="select sport-select"
+                <div className="input-wrapper activity-input">
+                  <input
+                    className="workout-input select"
+                    placeholder={activity_type}
                     value={activity_type}
-                    onChange={this.handleSelect('activity_type')}
-                    clearable={false}
-                    searchable={false}
-                    options={[
-                      { value: 'Race', label: 'Race' },
-                      { value: 'Workout', label: 'Workout' }
-                    ]}
+                    onChange={this.handleChange('activity_type')}
+                    onClick={this.handleDropdown(<ActivityType />)}
                   />
                 </div>
+                {this.props.component ? this.props.component[0].type.name === 'ActivityType' ? this.props.component : null : null }
+
               </div>
             </section>
 
