@@ -31,7 +31,7 @@
 
 .workout-input {
   box-sizing: border-box;
-  margin-top: 10px;
+  // margin-top: 10px;
   font-size: 14px;
   height: 34px;
   background-color: white;
@@ -83,14 +83,35 @@
   color: #007FB6;
 }
 
-.distance-inputs {
+.input-wrapper {
   display: flex;
-
+  margin-top: 10px;
   input {
     flex: 1;
   }
 
-  .distance-select{
-    width: 100px;
-  }
+}
+.distance-select{
+  height: 32px;
+  width: 125px;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  text-align: center;
+  border: 1px solid #ccccd1;
+  color: #2d2d32;
+  transition: background-color 300ms;
+}
+
+.distance-select:hover{
+  cursor: pointer;
+  background: rgb(242, 242, 249);
+}
+
+.distance-select:focus {
+  border: 1px solid rgb(13, 107, 167);
+}
+
+.Select-value {
+  margin-top: 7px;
 }

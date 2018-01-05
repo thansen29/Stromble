@@ -64,16 +64,19 @@ class WorkoutForm extends React.Component {
           <section className="workout-row">
             <div className="field-container">
               <label htmlFor="distance">Distance</label><br/>
-              <div className="distance-inputs">
+              <div className="input-wrapper" tabIndex="1">
                 <input
                   className="right-line workout-input"
                   type="number"
                   value={this.state.distance}
                   onChange={this.handleChange('distance')} />
                 <Select
+                  tabIndex="0"
                   className="distance-select"
                   value={distanceUnit}
                   onChange={this.handleSelect('distanceUnit')}
+                  clearable={false}
+                  searchable={false}
                   options={[
                     { value: 'kilometers', label: 'kilometers' },
                     { value: 'meters', label: 'meters' },
@@ -86,81 +89,96 @@ class WorkoutForm extends React.Component {
 
             <div className="field-container">
               <label htmlFor="duration">Duration</label><br/>
-              <input
-                className="workout-input right-line"
-                type="number"
-                value={this.state.duration_hr}
-                onChange={this.handleChange('duration_hr')} />
-              <input
-                className="workout-input right-line"
-                type="number"
-                value={this.state.duration_min}
-                onChange={this.handleChange('duration_min')} />
-              <input
-                className="workout-input"
-                type="number"
-                value={this.state.duration_s}
-                onChange={this.handleChange('duration_s')} />
+              <div className="input-wrapper">
+                <input
+                  className="workout-input right-line"
+                  type="number"
+                  value={this.state.duration_hr}
+                  onChange={this.handleChange('duration_hr')} />
+                <input
+                  className="workout-input right-line"
+                  type="number"
+                  value={this.state.duration_min}
+                  onChange={this.handleChange('duration_min')} />
+                <input
+                  className="workout-input"
+                  type="number"
+                  value={this.state.duration_s}
+                  onChange={this.handleChange('duration_s')} />
+              </div>
             </div>
 
             <div className="field-container">
               <label htmlFor="elevation">Elevation</label><br/>
-              <input
-                className="workout-input right-line"
-                type="number"
-                value={this.state.elevation}
-                onChange={this.handleChange('elevation')} />
-              elevation_unit
+              <div className="input-wrapper">
+                <input
+                  className="workout-input right-line"
+                  type="number"
+                  value={this.state.elevation}
+                  onChange={this.handleChange('elevation')} />
+                elevation_unit
+              </div>
             </div>
           </section>
 
           <section className="workout-row">
             <div className="field-container">
               <label htmlFor="sport">Sport</label><br/>
-              Sport Type
+              <div className="input-wrapper">
+                Sport Type
+              </div>
             </div>
 
             <div className="field-container">
               <label htmlFor="date-time">Date &amp; Time</label><br/>
-              <input
-                className="workout-input right-line"
-                type="date"
-                value={this.state.date}
-                onChange={this.handleChange('date')} />
-              <input
-                className="workout-input"
-                type="text"
-                value={this.state.date}
-                onChange={this.handleChange('time')} />
+              <div className="input-wrapper">
+                <input
+                  className="workout-input right-line"
+                  type="date"
+                  value={this.state.date}
+                  onChange={this.handleChange('date')} />
+                <input
+                  className="workout-input"
+                  type="text"
+                  value={this.state.date}
+                  onChange={this.handleChange('time')} />
+              </div>
             </div>
 
             <div className="field-container">
               <label htmlFor="title">Title</label><br/>
-              <input
-                className="workout-input title-input"
-                type="text"
-                value={this.state.title}
-                onChange={this.handleChange('title')} />
+              <div className="input-wrapper">
+                <input
+                  className="workout-input title-input"
+                  type="text"
+                  value={this.state.title}
+                  onChange={this.handleChange('title')} />
+              </div>
             </div>
           </section>
 
           <section className="workout-row">
             <div className="field-container">
               <label htmlFor="activity-type">title type</label><br/>
-              Typedropdown
+              <div className="input-wrapper">
+                Typedropdown
+              </div>
             </div>
 
             <div className="field-container">
               <label htmlFor="description">Description</label><br/>
-              <textarea
-                className="workout-input workout-description"
-                value={this.state.description}
-                onChange={this.handleChange('description')}
-                placeholder="How did it go? Were you tired or rested? How was the weather?" />
+              <div className="input-wrapper">
+                <textarea
+                  className="workout-input workout-description"
+                  value={this.state.description}
+                  onChange={this.handleChange('description')}
+                  placeholder="How did it go? Were you tired or rested? How was the weather?" />
+              </div>
             </div>
-              <input className="checkbox" type="checkbox" />
-              <span className="unlocked"></span>
-              <span className="private">Private</span>
+
+            <input className="checkbox" type="checkbox" />
+            <span className="unlocked"></span>
+            <span className="private">Private</span>
           </section>
 
           <div className="workout-submit">
