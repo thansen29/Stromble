@@ -1,6 +1,7 @@
 .form-container {
   margin-left: 16%;
   margin-right: 16%;
+  padding-bottom: 50px;
 }
 
 .form-container h1 {
@@ -37,6 +38,12 @@
   border: 1px solid #ccccd1;
   color: #666;
   text-align: center;
+}
+
+.left-align {
+  text-align: left;
+  box-sizing: border-box;
+  padding-left: 10px;
 }
 
 .workout-input:focus {
@@ -141,3 +148,9 @@
 .Select-value {
   margin-top: 7px;
 }
+
+.Select-placeholder {
+  margin-top: 7px;
+}
+
+// .select-left

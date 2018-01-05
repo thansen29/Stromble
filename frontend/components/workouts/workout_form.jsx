@@ -18,11 +18,10 @@ class WorkoutForm extends React.Component {
       sport: "Run",
       date: "",
       time: "",
-      title: "",
-      activity_type: "Type",
+      title: "Run",
+      activity_type: "",
       descripton: "",
-      private: false,
-      checked: false
+      private: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -74,8 +73,7 @@ class WorkoutForm extends React.Component {
 
   handleCheck(){
     this.setState({
-      private: !this.state.private,
-      checked: !this.state.cheked
+      private: !this.state.private
     });
   }
 
@@ -156,7 +154,7 @@ class WorkoutForm extends React.Component {
             </div>
           </section>
 
-
+          {/*TODO: this needs to render at the front*/}
           <section className="mid-row">
             <div className="field-container">
               <label htmlFor="sport">Sport</label><br/>
@@ -193,19 +191,18 @@ class WorkoutForm extends React.Component {
             </div>
           </section>
 
-          {/*TODO: make the input start at the beginning */}
           <div className="field-container title-input">
             <label htmlFor="title">Title</label><br/>
             <div className="input-wrapper">
               <input
-                className="workout-input title-input"
+                className="workout-input title-input left-align"
                 type="text"
                 value={this.state.title}
                 onChange={this.handleChange('title')} />
             </div>
           </div>
 
-
+          {/*TODO: this needs to render at the front*/}
           <section className="workout-row bottom-row">
             <section className="bottom-container">
               <div className="field-container">
@@ -239,7 +236,7 @@ class WorkoutForm extends React.Component {
 
             <div className="privacy">
               <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
-              <div className={this.state.checked ? "fa fa-lock locked" : "unlocked"}></div>
+              <div className={this.state.private ? "fa fa-lock locked" : "unlocked"}></div>
 
             </div>
           </section>
@@ -252,15 +249,6 @@ class WorkoutForm extends React.Component {
       </main>
     );
   }
-
 }
-// <i class="fa fa-lock" aria-hidden="true"></i>
-
-// <select className="workout-input">
-//   <option value={this.state.distance_unit}>kilometers</option>
-//   <option value={this.state.distance_unit}>meters</option>
-//   <option value={this.state.distance_unit}>miles</option>
-//   <option value={this.state.distance_unit}>yards</option>
-// </select>
 
 export default WorkoutForm;

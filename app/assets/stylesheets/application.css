@@ -102,7 +102,7 @@
   margin-left: 30px;
   font-size: 13px;
   position: absolute;
-  bottom: -510px;
+  bottom: -43px;
 }
 .locked:after {
   font-family: Helvetica;
@@ -111,5 +111,5 @@
   margin-left: 11px;
   font-size: 13.5px;
   position: absolute;
-  bottom: -510px;
+  bottom: -43px;
 }
