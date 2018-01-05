@@ -4,7 +4,7 @@ import { createWorkout } from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = state => {
   return {
-
+    isOpen: state.ui["is-open"]
   };
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+// import DropdownComponent from './dropdown_component';
 
 class WorkoutForm extends React.Component {
   constructor(props){
@@ -56,7 +57,12 @@ class WorkoutForm extends React.Component {
                 type="number"
                 value={this.state.distance}
                 onChange={this.handleChange('distance')} />
-              distance_unit
+              <select className="workout-input">
+                <option value={this.state.distance_unit}>kilometers</option>
+                <option value={this.state.distance_unit}>meters</option>
+                <option value={this.state.distance_unit}>miles</option>
+                <option value={this.state.distance_unit}>yards</option>
+              </select>
             </div>
 
             <div className="field-container">
