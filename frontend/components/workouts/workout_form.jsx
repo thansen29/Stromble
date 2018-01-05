@@ -21,11 +21,14 @@ class WorkoutForm extends React.Component {
       title: "",
       activity_type: "Type",
       descripton: "",
-      private: "false"
+      private: false,
+      checked: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+
   }
 
   componentDidMount(){
@@ -36,7 +39,6 @@ class WorkoutForm extends React.Component {
       date: date,
       time: time
     });
-
   }
 
   getTime(){
@@ -68,6 +70,13 @@ class WorkoutForm extends React.Component {
     return e => {
       this.setState({ [field]: e.value });
     };
+  }
+
+  handleCheck(){
+    this.setState({
+      private: !this.state.private,
+      checked: !this.state.cheked
+    });
   }
 
   render(){
@@ -183,7 +192,7 @@ class WorkoutForm extends React.Component {
               </div>
             </div>
           </section>
-          
+
           {/*TODO: make the input start at the beginning */}
           <div className="field-container title-input">
             <label htmlFor="title">Title</label><br/>
@@ -229,8 +238,8 @@ class WorkoutForm extends React.Component {
             </div>
 
             <div className="privacy">
-              <input className="checkbox" type="checkbox" />
-              <div className="unlocked"></div>
+              <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
+              <div className={this.state.checked ? "fa fa-lock locked" : "unlocked"}></div>
 
             </div>
           </section>

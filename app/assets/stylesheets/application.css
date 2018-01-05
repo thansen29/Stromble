@@ -90,13 +90,11 @@
   margin-top: -22px;
 }
 
-.locked {
-  background-image: url('locked.svg');
-  background-repeat: no-repeat;
+.fa-lock {
   width: 20px;
-  height: 25px;
-  margin-left: 20px;
-  margin-top: -22px;
+  height: 30px;
+  margin-left: 15px;
+  margin-top: -15px;
 }
 
 .unlocked:after {
@@ -107,9 +105,11 @@
   bottom: -510px;
 }
 .locked:after {
+  font-family: Helvetica;
+  color: black;
   content: "Private";
-  margin-left: 30px;
-  font-size: 13px;
+  margin-left: 11px;
+  font-size: 13.5px;
   position: absolute;
   bottom: -510px;
 }
