@@ -3,15 +3,15 @@ import WorkoutForm from './workout_form';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar';
 
-const WorkoutIndex = ({ createWorkout, userId, showDropdown, isOpen, history }) => {
+const WorkoutIndex = ({ createWorkout, userId, openDropdown, component, history }) => {
   return (
     <section className="background">
       <Navbar />
       <WorkoutForm
         createWorkout={createWorkout}
         userId={userId}
-        showDropdown={showDropdown}
-        isOpen={isOpen}
+        openDropdown={openDropdown}
+        component={component}
         history={history}
       />
 

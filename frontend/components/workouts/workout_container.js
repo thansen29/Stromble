@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import WorkoutIndex from './workout_index';
 import { createWorkout } from '../../actions/workouts/workout_actions';
-import { showDropdown } from '../../actions/dropdowns/dropdown_actions';
+import { openDropdown } from '../../actions/dropdowns/dropdown_actions';
 
 const mapStateToProps = state => {
   return {
     userId: state.session.currentUser.id,
-    isOpen: state.ui.dropdown.isOpen
+    component: state.ui.dropdown.component,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     createWorkout: workout => dispatch(createWorkout(workout)),
-    showDropdown: component => dispatch(showDropdown(component))
+    openDropdown: component => dispatch(openDropdown(component))
   };
 };
 

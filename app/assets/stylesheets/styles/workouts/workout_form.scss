@@ -117,15 +117,42 @@
 
 .select {
   height: 34px;
+  width: 125px;
   text-align: center;
   border: 1px solid #ccccd1;
   color: #2d2d32;
   transition: background-color 300ms;
 }
 
+.select:focus {
+  background: rgb(224, 224, 230);
+}
+
 .select:hover{
   cursor: pointer;
   background: rgb(242, 242, 249);
+}
+
+.selected-fields {
+  width: 125px;
+  border-left: 1px solid #ccccd1;
+  border-right: 1px solid #ccccd1;
+  border-bottom: 1px solid #ccccd1;
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-distance {
+  margin-left: 147px
+}
+
+.selected-fields li {
+  padding: 10px;
+}
+
+.selected-fields li:hover {
+  cursor: pointer;
+  background: rgb(224, 224, 230);
 }
 
 .select:focus {

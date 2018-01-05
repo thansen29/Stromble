@@ -1,7 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
-import DropdownComponent from '../dropdowns/dropdown_component';
+// import DropdownComponent from '../dropdowns/dropdown_component';
+import DistanceUnit from '../select_boxes/distance_unit';
+import ElevationUnit from '../select_boxes/elevation_unit';
 
 class WorkoutForm extends React.Component {
   constructor(props){
@@ -27,6 +29,7 @@ class WorkoutForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
 
   }
 
@@ -78,6 +81,12 @@ class WorkoutForm extends React.Component {
     });
   }
 
+  handleDropdown(component){
+    return e => {
+      this.props.openDropdown(component);
+    };
+  }
+
   render(){
     const { distance_unit, elevation_unit, sport, activity_type } = this.state;
   	// const value = selectedOption && selectedOption.value;
@@ -85,7 +94,6 @@ class WorkoutForm extends React.Component {
       <main className="form-container">
         <h1>Manual Entry</h1>
         <form className="workout-form" onSubmit={this.handleSubmit}>
-
           <section className="workout-row">
             <div className="field-container">
               <label htmlFor="distance">Distance</label><br/>
@@ -100,13 +108,12 @@ class WorkoutForm extends React.Component {
                   placeholder={distance_unit}
                   value={distance_unit}
                   onChange={this.handleChange('distance_unit')}
+                  onClick={this.handleDropdown(<DistanceUnit />)}
                 />
               </div>
+              {this.props.component ? this.props.component[0].type.name === 'DistanceUnit' ? this.props.component : null : null }
+
             </div>
-
-
-
-
 
 
             <div className="field-container">
@@ -138,18 +145,15 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.elevation}
                   onChange={this.handleChange('elevation')} />
-                <Select
-                  className="select distance-select"
+                <input
+                  className="workout-input select"
+                  placeholder={elevation_unit}
                   value={elevation_unit}
-                  onChange={this.handleSelect('elevation_unit')}
-                  clearable={false}
-                  searchable={false}
-                  options={[
-                    { value: 'meters', label: 'meters' },
-                    { value: 'feet', label: 'feet' }
-                  ]}
+                  onChange={this.handleChange('elevation_unit')}
+                  onClick={this.handleDropdown(<ElevationUnit />)}
                 />
               </div>
+
             </div>
           </section>
 
