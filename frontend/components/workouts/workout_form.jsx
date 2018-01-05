@@ -29,8 +29,25 @@ class WorkoutForm extends React.Component {
   }
 
   componentDidMount(){
+    const realDate = new Date();
+    const date = realDate.toLocaleDateString();
+    let time = this.getTime();
+    this.setState({
+      date: date,
+      time: time
+    });
+    debugger
     //get date and set it to state
     //get time and set it to state
+  }
+
+  getTime(){
+    const date = new Date();
+    const time = date.toLocaleTimeString();
+    let first = time.substring(0,5);
+    let second = time.slice(-2);
+    const fullTime = `${first} ${second}`;
+    return fullTime;
   }
 
   handleSubmit(e){
@@ -149,13 +166,13 @@ class WorkoutForm extends React.Component {
               </div>
             </div>
 
-            {/*TODO: make the time input be actually time*/}
+            {/*TODO: decision about date and time inputs*/}
             <div className="field-container date-container">
               <label htmlFor="date-time">Date &amp; Time</label><br/>
               <div className="input-wrapper">
                 <input
                   className="workout-input right-line datetime"
-                  type="date"
+                  type="text"
                   value={this.state.date}
                   onChange={this.handleChange('date')} />
                 <input
