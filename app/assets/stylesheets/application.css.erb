@@ -42,7 +42,7 @@
 .upload-button {
   margin-right: 250px;
   /* margin-right: 17%; */
-  background-image: url('plus.svg');
+  background-image:url('<%= asset_path("plus.svg")%>');
   /* background-image: url(staticImages.plus); */
   background-repeat: no-repeat;
   height: 24px;
@@ -83,7 +83,7 @@
 }
 
 .unlocked {
-  background-image: url('unlocked.svg');
+  background-image: url('<%= asset_path("unlocked.svg")%>');
   background-repeat: no-repeat;
   width: 20px;
   height: 25px;
@@ -116,21 +116,21 @@
 }
 
 .hours {
-  background-image: url('hours.png');
+  background-image: url('<%= asset_path("hours.png")%>') ;
   background-repeat: no-repeat;
   background-position: 110% 50%;
   background-size: 60%;
 }
 
 .minutes {
-  background-image: url('minutes.png');
+  background-image: url('<%= asset_path("minutes.png")%>');
   background-repeat: no-repeat;
   background-position: 110% 40%;
   background-size: 60%;
 }
 
 .seconds {
-  background-image: url('seconds.png');
+  background-image: url('<%= asset_path("seconds.png")%>');
   background-repeat: no-repeat;
   background-position: 90% 50%;
   background-size: 60%;
