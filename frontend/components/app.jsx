@@ -5,9 +5,12 @@ import loginContainer from './session/login_container';
 import landingContainer from './session/landing_container';
 import dashboardContainer from './dashboard/dashboard_container';
 import workoutContainer from './workouts/workout_container';
+import { closeDropdown } from '../actions/dropdowns/dropdown_actions';
+import DropdownComponent from './dropdowns/dropdown_component';
 
 const App = () => (
-  <div>
+  <div onClick={closeDropdown}>
+    <DropdownComponent />
     <Route path="/login" component={loginContainer}></Route>
     <Route exact path="/" component={landingContainer}></Route>
     <ProtectedRoute path="/dashboard" component={dashboardContainer}></ProtectedRoute>

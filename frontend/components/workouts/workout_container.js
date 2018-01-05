@@ -5,7 +5,8 @@ import { showDropdown } from '../../actions/dropdowns/dropdown_actions';
 
 const mapStateToProps = state => {
   return {
-    userId: state.session.currentUser.id
+    userId: state.session.currentUser.id,
+    isOpen: state.ui.dropdown.isOpen
   };
 };
 

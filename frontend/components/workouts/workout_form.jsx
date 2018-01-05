@@ -49,6 +49,7 @@ class WorkoutForm extends React.Component {
     return fullTime;
   }
 
+  // TODO: change to go to the show page, remove history from containers
   handleSubmit(e){
     e.preventDefault();
     const workout = Object.assign({}, this.state);
@@ -94,21 +95,19 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.distance}
                   onChange={this.handleChange('distance')} />
-                <Select
-                  className="select distance-select"
+                <input
+                  className="workout-input select"
+                  placeholder={distance_unit}
                   value={distance_unit}
-                  onChange={this.handleSelect('distance_unit')}
-                  clearable={false}
-                  searchable={false}
-                  options={[
-                    { value: 'kilometers', label: 'kilometers' },
-                    { value: 'meters', label: 'meters' },
-                    { value: 'miles', label: 'miles' },
-                    { value: 'yards', label: 'yards' }
-                  ]}
+                  onChange={this.handleChange('distance_unit')}
                 />
               </div>
             </div>
+
+
+
+
+
 
             <div className="field-container">
               <label htmlFor="duration">Duration</label><br/>
@@ -249,5 +248,19 @@ class WorkoutForm extends React.Component {
     );
   }
 }
+
+// <Select
+//   className="select distance-select"
+//   value={distance_unit}
+//   onChange={this.handleSelect('distance_unit')}
+//   clearable={false}
+//   searchable={false}
+//   options={[
+//     { value: 'kilometers', label: 'kilometers' },
+//     { value: 'meters', label: 'meters' },
+//     { value: 'miles', label: 'miles' },
+//     { value: 'yards', label: 'yards' }
+//   ]}
+// />
 
 export default WorkoutForm;
