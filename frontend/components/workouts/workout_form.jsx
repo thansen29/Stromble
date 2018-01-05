@@ -36,9 +36,7 @@ class WorkoutForm extends React.Component {
       date: date,
       time: time
     });
-    debugger
-    //get date and set it to state
-    //get time and set it to state
+
   }
 
   getTime(){
@@ -52,7 +50,9 @@ class WorkoutForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createWorkout(this.state).then((workout) => {
+    const workout = Object.assign({}, this.state);
+    workout['user_id'] = this.props.userId;
+    this.props.createWorkout(workout).then((newWorkout) => {
       this.props.history.push("/dashboard"); //change this to show
     });
   }
@@ -183,7 +183,8 @@ class WorkoutForm extends React.Component {
               </div>
             </div>
           </section>
-
+          
+          {/*TODO: make the input start at the beginning */}
           <div className="field-container title-input">
             <label htmlFor="title">Title</label><br/>
             <div className="input-wrapper">
