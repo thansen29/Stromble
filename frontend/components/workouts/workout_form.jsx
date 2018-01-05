@@ -43,7 +43,7 @@ class WorkoutForm extends React.Component {
   getTime(){
     const date = new Date();
     const time = date.toLocaleTimeString();
-    let first = time.substring(0,5);
+    let first = time.substring(0, 4);
     let second = time.slice(-2);
     const fullTime = `${first} ${second}`;
     return fullTime;
@@ -114,17 +114,17 @@ class WorkoutForm extends React.Component {
               <label htmlFor="duration">Duration</label><br/>
               <div className="input-wrapper">
                 <input
-                  className="workout-input right-line duration-box"
+                  className="workout-input right-line duration-box hours"
                   type="number"
                   value={this.state.duration_hr}
                   onChange={this.handleChange('duration_hr')} />
                 <input
-                  className="workout-input right-line duration-box"
+                  className="workout-input right-line duration-box minutes"
                   type="number"
                   value={this.state.duration_min}
                   onChange={this.handleChange('duration_min')} />
                 <input
-                  className="workout-input duration-box"
+                  className="workout-input duration-box seconds"
                   type="number"
                   value={this.state.duration_s}
                   onChange={this.handleChange('duration_s')} />
@@ -237,7 +237,6 @@ class WorkoutForm extends React.Component {
             <div className="privacy">
               <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
               <div className={this.state.private ? "fa fa-lock locked" : "unlocked"}></div>
-
             </div>
           </section>
 

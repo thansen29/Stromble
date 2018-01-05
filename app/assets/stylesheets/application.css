@@ -113,3 +113,24 @@
   position: absolute;
   bottom: -43px;
 }
+
+.hours {
+  background-image: url('hours.png');
+  background-repeat: no-repeat;
+  background-position: 110% 50%;
+  background-size: 60%;
+}
+
+.minutes {
+  background-image: url('minutes.png');
+  background-repeat: no-repeat;
+  background-position: 110% 40%;
+  background-size: 60%;
+}
+
+.seconds {
+  background-image: url('seconds.png');
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  background-size: 60%;
+}
