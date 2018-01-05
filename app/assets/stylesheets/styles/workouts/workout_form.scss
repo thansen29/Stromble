@@ -83,14 +83,14 @@
   color: #007FB6;
 }
 
-// .workout-select:hover {
-//   background: #ccc;
-// }
+.distance-inputs {
+  display: flex;
 
-// .workout-select {
-//   padding: 10px;
-// }
+  input {
+    flex: 1;
+  }
 
-// .workout-select:focus {
-//   border: 1px solid #ccccd1;
-// }
+  .distance-select{
+    width: 100px;
+  }
+}

@@ -7,25 +7,21 @@ class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
     //careful of the state currently string and coming in as something else
-    // this.state = {
-    //   distance: "",
-    //   distance_unit: "miles",
-    //   duration_hr: '01',
-    //   duration_min: '00',
-    //   duration_s: '00',
-    //   elevation: "",
-    //   elevation_unit: "feet",
-    //   sport: "Run",
-    //   date: "",
-    //   time: "",
-    //   title: "",
-    //   activity_type: "",
-    //   descripton: "",
-    //   private: "false"
-    // };
-
     this.state = {
-      selectedOption: ''
+      distance: "",
+      distanceUnit: "miles",
+      duration_hr: '01',
+      duration_min: '00',
+      duration_s: '00',
+      elevation: "",
+      elevation_unit: "feet",
+      sport: "Run",
+      date: "",
+      time: "",
+      title: "",
+      activity_type: "",
+      descripton: "",
+      private: "false"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,14 +46,15 @@ class WorkoutForm extends React.Component {
     };
   }
 
-  handleSelect(selectedOption){
-    this.setState({ selectedOption });
-    console.log(`Selected: ${selectedOption.label}`);
+  handleSelect(field){
+    return e => {
+      this.setState({ [field]: e });
+    };
   }
 
   render(){
-    const { selectedOption } = this.state;
-  	const value = selectedOption && selectedOption.value;
+    const { distanceUnit } = this.state;
+  	// const value = selectedOption && selectedOption.value;
     // debugger
     return (
       <main className="form-container">
@@ -67,22 +64,24 @@ class WorkoutForm extends React.Component {
           <section className="workout-row">
             <div className="field-container">
               <label htmlFor="distance">Distance</label><br/>
-              <input
-                className="right-line workout-input"
-                type="number"
-                value={this.state.distance}
-                onChange={this.handleChange('distance')} />
-              <Select
-                className="workout-input"
-                value={value}
-                onChange={this.handleChange}
-                options={[
-                  { value: 'kilometers', label: 'kilometers' },
-                  { value: 'meters', label: 'meters' },
-                  { value: 'miles', label: 'miles' },
-                  { value: 'yards', label: 'yards' }
-                ]}
-              />
+              <div className="distance-inputs">
+                <input
+                  className="right-line workout-input"
+                  type="number"
+                  value={this.state.distance}
+                  onChange={this.handleChange('distance')} />
+                <Select
+                  className="distance-select"
+                  value={distanceUnit}
+                  onChange={this.handleSelect('distanceUnit')}
+                  options={[
+                    { value: 'kilometers', label: 'kilometers' },
+                    { value: 'meters', label: 'meters' },
+                    { value: 'miles', label: 'miles' },
+                    { value: 'yards', label: 'yards' }
+                  ]}
+                />
+              </div>
             </div>
 
             <div className="field-container">

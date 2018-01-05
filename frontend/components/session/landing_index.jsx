@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignupContainer from './signup_container';
 
+//TODO: make the already signed in login not be hidden
+
 class LandingIndex extends React.Component {
   constructor(props){
     super(props);
