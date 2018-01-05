@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .global-nav {
+   background: white;
+   border-bottom: 1px solid #e6e6eb;
+   box-shadow: 0 1px 2px rgba(0,0,0,0.025);
+   height: 55px;
+   color: #606065;
+   font-size: 16px;
+   font-weight: 540;
+   list-style: none;
+   box-sizing: border-box;
+ }
+
+.global-nav ul {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.global-nav ul li {
+  padding-right: 50px;
+}
+
+.avatar {
+
+}
+
+.upload-button {
+  margin-right: 250px;
+  background-image:url('<%= asset_path("plus.svg")%>');
+  background-repeat: no-repeat;
+  height: 24px;
+  margin-left: -20px;
+}
+
+.training {
+  margin-right: auto;
+}
+
+.fa-angle-down {
+  margin-top: 4px;
+}
+
+.fa-angle-down:before {
+  padding: 6px ;
+  font-weight: 700;
+}
+
+
+.logo {
+ font-family: Fredoka One;
+ font-size: 30px;
+ color: rgb(249, 77, 31);
+}
+
+.logo-nav {
+ font-family: Fredoka One;
+ font-size: 30px;
+ color: rgb(249, 77, 31);
+ margin-left: 250px;
+}
+
+.white {
+ color: white;
+ text-shadow: 2px 2px black;
+}
+
+.unlocked {
+  background-image: url('<%= asset_path("unlocked.svg")%>');
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 25px;
+  margin-left: 20px;
+  margin-top: -22px;
+}
+
+.fa-lock {
+  width: 20px;
+  height: 30px;
+  margin-left: 15px;
+  margin-top: -15px;
+}
+
+.unlocked:after {
+  content: "Private";
+  margin-left: 30px;
+  font-size: 13px;
+  position: absolute;
+  bottom: -43px;
+}
+.locked:after {
+  font-family: Helvetica;
+  color: black;
+  content: "Private";
+  margin-left: 11px;
+  font-size: 13.5px;
+  position: absolute;
+  bottom: -43px;
+}
+
+.hours {
+  background-image: url('<%= asset_path("hours.png")%>') ;
+  background-repeat: no-repeat;
+  background-position: 110% 50%;
+  background-size: 60%;
+}
+
+.minutes {
+  background-image: url('<%= asset_path("minutes.png")%>');
+  background-repeat: no-repeat;
+  background-position: 110% 40%;
+  background-size: 60%;
+}
+
+.seconds {
+  background-image: url('<%= asset_path("seconds.png")%>');
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  background-size: 60%;
+}

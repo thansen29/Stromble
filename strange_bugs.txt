@@ -7,3 +7,5 @@ specify, aka true or false
 ***
 Make sure that all traces of the thing are removed though. So if the thing is represented by a foreign key in a different slice of state, you should remove it from there as well
 ***
+
+Using a plugin for select boxes

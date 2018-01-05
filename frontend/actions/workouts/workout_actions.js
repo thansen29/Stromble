@@ -4,8 +4,6 @@ export const RECEIVE_WORKOUT = 'RECEIVE_WORKOUT';
 export const REMOVE_WORKOUT = 'REMOVE_WORKOUT';
 export const RECEIVE_WORKOUT_ERRORS = 'RECEIVE_WORKOUT_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
-export const SHOW_DROPDOWN = 'SHOW_DROPDOWN;';
-export const HIDE_DROPDOWN = 'HIDE_DROPDOWN;';
 
 export const receiveWorkouts = workouts => {
   return {
@@ -40,20 +38,6 @@ export const clearErrors = () => {
     type: CLEAR_ERRORS
   };
 };
-
-export const showDropdown = () => {
-  return {
-    type: SHOW_DROPDOWN
-  };
-};
-
-export const hideDropdown = () => {
-  return {
-    type: HIDE_DROPDOWN
-  };
-};
-
-
 
 export const requestWorkouts = () => dispatch => {
   return WorkoutAPIUtil.fetchWorkouts().then((workouts) => {

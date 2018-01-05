@@ -1,28 +1,10 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/session/session_actions';
-import { SHOW_DROPDOWN, HIDE_DROPDOWN } from '../actions/workouts/workout_actions';
+import { combineReducers } from 'redux';
+import modalReducer from './modal_reducer';
+import dropdownReducer from './dropdown_reducer';
 
-const defaultState = {
-  "is-open": false
-};
-
-const uiReducer = (state = defaultState, action) => {
-  let newState;
-  switch (action.type) {
-    case OPEN_MODAL:
-      newState = Object.assign({}, state);
-      newState["is-open"] = true;
-      return newState;
-    case CLOSE_MODAL:
-      return defaultState;
-    case SHOW_DROPDOWN:
-      newState = Object.assign({}, state);
-      newState["is-open"] = true;
-      return newState;
-    case HIDE_DROPDOWN:
-        return defaultState;
-    default:
-      return state;
-  }
-};
+const uiReducer = combineReducers({
+  modal: modalReducer,
+  dropdown: dropdownReducer
+});
 
 export default uiReducer;

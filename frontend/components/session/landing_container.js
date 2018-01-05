@@ -5,7 +5,7 @@ import { signup, clearErrors, openModal, closeModal } from '../../actions/sessio
 const mapStateToProps = state => {
   return {
     errors: state.errors.session,
-    ui: state.ui['is-open']
+    ui: state.ui.modal['isOpen']
   };
 };
 
