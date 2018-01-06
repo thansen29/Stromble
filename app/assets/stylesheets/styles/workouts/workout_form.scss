@@ -100,6 +100,11 @@
   margin-bottom: -45px;
 }
 
+.full-mid-row {
+  display: flex;
+  flex-direction: column;
+}
+
 .bottom-row {
   border-top: 1px solid #ccccd1;
   display: flex;
@@ -165,6 +170,8 @@
 .sporty-input {
   text-align: left;
   padding-left: 10px;
+  width: 270px;
+
 }
 
 .selected-fields li:hover {
@@ -189,7 +196,7 @@
 }
 
 .title-input {
-  width: 540px;
+  width: 535px;
 }
 
 .Select-value {

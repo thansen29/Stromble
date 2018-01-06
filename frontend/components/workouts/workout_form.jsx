@@ -156,54 +156,54 @@ class WorkoutForm extends React.Component {
                 />
               </div>
               {this.props.component ? this.props.component[0].type.name === 'ElevationUnit' ? this.props.component : null : null }
-
-
             </div>
           </section>
 
-          <section className="mid-row">
-            <div className="field-container">
-              <label htmlFor="sport">Sport</label><br/>
-              <div className="input-wrapper">
-                <input
-                  className="workout-input select sporty-input"
-                  placeholder={sport}
-                  value={sport}
-                  onChange={this.handleChange('sport')}
-                  onClick={this.handleDropdown(<Sport />)}
-                />
+          <section className="full-mid-row">
+            <section className="mid-row">
+              <div className="field-container">
+                <label htmlFor="sport">Sport</label><br/>
+                <div className="input-wrapper">
+                  <input
+                    className="workout-input select sporty-input"
+                    placeholder={sport}
+                    value={sport}
+                    onChange={this.handleChange('sport')}
+                    onClick={this.handleDropdown(<Sport />)}
+                  />
+                </div>
+                {this.props.component ? this.props.component[0].type.name === 'Sport' ? this.props.component : null : null }
               </div>
-              {this.props.component ? this.props.component[0].type.name === 'Sport' ? this.props.component : null : null }
-            </div>
 
-            {/*TODO: decision about date and time inputs*/}
-            <div className="field-container date-container">
-              <label htmlFor="date-time">Date &amp; Time</label><br/>
+              {/*TODO: decision about date and time inputs*/}
+              <div className="field-container date-container">
+                <label htmlFor="date-time">Date &amp; Time</label><br/>
+                <div className="input-wrapper">
+                  <input
+                    className="workout-input right-line datetime"
+                    type="text"
+                    value={this.state.date}
+                    onChange={this.handleChange('date')} />
+                  <input
+                    className="workout-input datetime"
+                    type="text"
+                    value={this.state.time}
+                    onChange={this.handleChange('time')} />
+                </div>
+              </div>
+            </section>
+
+            <div className="field-container title-input">
+              <label htmlFor="title">Title</label><br/>
               <div className="input-wrapper">
                 <input
-                  className="workout-input right-line datetime"
+                  className="workout-input title-input left-align"
                   type="text"
-                  value={this.state.date}
-                  onChange={this.handleChange('date')} />
-                <input
-                  className="workout-input datetime"
-                  type="text"
-                  value={this.state.time}
-                  onChange={this.handleChange('time')} />
+                  value={this.state.title}
+                  onChange={this.handleChange('title')} />
               </div>
             </div>
           </section>
-
-          <div className="field-container title-input">
-            <label htmlFor="title">Title</label><br/>
-            <div className="input-wrapper">
-              <input
-                className="workout-input title-input left-align"
-                type="text"
-                value={this.state.title}
-                onChange={this.handleChange('title')} />
-            </div>
-          </div>
 
           {/*TODO: this needs to render at the front*/}
           <section className="workout-row bottom-row">
