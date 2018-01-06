@@ -36,7 +36,10 @@
 }
 
 .avatar {
-
+  background-image: url('<%= asset_path("profile-pic.png")%>') ;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  height: 40px;
 }
 
 .upload-button {
@@ -44,7 +47,7 @@
   background-image:url('<%= asset_path("plus.svg")%>');
   background-repeat: no-repeat;
   height: 24px;
-  margin-left: -20px;
+  margin-left: 5px;
 }
 
 .training {
@@ -53,6 +56,12 @@
 
 .fa-angle-down {
   margin-top: 4px;
+}
+
+.profile-down {
+  position: relative;
+  right: -40px;
+  top: 11px;
 }
 
 .fa-angle-down:before {

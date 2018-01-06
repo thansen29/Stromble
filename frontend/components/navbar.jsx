@@ -12,8 +12,8 @@ const Navbar = (props) => {
         <li className="training">Training
           <i className="fa fa-angle-down" aria-hidden="true"></i>
         </li>
-        <li className="avatar">Pic
-          <i className="fa fa-angle-down" aria-hidden="true"></i>
+        <li className="avatar">
+          <i className="fa fa-angle-down profile-down" aria-hidden="true"></i>
         </li>
         <li className="upload-button"></li>
       </ul>
