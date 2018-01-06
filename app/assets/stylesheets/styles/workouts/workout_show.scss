@@ -9,6 +9,9 @@
   height: 250px;
   margin-left: 25%;
   margin-top: 3.5%;
+  color: #2d2d32;
+  font-family: 'Roboto';
+  font-size: 16px;
 }
 
 .show-header {
@@ -16,6 +19,14 @@
   height: 40px;
   background: #f5f5fa;
   border-bottom: 1px solid #ccccd1;
+  padding: 8px 25px;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.show-name {
+  margin-top: 50px;
 }
 
 .show-body {
@@ -25,12 +36,30 @@
 .show-leftside {
   border-right: 1px solid #ccccd1;
   width: 400px;
-  height: 210px;;
-  background: lightgrey;
+  height: 210px;
+  box-sizing: border-box;
+  padding: 25px;
+
+  div {
+    padding: 8px 0;
+  }
+}
+
+.show-datetime {
+  font-size: 14px;
+  color: #666;
+}
+
+.show-title {
+  font-size: 22px;
+  font-weight: 100;
+}
+
+.show-description {
+  font-size: 13px;
 }
 
 .show-rightside {
-  background: darkgrey;
   width: 400px;
   height: 210px;;
 }

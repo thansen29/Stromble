@@ -8,22 +8,22 @@ const mapStateToProps = (state, ownProps) => {
     // workout: state.workout.workouts[workoutId]
     workout:
     {
-      activity_type:"",
-      date:"2018-05-01T00:00:00.000Z",
-      description:null,
-      distance:null,
-      distance_unit:"miles",
-      duration_hr:1,
-      duration_min:0,
-      duration_s:0,
-      elevation:null,
-      elevation_unit:"feet",
-      id:43,
-      private:false,
-      sport:"Run",
-      time:"2018-01-06T22:05:00.000Z",
-      title:"Run",
-      user_id:15
+      activity_type: "Workout",
+      date: "2018-05-01T00:00:00.000Z",
+      description: "A great workout",
+      distance: 3,
+      distance_unit: "miles",
+      duration_hr: 1,
+      duration_min: 0,
+      duration_s: 0,
+      elevation: null,
+      elevation_unit: "feet",
+      id: 43,
+      private: false,
+      sport: "Run",
+      time: "2018-01-06T22:05:00.000Z",
+      title: "Evening Run",
+      user_id: 15
     }
   };
 };
