@@ -7,6 +7,10 @@ const WorkoutShow = ({workout}) => {
     <section className="background">
       <Navbar />
       <section className="whole-container">
+        <button className="show-delete">
+          <i class="fa fa-ban" aria-hidden="true"></i>
+        </button>
+        
         <section className="show-container">
 
           <header className="show-header">
