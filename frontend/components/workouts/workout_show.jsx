@@ -1,57 +1,80 @@
 import React from 'react';
 import Navbar from '../navbar';
-const WorkoutShow = ({workout}) => {
-  //TODO: put actual first name and last name on
-  //parse time and date
-  return (
-    <section className="background">
-      <Navbar />
-      <section className="whole-container">
-        <button className="show-delete">
-          <i class="fa fa-ban" aria-hidden="true"></i>
-        </button>
-        
-        <section className="show-container">
+class WorkoutShow extends React.Component {
+  constructor(props){
+    super(props);
 
-          <header className="show-header">
-            <span className="show-name">Fname Lnameisabitlonger -- </span>
-            {workout.activity_type}
-            <div className={workout.private ? "fa fa-lock show-locked" : "show-unlocked"}></div>
-          </header>
 
-          <section className="show-body">
-            <section className="show-leftside">
-              <div className="show-avatar"></div>
-              <section className="show-leftbody">
-                <div className="show-datetime">A Time on {workout.date}</div>
-                <div className="show-title">{workout.title}</div>
-                <div className="show-description">{workout.description}</div>
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  // componentDidMount(){
+  //   const workout = this.props.requestWorkout(this.props.match.params.id);
+  //   this.setState({workout});
+  // }
+
+  //TODO: make this go to the index page
+  handleDelete(){
+    this.props.history.push("/dashboard");
+    this.props.deleteWorkout(this.props.workout.id);
+  }
+
+  render(){
+    //TODO: put actual first name and last name on
+    //parse time and date
+    return (
+      <section className="background">
+        <Navbar />
+        <section className="whole-container">
+          <button onClick={this.handleDelete} className="show-delete">
+            <i className="fa fa-ban" aria-hidden="true"></i>
+          </button>
+
+          <section className="show-container">
+
+            <header className="show-header">
+              <span className="show-name">Fname Lnameisabitlonger -- </span>
+              {this.props.workout.activity_type}
+              <div className={this.props.workout.private ? "fa fa-lock show-locked" : "show-unlocked"}></div>
+            </header>
+
+            <section className="show-body">
+              <section className="show-leftside">
+                <div className="show-avatar"></div>
+                <section className="show-leftbody">
+                  <div className="show-datetime">A Time on {this.props.workout.date}</div>
+                  <div className="show-title">{this.props.workout.title}</div>
+                  <div className="show-description">{this.props.workout.description}</div>
+                </section>
               </section>
-            </section>
 
-            <section className="show-rightside">
-              <section className="show-stats">
-                <div className="show-statistic">
-                  {workout.distance} {workout.distance_unit.substring(0,2)} <br/>
-                  <span className="stat-text">Distance</span>
-                </div>
-                <div className="show-statistic">
-                  {workout.duration_hr}:{workout.duration_min}:{workout.duration_s} <br/>
-                  <span className="stat-text">Duration</span>
-                </div>
-                <div className="show-statistic">
-                  {workout.elevation} {workout.elevation ? workout.elevation_unit : null}<br/>
-                  {workout.elevation ?
-                    <span className="stat-text">Elevation</span> : null }
-                </div>
+              <section className="show-rightside">
+                <section className="show-stats">
+                  <div className="show-statistic">
+                    {this.props.workout.distance}
+                    {this.props.workout.distance ? this.props.workout.distance_unit.substring(0,2) : null} <br/>
+                  {this.props.workout.distance ?
+                          <span className="stat-text">Distance</span> : null }
+                  </div>
+                  <div className="show-statistic">
+                    {this.props.workout.duration_hr}:{this.props.workout.duration_min}:{this.props.workout.duration_s} <br/>
+                    <span className="stat-text">Duration</span>
+                  </div>
+                  <div className="show-statistic">
+                    {this.props.workout.elevation} {this.props.workout.elevation ? this.props.workout.elevation_unit : null}<br/>
+                  {this.props.workout.elevation ?
+                      <span className="stat-text">Elevation</span> : null }
+                  </div>
+                </section>
+
               </section>
-
             </section>
           </section>
         </section>
       </section>
-    </section>
-  );
-};
+    );
+
+  }
+}
 
 export default WorkoutShow;

@@ -1,7 +1,11 @@
 import { RECEIVE_WORKOUTS, RECEIVE_WORKOUT, REMOVE_WORKOUT } from '../actions/workouts/workout_actions';
 
+const defaultState = {
+  workouts: {},
+  activeWorkout: null
+};
 
-const workoutReducer = (state = {}, action) => {
+const workoutReducer = (state = defaultState, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_WORKOUTS:
@@ -13,7 +17,8 @@ const workoutReducer = (state = {}, action) => {
       return newState;
     case REMOVE_WORKOUT:
       newState = Object.assign({}, state);
-      delete newState[action.workoutId];
+      delete newState.workouts[action.workoutId];
+      newState.activeWorkout = null;
       return newState;
     default:
       return state;
