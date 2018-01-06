@@ -15,7 +15,7 @@ export const receiveWorkouts = workouts => {
 export const receiveWorkout = workout => {
   return {
     type: RECEIVE_WORKOUT,
-    workout
+    workout,
   };
 };
 
@@ -64,7 +64,6 @@ export const createWorkout = workout => dispatch => {
 };
 
 export const updateWorkout = workout => dispatch => {
-  debugger
   return WorkoutAPIUtil.updateWorkout(workout).then((response) => {
     dispatch(receiveWorkout(response));
   }, (errors) => {

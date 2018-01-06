@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.getState = store.getState;
 
-  window.requestWorkouts = requestWorkouts;
-  window.requestWorkout = requestWorkout;
-  window.createWorkout = createWorkout;
-  window.updateWorkout = updateWorkout;
-  window.deleteWorkout = deleteWorkout;
+  // window.requestWorkouts = requestWorkouts;
+  // window.requestWorkout = requestWorkout;
+  // window.createWorkout = createWorkout;
+  // window.updateWorkout = updateWorkout;
+  // window.deleteWorkout = deleteWorkout;
 
   // window.signup = signup;
   // window.login = login;

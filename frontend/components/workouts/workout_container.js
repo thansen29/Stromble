@@ -7,6 +7,7 @@ const mapStateToProps = state => {
   return {
     userId: state.session.currentUser.id,
     component: state.ui.dropdown.component,
+    workoutId: state.workout.activeWorkout
   };
 };
 

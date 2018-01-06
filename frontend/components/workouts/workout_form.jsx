@@ -1,16 +1,16 @@
 import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
-// import DropdownComponent from '../dropdowns/dropdown_component';
 import DistanceUnit from '../select_boxes/distance_unit';
 import ElevationUnit from '../select_boxes/elevation_unit';
 import Sport from '../select_boxes/sport';
 import ActivityType from '../select_boxes/activity_type';
 
+//TODO: MAKE THE SELECT FIELDS UPDATE ON SELECT!!
+
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
-    //careful of the state currently string and coming in as something else
     this.state = {
       distance: "",
       distance_unit: "miles",
@@ -34,7 +34,7 @@ class WorkoutForm extends React.Component {
     this.handleDropdown = this.handleDropdown.bind(this);
 
   }
-
+  //TODO: something aint right with the date getting sent to database
   componentDidMount(){
     const realDate = new Date();
     const date = realDate.toLocaleDateString();
@@ -54,14 +54,13 @@ class WorkoutForm extends React.Component {
     return fullTime;
   }
 
-  // TODO: change to go to the show page, remove history from containers
   handleSubmit(e){
     e.preventDefault();
     const workout = Object.assign({}, this.state);
     workout['user_id'] = this.props.userId;
-    this.props.createWorkout(workout).then((newWorkout) => {
-      this.props.history.push("/dashboard"); //change this to show
-    });
+    this.props.createWorkout(workout).then((() => {
+      this.props.history.push(`/workouts/${this.props.workoutId}`);
+    }).bind(this));
   }
 
   handleChange(field){
