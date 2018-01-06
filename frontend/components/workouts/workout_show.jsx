@@ -4,16 +4,21 @@ const WorkoutShow = (props) => {
   return (
     <section className="background">
       <Navbar />
-      <section className="show-container">
-        <header className="show-header">
+      <section className="whole-container">
+        <section className="show-container">
+          <header className="show-header">
 
-        </header>
-        <section className="show-leftside">
+          </header>
+          <section className="show-body">
 
-        </section>
+            <section className="show-leftside">
 
-        <section className="show-rightside">
+            </section>
 
+            <section className="show-rightside">
+
+            </section>
+          </section>
         </section>
       </section>
     </section>
