@@ -49,6 +49,7 @@ export const requestWorkouts = () => dispatch => {
 
 export const requestWorkout = id => dispatch => {
   return WorkoutAPIUtil.fetchWorkout(id).then((workout) => {
+    debugger
     dispatch(receiveWorkout(workout));
   }, (errors) => {
     dispatch(receiveErrors(errors));

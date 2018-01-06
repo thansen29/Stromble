@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
 import { signup, login, logout } from './actions/session/session_actions';
-import { requestWorkouts, requestWorkout, createWorkout, updateWorkout, deleteWorkout } from './actions/workouts/workout_actions';
+// import { requestWorkouts, requestWorkout, createWorkout, updateWorkout, deleteWorkout } from './actions/workouts/workout_actions';
 
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -4,13 +4,14 @@ class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
 
-
+    this.state;
     this.handleDelete = this.handleDelete.bind(this);
   }
-
-  // componentDidMount(){
-  //   const workout = this.props.requestWorkout(this.props.match.params.id);
-  //   this.setState({workout});
+  //TODO: get the workout in this components state so it doesnt break on refresh
+  // componentWillMount(){
+  //   // const workout = this.props.requestWorkout(this.props.match.params.id);
+  //   const workout = this.props.workout;
+  //   debugger
   // }
 
   //TODO: make this go to the index page
