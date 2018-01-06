@@ -39,10 +39,18 @@
   height: 210px;
   box-sizing: border-box;
   padding: 25px;
+  // display: flex;
 
   div {
     padding: 8px 0;
   }
+}
+
+
+.show-leftbody {
+  position: absolute;
+  top: 19%;
+  left: 34%;
 }
 
 .show-datetime {

@@ -16,10 +16,12 @@ const WorkoutShow = ({workout}) => {
 
           <section className="show-body">
             <section className="show-leftside">
-              <div className="show-datetime">A Time on {workout.date}</div>
-              <div className="show-title">{workout.title}</div>
-              <div className="show-description">{workout.description}</div>
-
+              <div className="show-avatar"></div>
+              <section className="show-leftbody">
+                <div className="show-datetime">A Time on {workout.date}</div>
+                <div className="show-title">{workout.title}</div>
+                <div className="show-description">{workout.description}</div>
+              </section>
             </section>
 
             <section className="show-rightside">
