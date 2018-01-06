@@ -29,7 +29,7 @@ class WorkoutForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
+    this.handleSelection = this.handleSelection.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
 
@@ -68,13 +68,6 @@ class WorkoutForm extends React.Component {
     return e => {
       this.setState( { [field]: e.target.value } );
     };
-
-  }
-
-  handleSelect(field){
-    return e => {
-      this.setState({ [field]: e.value });
-    };
   }
 
   handleCheck(){
@@ -89,9 +82,15 @@ class WorkoutForm extends React.Component {
     };
   }
 
+  handleSelection(field){
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+
   render(){
     const { distance_unit, elevation_unit, sport, activity_type } = this.state;
-  	// const value = selectedOption && selectedOption.value;
+
     return (
       <main className="form-container">
         <h1>Manual Entry</h1>
@@ -106,7 +105,7 @@ class WorkoutForm extends React.Component {
                   value={this.state.distance}
                   onChange={this.handleChange('distance')} />
                 <input
-                  className="workout-input select"
+                  className="workout-input select caret"
                   placeholder={distance_unit}
                   value={distance_unit}
                   onChange={this.handleChange('distance_unit')}
@@ -148,7 +147,7 @@ class WorkoutForm extends React.Component {
                   value={this.state.elevation}
                   onChange={this.handleChange('elevation')} />
                 <input
-                  className="workout-input select"
+                  className="workout-input select caret"
                   placeholder={elevation_unit}
                   value={elevation_unit}
                   onChange={this.handleChange('elevation_unit')}
@@ -165,7 +164,7 @@ class WorkoutForm extends React.Component {
                 <label htmlFor="sport">Sport</label><br/>
                 <div className="input-wrapper">
                   <input
-                    className="workout-input select sporty-input"
+                    className="workout-input select sporty-input sport-caret"
                     placeholder={sport}
                     value={sport}
                     onChange={this.handleChange('sport')}
@@ -212,7 +211,7 @@ class WorkoutForm extends React.Component {
                 <label htmlFor="activity-type">{this.state.sport} type</label><br/>
                 <div className="input-wrapper activity-input">
                   <input
-                    className="workout-input select activity-input-field"
+                    className="workout-input select activity-input-field sport-caret"
                     placeholder={activity_type}
                     value={activity_type}
                     onChange={this.handleChange('activity_type')}

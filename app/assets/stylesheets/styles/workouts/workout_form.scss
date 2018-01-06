@@ -139,6 +139,8 @@
 }
 
 .selected-fields {
+  position: absolute;
+  background: white;
   width: 125px;
   border-left: 1px solid #ccccd1;
   border-right: 1px solid #ccccd1;
@@ -152,11 +154,12 @@
 }
 
 .activity-input {
-  width: 540px;
+  width: 535px;
 }
 
 .activity-input-field {
   text-align: left;
+  padding-left: 10px;
 }
 
 .activity-type {
