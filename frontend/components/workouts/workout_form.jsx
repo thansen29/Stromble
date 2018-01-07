@@ -1,10 +1,12 @@
 import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
-import DistanceUnit from '../select_boxes/distance_unit';
+// import DistanceUnit from '../select_boxes/distance_unit';
 import ElevationUnit from '../select_boxes/elevation_unit';
 import Sport from '../select_boxes/sport';
 import ActivityType from '../select_boxes/activity_type';
+
+import DropdownComponent from '../dropdowns/dropdown_component';
 
 //TODO: MAKE THE SELECT FIELDS UPDATE ON SELECT!!
 
@@ -29,7 +31,7 @@ class WorkoutForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSelection = this.handleSelection.bind(this);
+    // this.handleSelection = this.handleSelection.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
 
@@ -83,7 +85,8 @@ class WorkoutForm extends React.Component {
 
   handleSelection(field){
     return e => {
-      this.setState({ [field]: e.target.value });
+      this.setState({ [field]: e });
+      console.log(this);
     };
   }
 
@@ -103,15 +106,14 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.distance}
                   onChange={this.handleChange('distance')} />
-                <input
-                  className="workout-input select caret"
-                  placeholder={distance_unit}
-                  value={distance_unit}
-                  onChange={this.handleChange('distance_unit')}
-                  onClick={this.handleDropdown(<DistanceUnit />)}
-                />
+                <DropdownComponent
+                  items={['kilometers', 'meters', 'miles', 'yards']}
+                  onChange={this.handleSelection('distance_unit')}
+                  initValue={distance_unit}
+                  />
+
               </div>
-              {this.props.component ? this.props.component[0].type.name === 'DistanceUnit' ? this.props.component : null : null }
+              {/*this.props.component ? this.props.component[0].type.name === 'DistanceUnit' ? this.props.component : null : null */}
 
             </div>
 
@@ -248,6 +250,15 @@ class WorkoutForm extends React.Component {
     );
   }
 }
+// <input
+//    className="workout-input select caret"
+//    placeholder={distance_unit}
+//    value={distance_unit}
+//    onChange={this.handleChange('distance_unit')}
+//    onClick={this.handleDropdown(<DropdownItems
+//       onChange={this.handleSelection('distance_unit')}
+//       items={['kilometers', 'meters', 'miles', 'yards']}
+//       />)}
 
 // <Select
 //   className="select distance-select"

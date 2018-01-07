@@ -9,3 +9,6 @@ Make sure that all traces of the thing are removed though. So if the thing is re
 ***
 
 Using a plugin for select boxes
+holy shit it sucks
+blur and focus events
+focus needs tab index
