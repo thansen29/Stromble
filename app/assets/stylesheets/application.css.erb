@@ -139,6 +139,65 @@
 
 
 
+.nav-upload-dropdown {
+  display: inline-block;
+  padding: 17px 0;
+  padding-left: 10px;
+  width: 5%;
+  position: absolute;
+  right: 14%;
+  top: 0%;
+  padding-bottom: 38px;
+}
+
+
+.nav-upload-dropdown-content {
+  display: none;
+  position: absolute;
+  left: -93px;
+  background: white;
+  border-right: 1px solid #ccccd1;
+  border-left: 1px solid #ccccd1;
+  border-bottom: 1px solid #ccccd1;
+  border-top: 1px solid #ccccd1;
+  z-index: 1;
+  margin-top: 37px;
+  width: 215%;
+}
+
+.nav-upload-dropdown-content a {
+  padding: 10px;
+  display: block;
+}
+
+.nav-upload-dropdown-content a:hover {
+  background: rgb(224, 224, 230);
+}
+
+.nav-upload-dropdown:hover {
+  cursor: pointer;
+  border-right: 1px solid #ccccd1;
+  border-left: 1px solid #ccccd1;
+}
+
+.nav-upload-dropdown:hover .nav-upload-dropdown-content{
+  display: block;
+  color: #606065;
+}
+
+/* .nav-upload-dropdown:hover .nav-upload-button{
+  position: absolute;
+  right: 15%;
+  top: -5%;
+  background-image:url('<%= asset_path("plus.svg")%>');
+  background-repeat: no-repeat;
+  height: 75px;
+  width: 50px;
+  margin-left: 5px;
+} */
+
+
+
 /* .nav-profile-dropdown {
   position: absolute;
   right: 13%;

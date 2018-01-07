@@ -46,7 +46,16 @@ const Navbar = (props) => {
         </div>
       </div>
 
-      <div className="nav-upload-button"></div>
+
+      <div className="nav-upload-dropdown">
+        <div className="nav-upload-dropdown-content">
+          <Link to="/workouts/new">Create Workout</Link>
+          <Link to="/routes/new">Create a route</Link>
+        </div>
+
+        <div className="nav-upload-button"></div>
+
+      </div>
     </nav>
   );
 };
