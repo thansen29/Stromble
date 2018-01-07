@@ -12,6 +12,9 @@ class DashboardIndex extends React.Component {
   }
 
   render(){
+    // let workoutItem = this.props.workout.map((workout) => {
+    //
+    // })
     return (
       <section className="dashboard-background">
         <Navbar />
