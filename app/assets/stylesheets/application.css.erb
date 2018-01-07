@@ -81,11 +81,75 @@
   cursor: pointer;
 }
 
+
+
+
+
+.nav-profile-dropdown {
+  display: inline-block;
+  padding: 17px 0;
+  padding-left: 10px;
+  width: 5%;
+  position: absolute;
+  right: 19%;
+}
+
+
+.nav-profile-dropdown-content {
+  display: none;
+  position: absolute;
+  left: -93px;
+  background: white;
+  border-right: 1px solid #ccccd1;
+  border-left: 1px solid #ccccd1;
+  border-bottom: 1px solid #ccccd1;
+  border-top: 1px solid #ccccd1;
+  z-index: 1;
+  margin-top: 42px;
+  /* box-sizing: border-box; */
+  /* margin-left: -11px; */
+  width: 215%;
+}
+
+.nav-profile-dropdown-content a {
+  padding: 10px;
+  display: block;
+}
+
+.nav-profile-dropdown-content a:hover {
+  background: rgb(224, 224, 230);
+}
+
+.nav-profile-dropdown:hover {
+  cursor: pointer;
+  border-right: 1px solid #ccccd1;
+  border-left: 1px solid #ccccd1;
+}
+
+.nav-profile-dropdown:hover .nav-profile-dropdown-content{
+  display: block;
+  color: #606065;
+}
+
+.nav-profile-dropdown:hover .nav-title{
+  color: rgb(249, 77, 31);
+  cursor: pointer;
+}
+
+
+
+
+/* .nav-profile-dropdown {
+  position: absolute;
+  right: 13%;
+} */
+
 .nav-avatar {
   background-image: url('<%= asset_path("profile-pic.png")%>') ;
   background-repeat: no-repeat;
-  background-size: 50%;
-  height: 40px;
+  background-size: 25%;
+  height: 30px;
+  width: 125px;
 }
 
 .show-avatar {
@@ -96,10 +160,12 @@
 }
 
 .nav-upload-button {
-  margin-right: 250px;
+  position: absolute;
+  right: 15%;
   background-image:url('<%= asset_path("plus.svg")%>');
   background-repeat: no-repeat;
   height: 24px;
+  width: 50px;
   margin-left: 5px;
 }
 

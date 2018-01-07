@@ -1,5 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { logout } from '../actions/session/session_actions';
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logOut: () => dispatch(logout())
+  };
+};
 
 const Navbar = (props) => {
   return (
@@ -16,7 +24,6 @@ const Navbar = (props) => {
         </div>
       </div>
 
-
       <div className="nav-dropdown">
         <div className="nav-dropdown-content">
           <Link to="/workouts">My Workouts</Link>
@@ -28,12 +35,23 @@ const Navbar = (props) => {
       </div>
 
 
-      <div className="nav-avatar">
-        <i className="fa fa-angle-down profile-down" aria-hidden="true"></i>
+      <div className="nav-profile-dropdown">
+        <div className="nav-profile-dropdown-content">
+          <Link to="#">My Profile</Link>
+          <Link to="/login" onClick={props.logOut}>Log Out</Link>
+        </div>
+
+        <div className="nav-avatar">
+          <i className="fa fa-angle-down profile-down" aria-hidden="true"></i>
+        </div>
       </div>
+
       <div className="nav-upload-button"></div>
     </nav>
   );
 };
 
-export default Navbar;
+// <div className="nav-avatar">
+//   <i className="fa fa-angle-down profile-down" aria-hidden="true"></i>
+// </div>
+export default connect(null, mapDispatchToProps)(Navbar);
