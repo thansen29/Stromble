@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from '../navbar';
+import moment from 'moment';
+
 class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
@@ -22,7 +24,10 @@ class WorkoutShow extends React.Component {
 
   render(){
     //TODO: put actual first name and last name on
-    //parse time and date
+    let momentDate = moment(this.props.workout.time);
+    momentDate = momentDate.parseZone();
+    const date = momentDate.format("MMMM D, YYYY");
+    const time = momentDate.format("h:mm A");
     return (
       <section className="background">
         <Navbar />
@@ -43,7 +48,7 @@ class WorkoutShow extends React.Component {
               <section className="show-leftside">
                 <div className="show-avatar"></div>
                 <section className="show-leftbody">
-                  <div className="show-datetime">A Time on {this.props.workout.date}</div>
+                  <div className="show-datetime">{time} on {date}</div>
                   <div className="show-title">{this.props.workout.title}</div>
                   <div className="show-description">{this.props.workout.description}</div>
                 </section>

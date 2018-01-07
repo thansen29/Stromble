@@ -18,7 +18,6 @@ class DropdownComponent extends React.Component {
 
   registerSection(section){
     this.sectionElement = section;
-    console.log(this.sectionElement);
   }
 
   blurSection(){

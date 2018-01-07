@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import ElevationUnit from '../select_boxes/elevation_unit';
 import Sport from '../select_boxes/sport';
 import ActivityType from '../select_boxes/activity_type';
-
 import DropdownComponent from '../dropdowns/dropdown_component';
+import moment from 'moment';
 
 //TODO: MAKE THE SELECT FIELDS UPDATE ON SELECT!!
 
@@ -38,22 +38,13 @@ class WorkoutForm extends React.Component {
   }
   //TODO: something aint right with the date getting sent to database
   componentDidMount(){
-    const realDate = new Date();
-    const date = realDate.toLocaleDateString();
-    let time = this.getTime();
+    const momentDate = moment();
+    const date = momentDate.format("MM/DD/YYYY");
+    const time = momentDate.format("h:mm A");
     this.setState({
       date: date,
       time: time
     });
-  }
-
-  getTime(){
-    const date = new Date();
-    const time = date.toLocaleTimeString();
-    let first = time.substring(0, 4);
-    let second = time.slice(-2);
-    const fullTime = `${first} ${second}`;
-    return fullTime;
   }
 
   handleSubmit(e){
@@ -199,7 +190,6 @@ class WorkoutForm extends React.Component {
             </div>
           </section>
 
-          {/*TODO: this needs to render at the front*/}
           <section className="workout-row bottom-row">
             <section className="bottom-container">
               <div className="field-container">
@@ -242,28 +232,5 @@ class WorkoutForm extends React.Component {
     );
   }
 }
-// <input
-//    className="workout-input select caret"
-//    placeholder={distance_unit}
-//    value={distance_unit}
-//    onChange={this.handleChange('distance_unit')}
-//    onClick={this.handleDropdown(<DropdownItems
-//       onChange={this.handleSelection('distance_unit')}
-//       items={['kilometers', 'meters', 'miles', 'yards']}
-//       />)}
-
-// <Select
-//   className="select distance-select"
-//   value={distance_unit}
-//   onChange={this.handleSelect('distance_unit')}
-//   clearable={false}
-//   searchable={false}
-//   options={[
-//     { value: 'kilometers', label: 'kilometers' },
-//     { value: 'meters', label: 'meters' },
-//     { value: 'miles', label: 'miles' },
-//     { value: 'yards', label: 'yards' }
-//   ]}
-// />
 
 export default WorkoutForm;
