@@ -106,21 +106,19 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.distance}
                   onChange={this.handleChange('distance')} />
-                <DropdownComponent
-                  items={['kilometers', 'meters', 'miles', 'yards']}
-                  onChange={this.handleSelection('distance_unit')}
-                  initValue={distance_unit}
-                  />
-
+                <div className="distance-select">
+                  <DropdownComponent
+                    items={['kilometers', 'meters', 'miles', 'yards']}
+                    onChange={this.handleSelection('distance_unit')}
+                    initValue={distance_unit}
+                    />
+                </div>
               </div>
-              {/*this.props.component ? this.props.component[0].type.name === 'DistanceUnit' ? this.props.component : null : null */}
-
             </div>
-
 
             <div className="field-container">
               <label htmlFor="duration">Duration</label><br/>
-              <div className="input-wrapper">
+              <div className="input-wrapper ">
                 <input
                   className="workout-input right-line duration-box hours"
                   type="number"
@@ -147,15 +145,14 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.elevation}
                   onChange={this.handleChange('elevation')} />
-                <input
-                  className="workout-input select caret"
-                  placeholder={elevation_unit}
-                  value={elevation_unit}
-                  onChange={this.handleChange('elevation_unit')}
-                  onClick={this.handleDropdown(<ElevationUnit />)}
-                />
+                <div className="distance-select">
+                  <DropdownComponent
+                    items={['feet', 'meters']}
+                    onChange={this.handleSelection('elevation_unit')}
+                    initValue={elevation_unit}
+                    />
+                </div>
               </div>
-              {this.props.component ? this.props.component[0].type.name === 'ElevationUnit' ? this.props.component : null : null }
             </div>
           </section>
 
@@ -163,19 +160,16 @@ class WorkoutForm extends React.Component {
             <section className="mid-row">
               <div className="field-container">
                 <label htmlFor="sport">Sport</label><br/>
-                <div className="input-wrapper">
-                  <input
-                    className="workout-input select sporty-input sport-caret"
-                    placeholder={sport}
-                    value={sport}
-                    onChange={this.handleChange('sport')}
-                    onClick={this.handleDropdown(<Sport />)}
-                  />
+                <div className="input-wrapper sporty-input">
+                  <DropdownComponent
+                    items={['Run', 'Ride']}
+                    onChange={this.handleSelection('sport')}
+                    initValue={sport}
+                    />
                 </div>
-                {this.props.component ? this.props.component[0].type.name === 'Sport' ? this.props.component : null : null }
               </div>
 
-              {/*TODO: decision about date and time inputs*/}
+              {/*TODO: time input leaves off last number sometimes*/}
               <div className="field-container date-container">
                 <label htmlFor="date-time">Date &amp; Time</label><br/>
                 <div className="input-wrapper">
@@ -211,16 +205,12 @@ class WorkoutForm extends React.Component {
               <div className="field-container">
                 <label htmlFor="activity-type">{this.state.sport} type</label><br/>
                 <div className="input-wrapper activity-input">
-                  <input
-                    className="workout-input select activity-input-field sport-caret"
-                    placeholder={activity_type}
-                    value={activity_type}
-                    onChange={this.handleChange('activity_type')}
-                    onClick={this.handleDropdown(<ActivityType />)}
-                  />
+                  <DropdownComponent
+                    items={['Race', 'Workout']}
+                    onChange={this.handleSelection('activity_type')}
+                    initValue={activity_type}
+                    />
                 </div>
-                {this.props.component ? this.props.component[0].type.name === 'ActivityType' ? this.props.component : null : null }
-
               </div>
             </section>
 
@@ -235,10 +225,12 @@ class WorkoutForm extends React.Component {
               </div>
             </div>
 
-            <div className="privacy">
-              <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
-              <div className={this.state.private ? "fa fa-lock locked" : "unlocked"}></div>
-            </div>
+            <label>
+              <div className="privacy">
+                <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
+                <div className={this.state.private ? "fa fa-lock locked" : "unlocked"}></div>
+              </div>
+            </label>
           </section>
 
           <div className="workout-submit">
