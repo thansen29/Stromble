@@ -41,7 +41,7 @@ const Navbar = (props) => {
         </div>
 
         <div className="nav-avatar">
-          <i className="fa fa-angle-down profile-down" aria-hidden="true"></i>
+          <i className="fa fa-angle-down profile-down nav-title" aria-hidden="true"></i>
         </div>
       </div>
 
