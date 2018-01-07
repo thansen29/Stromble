@@ -23,19 +23,65 @@
    font-weight: 540;
    list-style: none;
    box-sizing: border-box;
+   display: flex;
+   align-items: center;
  }
 
-.global-nav ul {
-  display: flex;
-  align-items: center;
-  padding-top: 8px;
+ .global-nav div {
+   margin-right: 30px;
+   /* padding-left: 10px; */
+ }
+
+
+.nav-dropdown {
+  display: inline-block;
+  padding: 15px 0;
+  padding-left: 10px;
+  width: 10%;
 }
 
-.global-nav ul li {
-  padding-right: 50px;
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background: white;
+  border-right: 1px solid #ccccd1;
+  border-left: 1px solid #ccccd1;
+  border-bottom: 1px solid #ccccd1;
+  border-top: 1px solid #ccccd1;
+  z-index: 1;
+  margin-top: 38px;
+  /* box-sizing: border-box; */
+  margin-left: -11px;
+  width: 10%
 }
 
-.avatar {
+.nav-dropdown-content a {
+  padding: 10px;
+  display: block;
+}
+
+.nav-dropdown-content a:hover {
+  background: rgb(224, 224, 230);
+}
+
+.nav-dropdown:hover {
+  cursor: pointer;
+  border-right: 1px solid #ccccd1;
+  border-left: 1px solid #ccccd1;
+}
+
+.nav-dropdown:hover .nav-dropdown-content{
+  display: block;
+  color: #606065;
+}
+
+.nav-dropdown:hover .nav-dashboard{
+  color: rgb(249, 77, 31);
+  cursor: pointer;
+}
+
+.nav-avatar {
   background-image: url('<%= asset_path("profile-pic.png")%>') ;
   background-repeat: no-repeat;
   background-size: 50%;
@@ -49,7 +95,7 @@
   height: 85px;
 }
 
-.upload-button {
+.nav-upload-button {
   margin-right: 250px;
   background-image:url('<%= asset_path("plus.svg")%>');
   background-repeat: no-repeat;
@@ -57,7 +103,7 @@
   margin-left: 5px;
 }
 
-.training {
+.nav-training {
   margin-right: auto;
 }
 
