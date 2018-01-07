@@ -7,14 +7,28 @@ class DashboardIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    this.props.requestWorkouts();
+  }
+
   render(){
     return (
       <section className="dashboard-background">
         <Navbar />
+        <section className="dashboard-container">
+          <aside className="dashboard-left">
+          </aside>
 
-        <button className="signup-submit logout" onClick={this.props.logout}>Log out</button>
-        <br />
-      <Link to="/workouts/new">Temporary link to workout form</Link>
+          <main className="dashboard-main">
+
+          </main>
+
+          <aside className="dashboard-right">
+
+          </aside>
+
+        </section>
+
       </section>
     );
   }

@@ -5,7 +5,6 @@ import Root from './components/root.jsx';
 import { signup, login, logout } from './actions/session/session_actions';
 // import { requestWorkouts, requestWorkout, createWorkout, updateWorkout, deleteWorkout } from './actions/workouts/workout_actions';
 
-
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.dispatch = store.dispatch;
   window.getState = store.getState;
 
-  // window.requestWorkouts = requestWorkouts;
   // window.requestWorkout = requestWorkout;
   // window.createWorkout = createWorkout;
   // window.updateWorkout = updateWorkout;

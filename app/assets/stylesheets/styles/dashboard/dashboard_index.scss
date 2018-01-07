@@ -1,13 +1,44 @@
 .dashboard-background {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  height: 100%;
+  width: 100%;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
   background: #f5f5fa;
 }
 
-.logout {
-  position: absolute;
-  top: -28px;
+.dashboard-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 4%;
+  margin-left: 14%;
+  margin-right: 15%;
+  height: 100%;
+}
+
+.dashboard-left {
+  position: sticky;
+  background: yellow;
+  width: 22%;
+  height: 100%;
+
+}
+
+.dashboard-main {
+  background: blue;
+  width: 45%;
+  height: 100%;
+  // margin-left: 50px;
+  // margin-right: 50px;
+}
+
+.dashboard-right {
+  position: sticky;
+
+  background: red;
+  width: 22%;
+  height: 100%;
+
 }

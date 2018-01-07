@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DashboardIndex from './dashboard_index';
-import { logout } from '../../actions/session/session_actions';
+import { requestWorkouts } from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    logout: () => dispatch(logout())
+    requestWorkouts: () => dispatch(requestWorkouts())
   };
 };
 
