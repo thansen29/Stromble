@@ -1,6 +1,7 @@
 class Api::WorkoutsController < ApplicationController
 
   def index
+    #make this only get for the currentuser 
     @workouts = Workout.all
   end
 

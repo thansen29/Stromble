@@ -100,6 +100,11 @@
   margin-bottom: -45px;
 }
 
+.full-mid-row {
+  display: flex;
+  flex-direction: column;
+}
+
 .bottom-row {
   border-top: 1px solid #ccccd1;
   display: flex;
@@ -116,8 +121,12 @@
 }
 
 .select {
-  height: 32px;
-  text-align: center;
+  height: 34px;
+  // width: 124px;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  align-items: center;
   border: 1px solid #ccccd1;
   color: #2d2d32;
   transition: background-color 300ms;
@@ -128,12 +137,57 @@
   background: rgb(242, 242, 249);
 }
 
+.selected-fields {
+  // display: flex;
+  // flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  background: white;
+  // width: 122px;
+  border-left: 1px solid #ccccd1;
+  border-right: 1px solid #ccccd1;
+  border-bottom: 1px solid #ccccd1;
+}
+
+.activity-input {
+  width: 535px;
+}
+
+.activity-input-field {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.activity-type {
+  width: 540px;
+}
+
+.selected-fields li {
+  padding: 10px;
+}
+
+.sporty-input {
+  text-align: left;
+  // padding-left: 10px;
+  width: 270px;
+
+}
+
+.selected-fields li:hover {
+  cursor: pointer;
+  background: rgb(224, 224, 230);
+}
+
 .select:focus {
   border: 1px solid rgb(13, 107, 167);
 }
 
 .distance-select {
-  width: 125px;
+  width: 124px;
+  position: relative;
+  z-index: 60;
 }
 
 .sport-select {
@@ -145,13 +199,14 @@
 }
 
 .title-input {
-  width: 540px;
+  width: 535px;
 }
 
-.Select-value {
-  margin-top: 7px;
+.dropdown-section-element {
+  position: relative;
+  width: 100%;
 }
 
-.Select-placeholder {
-  margin-top: 7px;
+.dropdown-section-element:focus {
+  background: white;
 }

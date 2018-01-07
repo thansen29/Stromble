@@ -1,12 +1,18 @@
 import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
-// import DropdownComponent from './dropdown_component';
+// import DistanceUnit from '../select_boxes/distance_unit';
+import ElevationUnit from '../select_boxes/elevation_unit';
+import Sport from '../select_boxes/sport';
+import ActivityType from '../select_boxes/activity_type';
+import DropdownComponent from '../dropdowns/dropdown_component';
+import moment from 'moment';
+
+//TODO: MAKE THE SELECT FIELDS UPDATE ON SELECT!!
 
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
-    //careful of the state currently string and coming in as something else
     this.state = {
       distance: "",
       distance_unit: "miles",
@@ -25,49 +31,34 @@ class WorkoutForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
+    // this.handleSelection = this.handleSelection.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
 
   }
-
+  //TODO: something aint right with the date getting sent to database
   componentDidMount(){
-    const realDate = new Date();
-    const date = realDate.toLocaleDateString();
-    let time = this.getTime();
+    const momentDate = moment();
+    const date = momentDate.format("MM/DD/YYYY");
+    const time = momentDate.format("h:mm A");
     this.setState({
       date: date,
       time: time
     });
   }
 
-  getTime(){
-    const date = new Date();
-    const time = date.toLocaleTimeString();
-    let first = time.substring(0, 4);
-    let second = time.slice(-2);
-    const fullTime = `${first} ${second}`;
-    return fullTime;
-  }
-
   handleSubmit(e){
     e.preventDefault();
     const workout = Object.assign({}, this.state);
     workout['user_id'] = this.props.userId;
-    this.props.createWorkout(workout).then((newWorkout) => {
-      this.props.history.push("/dashboard"); //change this to show
-    });
+    this.props.createWorkout(workout).then((() => {
+      this.props.history.push(`/workouts/${this.props.workoutId}`);
+    }).bind(this));
   }
 
   handleChange(field){
     return e => {
       this.setState( { [field]: e.target.value } );
-    };
-
-  }
-
-  handleSelect(field){
-    return e => {
-      this.setState({ [field]: e.value });
     };
   }
 
@@ -77,14 +68,26 @@ class WorkoutForm extends React.Component {
     });
   }
 
+  handleDropdown(component){
+    return e => {
+      this.props.openDropdown(component);
+    };
+  }
+
+  handleSelection(field){
+    return e => {
+      this.setState({ [field]: e });
+      console.log(this);
+    };
+  }
+
   render(){
     const { distance_unit, elevation_unit, sport, activity_type } = this.state;
-  	// const value = selectedOption && selectedOption.value;
+
     return (
       <main className="form-container">
         <h1>Manual Entry</h1>
         <form className="workout-form" onSubmit={this.handleSubmit}>
-
           <section className="workout-row">
             <div className="field-container">
               <label htmlFor="distance">Distance</label><br/>
@@ -94,25 +97,19 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.distance}
                   onChange={this.handleChange('distance')} />
-                <Select
-                  className="select distance-select"
-                  value={distance_unit}
-                  onChange={this.handleSelect('distance_unit')}
-                  clearable={false}
-                  searchable={false}
-                  options={[
-                    { value: 'kilometers', label: 'kilometers' },
-                    { value: 'meters', label: 'meters' },
-                    { value: 'miles', label: 'miles' },
-                    { value: 'yards', label: 'yards' }
-                  ]}
-                />
+                <div className="distance-select">
+                  <DropdownComponent
+                    items={['kilometers', 'meters', 'miles', 'yards']}
+                    onChange={this.handleSelection('distance_unit')}
+                    initValue={distance_unit}
+                    />
+                </div>
               </div>
             </div>
 
             <div className="field-container">
               <label htmlFor="duration">Duration</label><br/>
-              <div className="input-wrapper">
+              <div className="input-wrapper ">
                 <input
                   className="workout-input right-line duration-box hours"
                   type="number"
@@ -139,86 +136,70 @@ class WorkoutForm extends React.Component {
                   type="number"
                   value={this.state.elevation}
                   onChange={this.handleChange('elevation')} />
-                <Select
-                  className="select distance-select"
-                  value={elevation_unit}
-                  onChange={this.handleSelect('elevation_unit')}
-                  clearable={false}
-                  searchable={false}
-                  options={[
-                    { value: 'meters', label: 'meters' },
-                    { value: 'feet', label: 'feet' }
-                  ]}
-                />
+                <div className="distance-select">
+                  <DropdownComponent
+                    items={['feet', 'meters']}
+                    onChange={this.handleSelection('elevation_unit')}
+                    initValue={elevation_unit}
+                    />
+                </div>
               </div>
             </div>
           </section>
 
-          {/*TODO: this needs to render at the front*/}
-          <section className="mid-row">
-            <div className="field-container">
-              <label htmlFor="sport">Sport</label><br/>
-              <div className="input-wrapper">
-                <Select
-                  className="select sport-select"
-                  value={sport}
-                  onChange={this.handleSelect('sport')}
-                  clearable={false}
-                  searchable={false}
-                  options={[
-                    { value: 'Run', label: 'Run' },
-                    { value: 'Ride', label: 'Ride' }
-                  ]}
-                />
+          <section className="full-mid-row">
+            <section className="mid-row">
+              <div className="field-container">
+                <label htmlFor="sport">Sport</label><br/>
+                <div className="input-wrapper sporty-input">
+                  <DropdownComponent
+                    items={['Run', 'Ride']}
+                    onChange={this.handleSelection('sport')}
+                    initValue={sport}
+                    />
+                </div>
               </div>
-            </div>
 
-            {/*TODO: decision about date and time inputs*/}
-            <div className="field-container date-container">
-              <label htmlFor="date-time">Date &amp; Time</label><br/>
+              {/*TODO: time input leaves off last number sometimes*/}
+              <div className="field-container date-container">
+                <label htmlFor="date-time">Date &amp; Time</label><br/>
+                <div className="input-wrapper">
+                  <input
+                    className="workout-input right-line datetime"
+                    type="text"
+                    value={this.state.date}
+                    onChange={this.handleChange('date')} />
+                  <input
+                    className="workout-input datetime"
+                    type="text"
+                    value={this.state.time}
+                    onChange={this.handleChange('time')} />
+                </div>
+              </div>
+            </section>
+
+            <div className="field-container title-input">
+              <label htmlFor="title">Title</label><br/>
               <div className="input-wrapper">
                 <input
-                  className="workout-input right-line datetime"
+                  className="workout-input title-input left-align"
                   type="text"
-                  value={this.state.date}
-                  onChange={this.handleChange('date')} />
-                <input
-                  className="workout-input datetime"
-                  type="text"
-                  value={this.state.time}
-                  onChange={this.handleChange('time')} />
+                  value={this.state.title}
+                  onChange={this.handleChange('title')} />
               </div>
             </div>
           </section>
 
-          <div className="field-container title-input">
-            <label htmlFor="title">Title</label><br/>
-            <div className="input-wrapper">
-              <input
-                className="workout-input title-input left-align"
-                type="text"
-                value={this.state.title}
-                onChange={this.handleChange('title')} />
-            </div>
-          </div>
-
-          {/*TODO: this needs to render at the front*/}
           <section className="workout-row bottom-row">
             <section className="bottom-container">
               <div className="field-container">
                 <label htmlFor="activity-type">{this.state.sport} type</label><br/>
-                <div className="input-wrapper">
-                  <Select
-                    className="select sport-select"
-                    value={activity_type}
-                    onChange={this.handleSelect('activity_type')}
-                    clearable={false}
-                    searchable={false}
-                    options={[
-                      { value: 'Race', label: 'Race' },
-                      { value: 'Workout', label: 'Workout' }
-                    ]}
-                  />
+                <div className="input-wrapper activity-input">
+                  <DropdownComponent
+                    items={['Race', 'Workout']}
+                    onChange={this.handleSelection('activity_type')}
+                    initValue={activity_type}
+                    />
                 </div>
               </div>
             </section>
@@ -234,10 +215,12 @@ class WorkoutForm extends React.Component {
               </div>
             </div>
 
-            <div className="privacy">
-              <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
-              <div className={this.state.private ? "fa fa-lock locked" : "unlocked"}></div>
-            </div>
+            <label>
+              <div className="privacy">
+                <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
+                <div className={this.state.private ? "fa fa-lock locked" : "unlocked"}></div>
+              </div>
+            </label>
           </section>
 
           <div className="workout-submit">
