@@ -1,7 +1,7 @@
 import React from 'react';
 
 //TODO: display the totals in this component
-class WorkoutTotalsContent extends React.Component {
+class RunTotalsContent extends React.Component {
   constructor(props){
     super(props);
   }
@@ -9,9 +9,9 @@ class WorkoutTotalsContent extends React.Component {
   render(){
     // debugger
     return(
-      <div>hi</div>
+      <div>hi im run totals</div>
     );
   }
 }
 
-export default WorkoutTotalsContent;
+export default RunTotalsContent;

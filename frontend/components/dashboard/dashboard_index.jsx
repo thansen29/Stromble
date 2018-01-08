@@ -3,7 +3,8 @@ import Navbar from '../navbar';
 import { Link } from 'react-router-dom';
 import WorkoutItem from './workout_item';
 import Tabs from './tabs';
-import WorkoutTotalsContent from './workout_totals';
+import RunTotalsContent from './run_totals';
+import RideTotalsContent from './ride_totals';
 
 class DashboardIndex extends React.Component {
   constructor(props){
@@ -31,8 +32,8 @@ class DashboardIndex extends React.Component {
       });
     }
     const tabs = [
-      { title: "shoe-tab", content: "run fast"},
-      { title: "bike-tab", content: "ride fast"}
+      { title: "shoe-tab", content: <RunTotalsContent /> },
+      { title: "bike-tab", content: <RideTotalsContent /> }
     ];
     return (
       <section className="dashboard-background">
