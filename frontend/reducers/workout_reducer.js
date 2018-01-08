@@ -7,12 +7,16 @@ const defaultState = {
 
 const workoutReducer = (state = defaultState, action) => {
   let newState;
+  let newWorkoutList;
   switch (action.type) {
     case RECEIVE_WORKOUTS:
-      return action.workouts;
+      newWorkoutList = Object.assign({}, state.workouts, action.workouts);
+      newState = Object.assign({}, state, {workouts: newWorkoutList});
+      return newState;
+      // return action.workouts;
     case RECEIVE_WORKOUT:
       // newState = Object.assign({}, state, {[action.workout.id]: action.workout } );
-      const newWorkoutList = Object.assign({}, state.workouts, {[action.workout.id]: action.workout });
+      newWorkoutList = Object.assign({}, state.workouts, {[action.workout.id]: action.workout });
       newState = Object.assign({}, state, {workouts: newWorkoutList, activeWorkout: action.workout.id});
       return newState;
     case REMOVE_WORKOUT:

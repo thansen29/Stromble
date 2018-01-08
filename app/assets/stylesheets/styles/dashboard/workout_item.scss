@@ -1,11 +1,21 @@
 .workout-item-container {
-  border: 1px solid black;
+  border: 1px solid white;
+  margin-bottom: 20px;
+  background: white;
 }
 
 .workout-item {
   margin: 30px;
   display: flex;
   flex-direction: column;
+}
+
+.item-top-row {
+  position: relative;
+}
+
+.item-mid-row {
+  position: relative;
 }
 
 .workout-item div {
@@ -43,7 +53,7 @@
 }
 
 .item-bottom-row {
-  padding-bottom: 30px;
+  padding-bottom: 25px;
   border-bottom: 1px solid #ccccd1;
 
 }

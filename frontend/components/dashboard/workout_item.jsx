@@ -8,7 +8,7 @@ class WorkoutItem extends React.Component {
   }
 
   render(){
-    const { activity_type, description, distance, distance_unit, duration_hr, duration_min, elevation, elevation_unit, sport, time, title, id} = this.props.workout;
+    const { key, activity_type, description, distance, distance_unit, duration_hr, duration_min, elevation, elevation_unit, sport, time, title, id} = this.props.workout;
     let pace = distance / (duration_hr + (duration_min/60));
     pace = pace.toString().substring(0,4);
 
@@ -19,7 +19,7 @@ class WorkoutItem extends React.Component {
 
     return (
       <section className="workout-item-container">
-        <li className="workout-item">
+        <li key={key} className="workout-item">
           <div className="item-top-row">
             <span className="item-avatar"></span>
             <div className="item-body">

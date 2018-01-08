@@ -8,11 +8,21 @@ class DashboardIndex extends React.Component {
     super(props);
   }
 
-  // componentWillMount(){
-  //   this.props.requestWorkouts();
-  // }
+  componentWillMount(){
+    // debugger
+    this.props.requestWorkouts();
+  }
 
   render(){
+    let workoutItems;
+    if(this.props.workouts.length > 0){
+      workoutItems = this.props.workouts.map((workout) => {
+        return (
+          <WorkoutItem workout={workout} key={workout.id} />
+        );
+      });
+    }
+
     return (
       <section className="dashboard-background">
         <Navbar />
@@ -22,7 +32,7 @@ class DashboardIndex extends React.Component {
 
           <main className="dashboard-main">
             <ul className="dashboard-feed-ul">
-              <WorkoutItem workout={this.props.workout} />
+              { workoutItems }
             </ul>
           </main>
 
