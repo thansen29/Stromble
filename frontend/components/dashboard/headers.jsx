@@ -7,7 +7,10 @@ const Headers = (props) => {
     let klass = '';
     if(index === selected){
       klass = 'active';
+    } else {
+      klass = 'inactive';
     }
+
 
     return (
       <li

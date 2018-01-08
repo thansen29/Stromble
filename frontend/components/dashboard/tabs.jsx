@@ -22,7 +22,6 @@ class Tabs extends React.Component{
     return (
       <section>
         <div className="tabs">
-          <h1>Activity Totals</h1>
           <Headers
             selectedPane={this.state.selectedPane}
             onTabChosen={this.selectTab}

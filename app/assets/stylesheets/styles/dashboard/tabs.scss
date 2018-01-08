@@ -1,0 +1,33 @@
+.tabs {
+  background: white;
+  padding: 0 0 10px 0;
+  // border: 1px solid black;
+}
+
+// .tabs h1 {
+//   font-size: 18px;
+//   margin-bottom: 10px;
+// }
+
+.tab-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab-header li {
+  width: 50%;
+  text-align: center;
+}
+
+.tab-header li:hover {
+  cursor: pointer;
+}
+
+.inactive {
+  background: #f5f5fa;
+  height: 30px
+}
+
+.active {
+  height: 30px;
+}
