@@ -16,13 +16,20 @@ class DashboardIndex extends React.Component {
 
   render(){
     let workoutItems;
+    let message;
     if(this.props.workouts.length > 0){
       workoutItems = this.props.workouts.map((workout) => {
+        message =
+        <div className="no-workouts">
+          You don't have any more workouts!
+          <Link to="/workouts/new"> Get moving!</Link>
+        </div>;
         return (
           <WorkoutItem workout={workout} key={workout.id} />
         );
       });
     }
+    // debugger
 
     return (
       <section className="dashboard-background">
@@ -35,6 +42,7 @@ class DashboardIndex extends React.Component {
             <ul className="dashboard-feed-ul">
               { workoutItems }
             </ul>
+            { message }
           </main>
 
           <aside className="dashboard-right">

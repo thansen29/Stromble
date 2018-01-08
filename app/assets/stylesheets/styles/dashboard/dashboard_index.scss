@@ -25,6 +25,7 @@
   height: 100%;
 }
 
+
 .dashboard-main {
   background: #f5f5fa;
   width: 45%;
@@ -34,9 +35,19 @@
 
 .dashboard-right {
   position: sticky;
-
   background: red;
   width: 22%;
   height: 100%;
+}
 
+.no-workouts {
+  background: white;
+  height: 100px;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.no-workouts a:hover {
+  color: rgb(9, 71, 111);
 }

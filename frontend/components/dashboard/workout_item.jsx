@@ -8,6 +8,7 @@ class WorkoutItem extends React.Component {
   }
 
   render(){
+    // debugger
     const { key, activity_type, description, distance, distance_unit, duration_hr, duration_min, duration_s, elevation, elevation_unit, sport, time, title, id} = this.props.workout;
     let pace = distance / (duration_hr + (duration_min/60));
     //TODO: fix average pace?
