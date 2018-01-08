@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../navbar';
 import { Link } from 'react-router-dom';
 import WorkoutItem from './workout_item';
+import Tabs from './tabs';
 import WorkoutTotalsContent from './workout_totals';
 
 class DashboardIndex extends React.Component {
@@ -13,7 +14,6 @@ class DashboardIndex extends React.Component {
     this.props.clearWorkouts();
     this.props.requestWorkouts();
   }
-
 
   render(){
     let workoutItems;
@@ -30,13 +30,16 @@ class DashboardIndex extends React.Component {
         );
       });
     }
-
+    const tabs = [
+      { title: "Run", content: "run fast"},
+      { title: "Ride", content: "ride fast"}
+    ];
     return (
       <section className="dashboard-background">
         <Navbar />
         <section className="dashboard-container">
           <aside className="dashboard-left">
-
+            <Tabs panes={tabs} />
           </aside>
 
           <main className="dashboard-main">

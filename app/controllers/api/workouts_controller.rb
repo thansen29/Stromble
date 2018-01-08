@@ -32,6 +32,8 @@ class Api::WorkoutsController < ApplicationController
     render json: {}
   end
 
+  
+
   private
   def workout_params
     params.require(:workout).permit(:user_id, :distance, :distance_unit,

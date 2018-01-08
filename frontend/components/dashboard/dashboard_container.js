@@ -5,7 +5,9 @@ import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_a
 const mapStateToProps = state => {
 //workouts needs to be an array with all the workouts in it
   return {
-    workouts: Object.values(state.workout.workouts).reverse()
+    workouts: Object.values(state.workout.workouts).reverse(),
+    loggedIn: Boolean(state.session.currentUser.fname)
+
   };
 };
 
