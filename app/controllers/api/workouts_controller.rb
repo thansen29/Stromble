@@ -1,8 +1,8 @@
 class Api::WorkoutsController < ApplicationController
 
   def index
-    #make this only get for the currentuser 
-    @workouts = Workout.all
+    #TODO:make this only get for the currentuser
+    @workouts = Workout.all.where(user_id: current_user.id)
   end
 
   def show

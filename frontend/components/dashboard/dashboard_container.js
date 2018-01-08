@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DashboardIndex from './dashboard_index';
-import { requestWorkouts } from '../../actions/workouts/workout_actions';
+import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = state => {
 //workouts needs to be an array with all the workouts in it
@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestWorkouts: () => dispatch(requestWorkouts())
+    requestWorkouts: () => dispatch(requestWorkouts()),
+    clearWorkouts: () => dispatch(clearWorkouts())
   };
 };
 

@@ -1,4 +1,4 @@
-import { RECEIVE_WORKOUTS, RECEIVE_WORKOUT, REMOVE_WORKOUT } from '../actions/workouts/workout_actions';
+import { RECEIVE_WORKOUTS, RECEIVE_WORKOUT, REMOVE_WORKOUT, CLEAR_WORKOUTS } from '../actions/workouts/workout_actions';
 
 const defaultState = {
   workouts: {},
@@ -24,6 +24,9 @@ const workoutReducer = (state = defaultState, action) => {
       delete newState.workouts[action.workoutId];
       newState.activeWorkout = null;
       return newState;
+    case CLEAR_WORKOUTS:
+      // debugger
+      return defaultState;
     default:
       return state;
   }

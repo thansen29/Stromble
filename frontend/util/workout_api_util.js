@@ -1,12 +1,11 @@
 export const fetchWorkouts = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/workouts'
+    url: `api/workouts/`
   });
 };
 
 export const fetchWorkout = id => {
-  debugger
   return $.ajax({
     method: 'GET',
     url: `api/workouts/${id}`
