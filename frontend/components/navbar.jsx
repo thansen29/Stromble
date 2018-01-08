@@ -37,6 +37,7 @@ const Navbar = (props) => {
         </div>
       </div>
 
+      <div className="nav-profile-container">
         <div className="nav-profile-dropdown">
           <div className="nav-profile-dropdown-content">
             <Link to="/login" onClick={props.logOut}>Log Out</Link>
@@ -46,7 +47,9 @@ const Navbar = (props) => {
             <i className="fa fa-angle-down profile-down nav-title" aria-hidden="true"></i>
           </div>
         </div>
+      </div>
 
+      <div className="nav-upload-container">
         <div className="nav-upload-dropdown">
           <div className="nav-upload-dropdown-content">
             <Link to="/workouts/new">Create a workout</Link>
@@ -55,11 +58,9 @@ const Navbar = (props) => {
 
           <div className="nav-upload-button"></div>
         </div>
+      </div>
     </nav>
   );
 };
 
-// <div className="nav-avatar">
-//   <i className="fa fa-angle-down profile-down" aria-hidden="true"></i>
-// </div>
 export default connect(null, mapDispatchToProps)(Navbar);
