@@ -8,9 +8,9 @@ class DashboardIndex extends React.Component {
     super(props);
   }
 
-  componentWillMount(){
-    this.props.requestWorkouts();
-  }
+  // componentWillMount(){
+  //   this.props.requestWorkouts();
+  // }
 
   render(){
     return (
@@ -22,7 +22,7 @@ class DashboardIndex extends React.Component {
 
           <main className="dashboard-main">
             <ul className="dashboard-feed-ul">
-
+              <WorkoutItem workout={this.props.workout} />
             </ul>
           </main>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../navbar';
 import moment from 'moment';
 
+//TODO:VERY IMPORTANT MAKE IT GET THE INFO ON PAGE LOAD
 class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
