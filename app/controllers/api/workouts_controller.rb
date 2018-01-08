@@ -32,7 +32,29 @@ class Api::WorkoutsController < ApplicationController
     render json: {}
   end
 
-  
+  def total_distance
+
+  end
+
+  def longest_distance
+
+  end
+
+  def longest_duration
+
+  end
+
+  def total_runs
+
+  end
+
+  def total_rides
+
+  end
+
+  def fasted_speed
+
+  end
 
   private
   def workout_params

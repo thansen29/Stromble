@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: :create
     resource :session, only: [:create, :destroy]
-    resources :workouts, except: :new
+    resources :workouts do
+      get :total_distance, on: :member
+      get :longest_distance, on: :member
+      get :longest_duration, on: :member
+      get :total_runs, on: :member
+      get :total_rides, on: :member
+      get :fasted_speed, on: :member
+    end
   end
 end
