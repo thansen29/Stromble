@@ -6,6 +6,10 @@ class RunTotalsContent extends React.Component {
     super(props);
   }
 
+  componentDidMount(){
+    
+  }
+
   render(){
     // debugger
     return(

@@ -16,7 +16,8 @@ class WorkoutItem extends React.Component {
 
     let momentDate = moment(time);
     momentDate = momentDate.parseZone();
-    const parsedDate = momentDate.format("MMMM D, YYYY");
+    // const parsedDate = momentDate.format("MMMM D, YYYY");
+    const parsedDate = momentDate.calendar();
     const parsedTime = momentDate.format("h:mm A");
 
     return (
@@ -26,7 +27,7 @@ class WorkoutItem extends React.Component {
             <span className="item-avatar"></span>
             <div className="item-body">
               Fname Lname <br/>
-            <span className="show-datetime">{ parsedDate } at { parsedTime }</span>
+            <span className="show-datetime">{ parsedDate }</span>
             </div>
           </div>
 
