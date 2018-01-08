@@ -55,5 +55,12 @@
 .item-bottom-row {
   padding-bottom: 25px;
   border-bottom: 1px solid #ccccd1;
+}
 
+.fa-item {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 16px;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }

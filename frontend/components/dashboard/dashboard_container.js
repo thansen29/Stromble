@@ -5,7 +5,7 @@ import { requestWorkouts } from '../../actions/workouts/workout_actions';
 const mapStateToProps = state => {
 //workouts needs to be an array with all the workouts in it
   return {
-    workouts: Object.values(state.workout.workouts)
+    workouts: Object.values(state.workout.workouts).reverse()
   };
 };
 

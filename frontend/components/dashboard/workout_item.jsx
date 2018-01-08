@@ -34,7 +34,12 @@ class WorkoutItem extends React.Component {
             }
             <div className="item-body">
               <Link to={`/workouts/${id}`}>
-                <h1 className="item-body-title">{ title }</h1>
+                <span className="item-body-title">
+                  { title }
+                  { this.props.workout.private ?
+                    <i className="fa-item fa-lock"></i> : null
+                  }
+                </span>
               </Link>
             </div>
           </div>
