@@ -1,20 +1,18 @@
 import React from 'react';
 import Navbar from '../navbar';
 import { Link } from 'react-router-dom';
+import WorkoutItem from './workout_item';
 
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.requestWorkouts();
   }
 
   render(){
-    // let workoutItem = this.props.workout.map((workout) => {
-    //
-    // })
     return (
       <section className="dashboard-background">
         <Navbar />
@@ -23,7 +21,9 @@ class DashboardIndex extends React.Component {
           </aside>
 
           <main className="dashboard-main">
+            <ul className="dashboard-feed-ul">
 
+            </ul>
           </main>
 
           <aside className="dashboard-right">

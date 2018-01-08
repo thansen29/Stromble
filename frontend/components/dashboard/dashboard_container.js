@@ -3,8 +3,8 @@ import DashboardIndex from './dashboard_index';
 import { requestWorkouts } from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = state => {
+
   return {
-    workouts: state.workout
   };
 };
 

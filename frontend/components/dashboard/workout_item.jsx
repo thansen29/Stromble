@@ -7,10 +7,8 @@ class WorkoutItem extends React.Component {
   }
 
   render(){
-    let workoutItem = this.props.workouts.map((workout) => {
-      return (
-        <div></div>
-      );
-    });
+    
   }
 }
+
+export default WorkoutItem;
