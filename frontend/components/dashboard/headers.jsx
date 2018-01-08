@@ -3,13 +3,18 @@ import React from 'react';
 const Headers = (props) => {
   const selected = props.selectedPane;
   const headers = props.panes.map((pane, index) => {
-    let title = pane.title;
     let klass = '';
     if(index === selected){
       klass = 'active';
     } else {
       klass = 'inactive';
     }
+    // let title = pane.title;
+    let title =  klass === "active" ?
+    <span className={`${pane.title}`}></span>
+      : <span className={`alt-${pane.title}`}></span>;
+
+
 
 
     return (

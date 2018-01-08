@@ -31,8 +31,8 @@ class DashboardIndex extends React.Component {
       });
     }
     const tabs = [
-      { title: "Run", content: "run fast"},
-      { title: "Ride", content: "ride fast"}
+      { title: "shoe-tab", content: "run fast"},
+      { title: "bike-tab", content: "ride fast"}
     ];
     return (
       <section className="dashboard-background">
