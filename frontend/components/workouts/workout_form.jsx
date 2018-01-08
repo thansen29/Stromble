@@ -2,10 +2,6 @@
 import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
-// import DistanceUnit from '../select_boxes/distance_unit';
-import ElevationUnit from '../select_boxes/elevation_unit';
-import Sport from '../select_boxes/sport';
-import ActivityType from '../select_boxes/activity_type';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import moment from 'moment';
 
