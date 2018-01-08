@@ -8,10 +8,14 @@ class WorkoutItem extends React.Component {
   }
 
   render(){
-    let momentDate = moment(this.props.workout.time);
+    const { activity_type, description, distance, distance_unit, duration_hr, duration_min, elevation, elevation_unit, sport, time, title, id} = this.props.workout;
+    let pace = distance / (duration_hr + (duration_min/60));
+    pace = pace.toString().substring(0,4);
+
+    let momentDate = moment(time);
     momentDate = momentDate.parseZone();
-    const date = momentDate.format("MMMM D, YYYY");
-    const time = momentDate.format("h:mm A");
+    const parsedDate = momentDate.format("MMMM D, YYYY");
+    const parsedTime = momentDate.format("h:mm A");
 
     return (
       <section className="workout-item-container">
@@ -20,23 +24,57 @@ class WorkoutItem extends React.Component {
             <span className="item-avatar"></span>
             <div className="item-body">
               Fname Lname <br/>
-              <span className="show-datetime">{ date } at { time }</span>
+            <span className="show-datetime">{ parsedDate } at { parsedTime }</span>
             </div>
           </div>
 
           <div className="item-mid-row">
-            {this.props.workout.sport === "Run" ?
+            { sport === "Run" ?
               <span className="shoe"></span> : <span className="bike"></span>
             }
             <div className="item-body">
-              <Link to={`/workouts/${this.props.workout.id}`}>
-                <h1 className="item-body-title">{ this.props.workout.title }</h1>
+              <Link to={`/workouts/${id}`}>
+                <h1 className="item-body-title">{ title }</h1>
               </Link>
             </div>
           </div>
 
           <div className="item-bottom-row">
+            <div className="item-body">
+              <span className="show-datetime item-stat">Moving Time</span>
+              { distance ?
+                <span className="show-datetime item-stat item-stat-el">Distance</span> : null
+              }
 
+              { distance ?
+                <span className="show-datetime item-stat item-stat-el">Average Pace</span> : null
+
+              }
+
+              { elevation ?
+                <span className="show-datetime item-stat-el">Elevation Gain</span> : null
+              }
+              <br/>
+
+              <span className="item-stat-value">
+                {duration_hr}h {duration_min}m
+              </span>
+
+              { distance ?
+                <span className="item-stat-value">{distance}{distance_unit}</span> : null
+              }
+
+              { distance ?
+                <span className="item-stat-value">{pace}/{distance_unit}</span> : null
+              }
+
+              { elevation ?
+                <span className="item-stat-value">
+                  {elevation}{elevation_unit}
+                </span> : null
+              }
+
+            </div>
           </div>
         </li>
       </section>
