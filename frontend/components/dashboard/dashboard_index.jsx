@@ -9,7 +9,7 @@ class DashboardIndex extends React.Component {
   }
 
   componentWillMount(){
-    this.props.clearWorkouts();//not clearing properly
+    this.props.clearWorkouts();
     this.props.requestWorkouts();
   }
 

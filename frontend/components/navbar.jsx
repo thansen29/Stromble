@@ -19,7 +19,8 @@ const Navbar = (props) => {
           <div className="nav-dropdown-content">
             <Link to="/routes">My Routes</Link>
           </div>
-          <div className="nav-title">Dashboard
+          <div className="nav-title">
+            <Link to="/dashboard">Dashboard</Link>
             <i className="fa fa-angle-down" aria-hidden="true"></i>
           </div>
         </div>
