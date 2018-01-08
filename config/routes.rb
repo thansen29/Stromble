@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     resources :users, only: :create
     resource :session, only: [:create, :destroy]
     resources :workouts do
-      get :total_distance, on: :member
+      get :total_run_distance, on: :member
+      get :total_ride_distance, on: :member
       get :longest_distance, on: :member
       get :longest_duration, on: :member
       get :total_runs, on: :member
