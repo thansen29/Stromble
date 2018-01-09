@@ -6,7 +6,7 @@ class RideTotalsContent extends React.Component {
   }
 
   render(){
-      const { runDistance, rideDistance, longestRideDistance, longestDuration, totalRides } = this.props.stats;
+      const { runDistance, rideDistance, longestRideDistance, longestRideDuration, totalRides } = this.props.stats;
       const totalDistance = runDistance + rideDistance;
       //TODO: makes the units of measurement relative to what they actaully are ie
         //all stats are in kilometers
@@ -24,8 +24,8 @@ class RideTotalsContent extends React.Component {
           <label className="stats-label">Longest Ride Distance</label>
             <div className="stats-value">{longestRideDistance} miles</div>
 
-          <label className="stats-label">Longest Total Duration</label>
-            <div className="stats-value">{longestDuration} hours</div>
+          <label className="stats-label">Longest Ride Duration</label>
+            <div className="stats-value">{longestRideDuration} hours</div>
         </main>
       );
   }

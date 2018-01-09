@@ -26,10 +26,17 @@ export const fetchLongestRideDistance = () => {
   });
 };
 
-export const fetchLongestDuration = () => {
+export const fetchLongestRunDuration = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/longest_duration'
+    url: 'api/longest_run_duration'
+  });
+};
+
+export const fetchLongestRideDuration = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/longest_ride_duration'
   });
 };
 

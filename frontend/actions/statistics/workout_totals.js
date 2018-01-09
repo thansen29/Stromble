@@ -3,7 +3,8 @@ export const RECEIVE_RUN_DISTANCE = 'RECEIVE_RUN_DISTANCE';
 export const RECEIVE_RIDE_DISTANCE = 'RECEIVE_RIDE_DISTANCE';
 export const RECEIVE_LONGEST_RUN_DISTANCE = 'RECEIVE_LONGEST_RUN_DISTANCE';
 export const RECEIVE_LONGEST_RIDE_DISTANCE = 'RECEIVE_LONGEST_RIDE_DISTANCE';
-export const RECEIVE_LONGEST_DURATION = 'RECEIVE_LONGEST_DURATION';
+export const RECEIVE_LONGEST_RUN_DURATION = 'RECEIVE_LONGEST_RUN_DURATION';
+export const RECEIVE_LONGEST_RIDE_DURATION = 'RECEIVE_LONGEST_RIDE_DURATION';
 export const RECEIVE_TOTAL_RUNS = 'RECEIVE_TOTAL_RUNS';
 export const RECEIVE_TOTAL_RIDES = 'RECEIVE_TOTAL_RIDES';
 export const RECEIVE_FASTED_SPEED = 'RECEIVE_FASTED_SPEED';
@@ -36,9 +37,16 @@ export const receiveLongestRideDistance = (distance) => {
   };
 };
 
-export const receiveLongestDuration = (duration) => {
+export const receiveLongestRunDuration = (duration) => {
   return {
-    type: RECEIVE_LONGEST_DURATION,
+    type: RECEIVE_LONGEST_RUN_DURATION,
+    duration
+  };
+};
+
+export const receiveLongestRideDuration = (duration) => {
+  return {
+    type: RECEIVE_LONGEST_RIDE_DURATION,
     duration
   };
 };
@@ -89,9 +97,15 @@ export const requestLongestRideDistance = () => dispatch => {
   });
 };
 
-export const requestLongestDuration = () => dispatch => {
-  return StatsAPIUtil.fetchLongestDuration().then((duration) => {
-    dispatch(receiveLongestDuration(duration));
+export const requestLongestRunDuration = () => dispatch => {
+  return StatsAPIUtil.fetchLongestRunDuration().then((duration) => {
+    dispatch(receiveLongestRunDuration(duration));
+  });
+};
+
+export const requestLongestRideDuration = () => dispatch => {
+  return StatsAPIUtil.fetchLongestRideDuration().then((duration) => {
+    dispatch(receiveLongestRideDuration(duration));
   });
 };
 

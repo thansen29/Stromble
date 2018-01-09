@@ -52,9 +52,14 @@ class Api::WorkoutsController < ApplicationController
     render json: { longestRideDistance: distance }
   end
 
-  def longest_duration
-    duration = Workout.where(user: current_user).maximum(:duration_hr)
-    render json: { longestDuration: duration }
+  def longest_run_duration
+    duration = Workout.where(user: current_user, sport: "Run").maximum(:duration_hr)
+    render json: { longestRunDuration: duration }
+  end
+
+  def longest_ride_duration
+    duration = Workout.where(user: current_user, sport: 'Ride').maximum(:duration_hr)
+    render json: { longestRideDuration: duration }
   end
 
   def total_runs

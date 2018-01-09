@@ -21,7 +21,8 @@ class DashboardIndex extends React.Component {
     this.props.requestRideDistance();
     this.props.requestLongestRunDistance();
     this.props.requestLongestRideDistance();
-    this.props.requestLongestDuration();
+    this.props.requestLongestRunDuration();
+    this.props.requestLongestRideDuration();
     this.props.requestTotalRuns();
     this.props.requestTotalRides();
   }
