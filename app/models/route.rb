@@ -22,8 +22,22 @@ class Route < ApplicationRecord
   validates :user, :title, :start_lat, :start_lng, :end_lat, :end_lng,
   :distance, :distance_unit, :elevation_gain, :elevation_unit, presence: true
 
-  validates :private, inclusion { in: [true, false] }
+  validates :private, inclusion: { in: [true, false] }
 
   belongs_to :user
 
 end
+
+# dispatch(createRoute({
+#   user_id: 15,
+#   title: 'First route!!',
+#   start_lat: 91.12,
+#   start_lng: 91.12221,
+#   end_lat: 91.121112,
+#   end_lat: 91.12333221,
+#   distance: 1.6,
+#   distance_unit: "miles",
+#   elevation_gain: 20,
+#   elevation_unit: 'feet',
+#   private: true
+#   }))

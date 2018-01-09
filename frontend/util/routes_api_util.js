@@ -1,4 +1,5 @@
 export const fetchRoutes = () => {
+  debugger
   return $.ajax({
     method: 'GET',
     url: 'api/routes'

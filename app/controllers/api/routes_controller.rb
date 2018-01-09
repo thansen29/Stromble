@@ -4,7 +4,7 @@ class Api::RoutesController < ApplicationController
   end
 
   def show
-    @route = Workout.find(params[:id])
+    @route = Route.find(params[:id])
   end
 
   def create
@@ -12,7 +12,7 @@ class Api::RoutesController < ApplicationController
     if @route.save
       render :show
     else
-      render json { route: "You must choose a start and end point" }, status: 422
+      render json: { route: "You must choose a start and end point" }, status: 422
     end
   end
 
