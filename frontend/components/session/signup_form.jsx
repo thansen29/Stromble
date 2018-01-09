@@ -56,7 +56,7 @@ class SignupForm extends React.Component {
 
 
   handleLoginClick(){
-    if(this.props.match){
+    if(this.props.history.location.pathname === "/login"){
       return <span onClick={this.props.closeModal}> Log in</span>;
     } else {
       return (
@@ -72,7 +72,6 @@ class SignupForm extends React.Component {
   }
 
   render(){
-    // debugger
     return (
       <section id="modal-container">
         <section className="modal-screen"></section>

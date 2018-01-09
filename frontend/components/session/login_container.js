@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import LoginIndex from './login_index';
 import { login, clearErrors, openModal, closeModal, signup } from '../../actions/session/session_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
     errors: state.errors.session,
     ui: state.ui.modal['isOpen']
