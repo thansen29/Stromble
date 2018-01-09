@@ -1,12 +1,16 @@
 import { connect } from 'react-redux';
 import DashboardIndex from './dashboard_index';
 import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
+import { requestRunDistance, requestRideDistance, requestLongestDistance,
+   requestLongestDuration, requestTotalRuns, requestTotalRides,
+   requestFastedSpeed } from '../../actions/statistics/workout_totals';
 
 const mapStateToProps = state => {
 //workouts needs to be an array with all the workouts in it
   return {
     workouts: Object.values(state.workout.workouts).reverse(),
-    loggedIn: Boolean(state.session.currentUser.fname)
+    loggedIn: Boolean(state.session.currentUser.fname),
+    stats: state.stats
 
   };
 };
@@ -14,7 +18,14 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     requestWorkouts: () => dispatch(requestWorkouts()),
-    clearWorkouts: () => dispatch(clearWorkouts())
+    clearWorkouts: () => dispatch(clearWorkouts()),
+    requestRunDistance: () => dispatch(requestRunDistance()),
+    requestRideDistance: () => dispatch(requestRideDistance()),
+    requestLongestDistance: () => dispatch(requestLongestDistance()),
+    requestLongestDuration: () => dispatch(requestLongestDuration()),
+    requestTotalRuns: () => dispatch(requestTotalRuns()),
+    requestTotalRides: () => dispatch(requestTotalRides()),
+    requestFastedSpeed: () => dispatch(requestFastedSpeed()),
   };
 };
 

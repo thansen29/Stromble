@@ -16,6 +16,14 @@ class DashboardIndex extends React.Component {
   componentWillMount(){
     this.props.clearWorkouts();
     this.props.requestWorkouts();
+
+    this.props.requestRunDistance();
+    this.props.requestRideDistance();
+    this.props.requestLongestRunDistance();
+    this.props.requestLongestRideDistance();
+    this.props.requestLongestDuration();
+    this.props.requestTotalRuns();
+    this.props.requestTotalRides();
   }
 
   render(){
@@ -34,8 +42,8 @@ class DashboardIndex extends React.Component {
       });
     }
     const tabs = [
-      { title: "shoe-tab", content: <StatsContainer /> },
-      { title: "bike-tab", content: <RideTotalsContent /> }
+      { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
+      { title: "bike-tab", content: <RideTotalsContent stats={this.props.stats} /> }
     ];
     return (
       <section className="dashboard-background">

@@ -6,26 +6,28 @@ class RideTotalsContent extends React.Component {
     super(props);
   }
 
-
-  // componentWillMount(){
-  //   //TODO: look into route resolve?
-  //   // debugger
-  //   this.props.requestRunDistance();
-  //   this.props.requestRideDistance();
-  //   this.props.requestLongestDistance();
-  //   this.props.requestLongestDuration();
-  //   // this.props.requestTotalRuns();
-  //   this.props.requestTotalRides();
-  //   this.props.requestFastedSpeed;
-  // }
-
   render(){
-      // const { runDistance, rideDistance, longestDistance, longestDuration, totalRides } = this.props.stats;
-      // const totalDistance = runDistance + rideDistance;
+      const { runDistance, rideDistance, longestRideDistance, longestDuration, totalRides } = this.props.stats;
+      const totalDistance = runDistance + rideDistance;
       //TODO: makes the units of measurement relative to what they actaully are ie
         //all stats are in kilometers
       return(
-        <div>ride totals</div>
+        <main className="stats-content">
+          <label className="stats-label">Total Distance Traveled</label>
+            <div className="stats-value">{totalDistance} miles</div>
+
+          <label className="stats-label">Total Number of Rides</label>
+            <div className="stats-value">{totalRides}</div>
+
+          <label className="stats-label">Accumulated Ride Distance</label>
+            <div className="stats-value">{rideDistance} miles</div>
+
+          <label className="stats-label">Longest Ride Distance</label>
+            <div className="stats-value">{longestRideDistance} miles</div>
+
+          <label className="stats-label">Longest Duration</label>
+            <div className="stats-value">{longestDuration} hours</div>
+        </main>
       );
   }
 }
