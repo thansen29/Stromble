@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../navbar';
 import moment from 'moment';
 
+//TODO: make it so the positioning on the inside isnt absolute and pixels
 //TODO:VERY IMPORTANT MAKE IT GET THE INFO ON PAGE LOAD
 class WorkoutShow extends React.Component {
   constructor(props){
