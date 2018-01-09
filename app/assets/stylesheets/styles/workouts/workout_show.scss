@@ -38,7 +38,10 @@
   width: 400px;
   height: 210px;
   box-sizing: border-box;
-  padding: 25px;
+  padding: 30px 0;
+  position: relative;
+  display: flex;
+
 
   div {
     padding: 8px 0;
@@ -48,9 +51,11 @@
 
 .show-leftbody {
   position: absolute;
-  top: 18%;
-  width: 14%;
-  left: 31%;
+  width: 95%;
+
+  // top: 18%;
+  // width: 14%;
+  // left: 31%;
 }
 
 .show-datetime {
@@ -104,5 +109,6 @@
 
   &:hover {
     background: #f5f5fa;
+    transition: background-color 300ms;
   }
 }

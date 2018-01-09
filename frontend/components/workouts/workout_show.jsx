@@ -61,8 +61,8 @@ class WorkoutShow extends React.Component {
             </header>
 
             <section className="show-body">
+              <div className="show-avatar"></div>
               <section className="show-leftside">
-                <div className="show-avatar"></div>
                 <section className="show-leftbody">
                   <div className="show-datetime">{time} on {date}</div>
                   <div className="show-title">{this.props.workout.title}</div>
