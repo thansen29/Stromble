@@ -80,5 +80,12 @@ td a:hover {
   margin-left: 16%;
   margin-right: 16%;
   margin-top: 50px;
+}
 
+.table-util {
+  color: #007FB6;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 }
