@@ -5,6 +5,8 @@ import WorkoutItem from './workout_item';
 import Tabs from './tabs';
 import RunTotalsContent from './run_totals';
 import RideTotalsContent from './ride_totals';
+import StatsContainer from './stats_container';
+
 
 class DashboardIndex extends React.Component {
   constructor(props){
@@ -32,7 +34,7 @@ class DashboardIndex extends React.Component {
       });
     }
     const tabs = [
-      { title: "shoe-tab", content: <RunTotalsContent /> },
+      { title: "shoe-tab", content: <StatsContainer /> },
       { title: "bike-tab", content: <RideTotalsContent /> }
     ];
     return (

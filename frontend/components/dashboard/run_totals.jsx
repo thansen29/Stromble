@@ -6,12 +6,17 @@ class RunTotalsContent extends React.Component {
     super(props);
   }
 
-  componentDidMount(){
-    
+  componentWillMount(){
+    this.props.requestRunDistance();
+    // this.props.requestRideDistance();
+    this.props.requestLongestDistance;
+    this.props.requestLongestDuration;
+    this.props.requestTotalRuns();
+    // this.props.requestTotalRides();
+    this.props.requestFastedSpeed;
   }
 
   render(){
-    // debugger
     return(
       <div>hi im run totals</div>
     );

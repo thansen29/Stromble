@@ -33,31 +33,38 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def total_run_distance
-
+    total = Workout.where(sport: "Run", user: current_user).sum(:distance)
+    render json: { runDistance: total }
   end
 
   def total_ride_distance
-
+    total = Workout.where(sport: "Ride", user: current_user).sum(:distance)
+    render json: { rideDistance: total }
   end
 
   def longest_distance
-
+    # total = Workout.where(sport: "Ride", user: current_user).sum(:distance)
+    # render json: { longestDistance: total }
   end
 
   def longest_duration
-
+    # total = Workout.where(sport: "Ride", user: current_user).sum(:distance)
+    # render json: { longestDuration: total }
   end
 
   def total_runs
-
+    total = Workout.where(sport: "Run", user: current_user).count(:sport)
+    render json: { totalRuns: total }
   end
 
   def total_rides
-
+    total = Workout.where(sport: "Ride", user: current_user).count(:sport)
+    render json: { totalRides: total }
   end
 
   def fasted_speed
-
+    # total = Workout.where(sport: "Ride", user: current_user).sum(:distance)
+    # render json: { fastedSpeed: total }
   end
 
   private
