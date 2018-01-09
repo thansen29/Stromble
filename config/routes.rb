@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'total_run_distance', to: 'workouts#total_run_distance'
     get 'total_ride_distance', to: 'workouts#total_ride_distance'
     get 'longest_distance', to: 'workouts#longest_distance'
-    get 'longest_duration', to: 'workouts#ongest_duration'
+    get 'longest_duration', to: 'workouts#longest_duration'
     get 'total_runs', to: 'workouts#total_runs'
     get 'total_rides', to: 'workouts#total_rides'
     get 'fasted_speed', to: 'workouts#fasted_speed'

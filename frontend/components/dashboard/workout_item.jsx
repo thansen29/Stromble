@@ -2,17 +2,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
+// const momentDurationFormatSetup =
+require("moment-duration-format");
+
+
 class WorkoutItem extends React.Component {
   constructor(props){
     super(props);
   }
 
   render(){
-    // debugger
     const { key, activity_type, description, distance, distance_unit, duration_hr, duration_min, duration_s, elevation, elevation_unit, sport, time, title, id} = this.props.workout;
-    let pace = distance / (duration_hr + (duration_min/60));
-    //TODO: fix average pace?
-    pace = pace.toString().substring(0,4);
+
+    const pace = distance / ((parseFloat(duration_hr)) + ((parseFloat(duration_min)) / 60));
 
     let momentDate = moment(time);
     momentDate = momentDate.parseZone();
@@ -73,7 +75,7 @@ class WorkoutItem extends React.Component {
               }
 
               { distance ?
-                <span className="item-stat-value">{pace}:{duration_min}:{duration_s}/{distance_unit}</span> : null
+                <span className="item-stat-value">{pace}{distance_unit}/hour</span> : null
               }
 
               { elevation ?

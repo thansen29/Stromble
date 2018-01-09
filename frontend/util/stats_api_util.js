@@ -15,14 +15,14 @@ export const fetchRideDistance = () => {
 export const fetchLongestDistance = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/total_longest_distance'
+    url: 'api/longest_distance'
   });
 };
 
 export const fetchLongestDuration = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/total_longest_duration'
+    url: 'api/longest_duration'
   });
 };
 

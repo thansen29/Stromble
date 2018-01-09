@@ -9,8 +9,8 @@ class RunTotalsContent extends React.Component {
   componentWillMount(){
     this.props.requestRunDistance();
     // this.props.requestRideDistance();
-    this.props.requestLongestDistance;
-    this.props.requestLongestDuration;
+    this.props.requestLongestDistance();
+    this.props.requestLongestDuration();
     this.props.requestTotalRuns();
     // this.props.requestTotalRides();
     this.props.requestFastedSpeed;

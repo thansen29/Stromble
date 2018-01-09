@@ -57,7 +57,7 @@ export const receiveFastedSpeed = (speed) => {
 };
 
 
-export const requestRunDistance = () => dispatch => {
+export const requestRunDistance = () => dispatch => {``
   return StatsAPIUtil.fetchRunDistance().then((distance) => {
     dispatch(receiveRunDistance(distance));
   });
