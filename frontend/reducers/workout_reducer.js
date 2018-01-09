@@ -13,9 +13,7 @@ const workoutReducer = (state = defaultState, action) => {
       newWorkoutList = Object.assign({}, state.workouts, action.workouts);
       newState = Object.assign({}, state, {workouts: newWorkoutList});
       return newState;
-      // return action.workouts;
     case RECEIVE_WORKOUT:
-      // newState = Object.assign({}, state, {[action.workout.id]: action.workout } );
       newWorkoutList = Object.assign({}, state.workouts, {[action.workout.id]: action.workout });
       newState = Object.assign({}, state, {workouts: newWorkoutList, activeWorkout: action.workout.id});
       return newState;
@@ -25,14 +23,11 @@ const workoutReducer = (state = defaultState, action) => {
       newState.activeWorkout = null;
       return newState;
     case CLEAR_WORKOUTS:
-      // debugger
       return defaultState;
     default:
       return state;
   }
 };
-
-//TODO: change the remove workout
 
 export default workoutReducer;
 
