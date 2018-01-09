@@ -6,6 +6,7 @@ import landingContainer from './session/landing_container';
 import dashboardContainer from './dashboard/dashboard_container';
 import workoutContainer from './workouts/workout_container';
 import workoutShowContainer from './workouts/workout_show_container';
+import allWorkoutsContainer from './workouts/all_workouts_container';
 // import DropdownComponent from './dropdowns/dropdown_component';
 //TODO: refactor - add stats container here and dont pass props down to run and  ride comps
 const App = (props) => (
@@ -17,6 +18,7 @@ const App = (props) => (
     <Switch>
       <ProtectedRoute path="/workouts/new" component={workoutContainer}></ProtectedRoute>
       <ProtectedRoute path="/workouts/:id" component={workoutShowContainer}></ProtectedRoute>
+      <ProtectedRoute exact path="/workouts" component={allWorkoutsContainer}></ProtectedRoute>
     </Switch>
   </div>
 );

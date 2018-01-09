@@ -20,11 +20,10 @@
 
 .dashboard-left {
   position: sticky;
-  background: yellow;
+  background: #f5f5fa;
   width: 22%;
   height: 100%;
 }
-
 
 .dashboard-main {
   background: #f5f5fa;
@@ -35,7 +34,7 @@
 
 .dashboard-right {
   position: sticky;
-  background: red;
+  background: #f5f5fa;
   width: 22%;
   height: 100%;
 }
@@ -50,4 +49,36 @@
 
 .no-workouts a:hover {
   color: rgb(9, 71, 111);
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background: #ccccd1;
+  padding: 10px;
+  font-size: 14px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid #ccccd1;
+}
+
+td a {
+  color: #007FB6;
+}
+
+td a:hover {
+  text-decoration: underline;
+}
+
+.table-container {
+  margin-left: 16%;
+  margin-right: 16%;
+  margin-top: 50px;
+
 }
