@@ -19,7 +19,8 @@ class AllWorkouts extends React.Component {
   render(){
     const workoutItems = this.props.workouts.map((workout) => {
       let momentDate = moment(this.props.workouts.time).parseZone();
-      const parsedDate = momentDate.format("MMMM, M/DD/YYYY");
+      const day = momentDate.format("dddd").substring(0, 3);
+      const parsedDate = momentDate.format("M/DD/YYYY");
       let durationMin = workout.duration_min;
       let durationS = workout.duration_s;
       if(durationMin.toString().length < 2){
@@ -31,7 +32,7 @@ class AllWorkouts extends React.Component {
       return (
         <tr key={workout.id}>
           <td>{workout.sport}</td>
-          <td>{parsedDate}</td>
+          <td>{day}, {parsedDate}</td>
           <td><Link to={`/workouts/${workout.id}`}>{workout.title}</Link></td>
           <td>{workout.duration_hr}:{durationMin}:{durationS}</td>
           <td>{workout.distance || 0} {workout.distance_unit}</td>

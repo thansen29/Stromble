@@ -51,6 +51,13 @@
   color: rgb(9, 71, 111);
 }
 
+
+.table-container {
+  margin-left: 16%;
+  margin-right: 16%;
+  margin-top: 50px;
+}
+
 table {
   width: 100%;
 }
@@ -74,12 +81,6 @@ td a {
 
 td a:hover {
   text-decoration: underline;
-}
-
-.table-container {
-  margin-left: 16%;
-  margin-right: 16%;
-  margin-top: 50px;
 }
 
 .table-util {
