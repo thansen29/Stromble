@@ -1,6 +1,5 @@
 import React from 'react';
 
-//TODO: display the totals in this component
 class RideTotalsContent extends React.Component {
   constructor(props){
     super(props);
@@ -25,7 +24,7 @@ class RideTotalsContent extends React.Component {
           <label className="stats-label">Longest Ride Distance</label>
             <div className="stats-value">{longestRideDistance} miles</div>
 
-          <label className="stats-label">Longest Duration</label>
+          <label className="stats-label">Longest Total Duration</label>
             <div className="stats-value">{longestDuration} hours</div>
         </main>
       );

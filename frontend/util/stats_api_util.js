@@ -12,10 +12,17 @@ export const fetchRideDistance = () => {
   });
 };
 
-export const fetchLongestDistance = () => {
+export const fetchLongestRunDistance = () => {
   return $.ajax({
     method: 'GET',
-    url: 'api/longest_distance'
+    url: 'api/longest_run_distance'
+  });
+};
+
+export const fetchLongestRideDistance = () => {
+  return $.ajax({
+    method: 'GET',
+    url: 'api/longest_ride_distance'
   });
 };
 

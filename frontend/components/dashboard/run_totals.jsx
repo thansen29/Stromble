@@ -25,7 +25,7 @@ class RunTotalsContent extends React.Component {
           <label className="stats-label">Longest Run Distance</label>
             <div className="stats-value">{longestRunDistance} miles</div>
 
-          <label className="stats-label">Longest Duration</label>
+          <label className="stats-label">Longest Total Duration</label>
             <div className="stats-value">{longestDuration} hours</div>
         </main>
     );
