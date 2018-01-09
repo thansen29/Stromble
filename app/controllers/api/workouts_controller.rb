@@ -32,21 +32,11 @@ class Api::WorkoutsController < ApplicationController
     render json: {}
   end
 
-  def fasted_speed
-    # total = Workout.where(sport: "Ride", user: current_user).sum(:distance)
-    # render json: { fastedSpeed: total }
-  end
-
-
   private
   def workout_params
     params.require(:workout).permit(:user_id, :distance, :distance_unit,
     :duration_hr, :duration_min, :duration_s, :elevation, :elevation_unit,
     :sport, :date, :time, :title, :activity_type, :description, :private )
-  end
-
-  def calculateSpeed
-    return (distance / ((parseFloat(duration_hr)) + ((parseFloat(duration_min)) / 60)))
   end
 
 end

@@ -6,7 +6,6 @@
 #  user_id        :integer          not null
 #  distance       :float
 #  distance_unit  :string           default("miles"), not null
-#  duration_hr    :float            default(1.0), not null
 #  duration_min   :integer          default(0), not null
 #  duration_s     :integer          default(0), not null
 #  elevation      :float
@@ -15,11 +14,12 @@
 #  date           :datetime         not null
 #  time           :datetime         not null
 #  title          :string           not null
-#  type           :string
 #  description    :text
 #  private        :boolean          default(FALSE), not null
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  duration_hr    :integer          default(1), not null
+#  activity_type  :string
 #
 
 require 'test_helper'
