@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from '../navbar';
 import moment from 'moment';
 
-//TODO: make it so the positioning on the inside isnt absolute and pixels
 //TODO:VERY IMPORTANT MAKE IT GET THE INFO ON PAGE LOAD
 class WorkoutShow extends React.Component {
   constructor(props){
@@ -18,7 +17,6 @@ class WorkoutShow extends React.Component {
   //   debugger
   // }
 
-  //TODO: make this go to the index page
   handleDelete(){
     this.props.history.push("/dashboard");
     this.props.deleteWorkout(this.props.workout.id);

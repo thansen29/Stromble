@@ -5,8 +5,6 @@ import { Link } from 'react-router-dom';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import moment from 'moment';
 
-//TODO: MAKE THE SELECT FIELDS UPDATE ON SELECT!!
-
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
@@ -28,12 +26,10 @@ class WorkoutForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleSelection = this.handleSelection.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
 
   }
-  //TODO: something aint right with the date getting sent to database
   componentDidMount(){
     const momentDate = moment();
     const date = momentDate.format("MM/DD/YYYY");
@@ -157,7 +153,6 @@ class WorkoutForm extends React.Component {
                 </div>
               </div>
 
-              {/*TODO: time input leaves off last number sometimes*/}
               <div className="field-container date-container">
                 <label htmlFor="date-time">Date &amp; Time</label><br/>
                 <div className="input-wrapper">
