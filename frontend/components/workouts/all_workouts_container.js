@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AllWorkouts from './all_workouts';
-import { deleteWorkout } from '../../actions/workouts/workout_actions';
+import { deleteWorkout, requestWorkouts } from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDistpatchToProps = dispatch => {
   return {
-    deleteWorkout: id => dispatch(deleteWorkout(id))
+    deleteWorkout: id => dispatch(deleteWorkout(id)),
+    requestWorkouts: () => dispatch(requestWorkouts())
   };
 };
 
