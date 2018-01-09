@@ -14,11 +14,10 @@ class WorkoutItem extends React.Component {
   render(){
     const { key, activity_type, description, distance, distance_unit, duration_hr, duration_min, duration_s, elevation, elevation_unit, sport, time, title, id} = this.props.workout;
 
-    const pace = distance / ((parseFloat(duration_hr)) + ((parseFloat(duration_min)) / 60));
-
+    // const pace = distance / ((parseFloat(duration_hr)) + ((parseFloat(duration_min)) / 60));
+    const pace = ((duration_hr * 60) + duration_min) / distance;
     let momentDate = moment(time);
     momentDate = momentDate.parseZone();
-    // const parsedDate = momentDate.format("MMMM D, YYYY");
     const parsedDate = momentDate.calendar();
     const parsedTime = momentDate.format("h:mm A");
 
@@ -75,7 +74,7 @@ class WorkoutItem extends React.Component {
               }
 
               { distance ?
-                <span className="item-stat-value">{pace}{distance_unit}/hour</span> : null
+                <span className="item-stat-value">{pace} min/{distance_unit}</span> : null
               }
 
               { elevation ?

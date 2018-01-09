@@ -30,6 +30,20 @@ class WorkoutShow extends React.Component {
     momentDate = momentDate.parseZone();
     const date = momentDate.format("MMMM D, YYYY");
     const time = momentDate.format("h:mm A");
+    let durationHr = this.props.workout.duration_hr;
+    let durationMin = this.props.workout.duration_min;
+    let durationS = this.props.workout.duration_s;
+
+    if(durationHr.toString().length < 2){
+      durationHr = `0${durationHr}`;
+    }
+    if(durationMin.toString().length < 2){
+      durationMin = `0${durationMin}`;
+    }
+    if(durationS.toString().length < 2){
+      durationS = `0${durationS}`;
+    }
+
     return (
       <section className="background">
         <Navbar />
@@ -65,7 +79,7 @@ class WorkoutShow extends React.Component {
                           <span className="stat-text">Distance</span> : null }
                   </div>
                   <div className="show-statistic">
-                    {this.props.workout.duration_hr}:{this.props.workout.duration_min}:{this.props.workout.duration_s} <br/>
+                    {durationHr}:{durationMin}:{durationS} <br/>
                     <span className="stat-text">Duration</span>
                   </div>
                   <div className="show-statistic">
