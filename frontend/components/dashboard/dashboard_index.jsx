@@ -31,16 +31,18 @@ class DashboardIndex extends React.Component {
     let workoutItems;
     let message;
     if(this.props.workouts.length > 0){
-      message =
-      <div className="no-workouts">
-        You don't have any more workouts!
-        <Link to="/workouts/new"> Get moving!</Link>
-      </div>;
       workoutItems = this.props.workouts.map((workout) => {
         return (
           <WorkoutItem workout={workout} key={workout.id} />
         );
       });
+    }
+    if(!workoutItems){
+      message =
+      <div className="no-workouts">
+        You don't have any workouts! 
+        <Link to="/workouts/new"> Get moving!</Link>
+      </div>;
     }
     const tabs = [
       { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
@@ -56,7 +58,7 @@ class DashboardIndex extends React.Component {
 
           <main className="dashboard-main">
             <ul className="dashboard-feed-ul">
-              { workoutItems }
+              { this.props.workouts ? workoutItems : message }
             </ul>
             { message }
           </main>
