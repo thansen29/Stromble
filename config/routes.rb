@@ -5,15 +5,15 @@ Rails.application.routes.draw do
     resources :users, only: :create
     resource :session, only: [:create, :destroy]
     resources :workouts, except: :new
-    get 'total_run_distance', to: 'workouts#total_run_distance'
-    get 'total_ride_distance', to: 'workouts#total_ride_distance'
-    get 'longest_run_distance', to: 'workouts#longest_run_distance'
-    get 'longest_ride_distance', to: 'workouts#longest_ride_distance'
-    get 'longest_run_duration', to: 'workouts#longest_run_duration'
-    get 'longest_ride_duration', to: 'workouts#longest_ride_duration'
-    get 'total_runs', to: 'workouts#total_runs'
-    get 'total_rides', to: 'workouts#total_rides'
-    get 'fasted_speed', to: 'workouts#fasted_speed'
+    get 'total_run_distance', to: 'statistics#total_run_distance'
+    get 'total_ride_distance', to: 'statistics#total_ride_distance'
+    get 'longest_run_distance', to: 'statistics#longest_run_distance'
+    get 'longest_ride_distance', to: 'statistics#longest_ride_distance'
+    get 'longest_run_duration', to: 'statistics#longest_run_duration'
+    get 'longest_ride_duration', to: 'statistics#longest_ride_duration'
+    get 'total_runs', to: 'statistics#total_runs'
+    get 'total_rides', to: 'statistics#total_rides'
+    get 'fasted_speed', to: 'statistics#fasted_speed'
 
     # resources :workouts do
     #   get :total_run_distance, on: :member
