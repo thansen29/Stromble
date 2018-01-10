@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/session/session_actions';
+import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modals/modal_actions';
 
 const defaultState = {
   "isOpen": false

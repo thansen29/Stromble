@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SignupContainer from './signup_container';
+import ModalComponent from '../modals/modal_component';
 
 class LandingIndex extends React.Component {
   constructor(props){
@@ -32,9 +33,11 @@ class LandingIndex extends React.Component {
             <li><h1>Here to join?</h1></li>
             <li>
               <p onClick={this.props.openModal}>Use my email</p>
-              {this.props.ui ?
-                <SignupContainer history={this.props.history} /> : null
-              }
+              { this.props.ui ?
+              <ModalComponent>
+                <SignupContainer history={this.props.history} />
+              </ModalComponent>
+              : null } 
             </li>
             <li>
               <Link to="/login">
@@ -50,5 +53,9 @@ class LandingIndex extends React.Component {
     );
   }
 }
+
+// {this.props.ui ?
+//   <SignupContainer history={this.props.history} /> : null
+// }
 
 export default LandingIndex;

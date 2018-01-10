@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import SignupForm from './signup_form';
-import { signup, closeModal, clearErrors } from '../../actions/session/session_actions';
+import { signup, clearErrors } from '../../actions/session/session_actions';
+import { closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
-    errors: state.errors.session,
-    ui: state.ui["is-open"],
+    errors: state.errors.session
   };
 };
 

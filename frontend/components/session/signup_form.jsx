@@ -73,8 +73,7 @@ class SignupForm extends React.Component {
 
   render(){
     return (
-      <section id="modal-container">
-        <section className="modal-screen"></section>
+      <section>
 
         <form onSubmit={this.handleSubmit} className="signup-form">
           <div

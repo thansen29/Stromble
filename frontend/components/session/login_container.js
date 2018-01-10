@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import LoginIndex from './login_index';
-import { login, clearErrors, openModal, closeModal, signup } from '../../actions/session/session_actions';
+import { login, clearErrors, signup } from '../../actions/session/session_actions';
+import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {

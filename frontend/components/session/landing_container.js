@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import LandingIndex from './landing_index';
-import { signup, clearErrors, openModal, closeModal } from '../../actions/session/session_actions';
+import { signup, clearErrors } from '../../actions/session/session_actions';
+import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
