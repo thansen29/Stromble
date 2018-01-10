@@ -26,12 +26,13 @@ class CreateProfileForm extends React.Component {
   }
 
   render(){
-    debugger
     return (
-      <section>
+      <section className="create-profile-form">
         hi
       </section>
     );
   }
 
 }
+
+export default CreateProfileForm;

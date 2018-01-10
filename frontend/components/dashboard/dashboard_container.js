@@ -9,7 +9,8 @@ import { openModal } from '../../actions/modals/modal_actions';
 const mapStateToProps = state => {
   return {
     workouts: Object.values(state.workout.workouts).reverse(),
-    stats: state.stats
+    stats: state.stats,
+    newUser: Boolean(state.session.currentUser.fname === null)
 
   };
 };

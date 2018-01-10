@@ -1,11 +1,10 @@
 import { connect } from 'react-redux';
-import CreateProfileForm from './create_profile';
+import CreateProfileForm from './create_profile_form';
 import { openModal, closeModal } from '../../actions/session/session_actions';
 
 const mapStateToProps = state => {
   return {
-    ui: state.ui["isOpen"],
-    newUser: Boolean(state.session.currentUser.fname === null)
+    ui: state.ui["isOpen"]
   };
 };
 

@@ -6,12 +6,13 @@ import Tabs from './tabs';
 import RunTotalsContent from './run_totals';
 import RideTotalsContent from './ride_totals';
 import StatsContainer from './stats_container';
+import ModalComponent from '../modals/modal_component';
 import CreateProfileContainer from './create_profile_container';
-
 
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
+    this.state = { newUser: false };
   }
 
   componentWillMount(){
@@ -28,10 +29,17 @@ class DashboardIndex extends React.Component {
     this.props.requestTotalRides();
   }
 
+  componentDidMount(){
+    if(this.props.newUser){
+      this.setState({ newUser: true });
+      this.props.openModal();
+    }
+  }
 
   render(){
     let workoutItems;
     let message;
+    let createProfile;
     if(this.props.workouts.length > 0){
       workoutItems = this.props.workouts.map((workout) => {
         return (
@@ -50,9 +58,18 @@ class DashboardIndex extends React.Component {
       { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
       { title: "bike-tab", content: <RideTotalsContent stats={this.props.stats} /> }
     ];
+    if(this.state.newUser){
+      createProfile =
+      <ModalComponent>
+        <CreateProfileContainer />
+      </ModalComponent>;
+    }
+
+
     return (
       <section className="dashboard-background">
         <Navbar />
+        { createProfile }
         <section className="dashboard-container">
           <aside className="dashboard-left">
             <Tabs panes={tabs} />
