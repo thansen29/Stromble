@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar';
 import RouteMap from './route_map';
-import RouteBar from './route_bar';
 import MarkerManager from '../../util/marker_manager';
 
 class RouteIndex extends React.Component {
@@ -39,9 +38,33 @@ class RouteIndex extends React.Component {
           <button onClick={this.handleSubmit} className="route-save">Save</button>
         </section>
 
-
         <RouteMap />
-        <RouteBar state={this.state}/>
+
+        <section className="route-bottom-bar">
+          <ul>
+            <li>
+              <strong>data</strong>
+              <div className="route-label">Route Type</div>
+            </li>
+
+            <li>
+              <strong>data</strong>
+              <div className="route-label">Distance</div>
+            </li>
+
+            <li>
+              <strong>data</strong>
+              <div className="route-label">Elevation Gain</div>
+            </li>
+
+            <li>
+              <strong>data</strong>
+              <div className="route-label">Est. Moving Time</div>
+            </li>
+
+          </ul>
+        </section>
+
       </section>
     );
   }

@@ -1,7 +1,8 @@
 import React from 'react';
 
-class MarkerManager {
+class MarkerManager extends React.Component {
   constructor(map){
+    super(map);
     this.map = map;
     this.markers = {};
     this.id = 1;
@@ -85,10 +86,11 @@ class MarkerManager {
     const endLng = end.lng();
     distance = parseFloat(distance);
     elevation = parseInt(elevation);
-    const data = {
-      startLat, startLng, endLat, endLng, distance, elevation
-    };
-    return data;
+    // const data = {
+    //   startLat, startLng, endLat, endLng, distance, elevation
+    // };
+    // return data;
+
   }
 }
 
