@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import CreateProfile from './create_profile';
+import CreateProfileForm from './create_profile';
 import { openModal, closeModal } from '../../actions/session/session_actions';
 
 const mapStateToProps = state => {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProfileForm);

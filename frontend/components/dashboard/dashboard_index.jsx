@@ -6,6 +6,7 @@ import Tabs from './tabs';
 import RunTotalsContent from './run_totals';
 import RideTotalsContent from './ride_totals';
 import StatsContainer from './stats_container';
+import CreateProfileContainer from './create_profile_container';
 
 
 class DashboardIndex extends React.Component {
@@ -27,6 +28,7 @@ class DashboardIndex extends React.Component {
     this.props.requestTotalRides();
   }
 
+
   render(){
     let workoutItems;
     let message;
@@ -40,7 +42,7 @@ class DashboardIndex extends React.Component {
     if(!workoutItems){
       message =
       <div className="no-workouts">
-        You don't have any workouts! 
+        You don't have any workouts!
         <Link to="/workouts/new"> Get moving!</Link>
       </div>;
     }
