@@ -8,7 +8,6 @@ import { requestRunDistance, requestRideDistance, requestLongestRunDistance,
 const mapStateToProps = state => {
   return {
     workouts: Object.values(state.workout.workouts).reverse(),
-    loggedIn: Boolean(state.session.currentUser.fname),
     stats: state.stats
 
   };
