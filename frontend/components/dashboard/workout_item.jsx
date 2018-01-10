@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-// const momentDurationFormatSetup =
-require("moment-duration-format");
-
 
 class WorkoutItem extends React.Component {
   constructor(props){
