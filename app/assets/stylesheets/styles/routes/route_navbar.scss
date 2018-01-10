@@ -1,0 +1,21 @@
+.route-navbar {
+  height: 60px;
+  background: #F1F1F1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.route-save {
+  background: #fc4c02;
+  color: white;
+  padding: 0px 20px;
+  margin-right: 2%;
+  border-radius: 0px;
+  height: 80%;
+  &:hover {
+    background: #c93d02;
+    transition: background-color 500ms;
+
+  }
+}
