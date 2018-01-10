@@ -9,6 +9,7 @@ class MarkerManager {
     this.elevations = [];
   }
 
+  //TODO: Make the routes chain
   createMarker(coords){
     const marker = new google.maps.Marker({
       position: coords,
@@ -40,11 +41,11 @@ class MarkerManager {
       travelMode: 'WALKING',
     };
 
-    const routeRideRequest = {
-      origin: start,
-      destination: end,
-      travelMode: 'BICYCLING',
-    };
+    // const routeRideRequest = {
+    //   origin: start,
+    //   destination: end,
+    //   travelMode: 'BICYCLING',
+    // };
 
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -77,26 +78,13 @@ class MarkerManager {
     }).bind(this));
   }
 
-  // getElevationInfo(){
-  //   const elevationService = new google.maps.ElevationService();
-  //   elevationService.getElevationAlongPath({
-  //     path: this.routePath,
-  //     samples: this.routePath.length
-  //   }, ((elevationResult, elevationStatus) => {
-  //       if(elevationStatus === "OK"){
-  //         debugger
-  //       }
-  //   }).bind(this));
-  // }
-
-
   storeData(distance, start, end, elevation){
-    const start_lat = start.lat();
-    const start_lng = start.lng();
-    const end_lat = end.lat();
-    const end_lng = end.lng();
+    const startLat = start.lat();
+    const startLng = start.lng();
+    const endLat = end.lat();
+    const endLng = end.lng();
     distance = parseFloat(distance);
-    elevation = elevation;
+    elevation = parseInt(elevation);
   }
 }
 

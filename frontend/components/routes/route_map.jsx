@@ -34,7 +34,6 @@ class RouteMap extends React.Component {
       this.MarkerManager.createMarker(position);
 
     });
-    // this.MarkerManager.createRoute();
   }
 
   render(){
