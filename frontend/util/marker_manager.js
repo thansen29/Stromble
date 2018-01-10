@@ -5,6 +5,8 @@ class MarkerManager {
     this.map = map;
     this.markers = {};
     this.id = 1;
+    this.routePath = [];
+    this.elevations = [];
   }
 
   createMarker(coords){
@@ -52,18 +54,49 @@ class MarkerManager {
       if(directionsStatus === "OK"){
         directionsRenderer.setDirections(directionsResult);
         let distance = directionsResult.routes[0].legs[0].distance.text;
-        this.storeData(distance, start, end);
+        this.routePath = directionsResult.routes[0].overview_path;
+
+          const elevationService = new google.maps.ElevationService();
+          elevationService.getElevationAlongPath({
+            path: this.routePath,
+            samples: this.routePath.length
+          }, ((elevationResult, elevationStatus) => {
+              if(elevationStatus === "OK"){
+                elevationResult.forEach((sample) => {
+                  this.elevations.push(sample.elevation);
+                });
+                const max = this.elevations.sort()[this.elevations.length-1];
+                const min = this.elevations.sort()[0];
+                let elevation = max - min;
+                this.storeData(distance, start, end, elevation);
+              }
+          }).bind(this));
+
+
       }
     }).bind(this));
   }
 
-  storeData(distance, start, end){
+  // getElevationInfo(){
+  //   const elevationService = new google.maps.ElevationService();
+  //   elevationService.getElevationAlongPath({
+  //     path: this.routePath,
+  //     samples: this.routePath.length
+  //   }, ((elevationResult, elevationStatus) => {
+  //       if(elevationStatus === "OK"){
+  //         debugger
+  //       }
+  //   }).bind(this));
+  // }
+
+
+  storeData(distance, start, end, elevation){
     const start_lat = start.lat();
     const start_lng = start.lng();
     const end_lat = end.lat();
     const end_lng = end.lng();
     distance = parseFloat(distance);
-    debugger
+    elevation = elevation;
   }
 }
 
