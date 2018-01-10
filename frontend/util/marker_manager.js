@@ -4,41 +4,48 @@ class MarkerManager {
   constructor(map){
     this.map = map;
     this.markers = {};
+    this.id = 1;
   }
 
-  updateMarkers(coords){
-    console.log("lat" + coords.lat);
-    console.log("lng" + coords.lng);
-    // console.log("Updating endpoint");
-
+  createMarker(coords){
+    // each time a new marker is created, give it an id that is 'unique'
     const marker = new google.maps.Marker({
       position: coords,
-      map: this.map
+      map: this.map,
+      id: this.id
     });
+    this.markers[this.id] = marker;
+    this.id++;
 
-    this.markers["startCoords"] = coords;
-    // debugger
-    // console.log(marker);
-    // debugger
-    //marker.position.lat()
-
-
+    marker.addListener("click", () => {
+      this.removeMarker(marker.id);
+    });
   }
 
+  removeMarker(markerId){
+    this.markers[markerId].setMap(null);
+    delete this.markers[markerId];
+  }
+
+  //temporary limitation for only one endpoint
   // createMarker(coords){
-  //   this.map.addEventListener("click", () => {
-  //     debugger
+  //   if(!this.markers.hasOwnProperty("endPoint")){
   //     const marker = new google.maps.Marker({
   //       position: coords,
-  //       map: this.map
+  //       map: this.map,
+  //       id: 2
   //     });
-  //
-  //     this.markers["endCoords"] = coords;
-  //   });
-
-
+  //     this.markers[marker.id] = coords;
+  //     marker.addListener("click", () => {
+  //       this.removeMarker(marker.id);
+  //     });
+  //   }
   // }
 
+  // removeMarker(markerId){
+  //   this.markers[markerId].setMap(null); // currently only removes from map but not from this.markers
+  //   delete this.markers[markerId];
+  // }
 
 
 }

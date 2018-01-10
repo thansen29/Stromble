@@ -5,44 +5,38 @@ class RouteMap extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      lat: 40.730610,
-      lng: -73.935242
+      startCoords: {
+        lat: '',
+        lng: ''
+      },
+      endCoords: {
+        lat: '',
+        lng: ''
+      }
+
     };
   }
 
   componentDidMount(){
     const mapOptions = {
-      center: { lat: 40.730610, lng: -73.935242},
-      zoom: 13
+
+      center: { lat: 40.75127213572793, lng: -73.98369312286377 },
+      zoom: 15
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
 
-    this.MarkerManager.updateMarkers(this.state);
-
+    // this.MarkerManager.updateMarkers(this.state.startCoords);
 
     this.map.addListener("click", (e) => {
       const lat = e.latLng.lat();
       const lng = e.latLng.lng();
-      const position = { lat: lat, lng: lng };
-      const marker = new google.maps.Marker({
-        position: position,
-        map: this.map
-      });
+      const position = { lat, lng };
+      this.MarkerManager.createMarker(position);
+
     });
   }
-
-  // createMarker(coords){
-  //   this.map.addListener("click", () => {
-  //     const marker = new google.maps.Marker({
-  //       position: coords,
-  //       map: this.map
-  //     });
-  //
-  //     // this.markers["endCoords"] = coords;
-  //   });
-  // }
 
   render(){
     return (
