@@ -21,7 +21,28 @@ class RouteMap extends React.Component {
 
     this.MarkerManager.updateMarkers(this.state);
 
+
+    this.map.addListener("click", (e) => {
+      const lat = e.latLng.lat();
+      const lng = e.latLng.lng();
+      const position = { lat: lat, lng: lng };
+      const marker = new google.maps.Marker({
+        position: position,
+        map: this.map
+      });
+    });
   }
+
+  // createMarker(coords){
+  //   this.map.addListener("click", () => {
+  //     const marker = new google.maps.Marker({
+  //       position: coords,
+  //       map: this.map
+  //     });
+  //
+  //     // this.markers["endCoords"] = coords;
+  //   });
+  // }
 
   render(){
     return (

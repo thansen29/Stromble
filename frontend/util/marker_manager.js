@@ -15,12 +15,32 @@ class MarkerManager {
       position: coords,
       map: this.map
     });
+
+    this.markers["startCoords"] = coords;
+    // debugger
     // console.log(marker);
     // debugger
     //marker.position.lat()
 
 
   }
+
+  // createMarker(coords){
+  //   this.map.addEventListener("click", () => {
+  //     debugger
+  //     const marker = new google.maps.Marker({
+  //       position: coords,
+  //       map: this.map
+  //     });
+  //
+  //     this.markers["endCoords"] = coords;
+  //   });
+
+
+  // }
+
+
+
 }
 
 
