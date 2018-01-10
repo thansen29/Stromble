@@ -4,12 +4,13 @@ import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_a
 import { requestRunDistance, requestRideDistance, requestLongestRunDistance,
    requestLongestRideDistance, requestLongestRunDuration, requestLongestRideDuration,
     requestTotalRuns, requestTotalRides, requestFastedSpeed } from '../../actions/statistics/workout_totals';
-import { openModal } from '../../actions/modals/modal_actions';
+import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
     workouts: Object.values(state.workout.workouts).reverse(),
     stats: state.stats,
+    isOpen: state.ui.modal["isOpen"],
     newUser: Boolean(state.session.currentUser.fname === null)
 
   };
@@ -28,7 +29,8 @@ const mapDispatchToProps = dispatch => {
     requestTotalRuns: () => dispatch(requestTotalRuns()),
     requestTotalRides: () => dispatch(requestTotalRides()),
     requestFastedSpeed: () => dispatch(requestFastedSpeed()),
-    openModal: () => dispatch(openModal())
+    openModal: () => dispatch(openModal()),
+    closeModal: () => dispatch(closeModal())
   };
 };
 

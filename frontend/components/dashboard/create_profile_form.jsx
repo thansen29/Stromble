@@ -20,7 +20,7 @@ class CreateProfileForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.createProfile(this.state).then(() => {
+    this.props.updateUser(this.state).then(() => {
       this.props.closeModal();
     });
   }

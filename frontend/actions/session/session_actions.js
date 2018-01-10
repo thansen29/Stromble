@@ -23,6 +23,7 @@ export const clearErrors = () => {
   };
 };
 
+
 export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user).then((currentUser) => {
     dispatch(receiveCurrentUser(currentUser));
@@ -43,6 +44,14 @@ export const login = user => dispatch => {
 export const logout = () => dispatch => {
   return SessionAPIUtil.logout().then(() => {
     dispatch(receiveCurrentUser(null));
+  }, (errors) => {
+    dispatch(receiveErrors(errors));
+  });
+};
+
+export const updateUser = user => dispatch => {
+  return SessionAPIUtil.updateUser(user).then((resp) => {
+    dispatch(receiveCurrentUser(resp));
   }, (errors) => {
     dispatch(receiveErrors(errors));
   });

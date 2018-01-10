@@ -19,9 +19,18 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      render :show
+    else
+      render json: { profile: "You must submit a first name and a last name"}, status: 422
+    end
+  end
+
   private
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :fname, :lname)
   end
 
 end

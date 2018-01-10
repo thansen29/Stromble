@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store.js';
 import Root from './components/root.jsx';
+import { logout } from './actions/session/session_actions';
 import { requestRoutes, requestRoute, createRoute, deleteRoute } from './actions/routes/route_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   window.dispatch = store.dispatch;
   window.getState = store.getState;
+  window.logout = logout;
 
   window.requestRoutes = requestRoutes;
   window.requestRoute = requestRoute;

@@ -36,10 +36,18 @@ class DashboardIndex extends React.Component {
     }
   }
 
+  // createProfile(){
+  //   this.props.closeModal();
+  //   return (
+  //     <ModalComponent>
+  //       <CreateProfileContainer />
+  //     </ModalComponent>
+  //   );
+  // }
+
   render(){
     let workoutItems;
     let message;
-    let createProfile;
     if(this.props.workouts.length > 0){
       workoutItems = this.props.workouts.map((workout) => {
         return (
@@ -58,19 +66,16 @@ class DashboardIndex extends React.Component {
       { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
       { title: "bike-tab", content: <RideTotalsContent stats={this.props.stats} /> }
     ];
-    if(this.state.newUser){
-      createProfile =
-      <ModalComponent>
-        <CreateProfileContainer />
-      </ModalComponent>;
-    }
-
+      // const createProfile =
+      //   <ModalComponent>
+      //     <CreateProfileContainer />
+      //   </ModalComponent>;
 
     return (
       <section className="dashboard-background">
         <Navbar />
         <section className="dashboard-container">
-          { createProfile }
+          { /*this.state.newUser ? this.createProfile : null */}
           <aside className="dashboard-left">
             <Tabs panes={tabs} />
           </aside>
