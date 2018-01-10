@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Navbar from '../navbar';
 class RouteIndex extends React.Component {
   constructor(props){
     super(props);
@@ -7,7 +7,9 @@ class RouteIndex extends React.Component {
 
   render(){
     return (
-      <div>route index placeholder</div>
+      <section>
+        <Navbar />
+      </section>
     );
   }
 }
