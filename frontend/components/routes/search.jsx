@@ -6,9 +6,9 @@ const Search = (props) => {
   return (
     <section>
       <RouteIndex />
-      <RouteMap />
     </section>
   );
 };
+// <RouteMap />
 
 export default Search;
