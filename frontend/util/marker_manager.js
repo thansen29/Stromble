@@ -8,6 +8,14 @@ class MarkerManager extends React.Component {
     this.id = 1;
     this.routePath = [];
     this.elevations = [];
+
+    this.startLat;
+    this.startLng;
+    this.endLat;
+    this.endLng;
+    this.distance;
+    this.elevation;
+
   }
 
   //TODO: Make the routes chain
@@ -22,7 +30,7 @@ class MarkerManager extends React.Component {
     marker.addListener("click", () => {
       this.removeMarker(marker.id);
     });
-
+    // console.log("marker created");
     if(Object.values(this.markers).length === 2){
       this.createRoute();
     }
@@ -80,17 +88,23 @@ class MarkerManager extends React.Component {
   }
 
   storeData(distance, start, end, elevation){
-    const startLat = start.lat();
-    const startLng = start.lng();
-    const endLat = end.lat();
-    const endLng = end.lng();
-    distance = parseFloat(distance);
-    elevation = parseInt(elevation);
-    // const data = {
-    //   startLat, startLng, endLat, endLng, distance, elevation
-    // };
-    // return data;
+    if(distance){
+      this.startLat = start.lat();
+      this.startLng = start.lng();
+      this.endLat = end.lat();
+      this.endLng = end.lng();
+      this.distance = parseFloat(distance);
+      this.elevation = parseInt(elevation);
+      // const data = {
+      //   startLat, startLng, endLat, endLng, distance, elevation
+      // };
+      // return data;
+    }
+  }
 
+  getState(){
+    // debugger
+    return this.start;
   }
 }
 

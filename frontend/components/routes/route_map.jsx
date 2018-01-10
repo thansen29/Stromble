@@ -4,17 +4,6 @@ import MarkerManager from '../../util/marker_manager';
 class RouteMap extends React.Component {
   constructor(props){
     super(props);
-    // this.state = {
-    //   startCoords: {
-    //     lat: '',
-    //     lng: ''
-    //   },
-    //   endCoords: {
-    //     lat: '',
-    //     lng: ''
-    //   }
-    //
-    // };
   }
 
   componentDidMount(){

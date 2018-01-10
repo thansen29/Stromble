@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar';
 import RouteMap from './route_map';
-import MarkerManager from '../../util/marker_manager';
 
 class RouteIndex extends React.Component {
   constructor(props){
@@ -26,8 +25,9 @@ class RouteIndex extends React.Component {
   handleSubmit(e){
     console.log("hello");
     e.preventDefault();
-    debugger
-    const data = MarkerManager.storeData();
+    // debugger
+    this.props.getState();
+    // const data = MarkerManager.storeData();
   }
 
   render(){
