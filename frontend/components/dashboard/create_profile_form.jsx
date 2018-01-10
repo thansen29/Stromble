@@ -27,8 +27,29 @@ class CreateProfileForm extends React.Component {
 
   render(){
     return (
-      <section className="create-profile-form">
-        hi
+      <section className="create-profile-container">
+        <form className="create-profile-form" onSubmit={this.handleSubmit}>
+
+          <header className="create-header">
+            <h1>Create Your Profile</h1>
+          </header>
+
+            <input
+              type="text"
+              className="create-form-input"
+              value={this.state.fname}
+              onChange={this.handleChange('fname')}
+              placeholder="First Name"/>
+
+            <input
+              type="text"
+              className="create-form-input"
+              value={this.state.lname}
+              onChange={this.handleChange('lname')}
+              placeholder="Last Name"/>
+            <button className="create-form-submit">Submit</button>
+
+        </form>
       </section>
     );
   }

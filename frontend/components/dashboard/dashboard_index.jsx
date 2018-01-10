@@ -69,8 +69,8 @@ class DashboardIndex extends React.Component {
     return (
       <section className="dashboard-background">
         <Navbar />
-        { createProfile }
         <section className="dashboard-container">
+          { createProfile }
           <aside className="dashboard-left">
             <Tabs panes={tabs} />
           </aside>

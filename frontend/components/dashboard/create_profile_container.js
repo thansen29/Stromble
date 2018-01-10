@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CreateProfileForm from './create_profile_form';
-import { openModal, closeModal } from '../../actions/session/session_actions';
+import { closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,8 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    openModal: () => dispatch(openModal()),
-    closeModa: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal())
   };
 };
 

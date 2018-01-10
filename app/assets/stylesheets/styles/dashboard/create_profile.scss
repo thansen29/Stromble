@@ -1,0 +1,49 @@
+.create-profile-container {
+  position: absolute;
+  z-index: 125;
+  background: white;
+  width: 30%;
+  height: 30%;
+  left: 35%;
+  display: flex;
+  justify-content: center;
+}
+
+.create-profile-form {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-header h1 {
+  color: rgba(34, 34, 38, 0.95);
+  padding: 20px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.create-form-input {
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  border: 1px solid #ccccd1;
+  background: white;
+  height: 25px;
+    &:focus {
+      border: 1px solid black;
+  }
+}
+
+.create-form-submit {
+  width: 137px;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 350;
+  border-radius: 4px;
+  background: #fc4c02;
+  color: white;
+}
