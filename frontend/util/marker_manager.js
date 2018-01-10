@@ -30,7 +30,6 @@ class MarkerManager {
   }
 
   createRoute(){
-    debugger
     const start = this.markers[1].getPosition();
     const end = this.markers[2].getPosition();
     const routeRunRequest = {
@@ -49,11 +48,22 @@ class MarkerManager {
     const directionsRenderer = new google.maps.DirectionsRenderer();
     directionsRenderer.setMap(this.map);
 
-    directionsService.route(routeRunRequest, (directionsResult, directionsStatus) => {
+    directionsService.route(routeRunRequest, ((directionsResult, directionsStatus) => {
       if(directionsStatus === "OK"){
         directionsRenderer.setDirections(directionsResult);
+        let distance = directionsResult.routes[0].legs[0].distance.text;
+        this.storeData(distance, start, end);
       }
-    });
+    }).bind(this));
+  }
+
+  storeData(distance, start, end){
+    const start_lat = start.lat();
+    const start_lng = start.lng();
+    const end_lat = end.lat();
+    const end_lng = end.lng();
+    distance = parseFloat(distance);
+    debugger
   }
 }
 
