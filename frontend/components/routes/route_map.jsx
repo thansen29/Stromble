@@ -27,8 +27,6 @@ class RouteMap extends React.Component {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
 
-    // this.MarkerManager.updateMarkers(this.state.startCoords);
-
     this.map.addListener("click", (e) => {
       const lat = e.latLng.lat();
       const lng = e.latLng.lng();
@@ -36,6 +34,7 @@ class RouteMap extends React.Component {
       this.MarkerManager.createMarker(position);
 
     });
+    // this.MarkerManager.createRoute();
   }
 
   render(){

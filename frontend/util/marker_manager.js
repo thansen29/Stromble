@@ -8,7 +8,6 @@ class MarkerManager {
   }
 
   createMarker(coords){
-    // each time a new marker is created, give it an id that is 'unique'
     const marker = new google.maps.Marker({
       position: coords,
       map: this.map,
@@ -16,10 +15,13 @@ class MarkerManager {
     });
     this.markers[this.id] = marker;
     this.id++;
-
     marker.addListener("click", () => {
       this.removeMarker(marker.id);
     });
+
+    if(Object.values(this.markers).length === 2){
+      this.createRoute();
+    }
   }
 
   removeMarker(markerId){
@@ -27,27 +29,32 @@ class MarkerManager {
     delete this.markers[markerId];
   }
 
-  //temporary limitation for only one endpoint
-  // createMarker(coords){
-  //   if(!this.markers.hasOwnProperty("endPoint")){
-  //     const marker = new google.maps.Marker({
-  //       position: coords,
-  //       map: this.map,
-  //       id: 2
-  //     });
-  //     this.markers[marker.id] = coords;
-  //     marker.addListener("click", () => {
-  //       this.removeMarker(marker.id);
-  //     });
-  //   }
-  // }
+  createRoute(){
+    debugger
+    const start = this.markers[1].getPosition();
+    const end = this.markers[2].getPosition();
+    const routeRunRequest = {
+      origin: start,
+      destination: end,
+      travelMode: 'WALKING',
+    };
 
-  // removeMarker(markerId){
-  //   this.markers[markerId].setMap(null); // currently only removes from map but not from this.markers
-  //   delete this.markers[markerId];
-  // }
+    const routeRideRequest = {
+      origin: start,
+      destination: end,
+      travelMode: 'BICYCLING',
+    };
 
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(this.map);
 
+    directionsService.route(routeRunRequest, (directionsResult, directionsStatus) => {
+      if(directionsStatus === "OK"){
+        directionsRenderer.setDirections(directionsResult);
+      }
+    });
+  }
 }
 
 

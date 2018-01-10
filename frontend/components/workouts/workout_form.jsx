@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import moment from 'moment';
 
+//TODO: make the title update based on the sport
+//TODO: the private word is not right still
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
@@ -177,7 +179,7 @@ class WorkoutForm extends React.Component {
                   className="workout-input title-input left-align"
                   type="text"
                   value={this.state.title}
-                  onChange={this.handleChange('title')} />
+                  onChange={this.handleChange('title')}/>
               </div>
             </div>
           </section>
