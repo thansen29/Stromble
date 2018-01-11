@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ModalComponent from './modal_component';
-import { hideModal } from '../../actions/modals/modal_actions';
+import { closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    hideModal: () => dispatch(hideModal())
+    closeModal: () => dispatch(closeModal())
   };
 };
 

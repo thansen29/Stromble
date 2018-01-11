@@ -59,7 +59,7 @@ class RouteIndex extends React.Component {
 
         </section>
         {this.props.isOpen ?
-          <ModalComponent>
+          <ModalComponent closeModal={this.props.closeModal}>
             <RouteFormContainer state={this.state} history={this.props.history}/>
           </ModalComponent> : null }
 

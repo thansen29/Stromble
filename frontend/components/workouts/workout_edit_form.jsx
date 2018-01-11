@@ -31,50 +31,53 @@ class WorkoutEditForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.closeModal();
     this.props.updateWorkout(this.state);
   }
 
   render(){
     return (
-      <section className="workout-edit-form">
-        <header className="workout-form-header">
-          <h1>Edit Activity</h1>
-          <button className="edit-form-save" onClick={this.handleSubmit}>Save & View Activity</button>
-        </header>
+      <section>
+        <section className="workout-edit-form">
+          <header className="workout-form-header">
+            <h1>Edit Activity</h1>
+            <button className="edit-form-save" onClick={this.handleSubmit}>Save & View Activity</button>
+          </header>
 
-        <main className="workout-edit-body">
+          <main className="workout-edit-body">
 
-          <section className="edit-toprow">
+            <section className="edit-toprow">
+              <div className="input-wrapper-edit">
+                <label>Sport</label>
+                <input className="edit-form-input edit-sport"
+                  onChange={this.handleChange('sport')}
+                  value={this.state.sport}/>
+              </div>
+              <div className="input-wrapper-edit">
+                <label>{this.state.sport} Type</label>
+                <input className="edit-form-input"
+                  onChange={this.handleChange('activity_type')}
+                  value={this.state.sport}/>
+              </div>
+            </section>
+
             <div className="input-wrapper-edit">
-              <label>Sport</label>
-              <input className="edit-form-input edit-sport"
-                onChange={this.handleChange('sport')}
-                value={this.state.sport}/>
+              <label>Title</label>
+              <input
+                className="edit-form-input"
+                onChange={this.handleChange('title')}
+                value={this.state.title}/>
             </div>
+
             <div className="input-wrapper-edit">
-              <label>{this.state.sport} Type</label>
-              <input className="edit-form-input"
-                onChange={this.handleChange('activity_type')}
-                value={this.state.sport}/>
+              <label>Description</label>
+              <textarea
+                className='edit-form-input'
+                onChange={this.handleChange('description')}
+                value={this.state.description}/>
             </div>
-          </section>
-
-          <div className="input-wrapper-edit">
-            <label>Title</label>
-            <input
-              className="edit-form-input"
-              onChange={this.handleChange('title')}
-              value={this.state.title}/>
-          </div>
-
-          <div className="input-wrapper-edit">
-            <label>Description</label>
-            <textarea
-              className='edit-form-input'
-              onChange={this.handleChange('description')}
-              value={this.state.description}/>
-          </div>
-        </main>
+          </main>
+        </section>
       </section>
     );
   }

@@ -8,9 +8,9 @@ class ModalComponent extends React.Component {
   render() {
     return (
       <section>
-        <section className="modal-screen"></section>
+        <section className="modal-screen" onClick={this.props.closeModal}></section>
           { this.props.children }
-      </section> 
+      </section>
     );
   }
 }

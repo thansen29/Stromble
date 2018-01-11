@@ -1,6 +1,7 @@
 import React from 'react';
 
 //TODO: make the error handling use the store
+//TODO: errors are still a little buggy
 class CreateProfileForm extends React.Component {
   constructor(props){
     super(props);

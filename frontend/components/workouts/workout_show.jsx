@@ -60,7 +60,7 @@ class WorkoutShow extends React.Component {
             </button>
 
             {this.props.isOpen ?
-              <ModalComponent>
+              <ModalComponent closeModal={this.props.closeModal}>
                 <WorkoutEditContainer
                    title={this.props.workout.title}
                    description={this.props.workout.description}
