@@ -12,7 +12,8 @@ class RouteMap extends React.Component {
       endLat: '',
       endLng: '',
       distance: '',
-      elevation: ''
+      elevation: '',
+      duration: ''
     };
 
     this.id = 1;
@@ -86,6 +87,7 @@ class RouteMap extends React.Component {
         directionsRenderer.setDirections(directionsResult);
         let distance = directionsResult.routes[0].legs[0].distance.text;
         this.routePath = directionsResult.routes[0].overview_path;
+        let duration = directionsResult.routes[0].legs[0].duration.text;
 
           const elevationService = new google.maps.ElevationService();
           elevationService.getElevationAlongPath({
@@ -99,7 +101,7 @@ class RouteMap extends React.Component {
                 const max = this.elevations.sort()[this.elevations.length-1];
                 const min = this.elevations.sort()[0];
                 let elevation = max - min;
-                this.storeData(distance, start, end, elevation);
+                this.storeData(distance, start, end, elevation, duration);
               }
           }).bind(this));
 
@@ -108,7 +110,7 @@ class RouteMap extends React.Component {
     }).bind(this));
   }
 
-  storeData(distance, start, end, elevation){
+  storeData(distance, start, end, elevation, duration){
     if(distance){
       this.setState({
         startLat: start.lat(),
@@ -116,7 +118,8 @@ class RouteMap extends React.Component {
         endLat: end.lat(),
         endLng: end.lng(),
         distance: parseFloat(distance),
-        elevation: parseInt(elevation)
+        elevation: parseInt(elevation),
+        duration: duration
       });
       this.props.onChange(this.state);
       // this.startLat = start.lat();

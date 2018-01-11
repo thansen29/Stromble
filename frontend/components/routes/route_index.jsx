@@ -14,9 +14,11 @@ class RouteIndex extends React.Component {
       end_lng: '',
       distance: 0,
       distance_unit: "miles",
-      elevation_gain: '',
+      elevation_gain: '0',
       elevation_unit: "meters",
-      private: false
+      private: false,
+      route_type: "Run",
+      duration: '0s'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,23 +26,20 @@ class RouteIndex extends React.Component {
   }
 
   handleSubmit(e){
-    debugger
     console.log("hello");
     e.preventDefault();
-    // debugger
-    // this.props.getState();
-    // const data = MarkerManager.storeData();
+
   }
 
   handleProps(mapState){
-    // debugger
     this.setState({
       start_lat: mapState.startLat,
       start_lng: mapState.startLng,
       end_lat: mapState.endLat,
       end_lng: mapState.endLng,
       distance: mapState.distance,
-      elevation_gain: mapState.elevation
+      elevation_gain: mapState.elevation,
+      user_id: this.props.userId
     });
   }
 
@@ -57,22 +56,22 @@ class RouteIndex extends React.Component {
         <section className="route-bottom-bar">
           <ul>
             <li>
-              <strong>data</strong>
+              <strong>{this.state.route_type}</strong>
               <div className="route-label">Route Type</div>
             </li>
 
             <li>
-              <strong>data</strong>
+              <strong>{this.state.distance} {this.state.distance_unit}</strong>
               <div className="route-label">Distance</div>
             </li>
 
             <li>
-              <strong>data</strong>
+              <strong>{this.state.elevation_gain} {this.state.elevation_unit}</strong>
               <div className="route-label">Elevation Gain</div>
             </li>
 
             <li>
-              <strong>data</strong>
+              <strong>{this.state.duration}</strong>
               <div className="route-label">Est. Moving Time</div>
             </li>
 
