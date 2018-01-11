@@ -7,6 +7,7 @@ import moment from 'moment';
 
 //TODO: make the title update based on the sport
 //TODO: the private word is not right still
+//TODO: min max on number inputs
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);

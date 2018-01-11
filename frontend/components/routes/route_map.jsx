@@ -29,8 +29,6 @@ class RouteMap extends React.Component {
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
-    // this.MarkerManager = new MarkerManager(this.map);
-
 
     this.map.addListener("click", (e) => {
       const lat = e.latLng.lat();
@@ -52,7 +50,6 @@ class RouteMap extends React.Component {
     marker.addListener("click", () => {
       this.removeMarker(marker.id);
     });
-    // console.log("marker created");
     if(Object.values(this.markers).length === 2){
       this.createRoute();
     }
@@ -122,21 +119,8 @@ class RouteMap extends React.Component {
         duration: duration
       });
       this.props.onChange(this.state);
-      // this.startLat = start.lat();
-      // this.startLng = start.lng();
-      // this.endLat = end.lat();
-      // this.endLng = end.lng();
-      // this.distance = parseFloat(distance);
-      // this.elevation = parseInt(elevation);
-      // const data = {
-      //   startLat, startLng, endLat, endLng, distance, elevation
-      // };
-      // return data;
     }
-    // debugger
   }
-
-
 
   render(){
     return (

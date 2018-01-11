@@ -21,7 +21,7 @@ class RouteIndex extends React.Component {
       private: false,
       route_type: "Run",
       duration: '0s',
-      viewForm: false
+      // viewForm: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,7 +60,7 @@ class RouteIndex extends React.Component {
           { button }
 
         </section>
-        {this.state.viewForm ?
+        {this.props.isOpen ?
           <ModalComponent>
             <RouteFormContainer state={this.state} history={this.props.history}/>
           </ModalComponent> : null }

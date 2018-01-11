@@ -4,7 +4,8 @@ import { openModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
-    userId: state.session.currentUser.id
+    userId: state.session.currentUser.id,
+    isOpen: state.ui.modal["isOpen"]
   };
 };
 

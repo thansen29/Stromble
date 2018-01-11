@@ -22,6 +22,7 @@ class RouteForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleClose = this.handleClose.bind(this);
 
   }
 
@@ -54,7 +55,6 @@ class RouteForm extends React.Component {
   handleClose(e){
     e.preventDefault();
     this.props.closeModal();
-    //need to close viewform on index page
   }
 
   handleCheck(){
@@ -97,7 +97,7 @@ class RouteForm extends React.Component {
         </main>
 
         <footer className="route-buttons">
-          <button className="route-form-cancel">Cancel</button>
+          <button onClick={this.handleClose} className="route-form-cancel">Cancel</button>
           <button onClick={this.handleSubmit} className="route-form-save">Save</button>
         </footer>
 
