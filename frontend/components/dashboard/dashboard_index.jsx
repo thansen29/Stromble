@@ -14,7 +14,7 @@ import CreateProfileContainer from './create_profile_container';
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
-    // this.state = { newUser: false };
+
   }
 
   componentWillMount(){
@@ -42,15 +42,6 @@ class DashboardIndex extends React.Component {
     this.props.openModal();
   }
 
-  // createProfile(){
-  //   this.props.openModal();
-  //   return (
-  //     <ModalComponent>
-  //       <CreateProfileContainer />
-  //     </ModalComponent>
-  //   );
-  // }
-
   render(){
     let workoutItems;
     let message;
@@ -72,10 +63,6 @@ class DashboardIndex extends React.Component {
       { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
       { title: "bike-tab", content: <RideTotalsContent stats={this.props.stats} /> }
     ];
-      // const createProfile =
-      //   <ModalComponent>
-      //     <CreateProfileContainer />
-      //   </ModalComponent>;
 
     return (
       <section className="dashboard-background">

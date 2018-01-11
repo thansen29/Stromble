@@ -47,3 +47,24 @@
   background: #fc4c02;
   color: white;
 }
+
+.create-errors {
+  background: white;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  height: 25px;
+  border: 1px solid red;
+  color: red;
+  &:focus {
+    border: 1px solid black;
+    color: black;
+
+  }
+}
+
+.create-error-message {
+  color: red;
+  font-size: 12px;
+  padding-bottom: 15px;
+}

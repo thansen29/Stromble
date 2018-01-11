@@ -1,28 +1,37 @@
 import React from 'react';
 
+//TODO: make the error handling use the store
 class CreateProfileForm extends React.Component {
   constructor(props){
     super(props);
 
     this.state = {
       fname: "",
-      lname: ""
+      lname: "",
+      fnameError: false,
+      lnameError: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   handleChange(field){
-    return e => {
-      this.setState({ [field]: e.target.value });
-    };
+    const err = field + "Error";
+    return ((e) => {
+      this.setState({ [field]: e.target.value, [err]: false });
+    }).bind(this);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.updateUser(this.state).then(() => {
-      this.props.closeModal();
-    });
+    if(this.state.fname === "" || this.state.lname === ""){
+      this.setState({fnameError: true, lnameError: true});
+    } else {
+      this.props.updateUser(this.state).then(() => {
+        this.props.closeModal();
+      });
+    }
   }
 
   render(){
@@ -33,17 +42,21 @@ class CreateProfileForm extends React.Component {
           <header className="create-header">
             <h1>Create Your Profile</h1>
           </header>
-
+          {this.state.fnameError || this.state.lnameError ?
+            <span className="create-error-message">*All Fields are required</span> :
+              <span className="create-error-message"></span>
+          }
             <input
               type="text"
-              className="create-form-input"
+              className={this.state.fnameError ? "create-errors" : "create-form-input"}
               value={this.state.fname}
               onChange={this.handleChange('fname')}
-              placeholder="First Name"/>
+              placeholder="First Name"
+              />
 
             <input
               type="text"
-              className="create-form-input"
+              className={this.state.lnameError ? "create-errors" : "create-form-input"}
               value={this.state.lname}
               onChange={this.handleChange('lname')}
               placeholder="Last Name"/>
