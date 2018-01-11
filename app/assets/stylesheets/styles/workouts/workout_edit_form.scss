@@ -1,0 +1,75 @@
+.workout-edit-form {
+  z-index: 160;
+  position: absolute;
+  width: 50%;
+  top: 10%;
+  left: 25%;
+  background: #f0f0f0;
+}
+
+.workout-form-header {
+  padding: 20px;
+  font-size: 26px;
+  border-bottom: 1px solid #ccccd1;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.workout-edit-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  & div {
+    color: #2d2d32;
+    font-size: 18px;
+    width: 100%;
+  }
+}
+
+.edit-toprow {
+  display: flex;
+  width: 100%;
+}
+
+.input-wrapper-edit {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  padding: 7px;
+  box-sizing: border-box;
+  & label {
+    font-size: 12px;
+    color: #2d2d32;
+    margin-bottom: 5px;
+  }
+}
+
+.edit-form-input {
+  background: white;
+  color: #2d2d32;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccccd1;
+  // width: 50%;
+  &:focus {
+    border: 1px solid #007FB6;
+  }
+}
+
+.edit-sport {
+  margin-right: 20px;
+}
+
+.edit-form-save {
+  background: #fc4c02;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 0px;
+  font-size: 16px;
+  &:hover {
+    background: #c93d02;
+    transition: background-color 500ms;
+  }
+}
