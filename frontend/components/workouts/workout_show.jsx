@@ -1,12 +1,13 @@
 import React from 'react';
 import Navbar from '../navbar';
 import moment from 'moment';
+import WorkoutEditContainer from './workout_edit_container';
+import ModalComponent from '../modals/modal_component';
 
 class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
-
-    this.state;
+    // this.state;
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -17,6 +18,11 @@ class WorkoutShow extends React.Component {
   handleDelete(){
     this.props.history.push("/dashboard");
     this.props.deleteWorkout(this.props.workout.id);
+  }
+
+  handleEdit(e){
+    e.preventDefault();
+    this.props.openModal();
   }
 
   render(){
@@ -46,6 +52,12 @@ class WorkoutShow extends React.Component {
             <button onClick={this.handleDelete} className="show-delete">
               <i className="fa fa-ban" aria-hidden="true"></i>
             </button>
+            
+            {this.props.isOpen ?
+              <ModalComponent>
+                <WorkoutEditContainer state={this.state} />
+              </ModalComponent> : null
+            }
 
             <section className="show-container">
 
