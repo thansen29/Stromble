@@ -14,7 +14,7 @@ import RouteContainer from './routes/route_container';
 // import DropdownComponent from './dropdowns/dropdown_component';
 //TODO: refactor - add stats container here and dont pass props down to run and  ride comps
 const App = (props) => (
-  <div onClick={props.isOpen ? props.closeDropdown : null }>
+  <div onClick={props.isOpen ? props.closeModal : null }>
     <Route path="/routes/new" component={RouteContainer}></Route>
     <Route path="/login" component={loginContainer}></Route>
     <Route exact path="/" component={landingContainer}></Route>

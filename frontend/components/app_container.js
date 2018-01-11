@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import App from './app';
-import { closeDropdown } from '../actions/dropdowns/dropdown_actions';
+import { closeModal } from '../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
-    isOpen: state.ui.dropdown.component
+    isOpen: state.ui.modal["isOpen"]
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeDropdown: () => dispatch(closeDropdown())
+    closeModal: () => dispatch(closeModal())
   };
 };
 
