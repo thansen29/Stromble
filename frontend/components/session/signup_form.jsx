@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import LandingIndex from './landing_index';
 
+//TODO: make the modal fade in
 class SignupForm extends React.Component {
   constructor(props){
     super(props);

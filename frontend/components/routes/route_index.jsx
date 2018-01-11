@@ -26,7 +26,6 @@ class RouteIndex extends React.Component {
   }
 
   handleSubmit(e){
-    console.log("hello");
     e.preventDefault();
 
   }
@@ -39,16 +38,22 @@ class RouteIndex extends React.Component {
       end_lng: mapState.endLng,
       distance: mapState.distance,
       elevation_gain: mapState.elevation,
-      user_id: this.props.userId
+      user_id: this.props.userId,
+      duration: mapState.duration
     });
   }
 
   render(){
+    let button;
+    button = this.state.user_id !== "" ?
+      <button onClick={this.handleSubmit} className="route-save">Save</button> :
+        <button className="route-save-disabled" disabled="true">Save</button>;
+
     return (
       <section>
         <Navbar />
         <section className="route-navbar">
-          <button onClick={this.handleSubmit} className="route-save">Save</button>
+          { button }
         </section>
 
         <RouteMap onChange={this.handleProps}/>
