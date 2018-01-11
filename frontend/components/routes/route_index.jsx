@@ -20,14 +20,28 @@ class RouteIndex extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleProps = this.handleProps.bind(this);
   }
 
   handleSubmit(e){
+    debugger
     console.log("hello");
     e.preventDefault();
     // debugger
-    this.props.getState();
+    // this.props.getState();
     // const data = MarkerManager.storeData();
+  }
+
+  handleProps(mapState){
+    // debugger
+    this.setState({
+      start_lat: mapState.startLat,
+      start_lng: mapState.startLng,
+      end_lat: mapState.endLat,
+      end_lng: mapState.endLng,
+      distance: mapState.distance,
+      elevation_gain: mapState.elevation
+    });
   }
 
   render(){
@@ -38,7 +52,7 @@ class RouteIndex extends React.Component {
           <button onClick={this.handleSubmit} className="route-save">Save</button>
         </section>
 
-        <RouteMap />
+        <RouteMap onChange={this.handleProps}/>
 
         <section className="route-bottom-bar">
           <ul>

@@ -118,6 +118,7 @@ class RouteMap extends React.Component {
         distance: parseFloat(distance),
         elevation: parseInt(elevation)
       });
+      this.props.onChange(this.state);
       // this.startLat = start.lat();
       // this.startLng = start.lng();
       // this.endLat = end.lat();
@@ -129,7 +130,7 @@ class RouteMap extends React.Component {
       // };
       // return data;
     }
-    debugger
+    // debugger
   }
 
 
