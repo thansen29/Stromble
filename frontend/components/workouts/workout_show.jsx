@@ -4,11 +4,12 @@ import moment from 'moment';
 import WorkoutEditContainer from './workout_edit_container';
 import ModalComponent from '../modals/modal_component';
 
+//TODO: tool tips for buttons
 class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
-    // this.state;
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount(){
@@ -49,13 +50,22 @@ class WorkoutShow extends React.Component {
         <section className="background">
           <Navbar />
           <section className="whole-container">
+
+            <button onClick={this.handleEdit} className="show-edit">
+              <i className="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+
             <button onClick={this.handleDelete} className="show-delete">
               <i className="fa fa-ban" aria-hidden="true"></i>
             </button>
-            
+
             {this.props.isOpen ?
               <ModalComponent>
-                <WorkoutEditContainer state={this.state} />
+                <WorkoutEditContainer
+                   title={this.props.workout.title}
+                   description={this.props.workout.description}
+                   activityType={this.props.workout.activity_type}
+                   sport={this.props.workout.sport}/>
               </ModalComponent> : null
             }
 

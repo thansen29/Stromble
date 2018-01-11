@@ -103,8 +103,22 @@
   border: 1px solid #ccccd1;
   border-radius: 1px;
   height: 20px;
-  margin-left: 18%;
+  // margin-left: 18%;
   margin-right: 12%;
+  margin-top: 3.05%;
+
+  &:hover {
+    background: #f5f5fa;
+    transition: background-color 300ms;
+  }
+}
+.show-edit {
+  padding: 9px 30px;
+  border: 1px solid #ccccd1;
+  border-radius: 1px;
+  height: 20px;
+  margin-left: 15%;
+  margin-right: 1%;
   margin-top: 3.05%;
 
   &:hover {

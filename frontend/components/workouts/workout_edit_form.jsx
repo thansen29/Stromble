@@ -7,7 +7,7 @@ class WorkoutEditForm extends React.Component {
       sport: "",
       title: "",
       activity_type: "",
-      descripton: "",
+      description: "",
       private: false,
       user_id: ''
     };
@@ -16,9 +16,10 @@ class WorkoutEditForm extends React.Component {
   componentDidMount(){
     this.setState({
       user_id: this.props.userId,
-      title: this.props.state.title,
-      sport: this.props.state.sport,
-      activity_type: this.props.state.activity_type,
+      title: this.props.title,
+      sport: this.props.sport,
+      description: this.props.description,
+      activity_type: this.props.activityType,
     });
   }
 
@@ -34,6 +35,7 @@ class WorkoutEditForm extends React.Component {
   }
 
   render(){
+    debugger
     return (
       <div></div>
     );
