@@ -1,6 +1,10 @@
 import React from 'react';
-// import MarkerManager from '../../util/marker_manager';
 
+//TODO: toggle running/riding
+//TODO: center location is users current location
+//TODO: search functionality
+//TODO: clear markers
+//TODO: chain markers
 class RouteMap extends React.Component {
   constructor(props){
     super(props);

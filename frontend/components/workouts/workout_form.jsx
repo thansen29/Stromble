@@ -6,7 +6,6 @@ import DropdownComponent from '../dropdowns/dropdown_component';
 import moment from 'moment';
 
 //TODO: make the title update based on the sport
-//TODO: the private word is not right still
 //TODO: min max on number inputs
 class WorkoutForm extends React.Component {
   constructor(props){
@@ -73,7 +72,6 @@ class WorkoutForm extends React.Component {
   handleSelection(field){
     return e => {
       this.setState({ [field]: e });
-      console.log(this);
     };
   }
 
