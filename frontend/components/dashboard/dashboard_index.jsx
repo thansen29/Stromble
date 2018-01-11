@@ -9,6 +9,8 @@ import StatsContainer from './stats_container';
 import ModalComponent from '../modals/modal_component';
 import CreateProfileContainer from './create_profile_container';
 
+//TODO: infinite scroll on dashboard index
+//TODO: loading ui to not flash that message before workouts get loaded
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);

@@ -357,7 +357,7 @@
   margin-left: 11px;
   font-size: 13.5px;
   position: absolute;
-  bottom: -20px;
+  bottom: 10px;
 }
 
 .hours {
@@ -422,51 +422,43 @@
   position: absolute;
 }
 
+.inactive {
+  display: flex;
+}
+
+.active {
+  display: flex;
+}
 
 .bike-tab {
-  background-image: url('<%= asset_path("bike.png")%>') ;
+  background-image: url('<%= asset_path("dabike.svg")%>') ;
   background-repeat: no-repeat;
-  background-size: 90%;
-  width: 50px;
-  height: 30px;
-  position: absolute;
-  background-position-x: -160%;
-  background-position-y: 50%;
-
+  background-size: 32%;
+  background-position-x: center;
+  flex: 1;
 }
 
 .inactive .alt-bike-tab {
-  background-image: url('<%= asset_path("alt-bike.png")%>') ;
+  background-image: url('<%= asset_path("dabike.svg")%>') ;
   background-repeat: no-repeat;
-  background-size: 90%;
-  width: 50px;
-  height: 30px;
-  position: absolute;
-  background-position-x: -160%;
-  background-position-y: 50%;
-
+  background-size: 32%;
+  background-position-x: center;
+  flex: 1;
 }
 
 .active .shoe-tab {
-  background-image: url('<%= asset_path("shoe.png")%>') ;
+  background-image: url('<%= asset_path("dashoe.svg")%>') ;
   background-repeat: no-repeat;
-  background-size: 90%;
-  width: 50px;
-  height: 30px;
-  position: absolute;
-  background-position-x: -245%;
-  background-position-y: 50%;
+  background-size: 32%;
+  background-position-x: center;
+  flex: 1;
 
 }
 
 .alt-shoe-tab {
-  background-image: url('<%= asset_path("alt-shoe.png")%>') ;
+  background-image: url('<%= asset_path("dashoe.svg")%>') ;
   background-repeat: no-repeat;
-  background-size: 90%;
-  width: 50px;
-  height: 30px;
-  position: absolute;
-  background-position-x: -175%;
-  background-position-y: 50%;
-
+  background-size: 32%;
+  background-position-x: center;
+  flex: 1;
 }

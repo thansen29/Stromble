@@ -1,5 +1,6 @@
 import React from 'react';
 
+//TODO: handle errors, require title
 class RouteForm extends React.Component {
   constructor(props){
     super(props);
@@ -16,10 +17,12 @@ class RouteForm extends React.Component {
       elevation_unit: "meters",
       private: false,
       duration: '0s',
-      description: ''
+      description: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+
   }
 
   componentDidMount(){
@@ -54,6 +57,12 @@ class RouteForm extends React.Component {
     //need to close viewform on index page
   }
 
+  handleCheck(){
+    this.setState({
+      private: !this.state.private
+    });
+  }
+
   render(){
     return (
       <section className="route-form">
@@ -78,6 +87,13 @@ class RouteForm extends React.Component {
               onChange={this.handleChange('description')}
               value={this.state.description} />
           </div>
+
+          <label className="route-privacy">
+            <div className="privacy">
+              <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
+              <span>Private</span>
+            </div>
+          </label>
         </main>
 
         <footer className="route-buttons">

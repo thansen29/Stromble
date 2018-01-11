@@ -8,7 +8,6 @@ class Api::RoutesController < ApplicationController
   end
 
   def create
-    debugger
     @route = Route.new(route_params)
     if @route.save
       render :show
