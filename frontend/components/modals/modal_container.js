@@ -4,7 +4,7 @@ import { hideModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
-    component: state.ui.modal.component
+    isOpen: state.ui.modal["isOpen"]
   };
 };
 

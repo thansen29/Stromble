@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import RouteIndex from './route_index';
-
+import { openModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
@@ -10,6 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    openModal: () => dispatch(openModal())
   };
 };
 

@@ -20,7 +20,8 @@ class RouteIndex extends React.Component {
       elevation_unit: "meters",
       private: false,
       route_type: "Run",
-      duration: '0s'
+      duration: '0s',
+      viewForm: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +30,8 @@ class RouteIndex extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-
+    this.setState({ viewForm: true });
+    this.props.openModal();
   }
 
   handleProps(mapState){
@@ -56,7 +58,12 @@ class RouteIndex extends React.Component {
         <Navbar />
         <section className="route-navbar">
           { button }
+
         </section>
+        {this.state.viewForm ?
+          <ModalComponent>
+            <RouteFormContainer state={this.state} history={this.props.history}/>
+          </ModalComponent> : null }
 
         <RouteMap onChange={this.handleProps}/>
 
@@ -66,22 +73,18 @@ class RouteIndex extends React.Component {
               <strong>{this.state.route_type}</strong>
               <div className="route-label">Route Type</div>
             </li>
-
             <li>
               <strong>{this.state.distance} {this.state.distance_unit}</strong>
               <div className="route-label">Distance</div>
             </li>
-
             <li>
               <strong>{this.state.elevation_gain} {this.state.elevation_unit}</strong>
               <div className="route-label">Elevation Gain</div>
             </li>
-
             <li>
               <strong>{this.state.duration}</strong>
               <div className="route-label">Est. Moving Time</div>
             </li>
-
           </ul>
         </section>
 

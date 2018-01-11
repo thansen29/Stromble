@@ -1,0 +1,67 @@
+.route-form {
+  z-index: 160;
+  position: absolute;
+  width: 35%;
+  // height: 300px;
+  top: 20%;
+  left: 32%;
+  background: #f0f0f0;
+}
+
+.route-form-header {
+  padding: 20px;
+  font-size: 26px;
+  border-bottom: 1px solid #ccccd1;
+  background: white;
+}
+
+.route-form-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  & div {
+    color: #2d2d32;
+    font-size: 18px;
+  }
+}
+
+.route-form-input {
+  background: white;
+  color: #2d2d32;
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid #ccccd1;
+  width: 50%;
+  &:focus {
+    border: 1px solid #007FB6;
+  }
+}
+
+.input-wrapper-route {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  & label {
+    margin-bottom: 5px;
+  }
+}
+
+.route-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  & .route-form-cancel {
+      background: white;
+      border: 1px solid #ccccd1;
+      padding: 5px 15px;
+      margin-right: 5px;
+  }
+  & .route-form-save {
+      background: #2d2d32;
+      color: white;
+      padding: 10px;
+      margin-right: 15px;
+  }
+}

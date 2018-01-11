@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import RouteForm from './route_form';
 import { createRoute } from '../../actions/routes/route_actions';
+import { closeModal } from '../../actions/modals/modal_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     isOpen: state.ui["isOpen"]
   };
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createRoute: route => dispatch(createRoute(route))
+    createRoute: route => dispatch(createRoute(route)),
+    closeModal: () => dispatch(closeModal())
   };
 };
 
