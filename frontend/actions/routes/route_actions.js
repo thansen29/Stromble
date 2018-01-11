@@ -2,6 +2,7 @@ import * as RouteAPIUtil from '../../util/routes_api_util';
 export const RECEIVE_ROUTES = 'RECEIVE_ROUTES';
 export const RECEIVE_ROUTE = 'RECEIVE_ROUTE';
 export const REMOVE_ROUTE = 'REMOVE_ROUTE';
+export const RECEIVE_ROUTE_ERRORS = 'RECEIVE_ROUTE_ERRORS';
 
 export const receiveRoutes = routes => {
   return {
@@ -21,6 +22,13 @@ export const removeRoute = id => {
   return {
     type: REMOVE_ROUTE,
     routeId: id
+  };
+};
+
+export const receiveRouteErrors = errors => {
+  return {
+    type: RECEIVE_ROUTE_ERRORS,
+    errors
   };
 };
 
