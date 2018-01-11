@@ -51,7 +51,7 @@ class WorkoutShow extends React.Component {
           <Navbar />
           <section className="whole-container">
 
-            <button onClick={this.handleEdit} className="show-edit">
+            <button onClick={this.handleEdit} className="show-edit tooltip">
               <i className="fa fa-pencil" aria-hidden="true"></i>
             </button>
 

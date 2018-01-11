@@ -6,7 +6,6 @@ import DropdownComponent from '../dropdowns/dropdown_component';
 import moment from 'moment';
 
 //TODO: make the title update based on the sport
-//TODO: min max on number inputs
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
@@ -107,16 +106,22 @@ class WorkoutForm extends React.Component {
                 <input
                   className="workout-input right-line duration-box hours"
                   type="number"
+                  min="0"
+                  max="24"
                   value={this.state.duration_hr}
                   onChange={this.handleChange('duration_hr')} />
                 <input
                   className="workout-input right-line duration-box minutes"
                   type="number"
+                  min="0"
+                  max="59"
                   value={this.state.duration_min}
                   onChange={this.handleChange('duration_min')} />
                 <input
                   className="workout-input duration-box seconds"
                   type="number"
+                  min="0"
+                  max="59"
                   value={this.state.duration_s}
                   onChange={this.handleChange('duration_s')} />
               </div>
