@@ -20,7 +20,6 @@ class WorkoutShow extends React.Component {
   }
 
   render(){
-    //TODO: put actual first name and last name on
     if(this.props.workout){
       let momentDate = moment(this.props.workout.time);
       momentDate = momentDate.parseZone();
@@ -51,7 +50,7 @@ class WorkoutShow extends React.Component {
             <section className="show-container">
 
               <header className="show-header">
-                <span className="show-name">Fname Lnameisabitlonger -- </span>
+                <span className="show-name">{this.props.currentUser.fname} {this.props.currentUser.lname} -- </span>
                 {this.props.workout.activity_type}
                 <div className={this.props.workout.private ? "fa fa-lock show-locked" : "show-unlocked"}></div>
               </header>

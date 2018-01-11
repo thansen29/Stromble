@@ -57,7 +57,7 @@ class DashboardIndex extends React.Component {
     if(this.props.workouts.length > 0){
       workoutItems = this.props.workouts.map((workout) => {
         return (
-          <WorkoutItem workout={workout} key={workout.id} />
+          <WorkoutItem workout={workout} key={workout.id} currentUser={this.props.currentUser} />
         );
       });
     }

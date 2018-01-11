@@ -11,7 +11,8 @@ const mapStateToProps = state => {
     workouts: Object.values(state.workout.workouts).reverse(),
     stats: state.stats,
     isOpen: state.ui.modal["isOpen"],
-    newUser: Boolean(state.session.currentUser.fname === null)
+    newUser: Boolean(state.session.currentUser.fname === null),
+    currentUser: state.session.currentUser
 
   };
 };

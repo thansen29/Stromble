@@ -18,13 +18,20 @@ class WorkoutItem extends React.Component {
     const parsedDate = momentDate.calendar();
     const parsedTime = momentDate.format("h:mm A");
 
+    let fname;
+    let lname;
+    if(this.props.currentUser){
+      fname = this.props.currentUser.fname;
+      lname = this.props.currentUser.lname;
+    }
+
     return (
       <section className="workout-item-container">
         <li key={key} className="workout-item">
           <div className="item-top-row">
             <span className="item-avatar"></span>
             <div className="item-body">
-              Fname Lname <br/>
+              {fname} {lname} <br/>
             <span className="show-datetime">{ parsedDate }</span>
             </div>
           </div>
