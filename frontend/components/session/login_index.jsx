@@ -8,6 +8,7 @@ const LoginIndex = ({openModal, closeModal, ui, signup, login, clearErrors, hist
   return (
     <section className="background-container">
       <img
+        className="img"
         src="http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg"
         alt="autumn" />
 
