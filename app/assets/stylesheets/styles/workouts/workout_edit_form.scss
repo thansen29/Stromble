@@ -17,7 +17,7 @@
 }
 
 .workout-edit-body {
-  padding: 30px;
+  padding: 30px 43px 0;
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -49,7 +49,7 @@
 .edit-form-input {
   background: white;
   color: #2d2d32;
-  font-size: 16px;
+  font-size: 18px;
   padding: 5px;
   border: 1px solid #ccccd1;
   // width: 50%;
@@ -71,5 +71,15 @@
   &:hover {
     background: #c93d02;
     transition: background-color 500ms;
+  }
+}
+
+.edit-form-privacy {
+  // margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  & span {
+    margin-left: 5px;
   }
 }

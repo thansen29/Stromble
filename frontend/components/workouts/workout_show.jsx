@@ -65,7 +65,8 @@ class WorkoutShow extends React.Component {
                    title={this.props.workout.title}
                    description={this.props.workout.description}
                    activityType={this.props.workout.activity_type}
-                   sport={this.props.workout.sport}/>
+                   sport={this.props.workout.sport}
+                   id={this.props.workout.id}/>
               </ModalComponent> : null
             }
 

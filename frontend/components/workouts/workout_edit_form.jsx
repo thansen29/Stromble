@@ -1,4 +1,5 @@
 import React from 'react';
+import DropdownComponent from '../dropdowns/dropdown_component';
 
 class WorkoutEditForm extends React.Component {
   constructor(props){
@@ -9,8 +10,13 @@ class WorkoutEditForm extends React.Component {
       activity_type: "",
       description: "",
       private: false,
-      user_id: ''
+      user_id: '',
+      id: ''
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+    this.handleSelection = this.handleSelection.bind(this);
   }
 
   componentDidMount(){
@@ -20,6 +26,7 @@ class WorkoutEditForm extends React.Component {
       sport: this.props.sport,
       description: this.props.description,
       activity_type: this.props.activityType,
+      id: this.props.id
     });
   }
 
@@ -33,6 +40,18 @@ class WorkoutEditForm extends React.Component {
     e.preventDefault();
     this.props.closeModal();
     this.props.updateWorkout(this.state);
+  }
+
+  handleSelection(field){
+    return e => {
+      this.setState({ [field]: e });
+    };
+  }
+
+  handleCheck(){
+    this.setState({
+      private: !this.state.private
+    });
   }
 
   render(){
@@ -49,15 +68,19 @@ class WorkoutEditForm extends React.Component {
             <section className="edit-toprow">
               <div className="input-wrapper-edit">
                 <label>Sport</label>
-                <input className="edit-form-input edit-sport"
-                  onChange={this.handleChange('sport')}
-                  value={this.state.sport}/>
+                <DropdownComponent
+                  items={['Run', 'Ride']}
+                  onChange={this.handleSelection('sport')}
+                  initValue={this.state.sport}
+                  />
               </div>
               <div className="input-wrapper-edit">
                 <label>{this.state.sport} Type</label>
-                <input className="edit-form-input"
-                  onChange={this.handleChange('activity_type')}
-                  value={this.state.sport}/>
+                <DropdownComponent
+                  items={['Race', 'Workout']}
+                  onChange={this.handleSelection('activity_type')}
+                  initValue={this.state.activity_type}
+                  />
               </div>
             </section>
 
@@ -77,6 +100,15 @@ class WorkoutEditForm extends React.Component {
                 value={this.state.description}/>
             </div>
           </main>
+
+          <div className="edit-form-privacy">
+            <label>
+              <div className="privacy">
+                <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
+                <span>Private</span>
+              </div>
+            </label>
+          </div>
         </section>
       </section>
     );
