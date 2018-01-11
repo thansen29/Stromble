@@ -15,9 +15,9 @@ class LandingIndex extends React.Component {
   }
 
   sampleImage(){
-    const img1 = <img src='http://res.cloudinary.com/stromble/image/upload/v1514660639/pexels-photo-302804_oy0xnz.jpg' />;
-    const img2 = <img src='http://res.cloudinary.com/stromble/image/upload/v1514660638/road-sun-rays-path_t4dtzb.jpg' />;
-    const img3 = <img src='http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg' />;
+    const img1 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/pexels-photo-302804_oy0xnz.jpg' />;
+    const img2 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660638/road-sun-rays-path_t4dtzb.jpg' />;
+    const img3 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg' />;
     const imagesArr = [img1, img2, img3];
     return imagesArr[Math.floor(Math.random()*imagesArr.length)];
   }
@@ -37,7 +37,7 @@ class LandingIndex extends React.Component {
               <ModalComponent>
                 <SignupContainer history={this.props.history} />
               </ModalComponent>
-              : null } 
+              : null }
             </li>
             <li>
               <Link to="/login">

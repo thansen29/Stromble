@@ -13,11 +13,14 @@ import RouteContainer from './routes/route_container';
 import AllRoutesContainer from './routes/all_routes_container';
 // import createProfileContainer from './dashboard/create_profile_container';
 // import DropdownComponent from './dropdowns/dropdown_component';
+import RouteShowContainer from './routes/route_show_container';
+
 //TODO: refactor - add stats container here and dont pass props down to run and  ride comps
 const App = (props) => (
   <div>
     <Switch>
       <Route path="/routes/new" component={RouteContainer}></Route>
+      <Route path="/routes/:id" component={RouteShowContainer}></Route>
       <Route exact path="/routes" component={AllRoutesContainer}></Route>
     </Switch>
     <Route path="/login" component={loginContainer}></Route>
