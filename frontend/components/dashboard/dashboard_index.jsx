@@ -14,7 +14,7 @@ import CreateProfileContainer from './create_profile_container';
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
-    this.state = { newUser: false };
+    // this.state = { newUser: false };
   }
 
   componentWillMount(){
@@ -38,8 +38,12 @@ class DashboardIndex extends React.Component {
     }
   }
 
+  openModal(){
+    this.props.openModal();
+  }
+
   // createProfile(){
-  //   this.props.closeModal();
+  //   this.props.openModal();
   //   return (
   //     <ModalComponent>
   //       <CreateProfileContainer />
@@ -77,7 +81,13 @@ class DashboardIndex extends React.Component {
       <section className="dashboard-background">
         <Navbar />
         <section className="dashboard-container">
-          { /*this.state.newUser ? this.createProfile : null */}
+          { this.props.newUser ? this.openModal : null }
+
+          { this.props.isOpen ?
+            <ModalComponent>
+              <CreateProfileContainer />
+            </ModalComponent> : null
+          }
           <aside className="dashboard-left">
             <Tabs panes={tabs} />
           </aside>
