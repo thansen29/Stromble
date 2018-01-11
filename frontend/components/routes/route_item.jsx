@@ -7,7 +7,7 @@ const RouteItem = ({route}) => {
   const endLat = route.end_lat;
   const endLng = route.end_lng;
 
-  const url = `https://maps.googleapis.com/maps/api/staticmap?&size=350x350&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}`;
+  const url = `https://maps.googleapis.com/maps/api/staticmap?&size=350x350&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}&key=AIzaSyAzqV02RQ3R5tDuhiUPlhww_AhPN0rukT0`;
   return (
     <li>
       <div className="route-item-container">

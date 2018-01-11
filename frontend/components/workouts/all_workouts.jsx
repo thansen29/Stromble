@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import Navbar from '../navbar';
 import { Link } from 'react-router-dom';
-
+//TODO: add edit on the utility column
 class AllWorkouts extends React.Component {
   constructor(props){
     super(props);

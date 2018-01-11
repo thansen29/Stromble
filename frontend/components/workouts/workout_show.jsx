@@ -3,7 +3,7 @@ import Navbar from '../navbar';
 import moment from 'moment';
 import WorkoutEditContainer from './workout_edit_container';
 import ModalComponent from '../modals/modal_component';
-
+//TODO: private needs to be checked if its private, dropdowns not initially loaded either
 //TODO: tool tips for buttons
 class WorkoutShow extends React.Component {
   constructor(props){
