@@ -28,7 +28,7 @@ class RouteShow extends React.Component {
       endLat = this.props.route.end_lat;
       endLng = this.props.route.end_lng;
 
-      url = `https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=350x350&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}`;
+      url = `https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=800x450&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}`;
     }
     return (
       <section className="route-show-container">
