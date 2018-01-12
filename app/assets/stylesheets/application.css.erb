@@ -280,12 +280,32 @@
 
 .nav-upload-button {
   position: absolute;
-  right: 15%;
+  right: 6%;
   background-image:url('<%= asset_path("plus.svg")%>');
   background-repeat: no-repeat;
   height: 24px;
   width: 50px;
   margin-left: 5px;
+}
+
+.nav-upload-container:hover .alt-nav-upload-button {
+  visibility: visible;
+}
+
+.nav-upload-container:hover .nav-upload-button {
+  visibility: hidden;
+}
+
+.alt-nav-upload-button {
+  visibility: hidden;
+  position: absolute;
+  right: 6%;
+  background-image:url('<%= asset_path("plus.png")%>');
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 50px;
+  margin-left: 5px;
+  background-size: 50%;
 }
 
 .nav-training {

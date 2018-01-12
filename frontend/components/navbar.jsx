@@ -51,13 +51,14 @@ const Navbar = (props) => {
       </div>
 
       <div className="nav-upload-container">
+        <div className="nav-upload-button"></div>
+        <div className="alt-nav-upload-button"></div>
         <div className="nav-upload-dropdown">
           <div className="nav-upload-dropdown-content">
             <Link to="/workouts/new">Create a workout</Link>
             <Link to="/routes/new">Create a route</Link>
           </div>
 
-          <div className="nav-upload-button"></div>
         </div>
       </div>
     </nav>
