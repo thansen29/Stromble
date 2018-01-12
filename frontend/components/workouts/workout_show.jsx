@@ -45,7 +45,6 @@ class WorkoutShow extends React.Component {
       if(durationS.toString().length < 2){
         durationS = `0${durationS}`;
       }
-
       return (
         <section className="background">
           <Navbar />
@@ -66,7 +65,8 @@ class WorkoutShow extends React.Component {
                    description={this.props.workout.description}
                    activityType={this.props.workout.activity_type}
                    sport={this.props.workout.sport}
-                   id={this.props.workout.id}/>
+                   id={this.props.workout.id}
+                   private={this.props.workout.private}/>
               </ModalComponent> : null
             }
 

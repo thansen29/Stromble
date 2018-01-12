@@ -11,7 +11,7 @@ class WorkoutEditForm extends React.Component {
       description: "",
       private: false,
       user_id: '',
-      id: ''
+      id: '',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,14 +19,15 @@ class WorkoutEditForm extends React.Component {
     this.handleSelection = this.handleSelection.bind(this);
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.setState({
       user_id: this.props.userId,
       title: this.props.title,
       sport: this.props.sport,
       description: this.props.description,
       activity_type: this.props.activityType,
-      id: this.props.id
+      id: this.props.id,
+      private: this.props.private
     });
   }
 
@@ -55,6 +56,13 @@ class WorkoutEditForm extends React.Component {
   }
 
   render(){
+    let description;
+    if(this.state.description === null){
+      description = "";
+    } else {
+      description = this.state.description;
+    }
+
     return (
       <section>
         <section className="workout-edit-form">
@@ -97,14 +105,14 @@ class WorkoutEditForm extends React.Component {
               <textarea
                 className='edit-form-input'
                 onChange={this.handleChange('description')}
-                value={this.state.description}/>
+                value={description}/>
             </div>
           </main>
 
           <div className="edit-form-privacy">
             <label>
               <div className="privacy">
-                <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
+                <input onClick={this.handleCheck} className="checkbox" type="checkbox" defaultChecked={this.state.private} />
                 <span>Private</span>
               </div>
             </label>
