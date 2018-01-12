@@ -4,7 +4,8 @@ import { deleteRoute, requestRoute } from '../../actions/routes/route_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    route: state.route.routes[ownProps.match.params.id]
+    route: state.route.routes[ownProps.match.params.id],
+    currentUser: state.session.currentUser
   };
 };
 
