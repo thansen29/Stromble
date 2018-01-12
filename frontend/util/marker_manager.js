@@ -103,7 +103,6 @@ class MarkerManager extends React.Component {
   }
 
   getState(){
-    // debugger
     return this.start;
   }
 }

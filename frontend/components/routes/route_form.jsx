@@ -49,7 +49,7 @@ class RouteForm extends React.Component {
     e.preventDefault();
     this.props.closeModal();
     this.props.createRoute(this.state);
-    this.props.history.push('/dashboard');
+    this.props.history.push('/routes');
   }
 
   handleClose(e){

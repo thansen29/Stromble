@@ -43,7 +43,6 @@ class AllWorkouts extends React.Component {
           <td>{workout.elevation || 0} {workout.elevation_unit}</td>
           <td>
             <span className="table-util" onClick={this.handleDelete(workout.id)}>Delete</span>
-            <span className="table-util" onClick={this.handleEdit}>Edit</span>
           </td>
         </tr>
       );

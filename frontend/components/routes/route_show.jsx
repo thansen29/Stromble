@@ -16,6 +16,7 @@ class RouteShow extends React.Component {
   handleDelete(e){
     e.preventDefault();
     this.props.deleteRoute(this.props.match.params.id);
+    this.props.history.push("/routes");
   }
 
   render(){
@@ -81,6 +82,10 @@ class RouteShow extends React.Component {
             </div>
 
             <span className="route-show-desc">{description}</span>
+
+            <div className="route-show-delete">
+              <button onClick={this.handleDelete}className="edit-form-save">Delete Route</button>
+            </div>
           </aside>
 
 

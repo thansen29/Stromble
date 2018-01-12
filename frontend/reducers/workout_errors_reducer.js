@@ -1,7 +1,6 @@
 import { RECEIVE_WORKOUT_ERRORS, CLEAR_ERRORS } from '../actions/workouts/workout_actions';
 
 const workoutErrorsReducer = (state = [], action) => {
-  // debugger
   switch (action.type) {
     case RECEIVE_WORKOUT_ERRORS:
       return action.errors.responseJSON;
