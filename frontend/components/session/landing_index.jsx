@@ -15,18 +15,21 @@ class LandingIndex extends React.Component {
   }
 
   sampleImage(){
-    const img1 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/pexels-photo-302804_oy0xnz.jpg' />;
-    const img2 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660638/road-sun-rays-path_t4dtzb.jpg' />;
-    const img3 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg' />;
+    // const img1 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/pexels-photo-302804_oy0xnz.jpg' />;
+    // const img2 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660638/road-sun-rays-path_t4dtzb.jpg' />;
+    // const img3 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg' />;
+    const img1 = "background-1";
+    const img2 = "background-2";
+    const img3 = "background-3";
     const imagesArr = [img1, img2, img3];
     return imagesArr[Math.floor(Math.random()*imagesArr.length)];
   }
 
   render(){
     return (
-      <section className="background-container">
+      <section className={`${this.image} background-container`}>
         <div className="top-left logo white">stromble</div>
-        { this.image }
+
         <div className="improvise white">Improvise. Adapt. Overcome</div>
         <nav className="landing-nav">
           <ul className="landing-ul">
