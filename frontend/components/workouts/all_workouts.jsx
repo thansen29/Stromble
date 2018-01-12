@@ -2,11 +2,12 @@ import React from 'react';
 import moment from 'moment';
 import Navbar from '../navbar';
 import { Link } from 'react-router-dom';
-//TODO: add edit on the utility column
+
 class AllWorkouts extends React.Component {
   constructor(props){
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.state = { workoutId: '' };
   }
 
   componentDidMount(){
@@ -40,8 +41,10 @@ class AllWorkouts extends React.Component {
           <td>{workout.duration_hr}:{durationMin}:{durationS}</td>
           <td>{workout.distance || 0} {workout.distance_unit}</td>
           <td>{workout.elevation || 0} {workout.elevation_unit}</td>
-          <td><span className="table-util" onClick={this.handleDelete(workout.id)}>Delete</span></td>
-
+          <td>
+            <span className="table-util" onClick={this.handleDelete(workout.id)}>Delete</span>
+            <span className="table-util" onClick={this.handleEdit}>Edit</span>
+          </td>
         </tr>
       );
     });
