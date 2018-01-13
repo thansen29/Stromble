@@ -1,3 +1,5 @@
+require 'timeliness'
+
 class Api::WorkoutsController < ApplicationController
 
   def index
@@ -9,7 +11,9 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def create
+    date = Timeliness.parse(workout_params[:date], :date)
     @workout = Workout.new(workout_params)
+    @workout[:date] = date
     if @workout.save
       render :show
     else

@@ -76,7 +76,6 @@ class WorkoutForm extends React.Component {
 
   render(){
     const { distance_unit, elevation_unit, sport, activity_type } = this.state;
-
     return (
       <main className="form-container">
         <h1>Manual Entry</h1>
