@@ -2,7 +2,7 @@
 
 [Stromble](https://stromble.herokuapp.com)
 
-Stromble is a full-stack web application inspired by Strava. The stack includes a Ruby-on-Rails backend in conjunction with a PostgreSQL database, and a React-Redux frontend. Google Maps API is leveraged to create and display user created running/biking routes. Google Static Maps API in conjunction with Google Elevation Services is used to generate the map images and obtain necessary route details.
+Stromble is a full-stack web application inspired by Strava. The stack includes a Ruby-on-Rails backend in conjunction with a PostgreSQL database, and a React-Redux frontend. Google Maps Directions API is leveraged to create and display user created running/biking routes. Google Static Maps API in conjunction with Google Elevation Services is used to generate the map images and obtain necessary route details.
 
 ## Key Features
 
