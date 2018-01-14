@@ -51,8 +51,7 @@ Users are greeted with a sleek form when creating their workouts. Some of the fo
     return (
       <section className="dropdown-section-element" onBlur={this.blurSection}  tabIndex="0" ref={this.registerSection}>
         <div
-          className="workout-input select caret"
-          onClick={this.handleSelect}>
+          className="workout-input select caret">
             {this.state.selected}
         </div>
 
