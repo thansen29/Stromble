@@ -26,6 +26,8 @@ class WorkoutForm extends React.Component {
       private: false
     };
 
+    this.dayTime = "";
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
@@ -39,6 +41,16 @@ class WorkoutForm extends React.Component {
       date: date,
       time: time
     });
+    const dayDate = new Date();
+    const dayHours = dayDate.getHours();
+    if(dayHours > 2 && dayHours < 12){
+      this.dayTime = "Morning";
+    } else if(dayHours >= 12 && dayHours < 5){
+      this.dayTime = "Afternoon";
+    } else {
+      this.dayTime = "Night";
+    }
+
   }
 
   handleSubmit(e){
@@ -181,7 +193,7 @@ class WorkoutForm extends React.Component {
                 <input
                   className="workout-input title-input left-align"
                   type="text"
-                  value={this.state.title}
+                  value={`${this.dayTime} ${this.state.title}`}
                   onChange={this.handleChange('title')}/>
               </div>
             </div>
