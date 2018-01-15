@@ -3,7 +3,13 @@ import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
 import DropdownComponent from '../dropdowns/dropdown_component';
+import DatePicker from 'react-datepicker';
 import moment from 'moment';
+// import PropTypes from 'prop-types';
+// import "react-datepicker/dist/react-datepicker.css";
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
+
 
 //TODO: make the title update based on the sport
 class WorkoutForm extends React.Component {
@@ -23,7 +29,8 @@ class WorkoutForm extends React.Component {
       title: "Run",
       activity_type: "",
       descripton: "",
-      private: false
+      private: false,
+      startDate: moment()
     };
 
     this.dayTime = "";
@@ -48,7 +55,7 @@ class WorkoutForm extends React.Component {
     } else if(dayHours >= 12 && dayHours < 5){
       this.dayTime = "Afternoon";
     } else {
-      this.dayTime = "Night";
+      this.dayTime = "Evening";
     }
 
   }
@@ -57,6 +64,7 @@ class WorkoutForm extends React.Component {
     e.preventDefault();
     const workout = Object.assign({}, this.state);
     workout['user_id'] = this.props.userId;
+    delete workout['startDate'];
     this.props.createWorkout(workout).then((() => {
       this.props.history.push(`/workouts/${this.props.workoutId}`);
     }).bind(this));
@@ -178,6 +186,8 @@ class WorkoutForm extends React.Component {
                     type="text"
                     value={this.state.date}
                     onChange={this.handleChange('date')} />
+
+
                   <input
                     className="workout-input datetime"
                     type="text"
@@ -241,5 +251,9 @@ class WorkoutForm extends React.Component {
     );
   }
 }
+// 
+// <DatePicker
+//   selected={this.state.startDate}
+//   onChange={this.handleChange} />
 
 export default WorkoutForm;
