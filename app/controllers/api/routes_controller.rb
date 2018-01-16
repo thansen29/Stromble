@@ -12,7 +12,7 @@ class Api::RoutesController < ApplicationController
     if @route.save
       render :show
     else
-      render json: { route: "You must choose a start and end point" }, status: 422
+      render json: { route: "You must give your route a title" }, status: 422
     end
   end
 

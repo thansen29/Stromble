@@ -47,9 +47,10 @@ class RouteForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.closeModal();
-    this.props.createRoute(this.state);
-    this.props.history.push('/routes');
+    this.props.createRoute(this.state).then(() => {
+      this.props.closeModal();
+      this.props.history.push('/routes');
+    });
   }
 
   handleClose(e){
@@ -73,12 +74,14 @@ class RouteForm extends React.Component {
         <main className="route-form-body">
           <div>Enter a name and a description for your route below.</div>
 
+
           <div className="input-wrapper-route">
             <label>Route Name (required)</label>
             <input
-              className="route-form-input"
+              className='route-form-input'
               onChange={this.handleChange('title')}
               value={this.state.title} />
+            <span className="route-error-message">{this.props.errors.route}</span>
           </div>
           <div className="input-wrapper-route">
             <label>Description</label>

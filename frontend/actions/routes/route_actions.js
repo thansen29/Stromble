@@ -35,31 +35,31 @@ export const receiveRouteErrors = errors => {
 export const requestRoutes = () => dispatch => {
   return RouteAPIUtil.fetchRoutes().then((routes) => {
     dispatch(receiveRoutes(routes));
-  }, () => {
-    console.log("Something went wrong");
+  }, (errors) => {
+    dispatch(receiveRouteErrors(errors));
   });
 };
 
 export const requestRoute = id => dispatch => {
   return RouteAPIUtil.fetchRoute(id).then((route) => {
     dispatch(receiveRoute(route));
-  }, () => {
-    console.log("Something went wrong");
+  }, (errors) => {
+    dispatch(receiveRouteErrors(errors));
   });
 };
 
 export const createRoute = route => dispatch => {
   return RouteAPIUtil.createRoute(route).then((resp) => {
     dispatch(receiveRoute(resp));
-  }, () => {
-    console.log("Something went wrong");
+  }, (errors) => {
+    dispatch(receiveRouteErrors(errors));
   });
 };
 
 export const deleteRoute = id => dispatch => {
   return RouteAPIUtil.deleteRoute(id).then(() => {
     dispatch(removeRoute(id));
-  }, () => {
-    console.log("Something went wrong");
+  }, (errors) => {
+    dispatch(receiveRouteErrors(errors));
   });
 };
