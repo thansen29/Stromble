@@ -7,7 +7,7 @@ const RouteItem = ({route}) => {
   const endLat = route.end_lat;
   const endLng = route.end_lng;
 
-  const url = `https://maps.googleapis.com/maps/api/staticmap?&size=350x350&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}&key=AIzaSyAzqV02RQ3R5tDuhiUPlhww_AhPN0rukT0`;
+  const url = `http://maps.googleapis.com/maps/api/staticmap?&size=350x350&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}&key=AIzaSyAzqV02RQ3R5tDuhiUPlhww_AhPN0rukT0`;
   return (
     <li>
       <div className="route-item-container">
@@ -36,4 +36,4 @@ const RouteItem = ({route}) => {
 };
 
 export default RouteItem;
-// https://maps.googleapis.com/maps/api/staticmap?size=400x400&path=color:0x0000ff|weight:5|40.7507682204469,-73.9744663238525|40.7608783063089,-73.9870834350586
+// http://maps.googleapis.com/maps/api/staticmap?size=400x400&path=color:0x0000ff|weight:5|40.7507682204469,-73.9744663238525|40.7608783063089,-73.9870834350586

@@ -87,10 +87,10 @@ class DashboardIndex extends React.Component {
           </main>
 
           <aside className="dashboard-right">
-            <a href="https://github.com/thansen29/">
+            <a href="http://github.com/thansen29/">
               <i className="fa fa-github" aria-hidden="true"></i>
             </a>
-            <a href="https://www.linkedin.com/in/thomas-hansen-1a0a51132/">
+            <a href="http://www.linkedin.com/in/thomas-hansen-1a0a51132/">
               <i className="fa fa-linkedin-square" aria-hidden="true"></i>
             </a>
           </aside>

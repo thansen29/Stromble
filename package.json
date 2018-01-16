@@ -40,13 +40,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thansen29/Stromble.git"
+    "url": "git+http://github.com/thansen29/Stromble.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/thansen29/Stromble/issues"
+    "url": "http://github.com/thansen29/Stromble/issues"
   },
-  "homepage": "https://github.com/thansen29/Stromble#readme"
+  "homepage": "http://github.com/thansen29/Stromble#readme"
 }
