@@ -10,8 +10,7 @@ import moment from 'moment';
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 
-
-//TODO: make the title update based on the sport
+//TODO: date picker and time scroll
 class WorkoutForm extends React.Component {
   constructor(props){
     super(props);
@@ -30,10 +29,10 @@ class WorkoutForm extends React.Component {
       activity_type: "",
       descripton: "",
       private: false,
-      startDate: moment()
+      startDate: moment(),
     };
 
-    this.dayTime = "";
+    // this.dayTime = "";
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
@@ -48,15 +47,16 @@ class WorkoutForm extends React.Component {
       date: date,
       time: time
     });
-    const dayDate = new Date();
-    const dayHours = dayDate.getHours();
-    if(dayHours > 2 && dayHours < 12){
-      this.dayTime = "Morning";
-    } else if(dayHours >= 12 && dayHours < 5){
-      this.dayTime = "Afternoon";
-    } else {
-      this.dayTime = "Evening";
-    }
+    // const dayDate = new Date();
+    // const dayHours = dayDate.getHours();
+    // if(dayHours > 2 && dayHours < 12){
+    //   // this.dayTime = "Morning";
+    //   this.setState({ dayTime: "Morning" });
+    // } else if(dayHours >= 12 && dayHours < 5){
+    //   this.setState({ dayTime: "Afternoon" });
+    // } else {
+    //   this.setState({ dayTime: "Evening" });
+    // }
 
   }
 
@@ -95,10 +95,12 @@ class WorkoutForm extends React.Component {
   }
 
   render(){
+
     const { distance_unit, elevation_unit, sport, activity_type } = this.state;
     return (
       <main className="form-container">
         <h1>Manual Entry</h1>
+        <span className="route-error-message">{this.props.errors.workout}</span>
         <form className="workout-form" onSubmit={this.handleSubmit}>
           <section className="workout-row">
             <div className="field-container">
@@ -201,9 +203,10 @@ class WorkoutForm extends React.Component {
               <label htmlFor="title">Title</label><br/>
               <div className="input-wrapper">
                 <input
-                  className="workout-input title-input left-align"
+                  className={this.props.errors.workout ? "title-input left-align workout-errors"
+                    : "workout-input title-input left-align"}
                   type="text"
-                  value={`${this.dayTime} ${this.state.title}`}
+                  value={this.state.title}
                   onChange={this.handleChange('title')}/>
               </div>
             </div>
@@ -251,7 +254,7 @@ class WorkoutForm extends React.Component {
     );
   }
 }
-// 
+//
 // <DatePicker
 //   selected={this.state.startDate}
 //   onChange={this.handleChange} />
