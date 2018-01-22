@@ -56,7 +56,10 @@ class RouteMap extends React.Component {
     });
     if(Object.values(this.markers).length === 2){
       this.createRoute();
+    } else if(Object.values(this.markers).length > 2){
+      this.updateRoute();
     }
+
   }
 
   removeMarker(markerId){
@@ -64,20 +67,16 @@ class RouteMap extends React.Component {
     delete this.markers[markerId];
   }
 
-  createRoute(){
-    const start = this.markers[1].getPosition();
-    const end = this.markers[2].getPosition();
-    const routeRunRequest = {
-      origin: start,
-      destination: end,
-      travelMode: 'WALKING',
-    };
+  updateRoute(){
+    const obj = Object.values(this.markers);
+    this.origin = obj[obj.length - 2].position;
+    this.destination = obj[obj.length - 1].position;
 
-    // const routeRideRequest = {
-    //   origin: start,
-    //   destination: end,
-    //   travelMode: 'BICYCLING',
-    // };
+    const routeRunRequest = {
+      origin: this.origin,
+      destination: this.destination,
+      travelMode: 'WALKING'
+    };
 
     const directionsService = new google.maps.DirectionsService();
     const directionsRenderer = new google.maps.DirectionsRenderer();
@@ -85,8 +84,13 @@ class RouteMap extends React.Component {
 
     directionsService.route(routeRunRequest, ((directionsResult, directionsStatus) => {
       if(directionsStatus === "OK"){
+        this.routeDisplay = directionsResult.routes[0].legs[0];
         directionsRenderer.setDirections(directionsResult);
+        debugger
+        // console.log(directionsResult.routes[0].legs[0].distance.text);
+        // console.log(this.distance);
         let distance = directionsResult.routes[0].legs[0].distance.text;
+        this.distance += parseFloat(distance.slice(0, 3));
         this.routePath = directionsResult.routes[0].overview_path;
         let duration = directionsResult.routes[0].legs[0].duration.text;
 
@@ -102,7 +106,58 @@ class RouteMap extends React.Component {
                 const max = this.elevations.sort()[this.elevations.length-1];
                 const min = this.elevations.sort()[0];
                 let elevation = max - min;
-                this.storeData(distance, start, end, elevation, duration);
+                this.storeData(this.distance, this.origin, this.destination, elevation, duration);
+              }
+          }).bind(this));
+
+
+      }
+    }).bind(this));
+  }
+
+  createRoute(){
+    const object = Object.values(this.markers);
+    this.origin = object[0].getPosition();
+    this.destination = object[1].getPosition();
+    const routeRunRequest = {
+      origin: this.origin,
+      destination: this.destination,
+      travelMode: 'WALKING'
+    };
+
+    // const routeRideRequest = {
+    //   origin: start,
+    //   destination: end,
+    //   travelMode: 'BICYCLING',
+    // };
+
+    const directionsService = new google.maps.DirectionsService();
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    directionsRenderer.setMap(this.map);
+
+    directionsService.route(routeRunRequest, ((directionsResult, directionsStatus) => {
+      if(directionsStatus === "OK"){
+        this.routeDisplay = directionsResult.routes[0].legs[0];
+
+        directionsRenderer.setDirections(directionsResult);
+        let distance = directionsResult.routes[0].legs[0].distance.text;
+        this.distance = parseFloat(distance.slice(0, 3));
+        this.routePath = directionsResult.routes[0].overview_path;
+        let duration = directionsResult.routes[0].legs[0].duration.text;
+
+          const elevationService = new google.maps.ElevationService();
+          elevationService.getElevationAlongPath({
+            path: this.routePath,
+            samples: this.routePath.length
+          }, ((elevationResult, elevationStatus) => {
+              if(elevationStatus === "OK"){
+                elevationResult.forEach((sample) => {
+                  this.elevations.push(sample.elevation);
+                });
+                const max = this.elevations.sort()[this.elevations.length-1];
+                const min = this.elevations.sort()[0];
+                let elevation = max - min;
+                this.storeData(distance, this.origin, this.destination, elevation, duration);
               }
           }).bind(this));
 
@@ -112,6 +167,7 @@ class RouteMap extends React.Component {
   }
 
   storeData(distance, start, end, elevation, duration){
+    console.log("hi");
     if(distance){
       this.setState({
         startLat: start.lat(),
