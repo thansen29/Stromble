@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 class MarkerManager extends React.Component {
   constructor(map){
@@ -31,7 +32,7 @@ class MarkerManager extends React.Component {
       this.removeMarker(marker.id);
     });
     // console.log("marker created");
-    if(Object.values(this.markers).length === 2){
+    if(_.values(this.markers).length === 2){
       this.createRoute();
     }
   }

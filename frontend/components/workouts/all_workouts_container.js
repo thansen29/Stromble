@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import AllWorkouts from './all_workouts';
 import { deleteWorkout, requestWorkouts } from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = state => {
   return {
-    workouts: Object.values(state.workout.workouts).reverse()
+    workouts: _.values(state.workout.workouts).reverse()
   };
 };
 

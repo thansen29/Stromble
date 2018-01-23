@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import DashboardIndex from './dashboard_index';
 import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
 import { requestRunDistance, requestRideDistance, requestLongestRunDistance,
@@ -8,7 +9,7 @@ import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
-    workouts: Object.values(state.workout.workouts).reverse(),
+    workouts: _.values(state.workout.workouts).reverse(),
     stats: state.stats,
     isOpen: state.ui.modal["isOpen"],
     newUser: Boolean(state.session.currentUser.fname === null),

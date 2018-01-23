@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import AllRoutes from './all_routes';
 import { requestRoutes } from '../../actions/routes/route_actions';
 
 const mapStateToProps = state => {
   return {
-    routes: Object.values(state.route.routes).reverse()
+    routes: _.values(state.route.routes).reverse()
   };
 };
 
