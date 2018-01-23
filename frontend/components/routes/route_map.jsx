@@ -86,11 +86,10 @@ class RouteMap extends React.Component {
       if(directionsStatus === "OK"){
         this.routeDisplay = directionsResult.routes[0].legs[0];
         directionsRenderer.setDirections(directionsResult);
-        debugger
         // console.log(directionsResult.routes[0].legs[0].distance.text);
         // console.log(this.distance);
         let distance = directionsResult.routes[0].legs[0].distance.text;
-        this.distance += parseFloat(distance.slice(0, 3));
+        this.distance += parseFloat(parseFloat(distance.slice(0, 3)).toFixed(1));
         this.routePath = directionsResult.routes[0].overview_path;
         let duration = directionsResult.routes[0].legs[0].duration.text;
 
@@ -141,7 +140,7 @@ class RouteMap extends React.Component {
 
         directionsRenderer.setDirections(directionsResult);
         let distance = directionsResult.routes[0].legs[0].distance.text;
-        this.distance = parseFloat(distance.slice(0, 3));
+        this.distance = parseFloat(parseFloat(distance.slice(0, 3)).toFixed(1));
         this.routePath = directionsResult.routes[0].overview_path;
         let duration = directionsResult.routes[0].legs[0].duration.text;
 
