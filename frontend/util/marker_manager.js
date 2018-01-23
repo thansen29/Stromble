@@ -19,7 +19,6 @@ class MarkerManager extends React.Component {
 
   }
 
-  //TODO: Make the routes chain
   createMarker(coords){
     const marker = new google.maps.Marker({
       position: coords,

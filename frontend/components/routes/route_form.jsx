@@ -1,6 +1,5 @@
 import React from 'react';
 
-//TODO: handle errors, require title
 class RouteForm extends React.Component {
   constructor(props){
     super(props);
