@@ -20,7 +20,7 @@ class RouteIndex extends React.Component {
       elevation_unit: "meters",
       private: false,
       route_type: "Run",
-      duration: '0s',
+      duration: '0',
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -80,7 +80,7 @@ class RouteIndex extends React.Component {
               <div className="route-label">Elevation Gain</div>
             </li>
             <li>
-              <strong>{this.state.duration}</strong>
+              <strong>{this.state.duration} mins</strong>
               <div className="route-label">Est. Moving Time</div>
             </li>
           </ul>
