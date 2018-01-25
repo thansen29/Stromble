@@ -24,7 +24,7 @@ class AllRoutes extends React.Component {
     });
   }
     return (
-      <section>
+      <section className="background">
         <Navbar />
         <section className="all-routes-container">
           <header className="all-routes-header">

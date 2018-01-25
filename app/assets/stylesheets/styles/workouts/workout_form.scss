@@ -1,7 +1,14 @@
+.background {
+  background: white;
+  min-height: 100vh;
+}
+
 .form-container {
   margin-left: 16%;
   margin-right: 16%;
   padding-bottom: 50px;
+  background: white;
+
 }
 .test-input {
   opacity:0.5;

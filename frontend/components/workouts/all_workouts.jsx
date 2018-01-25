@@ -49,7 +49,7 @@ class AllWorkouts extends React.Component {
     });
 
     return (
-      <section>
+      <section className="background">
         <Navbar />
         <main className="table-container">
           <table>

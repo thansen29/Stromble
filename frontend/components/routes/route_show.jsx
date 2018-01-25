@@ -48,7 +48,7 @@ class RouteShow extends React.Component {
       url = `http://maps.googleapis.com/maps/api/staticmap?zoom=13&size=800x450&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}&key=AIzaSyAzqV02RQ3R5tDuhiUPlhww_AhPN0rukT0`;
     }
     return (
-      <section>
+      <section className="background">
         <Navbar />
         <section className="route-show-container">
           <div className="route-show-leftside">
