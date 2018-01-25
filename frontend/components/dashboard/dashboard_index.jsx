@@ -93,6 +93,9 @@ class DashboardIndex extends React.Component {
             <a href="http://www.linkedin.com/in/thomas-hansen-1a0a51132/">
               <i className="fa fa-linkedin-square" aria-hidden="true"></i>
             </a>
+            <a href="http://www.tomhansen.io">
+              <i className="www"></i>
+            </a>
           </aside>
 
         </section>
