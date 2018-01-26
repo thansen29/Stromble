@@ -10,13 +10,13 @@
 .top-left {
   position: absolute;
   z-index: 5;
-  top: 75px;
+  top: 100px;
   left: -200px;
 }
 
 .landing-nav {
   position: relative;
-  height: 65px;
+  height: 100px;
   background: white;
   width: 100%;
 }
@@ -24,7 +24,8 @@
 .landing-ul {
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  // margin-top: 40px;
+  padding: 40px 0;
 }
 
 .landing-ul h1 {
@@ -258,20 +259,20 @@
  .background-1 {
    background: url('http://res.cloudinary.com/stromble/image/upload/v1514660639/pexels-photo-302804_oy0xnz.jpg') no-repeat center fixed;
    background-size: cover;
-   height: 96vh;
+   height: 100vh;
  }
 
  .background-2 {
    background: url('http://res.cloudinary.com/stromble/image/upload/v1514660638/road-sun-rays-path_t4dtzb.jpg') no-repeat center fixed;
    background-size: cover;
-   height: 96vh;
+   height: 100vh;
 
  }
 
  .background-3 {
    background: url('http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg') no-repeat center fixed;
    background-size: cover;
-   height: 96vh;
+   height: 100vh;
  }
 
  .background-4 {
