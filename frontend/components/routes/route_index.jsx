@@ -50,7 +50,6 @@ class RouteIndex extends React.Component {
     button = this.state.user_id !== "" ?
       <button onClick={this.handleSubmit} className="route-save">Save</button> :
         <button className="route-save-disabled" disabled="true">Save</button>;
-
     return (
       <section>
         <Navbar />

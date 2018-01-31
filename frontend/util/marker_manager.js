@@ -30,7 +30,7 @@ class MarkerManager extends React.Component {
     marker.addListener("click", () => {
       this.removeMarker(marker.id);
     });
-    // console.log("marker created");
+    
     if(_.values(this.markers).length === 2){
       this.createRoute();
     }

@@ -41,7 +41,7 @@ class RouteShow extends React.Component {
       elevationGain = this.props.route.elevation_gain;
       let currentDate = moment(this.props.route.created_at);
       date = currentDate.format("MMMM, DD, YYYY");
-      duration = this.props.route.duration;
+      duration = parseInt(this.props.route.duration);
       description = this.props.route.description;
       title = this.props.route.title;
       privacy = this.props.route.private;
@@ -77,7 +77,7 @@ class RouteShow extends React.Component {
               </div>
 
               <div className="show-datetime route-show-el moving-time">
-                Est. Moving Time {duration}
+                Est. Moving Time {duration} mins
               </div>
             </div>
 
