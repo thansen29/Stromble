@@ -6,12 +6,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
   background: #f5f5fa;
-  // background-size: cover;
 }
 
 .dashboard-container {
@@ -32,7 +27,7 @@ body {
 
 .dashboard-main {
   background: #f5f5fa;
-  width: 45%;
+  width: 50%;
   height: 100%;
   overflow: scroll;
 }
