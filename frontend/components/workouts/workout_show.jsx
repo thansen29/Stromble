@@ -3,6 +3,8 @@ import Navbar from '../navbar';
 import moment from 'moment';
 import WorkoutEditContainer from './workout_edit_container';
 import ModalComponent from '../modals/modal_component';
+import { Link } from 'react-router-dom';
+
 //TODO: tool tips for buttons
 class WorkoutShow extends React.Component {
   constructor(props){
@@ -78,7 +80,9 @@ class WorkoutShow extends React.Component {
               </header>
 
               <section className="show-body">
-                <div className="show-avatar"></div>
+                <Link to={`/users/${this.props.currentUser.id}`}>
+                  <img className="show-avatar" src={this.props.currentUser.avatar_url}/>
+                </Link>
                 <section className="show-leftside">
                   <section className="show-leftbody">
                     <div className="show-datetime">{time} on {date}</div>

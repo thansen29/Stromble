@@ -97,6 +97,7 @@
   margin-left: 65px;
   padding: 10px 0;
   border-bottom: 1px solid #ccccd1;
+  display: flex;
 }
 
 .route-show-name {
@@ -143,4 +144,30 @@
 .route-show-delete {
   align-self: center;
   margin-top: 73%;
+}
+
+.route-avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+.route-name-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+.route-show-delete-btn {
+  background: #fc4c02;
+  color: white;
+  padding: 10px;
+  border-radius: 0px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  &:hover {
+    background: #c93d02;
+    transition: background-color 500ms;
+  }
 }

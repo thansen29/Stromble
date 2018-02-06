@@ -62,8 +62,11 @@ class RouteShow extends React.Component {
 
           <aside className="route-show-details">
             <div className="route-show-user-info">
-              <div className="route-show-name">By {this.props.currentUser.fname} {this.props.currentUser.lname}</div>
-              <div className="show-datetime">Created on {date}</div>
+              <img className="route-avatar" src={this.props.currentUser.avatar_url} />
+              <span className="route-name-details">
+                <div className="route-show-name">By {this.props.currentUser.fname} {this.props.currentUser.lname}</div>
+                <div className="show-datetime">Created on {date}</div>
+              </span>
             </div>
 
             <div className="route-show-item-body">
@@ -84,7 +87,7 @@ class RouteShow extends React.Component {
             <span className="route-show-desc">{description}</span>
 
             <div className="route-show-delete">
-              <button onClick={this.handleDelete}className="edit-form-save">Delete Route</button>
+              <button onClick={this.handleDelete}className="route-show-delete-btn">Delete Route</button>
             </div>
           </aside>
 
