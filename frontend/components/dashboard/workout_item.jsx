@@ -15,7 +15,9 @@ class WorkoutItem extends React.Component {
     const pace = ((duration_hr * 60) + duration_min) / distance;
     let momentDate = moment(time);
     momentDate = momentDate.parseZone();
-    const parsedDate = momentDate.calendar();
+    const day = momentDate.format("dddd");
+    // const parsedDate = momentDate.calendar();
+    const parsedDate = momentDate.format("dddd, MMMM Do YYYY");
     const parsedTime = momentDate.format("h:mm A");
 
     let fname;
@@ -25,14 +27,18 @@ class WorkoutItem extends React.Component {
       lname = this.props.currentUser.lname;
     }
 
+    // <span className="item-avatar"></span>
     return (
       <section className="workout-item-container">
         <li key={key} className="workout-item">
           <div className="item-top-row">
-            <span className="item-avatar"></span>
-            <div className="item-body">
-              {fname} {lname} <br/>
-            <span className="show-datetime">{ parsedDate }</span>
+            <Link to={`/users/${this.props.currentUser.id}`}>
+              <img className="nav-avatar" src={this.props.currentUser.avatar_url} />
+            </Link>
+
+            <div className="item-name-date">
+              <Link to={`/users/${this.props.currentUser.id}`}>{fname} {lname}</Link> <br/>
+            <span className="show-datetime">{ parsedDate } at { parsedTime }</span>
             </div>
           </div>
 

@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'timeliness'
+gem "paperclip", '~> 5.0.0'
+gem 'figaro'
+gem 'aws-sdk', '< 3.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -43,7 +46,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate'
-  gem 'timeliness'
+  # gem 'timeliness'
 end
 
 group :development do

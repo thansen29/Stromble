@@ -28,3 +28,13 @@ export const updateUser = (user) => {
     data: { user }
   });
 };
+
+export const updateAvatar = (formData) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/users/${formData.get('id')}`,
+    contentType: false,
+    processData: false,
+    data: formData
+  });
+};

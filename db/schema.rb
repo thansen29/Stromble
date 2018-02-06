@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180111022936) do
+ActiveRecord::Schema.define(version: 20180206194429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180111022936) do
     t.datetime "updated_at", null: false
     t.string "duration"
     t.text "description"
+    t.text "path", default: [], array: true
     t.index ["user_id"], name: "index_routes_on_user_id"
   end
 
@@ -43,6 +44,10 @@ ActiveRecord::Schema.define(version: 20180111022936) do
     t.date "birthday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

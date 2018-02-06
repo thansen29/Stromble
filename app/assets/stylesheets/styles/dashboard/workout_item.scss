@@ -12,6 +12,15 @@
 
 .item-top-row {
   position: relative;
+  display: flex;
+}
+
+.item-name-date {
+  margin-left: 18px;
+  margin-top: 5px;
+}
+.item-name-date a:hover{
+  color: #007FB6;
 }
 
 .item-mid-row {

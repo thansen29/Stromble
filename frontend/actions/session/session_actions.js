@@ -56,3 +56,13 @@ export const updateUser = user => dispatch => {
     dispatch(receiveErrors(errors));
   });
 };
+
+export const updateAvatar = (formData) => dispatch => {
+  return SessionAPIUtil.updateAvatar(formData).then((resp) => {
+    console.log('success');
+    dispatch(receiveCurrentUser(resp));
+  }, (errors) => {
+    console.log('fail');
+    dispatch(receiveErrors(errors));
+  });
+};

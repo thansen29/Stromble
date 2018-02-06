@@ -18,6 +18,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 5, allow_nil: true }
 
+  has_attached_file :avatar, default_url: "default.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   has_many :workouts
   has_many :routes
 

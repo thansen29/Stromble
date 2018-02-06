@@ -5,7 +5,8 @@ import { logout } from '../actions/session/session_actions';
 
 const mapStateToProps = state => {
   return {
-    id: state.session.currentUser.id
+    id: state.session.currentUser.id,
+    avatarUrl: state.session.currentUser.avatar_url
   };
 };
 
@@ -15,7 +16,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const Navbar = ({id, logOut}) => {
+const Navbar = ({id, logOut, avatarUrl}) => {
   return (
     <nav className="global-nav">
       <Link to="/dashboard"><div className="logo-nav">stromble</div></Link>
@@ -51,7 +52,8 @@ const Navbar = ({id, logOut}) => {
             <Link to={`/users/${id}`}>My Profile</Link>
           </div>
 
-          <div className="nav-avatar">
+          <div className="nav-avatar-container">
+            <img className="nav-avatar" src={avatarUrl} />
             <i className="fa fa-angle-down profile-down nav-title" aria-hidden="true"></i>
           </div>
         </div>
