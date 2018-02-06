@@ -15,3 +15,5 @@ focus needs tab index
 
 parsing date and time
 moment library to make it so much easier
+
+pathfinding for ghosts. algorithm spits out a path, right three times, then up twice etc., but then the ghost moves through walls

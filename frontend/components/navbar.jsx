@@ -3,13 +3,19 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../actions/session/session_actions';
 
+const mapStateToProps = state => {
+  return {
+    id: state.session.currentUser.id
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     logOut: () => dispatch(logout())
   };
 };
 
-const Navbar = (props) => {
+const Navbar = ({id, logOut}) => {
   return (
     <nav className="global-nav">
       <Link to="/dashboard"><div className="logo-nav">stromble</div></Link>
@@ -41,7 +47,8 @@ const Navbar = (props) => {
       <div className="nav-profile-container">
         <div className="nav-profile-dropdown">
           <div className="nav-profile-dropdown-content">
-            <Link to="/login" onClick={props.logOut}>Log Out</Link>
+            <Link to="/login" onClick={logOut}>Log Out</Link>
+            <Link to={`/users/${id}`}>My Profile</Link>
           </div>
 
           <div className="nav-avatar">
@@ -66,4 +73,4 @@ const Navbar = (props) => {
   );
 };
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

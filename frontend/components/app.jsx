@@ -11,6 +11,7 @@ import ModalContainer from './modals/modal_container';
 import RouteContainer from './routes/route_container';
 import AllRoutesContainer from './routes/all_routes_container';
 import RouteShowContainer from './routes/route_show_container';
+import profileContainer from './profile/profile_container';
 
 //TODO: refactor - add stats container here and dont pass props down to run and  ride comps
 const App = (props) => (
@@ -23,6 +24,7 @@ const App = (props) => (
     <Route path="/login" component={loginContainer}></Route>
     <Route exact path="/" component={landingContainer}></Route>
     <ProtectedRoute path="/dashboard" component={dashboardContainer}></ProtectedRoute>
+    <ProtectedRoute path="/users/:id" component={profileContainer}></ProtectedRoute>
     <Switch>
       <ProtectedRoute path="/workouts/new" component={workoutContainer}></ProtectedRoute>
       <ProtectedRoute path="/workouts/:id" component={workoutShowContainer}></ProtectedRoute>
