@@ -10,10 +10,13 @@ class CreateProfileForm extends React.Component {
       fname: "",
       lname: "",
       fnameError: false,
-      lnameError: false
+      lnameError: false,
+      imageFile: null,
+      imageUrl: null
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateAvatar = this.updateAvatar.bind(this);
 
   }
 
@@ -24,12 +27,34 @@ class CreateProfileForm extends React.Component {
     }).bind(this);
   }
 
+  updateAvatar(e){
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({
+        imageFile: file,
+        imageUrl: fileReader.result
+      });
+    };
+    if(file){
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   handleSubmit(e){
     e.preventDefault();
     if(this.state.fname === "" || this.state.lname === ""){
       this.setState({fnameError: true, lnameError: true});
     } else {
-      this.props.updateUser(this.state).then(() => {
+      const formData = new FormData();
+      formData.append("id", this.props.id);
+      formData.append("user[fname]", this.state.fname);
+      formData.append("user[lname]", this.state.lname);
+      if(this.state.imageFile){
+        formData.append("user[avatar]", this.state.imageFile);
+      }
+      // this.props.updateAvatar(formData);
+      this.props.updateAvatar(formData).then(() => {
         this.props.closeModal();
       });
     }
@@ -43,6 +68,15 @@ class CreateProfileForm extends React.Component {
           <header className="create-header">
             <h1>Create Your Profile</h1>
           </header>
+
+          <div className="create-profile-picture">
+            <div>Set your profile picture</div>
+            <div className="create-profile-content">
+              <img className="create-profile-image" src={this.state.imageUrl ? this.state.imageUrl : this.props.avatarUrl} />
+            </div>
+              <input type="file" className="file-upload" onChange={this.updateAvatar}/>
+          </div>
+
           {this.state.fnameError || this.state.lnameError ?
             <span className="create-error-message">*All Fields are required</span> :
               <span className="create-error-message"></span>

@@ -14,7 +14,9 @@ import CreateProfileContainer from './create_profile_container';
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
-
+    this.state = {
+      newUser: null
+    };
   }
 
   componentWillMount(){
@@ -31,16 +33,17 @@ class DashboardIndex extends React.Component {
     this.props.requestTotalRides();
   }
 
-  componentDidMount(){
-    if(this.props.newUser){
-      this.setState({ newUser: true });
-      this.props.openModal();
-    }
-  }
+  // componentDidMount(){
+  //   debugger
+  //   if(this.props.newUser){
+  //     this.setState({ newUser: true });
+  //     this.props.openModal();
+  //   }
+  // }
 
-  openModal(){
-    this.props.openModal();
-  }
+  // openModal(){
+  //   this.props.openModal();
+  // }
 
   render(){
     let workoutItems;
@@ -68,13 +71,15 @@ class DashboardIndex extends React.Component {
       <section className="dashboard-background">
         <Navbar />
         <section className="dashboard-container">
-          { this.props.newUser ? this.openModal : null }
 
-          { this.props.isOpen ?
+          {/* this.props.newUser ? this.props.openModal() : null */}
+
+          { this.props.newUser ?
             <ModalComponent>
               <CreateProfileContainer />
             </ModalComponent> : null
           }
+
           <aside className="dashboard-left">
             <Tabs panes={tabs} />
           </aside>
