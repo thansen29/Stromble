@@ -24,6 +24,16 @@ class User < ApplicationRecord
   has_many :workouts
   has_many :routes
 
+  has_many :followers,
+    class_name: :Follow,
+    foreign_key: :follower_id,
+    dependent: :destroy
+
+  has_many :following,
+    class_name: :Follow,
+    foreign_key: :followed_id,
+    dependent: :destroy
+
   attr_reader :password
   after_initialize :ensure_session_token
 
