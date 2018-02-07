@@ -70,9 +70,9 @@ class WorkoutItem extends React.Component {
 
               }
 
-              { elevation ?
+              {/* elevation ?
                 <span className="show-datetime item-stat-el">Elevation Gain</span> : null
-              }
+              */}
               <br/>
 
               <span className="item-stat-value">
@@ -87,11 +87,11 @@ class WorkoutItem extends React.Component {
                 <span className="item-stat-value">{pace} min/{distance_unit}</span> : null
               }
 
-              { elevation ?
+              {/* elevation ?
                 <span className="item-stat-value">
                   {elevation}{elevation_unit}
                 </span> : null
-              }
+              */}
 
             </div>
           </div>
