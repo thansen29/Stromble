@@ -24,6 +24,7 @@ class UserProfile extends React.Component {
   }
 
   updateAvatar(e){
+    e.preventDefault();
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -41,11 +42,27 @@ class UserProfile extends React.Component {
     return (
       <section className="background">
         <Navbar />
-        <form onSubmit={this.handleSubmit}>
-          <input type="file" className="file-upload" onChange={this.updateAvatar}/>
-          <button>Update Avatar</button>
-          <img className="upload-image-preview" src={this.state.imageUrl} />
-        </form>
+        <section className="profile-container">
+          <div className="profile-item h1">My Profile</div>
+          <form className="profile-form">
+            <div className="profile-title">
+              <div className="offcenter">
+                <span>Current Photo</span>
+                <label>
+                  <img
+                    className="profile-avatar"
+                    src={this.state.imageUrl ? this.state.imageUrl : this.props.avatarUrl} />
+                  <input className="hidden-input" type="file" onChange={this.updateAvatar} />
+                  <span className="grey-plus"></span>
+                </label>
+              </div>
+            </div>
+            {/*
+            <input type="file" className="file-upload" onChange={this.updateAvatar}/>
+            <button>Update Avatar</button>
+            <img className="upload-image-preview" src={this.state.imageUrl} /> */}
+          </form>
+        </section>
       </section>
     );
   }

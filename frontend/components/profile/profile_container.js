@@ -6,7 +6,7 @@ import { updateAvatar } from '../../actions/session/session_actions';
 const mapStateToProps = state => {
   return {
     id: state.session.currentUser.id,
-    avatar_url: state.session.currentUser.avatar_url
+    avatarUrl: state.session.currentUser.avatar_url
   };
 };
 

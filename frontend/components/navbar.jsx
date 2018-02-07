@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { logout } from '../actions/session/session_actions';
 
 const mapStateToProps = state => {
-  debugger
   return {
     id: state.session.currentUser.id,
     avatarUrl: state.session.currentUser.avatar_url
@@ -19,7 +18,6 @@ const mapDispatchToProps = dispatch => {
 
 const Navbar = ({id, logOut, avatarUrl}) => {
   // <Link to={`/users/${id}`}>My Profile</Link>
-debugger
   return (
     <nav className="global-nav">
       <Link to="/dashboard"><div className="logo-nav">stromble</div></Link>

@@ -47,17 +47,6 @@ class WorkoutForm extends React.Component {
       date: date,
       time: time
     });
-    // const dayDate = new Date();
-    // const dayHours = dayDate.getHours();
-    // if(dayHours > 2 && dayHours < 12){
-    //   // this.dayTime = "Morning";
-    //   this.setState({ dayTime: "Morning" });
-    // } else if(dayHours >= 12 && dayHours < 5){
-    //   this.setState({ dayTime: "Afternoon" });
-    // } else {
-    //   this.setState({ dayTime: "Evening" });
-    // }
-
   }
 
   handleSubmit(e){
