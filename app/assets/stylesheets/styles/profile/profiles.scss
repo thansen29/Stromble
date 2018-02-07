@@ -36,6 +36,20 @@
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #ccccd1;
+  & span {
+    align-self: center;
+    padding-right: 10px;
+  }
+  &:not(:first-child):hover {
+    background: #f5f5fa;
+    cursor: pointer;
+    & .edit-pencil {
+      background-size: 15%;
+    }
+  }
+  & li {
+    display: flex;
+  }
 }
 
 .profile-avatar {
@@ -51,3 +65,24 @@
 .hidden-input {
   display: none;
 }
+
+.profile-item-content {
+  color: black;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+.profile-inputs {
+  background: white;
+  border: 1px solid #ccccd1;
+  padding: 10px;
+  margin-right: 5px;
+  &:focus {
+    border: 1px solid rgb(13, 107, 167)
+  }
+}
+
+.close-form {
+  margin-left: 475px;
+  font-size: 25px;
+  position: absolute;}
