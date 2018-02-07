@@ -48,11 +48,11 @@ class LoginForm extends React.Component {
   handleDemoSubmit(e){
     e.preventDefault();
     const user = {
-      email: "guest",
+      email: "guestaccount1",
       password: "password"
     };
     this.setState({
-      email: "guest",
+      email: "guestaccount1",
       password: "password"
     });
     this.props.login(user).then(() => {
