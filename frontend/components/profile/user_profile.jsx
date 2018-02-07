@@ -42,10 +42,14 @@ class UserProfile extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append("id", this.props.id);
+    formData.append("user[fname]", this.state.fname);
+    formData.append("user[lname]", this.state.lname);
     if(this.state.imageFile){
       formData.append("user[avatar]", this.state.imageFile);
     }
-    this.props.updateAvatar(formData);
+    this.props.updateAvatar(formData).then(() => {
+      this.props.history.push("/dashboard");
+    });
   }
 
   updateAvatar(e){
@@ -69,7 +73,7 @@ class UserProfile extends React.Component {
         <Navbar />
         <section className="profile-container">
           <div className="profile-item h1">My Profile</div>
-          <form className="profile-form">
+          <form className="profile-form" onSubmit={this.handleSubmit}>
             <div className="profile-title">
               <div className="offcenter">
                 <span>Current Photo</span>
@@ -106,6 +110,8 @@ class UserProfile extends React.Component {
                 {this.state.clicked ? <span onClick={this.triggerChange} className="close-form">&times;</span> : null}
               </li>
             </ul>
+
+            <button className="profile-form-save">Save</button>
 
           </form>
         </section>

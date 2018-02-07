@@ -17,7 +17,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 const Navbar = ({id, logOut, avatarUrl}) => {
-  // <Link to={`/users/${id}`}>My Profile</Link>
   return (
     <nav className="global-nav">
       <Link to="/dashboard"><div className="logo-nav">stromble</div></Link>
@@ -49,6 +48,7 @@ const Navbar = ({id, logOut, avatarUrl}) => {
       <div className="nav-profile-container">
         <div className="nav-profile-dropdown">
           <div className="nav-profile-dropdown-content">
+            <Link to={`/users/${id}`}>My Profile</Link>
             <Link to="/login" onClick={logOut}>Log Out</Link>
           </div>
 
