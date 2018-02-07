@@ -33,18 +33,6 @@ class DashboardIndex extends React.Component {
     this.props.requestTotalRides();
   }
 
-  // componentDidMount(){
-  //   debugger
-  //   if(this.props.newUser){
-  //     this.setState({ newUser: true });
-  //     this.props.openModal();
-  //   }
-  // }
-
-  // openModal(){
-  //   this.props.openModal();
-  // }
-
   render(){
     let workoutItems;
     let message;
@@ -66,13 +54,10 @@ class DashboardIndex extends React.Component {
       { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
       { title: "bike-tab", content: <RideTotalsContent stats={this.props.stats} /> }
     ];
-
     return (
       <section className="dashboard-background">
         <Navbar />
         <section className="dashboard-container">
-
-          {/* this.props.newUser ? this.props.openModal() : null */}
 
           { this.props.newUser ?
             <ModalComponent>
