@@ -34,10 +34,11 @@ class UserProfile extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    //current user, user to follow
-    this.props.toggleFollow(this.props.id);
+    this.props.toggleFollow(this.props.id).then(() => {
+      this.props.fetchUser(this.props.id);
+    });
   }
-
+  
   render(){
     return (
       <section className="background">
@@ -66,7 +67,8 @@ class UserProfile extends React.Component {
               </ul>
 
               <button className="profile-form-save">
-                {/*this.props.followed ? 'UnFollow' : 'Follow' */}Follow</button>
+                { this.props.isFollowing ? 'Unfollow' : 'Follow' }
+              </button>
             </form>
           </section>
         }

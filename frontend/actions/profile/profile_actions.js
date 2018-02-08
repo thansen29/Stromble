@@ -17,13 +17,10 @@ export const receiveUser = user => {
   };
 };
 
-//need to make sure it goes in to the current user's following stuff
-export const updateFollows = (user, otherId) => {
-  debugger
+export const updateFollows = (user) => {
   return {
     type: UPDATE_FOLLOWS,
-    user,
-    id: otherId
+    id: user.id
   };
 };
 
@@ -42,6 +39,9 @@ export const updateUser = (formData) => dispatch => {
 export const toggleFollow = (otherId) => dispatch => {
   return ProfileAPIUtil.toggleFollow(otherId).then((user) => {
     dispatch(receiveCurrentUser(user));
-    // dispatch(updateFollows(user, other));
-  });
+    // dispatch(updateFollows(user));
+  });//.then(() => {
+  //   console.log('here');
+  //   fetchUser(otherId);
+  // });
 };

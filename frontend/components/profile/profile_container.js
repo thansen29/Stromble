@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import UserProfile from './user_profile';
 import { updateUser, fetchUser } from '../../actions/profile/profile_actions';
 import { toggleFollow } from '../../actions/profile/profile_actions';
+import { checkFollowing } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.id,
     user: state.viewedUser.user,
-    currentUserId: state.session.currentUser.id.toString()
+    currentUserId: state.session.currentUser.id.toString(),
+    isFollowing: checkFollowing(state, ownProps)
   };
 };
 

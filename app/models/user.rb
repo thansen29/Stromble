@@ -62,11 +62,12 @@ class User < ApplicationRecord
   end
 
   def follows?(other_user)
-    self.following.include?(other_user)
+    id = self.id
+    other = other_user.id
+    Follow.where('follower_id = ? AND followed_id = ?', id, other)
   end
 
   def follow(other_user)
-    # self.following << other_user
     follow = Follow.new
     follow.follower_id = self.id
     follow.followed_id = other_user.id
@@ -74,11 +75,12 @@ class User < ApplicationRecord
   end
 
   def unfollow(other_user)
-    # self.follow.delete(other_user)
+    id = self.id
+    other = other_user.id
+    Follow.where('follower_id = ? AND followed_id = ?', id, other).destroy_all
   end
 
   private
-
   def ensure_session_token
     self.session_token ||= generate_session_token
   end
