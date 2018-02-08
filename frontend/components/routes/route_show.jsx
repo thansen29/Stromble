@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../navbar';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 class RouteShow extends React.Component {
   constructor(props){
@@ -62,7 +63,9 @@ class RouteShow extends React.Component {
 
           <aside className="route-show-details">
             <div className="route-show-user-info">
-              <img className="route-avatar" src={this.props.currentUser.avatar_url} />
+              <Link to={`/users/${this.props.currentUser.id}`}>
+                <img className="route-avatar" src={this.props.currentUser.avatar_url} />
+              </Link>
               <span className="route-name-details">
                 <div className="route-show-name">By {this.props.currentUser.fname} {this.props.currentUser.lname}</div>
                 <div className="show-datetime">Created on {date}</div>

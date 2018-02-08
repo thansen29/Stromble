@@ -15,8 +15,9 @@ export const updateUser = (formData) => {
   });
 };
 
-export const toggleFollow = (userId, otherId) => {
+export const toggleFollow = (otherId) => {
   return $.ajax({
-
+    method: 'PATCH',
+    url: `api/follows/toggleFollow/${otherId}`
   });
 };

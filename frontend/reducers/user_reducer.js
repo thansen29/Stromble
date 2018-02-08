@@ -1,4 +1,4 @@
-import { RECEIVE_USER } from '../actions/profile/profile_actions';
+import { RECEIVE_USER, UPDATE_FOLLOWS } from '../actions/profile/profile_actions';
 
 const defaultState = {
   viewedUser: null,
@@ -10,6 +10,9 @@ const userReducer = (state = defaultState, action) => {
       return {
         user: action.user,
       };
+    case UPDATE_FOLLOWS:
+      debugger
+      break;
     default:
       return state;
   }

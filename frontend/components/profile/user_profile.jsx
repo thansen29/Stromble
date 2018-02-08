@@ -13,6 +13,8 @@ class UserProfile extends React.Component {
       lname: ""
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
+
   }
   //TODO: can only access other users pages if not already on this page
   //if already here, it does not fetch the new user
@@ -33,7 +35,7 @@ class UserProfile extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     //current user, user to follow
-    this.props.toggleFollow(this.props.currentUserId, this.props.id);
+    this.props.toggleFollow(this.props.id);
   }
 
   render(){

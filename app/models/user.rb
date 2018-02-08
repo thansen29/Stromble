@@ -26,12 +26,12 @@ class User < ApplicationRecord
 
   has_many :followers,
     class_name: :Follow,
-    foreign_key: :follower_id,
+    foreign_key: :followed_id,
     dependent: :destroy
 
   has_many :following,
     class_name: :Follow,
-    foreign_key: :followed_id,
+    foreign_key: :follower_id,
     dependent: :destroy
 
   attr_reader :password
@@ -59,6 +59,22 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def follows?(other_user)
+    self.following.include?(other_user)
+  end
+
+  def follow(other_user)
+    # self.following << other_user
+    follow = Follow.new
+    follow.follower_id = self.id
+    follow.followed_id = other_user.id
+    follow.save!
+  end
+
+  def unfollow(other_user)
+    # self.follow.delete(other_user)
   end
 
   private

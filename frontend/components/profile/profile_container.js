@@ -16,7 +16,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateUser: (formData) => dispatch(updateUser(formData)),
     fetchUser: (id) => dispatch(fetchUser(id)),
-    toggleFollow: (userId, otherId) => dispatch(toggleFollow(userId, otherId))
+    toggleFollow: (otherId) => dispatch(toggleFollow(otherId))
   };
 };
 
