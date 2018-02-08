@@ -14,3 +14,9 @@ export const updateUser = (formData) => {
     data: formData
   });
 };
+
+export const toggleFollow = (userId, otherId) => {
+  return $.ajax({
+
+  });
+};

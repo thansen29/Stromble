@@ -30,6 +30,12 @@ class UserProfile extends React.Component {
     }
   }
 
+  handleSubmit(e){
+    e.preventDefault();
+    //current user, user to follow
+    this.props.toggleFollow(this.props.currentUserId, this.props.id);
+  }
+
   render(){
     return (
       <section className="background">
@@ -39,7 +45,7 @@ class UserProfile extends React.Component {
 
           <section className="profile-container">
             <div className="profile-item h1">{this.state.fname}s Profile</div>
-            <form className="profile-form">
+            <form className="profile-form" onSubmit={this.handleSubmit}>
               <div className="profile-title">
                 <div className="offcenter">
                   <img
@@ -56,6 +62,9 @@ class UserProfile extends React.Component {
                     </main>
                 </li>
               </ul>
+
+              <button className="profile-form-save">
+                {/*this.props.followed ? 'UnFollow' : 'Follow' */}Follow</button>
             </form>
           </section>
         }

@@ -7,6 +7,7 @@ import { requestRunDistance, requestRideDistance, requestLongestRunDistance,
     requestTotalRuns, requestTotalRides, requestFastedSpeed } from '../../actions/statistics/workout_totals';
 import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
+//need to come here after editing profile
 const mapStateToProps = state => {
   return {
     workouts: _.values(state.workout.workouts).reverse(),
@@ -32,7 +33,7 @@ const mapDispatchToProps = dispatch => {
     requestTotalRides: () => dispatch(requestTotalRides()),
     requestFastedSpeed: () => dispatch(requestFastedSpeed()),
     openModal: () => dispatch(openModal()),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
   };
 };
 
