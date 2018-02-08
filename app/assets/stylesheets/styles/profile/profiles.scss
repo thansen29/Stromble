@@ -40,6 +40,22 @@
     align-self: center;
     padding-right: 10px;
   }
+  & li {
+    display: flex;
+  }
+}
+
+.edit-profile-title {
+  color: #666;
+  font-size: 13px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ccccd1;
+  & span {
+    align-self: center;
+    padding-right: 10px;
+  }
   &:not(:first-child):hover {
     background: #f5f5fa;
     cursor: pointer;
@@ -52,7 +68,7 @@
   }
 }
 
-.profile-avatar {
+.edit-profile-avatar {
   border-radius: 100px;
   width: 120px;
   height: 120px;
@@ -60,6 +76,13 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.profile-avatar {
+  border-radius: 100px;
+  width: 120px;
+  height: 120px;
+  margin-left: 45px;
 }
 
 .hidden-input {

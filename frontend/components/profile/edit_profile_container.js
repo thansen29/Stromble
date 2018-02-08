@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import UserProfile from './user_profile';
+import EditProfile from './edit_profile_form';
 import { updateUser, fetchUser } from '../../actions/profile/profile_actions';
+import { withRouter } from 'react-router-dom';
+
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -18,4 +20,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(EditProfile));

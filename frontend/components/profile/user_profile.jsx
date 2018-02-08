@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar';
+import EditProfileContainer from './edit_profile_container';
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -11,11 +12,10 @@ class UserProfile extends React.Component {
       fname: "",
       lname: ""
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateUser = this.updateUser.bind(this);
-    this.triggerChange = this.triggerChange.bind(this);
-  }
 
+  }
+  //TODO: can only access other users pages if not already on this page
+  //if already here, it does not fetch the new user
   componentDidMount(){
     this.props.fetchUser(this.props.id);
   }
@@ -30,98 +30,36 @@ class UserProfile extends React.Component {
     }
   }
 
-  triggerChange(e){
-    e.preventDefault();
-    this.setState({
-      clicked: !this.state.clicked
-    });
-  }
-
-  handleChange(field){
-    return e => {
-      this.setState({
-        [field]: e.target.value
-      });
-    };
-  }
-
-  handleSubmit(e){
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("id", this.props.id);
-    formData.append("user[fname]", this.state.fname);
-    formData.append("user[lname]", this.state.lname);
-    if(this.state.imageFile){
-      formData.append("user[avatar]", this.state.imageFile);
-    }
-    this.props.updateUser(formData).then(() => {
-      this.props.history.push("/dashboard");
-    });
-  }
-
-  updateUser(e){
-    e.preventDefault();
-    const file = e.currentTarget.files[0];
-    const fileReader = new FileReader();
-    fileReader.onloadend = () => {
-      this.setState({
-        imageFile: file,
-        imageUrl: fileReader.result
-      });
-    };
-    if(file){
-      fileReader.readAsDataURL(file);
-    }
-  }
-
   render(){
     return (
       <section className="background">
         <Navbar />
-        <section className="profile-container">
-          <div className="profile-item h1">My Profile</div>
-          <form className="profile-form" onSubmit={this.handleSubmit}>
-            <div className="profile-title">
-              <div className="offcenter">
-                <span>Current Photo</span>
-                <label>
+        {this.props.id === this.props.currentUserId ?
+          <EditProfileContainer /> :
+
+          <section className="profile-container">
+            <div className="profile-item h1">{this.state.fname}s Profile</div>
+            <form className="profile-form">
+              <div className="profile-title">
+                <div className="offcenter">
                   <img
                     className="profile-avatar"
-                    src={/*this.state.imageUrl ? this.state.imageUrl : this.props.avatarUrl*/this.state.imageUrl} />
-                  <input className="hidden-input" type="file" onChange={this.updateUser} />
-                  <span className="grey-plus"></span>
-                </label>
+                    src={this.state.imageUrl} />
+                </div>
               </div>
-            </div>
 
-            <ul className="profile-title" onClick={this.state.clicked ? null : this.triggerChange}>
-              <li>
-                <span>Name</span>
-                {this.state.clicked ?
-                  <div className="profile-inputs-container">
-                    <input
-                      type="text"
-                      className="profile-inputs"
-                      value={this.state.fname}
-                      onChange={this.handleChange('fname')} />
-                    <input
-                      type="text"
-                      className="profile-inputs"
-                      value={this.state.lname}
-                      onChange={this.handleChange('lname')} />
-                  </div> :
-                  <main className="profile-item-content"><span>{this.state.fname} {this.state.lname}</span>
-                    <span className="edit-pencil"></span>
-                  </main>
-                }
-                {this.state.clicked ? <span onClick={this.triggerChange} className="close-form">&times;</span> : null}
-              </li>
-            </ul>
+              <ul className="profile-title">
+                <li>
+                  <span>Name</span>
+                    <main className="profile-item-content">
+                      <span>{this.state.fname} {this.state.lname}</span>
+                    </main>
+                </li>
+              </ul>
+            </form>
+          </section>
+        }
 
-            <button className="profile-form-save">Save</button>
-
-          </form>
-        </section>
       </section>
     );
   }
