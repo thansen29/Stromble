@@ -1,4 +1,6 @@
-json.partial! 'api/users/user', user: @user, as: :user
+json.partial! 'api/users/user', user: @user
+# followers = []
+
 # json.partial! 'api/users/user', user: @other_user, as: :other_user
 # json.array! @user do |user|
 #   json.id user.id
