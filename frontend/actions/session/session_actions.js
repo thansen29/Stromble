@@ -23,7 +23,6 @@ export const clearErrors = () => {
   };
 };
 
-
 export const signup = user => dispatch => {
   return SessionAPIUtil.signup(user).then((currentUser) => {
     dispatch(receiveCurrentUser(currentUser));
@@ -49,20 +48,20 @@ export const logout = () => dispatch => {
   });
 };
 
-export const updateUser = user => dispatch => {
-  return SessionAPIUtil.updateUser(user).then((resp) => {
-    dispatch(receiveCurrentUser(resp));
-  }, (errors) => {
-    dispatch(receiveErrors(errors));
-  });
-};
+// export const updateUser = user => dispatch => {
+//   return SessionAPIUtil.updateUser(user).then((resp) => {
+//     dispatch(receiveCurrentUser(resp));
+//   }, (errors) => {
+//     dispatch(receiveErrors(errors));
+//   });
+// };
 
-export const updateAvatar = (formData) => dispatch => {
-  return SessionAPIUtil.updateAvatar(formData).then((resp) => {
-    console.log('success');
-    dispatch(receiveCurrentUser(resp));
-  }, (errors) => {
-    console.log('fail');
-    dispatch(receiveErrors(errors));
-  });
-};
+// export const updateUser = (formData) => dispatch => {
+//   return SessionAPIUtil.updateUser(formData).then((resp) => {
+//     console.log('success');
+//     dispatch(receiveCurrentUser(resp));
+//   }, (errors) => {
+//     console.log('fail');
+//     dispatch(receiveErrors(errors));
+//   });
+// };

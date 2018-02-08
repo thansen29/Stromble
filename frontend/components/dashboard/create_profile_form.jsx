@@ -16,7 +16,7 @@ class CreateProfileForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateAvatar = this.updateAvatar.bind(this);
+    this.updateUser = this.updateUser.bind(this);
 
   }
 
@@ -27,7 +27,7 @@ class CreateProfileForm extends React.Component {
     }).bind(this);
   }
 
-  updateAvatar(e){
+  updateUser(e){
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -53,8 +53,8 @@ class CreateProfileForm extends React.Component {
       if(this.state.imageFile){
         formData.append("user[avatar]", this.state.imageFile);
       }
-      // this.props.updateAvatar(formData);
-      this.props.updateAvatar(formData).then(() => {
+      // this.props.updateUser(formData);
+      this.props.updateUser(formData).then(() => {
         this.props.closeModal();
       });
     }
@@ -74,7 +74,7 @@ class CreateProfileForm extends React.Component {
             <div className="create-profile-content">
               <img className="create-profile-image" src={this.state.imageUrl ? this.state.imageUrl : this.props.avatarUrl} />
             </div>
-              <input type="file" className="file-upload" onChange={this.updateAvatar}/>
+              <input type="file" className="file-upload" onChange={this.updateUser}/>
           </div>
 
           {this.state.fnameError || this.state.lnameError ?

@@ -12,15 +12,22 @@ class UserProfile extends React.Component {
       lname: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateAvatar = this.updateAvatar.bind(this);
+    this.updateUser = this.updateUser.bind(this);
     this.triggerChange = this.triggerChange.bind(this);
   }
 
   componentDidMount(){
-    this.setState({
-      fname: this.props.fname,
-      lname: this.props.lname
-    });
+    this.props.fetchUser(this.props.id);
+  }
+
+  componentWillReceiveProps(newProps){
+    if(newProps.user){
+      this.setState({
+        fname: newProps.user.fname,
+        lname: newProps.user.lname,
+        imageUrl: newProps.user.avatar_url
+      });
+    }
   }
 
   triggerChange(e){
@@ -47,12 +54,12 @@ class UserProfile extends React.Component {
     if(this.state.imageFile){
       formData.append("user[avatar]", this.state.imageFile);
     }
-    this.props.updateAvatar(formData).then(() => {
+    this.props.updateUser(formData).then(() => {
       this.props.history.push("/dashboard");
     });
   }
 
-  updateAvatar(e){
+  updateUser(e){
     e.preventDefault();
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
@@ -80,8 +87,8 @@ class UserProfile extends React.Component {
                 <label>
                   <img
                     className="profile-avatar"
-                    src={this.state.imageUrl ? this.state.imageUrl : this.props.avatarUrl} />
-                  <input className="hidden-input" type="file" onChange={this.updateAvatar} />
+                    src={/*this.state.imageUrl ? this.state.imageUrl : this.props.avatarUrl*/this.state.imageUrl} />
+                  <input className="hidden-input" type="file" onChange={this.updateUser} />
                   <span className="grey-plus"></span>
                 </label>
               </div>

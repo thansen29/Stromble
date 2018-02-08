@@ -1,20 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import { updateAvatar } from '../../actions/session/session_actions';
+import { updateUser, fetchUser } from '../../actions/profile/profile_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    id: state.session.currentUser.id,
-    avatarUrl: state.session.currentUser.avatar_url,
-    fname: state.session.currentUser.fname,
-    lname: state.session.currentUser.lname
+    id: ownProps.match.params.id,
+    user: state.viewedUser.user
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateAvatar: (formData) => dispatch(updateAvatar(formData))
+    updateUser: (formData) => dispatch(updateUser(formData)),
+    fetchUser: (id) => dispatch(fetchUser(id))
   };
 };
 

@@ -5,6 +5,7 @@ import uiReducer from './ui_reducer';
 import workoutReducer from './workout_reducer';
 import routeReducer from './route_reducer';
 import statsReducer from './stats_reducer';
+import userReducer from './user_reducer';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   route: routeReducer,
   stats: statsReducer,
   errors: errorsReducer,
-  ui: uiReducer
+  ui: uiReducer,
+  viewedUser: userReducer
 });
 
 export default rootReducer;

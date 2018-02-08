@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CreateProfileForm from './create_profile_form';
-import { updateUser, updateAvatar } from '../../actions/session/session_actions';
+import { updateUser } from '../../actions/profile/profile_actions';
 import { closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
@@ -14,8 +14,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     closeModal: () => dispatch(closeModal()),
-    updateUser: user => dispatch(updateUser(user)),
-    updateAvatar: (formData) => dispatch(updateAvatar(formData))
+    updateUser: (formData) => dispatch(updateUser(formData))
   };
 };
 
