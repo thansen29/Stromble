@@ -1,18 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { closeModal } from '../actions/modals/modal_actions';
-
-// const mapStateToProps = state => {
-//   debugger
-//   return {
-//     isOpen: state.ui.modal['isOpen']
-//   };
-// };
+import { withRouter } from 'react-router-dom';
+import { closeModal } from '../../actions/modals/modal_actions';
+import { fetchUsers } from '../../actions/search/search_actions';
 
 const mapDispatchToProps = dispatch => {
   return {
-    closeModal: () => dispatch(closeModal())
-  };
+    closeModal: () => dispatch(closeModal()),
+    fetchUsers: () => dispatch(fetchUsers())
+   };
 };
 
 class NavbarSearch extends React.Component {
@@ -32,9 +28,10 @@ class NavbarSearch extends React.Component {
   }
 
   handleSubmit(e){
-    debugger
     e.preventDefault();
-    this.props.submitSearch(this.state.content);
+    // this.props.submitSearch(this.state.content);
+    this.props.history.push(`/athletes/search/?${this.state.content}`);
+    //put the content at the end of the url??
   }
 
   render(){
@@ -54,4 +51,4 @@ class NavbarSearch extends React.Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(NavbarSearch);
+export default withRouter(connect(null, mapDispatchToProps)(NavbarSearch));

@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   stats: statsReducer,
   errors: errorsReducer,
   ui: uiReducer,
-  viewedUser: userReducer
+  viewedUsers: userReducer
 });
 
 export default rootReducer;

@@ -8,7 +8,7 @@ import { checkFollowing } from '../../reducers/selectors';
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.id,
-    user: state.viewedUser.user,
+    user: state.viewedUsers.viewedUser,
     currentUserId: state.session.currentUser.id.toString(),
     isFollowing: checkFollowing(state, ownProps)
   };

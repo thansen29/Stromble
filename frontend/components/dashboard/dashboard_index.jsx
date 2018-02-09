@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 import { Link } from 'react-router-dom';
 import WorkoutItem from './workout_item';
 import Tabs from './tabs';

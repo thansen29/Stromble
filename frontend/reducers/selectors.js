@@ -1,3 +1,4 @@
+import _ from 'lodash';
 export const checkFollowing = (state, ownProps) => {
   const array = state.session.currentUser.following;
   for (let i = 0; i < array.length; i++) {
@@ -6,4 +7,8 @@ export const checkFollowing = (state, ownProps) => {
     }
   }
   return false;
+};
+
+export const toArray = (object) => {
+  return _.values(object);
 };

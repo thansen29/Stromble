@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 import moment from 'moment';
 import WorkoutEditContainer from './workout_edit_container';
 import ModalComponent from '../modals/modal_component';

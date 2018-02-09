@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :workouts, except: :new
     resources :routes, only: [:index, :show, :create, :destroy]
+    get 'search', to: 'search#query'
     get 'total_run_distance', to: 'statistics#total_run_distance'
     get 'total_ride_distance', to: 'statistics#total_ride_distance'
     get 'longest_run_distance', to: 'statistics#longest_run_distance'

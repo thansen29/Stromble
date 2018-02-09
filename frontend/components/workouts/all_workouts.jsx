@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 import { Link } from 'react-router-dom';
 
 class AllWorkouts extends React.Component {

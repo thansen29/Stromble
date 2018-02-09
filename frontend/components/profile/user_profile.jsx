@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
 
 class UserProfile extends React.Component {
@@ -38,7 +38,7 @@ class UserProfile extends React.Component {
       this.props.fetchUser(this.props.id);
     });
   }
-  
+
   render(){
     return (
       <section className="background">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 import RouteMap from './route_map';
 import ModalComponent from '../modals/modal_component';
 import RouteFormContainer from './route_form_container';

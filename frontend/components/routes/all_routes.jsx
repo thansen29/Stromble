@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RouteItem from './route_item';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 
 class AllRoutes extends React.Component {
   constructor(props){

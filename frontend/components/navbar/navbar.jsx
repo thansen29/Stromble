@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logout } from '../actions/session/session_actions';
-import { openModal } from '../actions/modals/modal_actions';
+import { logout } from '../../actions/session/session_actions';
+import { openModal } from '../../actions/modals/modal_actions';
 import NavbarSearch from './navbar_search';
 
 const mapStateToProps = state => {
@@ -26,7 +26,7 @@ const Navbar = ({id, logOut, avatarUrl, isOpen, open}) => {
       <Link to="/dashboard"><div className="logo-nav">stromble</div></Link>
 
     <div onClick={open}className="nav-search">
-      <i className="fa fa-search" aria-hidden="true"></i>
+      <i className={isOpen ? null : "fa fa-search"} aria-hidden="true"></i>
     </div>
 
     { isOpen ?

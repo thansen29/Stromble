@@ -1,7 +1,7 @@
 import React from 'react';
 import WorkoutForm from './workout_form';
 import { Link } from 'react-router-dom';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 
 const WorkoutIndex = ({ createWorkout, userId, openDropdown, component, workoutId, history, errors }) => {
   return (

@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.id,
-    user: state.viewedUser.user,
+    user: state.viewedUsers.viewedUser,
     currentUserId: state.session.currentUser.id.toString()
   };
 };

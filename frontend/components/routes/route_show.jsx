@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar';
+import Navbar from '../navbar/navbar';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 

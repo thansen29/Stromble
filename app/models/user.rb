@@ -80,6 +80,7 @@ class User < ApplicationRecord
     Follow.where('follower_id = ? AND followed_id = ?', id, other).destroy_all
   end
 
+
   private
   def ensure_session_token
     self.session_token ||= generate_session_token
