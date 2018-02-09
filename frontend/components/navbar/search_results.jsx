@@ -36,7 +36,13 @@ class SearchResults extends React.Component {
     if(this.props.foundUsers){
       items = this.props.foundUsers.map((user) => {
         return (
-          <li key={user.id}><SearchResultItem user={user} /></li>
+          <li key={user.id}>
+            <SearchResultItem
+              user={user}
+              toggleFollow={this.props.toggleFollow}
+              currentUserId={this.props.currentUserId} />
+            {/* might need to give fetch users too */}
+          </li>
         );
       });
     }

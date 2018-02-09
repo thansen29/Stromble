@@ -1,20 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { checkFollowing } from '../../reducers/selectors';
 
-const SearchResultItem = ({user}) => {
-  return (
-    <main className="search-result-item">
-      <div>
-        <img className="route-avatar"src={user.avatarUrl} />
-      </div>
-      <div className="search-result-wrapper">
+
+class SearchResultItem extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isFollowing: null
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount(){
+    // debugger
+    this.setState({
+      isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
+    });
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+  }
+
+  render(){
+    return (
+      <main className="search-result-item">
         <div>
-          <Link to={`/users/${user.id}`}>{user.fname} {user.lname}</Link>
+          <img className="route-avatar"src={this.props.user.avatarUrl} />
         </div>
-        <button className="search-result-follow">Follow</button>
-      </div>
-    </main>
-  );
-};
+        <div className="search-result-wrapper">
+          <div>
+            <Link to={`/users/${this.props.user.id}`}>
+              {this.props.user.fname} {this.props.user.lname}
+            </Link>
+          </div>
+          <button
+            onClick={this.handleSubmit}
+            className="search-result-follow">
+          { this.state.isFollowing ? 'Unfollow' : 'Follow' }
+          </button>
+        </div>
+      </main>
+    );
+  }
+
+}
 
 export default SearchResultItem;

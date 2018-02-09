@@ -6,11 +6,13 @@ import { toggleFollow } from '../../actions/profile/profile_actions';
 import { checkFollowing } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
+  const array = state.session.currentUser.following;
+  const id = ownProps.match.params.id;
   return {
-    id: ownProps.match.params.id,
+    id,
     user: state.viewedUsers.viewedUser,
     currentUserId: state.session.currentUser.id.toString(),
-    isFollowing: checkFollowing(state, ownProps)
+    isFollowing: checkFollowing(array, id)
   };
 };
 
