@@ -17,8 +17,6 @@ const mapStateToProps = (state, ownProps) => {
     searchType,
     foundUsers: toArray(state.viewedUsers.foundUsers),
     currentUserId: state.session.currentUser.id
-    // isFollowing: checkFollowing(state, ownProps)
-
   };
 };
 

@@ -6,8 +6,7 @@ class SearchResults extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      content: '',
-      results: []
+      content: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,6 +26,7 @@ class SearchResults extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    this.props.search(this.props.searchType, this.state.content);
     //get the url again? force page to re render?
     // this.props.submitSearch(this.state.content);
   }
@@ -40,7 +40,10 @@ class SearchResults extends React.Component {
             <SearchResultItem
               user={user}
               toggleFollow={this.props.toggleFollow}
-              currentUserId={this.props.currentUserId} />
+              currentUserId={this.props.currentUserId}
+              search={this.props.search}
+              searchType={this.props.searchType}
+              name={this.props.name} />
             {/* might need to give fetch users too */}
           </li>
         );
