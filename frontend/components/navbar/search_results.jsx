@@ -14,6 +14,7 @@ class SearchResults extends React.Component {
   }
 
   componentDidMount(){
+    this.props.closeModal();
     this.setState({
       content: this.props.name,
       oldSearch: this.props.name

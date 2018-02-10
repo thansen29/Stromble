@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
+import moment from 'moment';
 import { Link } from 'react-router-dom';
 import WorkoutItem from './workout_item';
 import Tabs from './tabs';
@@ -55,6 +56,19 @@ class DashboardIndex extends React.Component {
       { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
       { title: "bike-tab", content: <RideTotalsContent stats={this.props.stats} /> }
     ];
+    let numActivities = 0;
+    if(this.props.stats.totalRides >= 0 && this.props.stats.totalRuns >= 0){
+      numActivities = this.props.stats.totalRuns + this.props.stats.totalRides;
+    }
+
+    let recent;
+    let date;
+    if(this.props.workouts.length){
+      recent = this.props.workouts[0];
+      let momentDate = moment(recent.time);
+      date = momentDate.format("MMMM D, YYYY");
+
+    }
     return (
       <section className="dashboard-background">
         <Navbar />
@@ -67,6 +81,42 @@ class DashboardIndex extends React.Component {
           }
 
           <aside className="dashboard-left">
+            <section className="profile-card">
+              <img className="profile-card-avatar" src={this.props.currentUser.avatar_url} />
+              <span className="card-name">
+                <Link to={`/users/${this.props.currentUser.id}`}>
+                  {this.props.currentUser.fname} {this.props.currentUser.lname}
+                </Link>
+              </span>
+
+              <div className="card-following">
+                <div className="following-titles">
+                  <div className='follow-title'>Following</div>
+                  <div className='follow-title'>Followers</div>
+                  <div className='follow-title'>Activities</div>
+                </div>
+
+                <div className="following-stats">
+                  <div>{this.props.currentUser.following.length}</div>
+                  <div>{this.props.currentUser.followers.length}</div>
+                  <Link to='/workouts'>
+                    <div>{numActivities}</div>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="latest">
+                <div>Latest Activity</div>
+                { recent ?
+                  <Link to={`/workouts/${recent.id}`}>
+                    <span className="bold">{recent.title}</span> • {date}
+                  </Link>
+                  : null
+                }
+              </div>
+
+            </section>
+
             <Tabs panes={tabs} />
           </aside>
 
