@@ -115,6 +115,15 @@ class DashboardIndex extends React.Component {
                 }
               </div>
 
+              <div className="log">
+                <Link to='/workouts'>
+                  <label>
+                    <span>Your Training Log</span>
+                    <i className="fa fa-angle-right"></i>
+                  </label>
+                </Link>
+              </div>
+
             </section>
 
             <Tabs panes={tabs} />
