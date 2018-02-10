@@ -1,19 +1,22 @@
 import React from 'react';
 import Navbar from './navbar';
 import SearchResultItemContainer from './search_result_item_container';
+import clone from 'clone';
 
 class SearchResults extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      content: ''
+      content: '',
+      oldSearch: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
     this.setState({
-      content: this.props.name
+      content: this.props.name,
+      oldSearch: this.props.name
     });
     this.props.search(this.props.searchType, this.props.name);
   }
@@ -27,13 +30,15 @@ class SearchResults extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     this.props.search(this.props.searchType, this.state.content);
+    this.props.history.push(`?${this.state.content}`);
+    this.setState({ oldSearch: this.state.content });
     //get the url again? force page to re render?
     // this.props.submitSearch(this.state.content);
   }
 
   render(){
     let items;
-    if(this.props.foundUsers){
+    if(this.props.foundUsers.length){
       items = this.props.foundUsers.map((user) => {
         return (
           <li key={user.id}>
@@ -41,6 +46,8 @@ class SearchResults extends React.Component {
           </li>
         );
       });
+    } else {
+      items = <div className="search-space">No athletes with name <span className="bold">{ this.state.oldSearch } </span>found</div>;
     }
 
     return (
