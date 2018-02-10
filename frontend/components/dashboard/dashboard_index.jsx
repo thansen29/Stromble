@@ -22,15 +22,16 @@ class DashboardIndex extends React.Component {
   componentWillMount(){
     this.props.clearWorkouts();
     this.props.requestWorkouts();
+    const id = this.props.currentUser.id;
 
-    this.props.requestRunDistance();
-    this.props.requestRideDistance();
-    this.props.requestLongestRunDistance();
-    this.props.requestLongestRideDistance();
-    this.props.requestLongestRunDuration();
-    this.props.requestLongestRideDuration();
-    this.props.requestTotalRuns();
-    this.props.requestTotalRides();
+    this.props.requestRunDistance(id);
+    this.props.requestRideDistance(id);
+    this.props.requestLongestRunDistance(id);
+    this.props.requestLongestRideDistance(id);
+    this.props.requestLongestRunDuration(id);
+    this.props.requestLongestRideDuration(id);
+    this.props.requestTotalRuns(id);
+    this.props.requestTotalRides(id);
   }
 
   render(){

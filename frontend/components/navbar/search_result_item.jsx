@@ -7,16 +7,29 @@ class SearchResultItem extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      isFollowing: null
+      isFollowing: null,
+      totalRuns: null,
+      totalRides: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount(){
+    // this.props.requestTotalRuns(this.props.user.id);
+    // this.props.requestTotalRides(this.props.user.id);
     this.setState({
-      isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
+      isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId),
     });
   }
+
+  // componentWillReceiveProps(newProps){
+  //   this.setState({
+  //     totalRuns: newProps.stats.totalRuns,
+  //     totalRides: newProps.stats.totalRides
+  //   });
+  //   // newProps.requestTotalRuns(newProps.user.id);
+  //   // newProps.requestTotalRides(newProps.user.id);
+  // }
 
   handleSubmit(e){
     e.preventDefault();
@@ -29,7 +42,10 @@ class SearchResultItem extends React.Component {
     });
   }
 
+  //something is wrong with the flow of rendering each item - refactor
+  //to have its own container then figure out
   render(){
+    // debugger
     return (
       <main className="search-result-item">
 
@@ -38,18 +54,20 @@ class SearchResultItem extends React.Component {
         </div>
 
         <div className="search-result-wrapper">
-          <div>
+          <div className="search-row">
             <Link to={`/users/${this.props.user.id}`}>
               {this.props.user.fname} {this.props.user.lname}
             </Link>
-          </div>
 
-          <button
-            onClick={this.handleSubmit}
-            className="search-result-follow">
-          { this.state.isFollowing ? 'Unfollow' : 'Follow' }
-          </button>
-          
+          </div>
+          { this.props.currentUserId !== this.props.user.id ?
+            <button
+              onClick={this.handleSubmit}
+              className="search-result-follow">
+            { this.state.isFollowing ? 'Unfollow' : 'Follow' }
+            </button>
+          : null }
+
         </div>
       </main>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './navbar';
-import SearchResultItem from './search_result_item';
+import SearchResultItemContainer from './search_result_item_container';
 
 class SearchResults extends React.Component {
   constructor(props){
@@ -37,14 +37,7 @@ class SearchResults extends React.Component {
       items = this.props.foundUsers.map((user) => {
         return (
           <li key={user.id}>
-            <SearchResultItem
-              user={user}
-              toggleFollow={this.props.toggleFollow}
-              currentUserId={this.props.currentUserId}
-              search={this.props.search}
-              searchType={this.props.searchType}
-              name={this.props.name} />
-            {/* might need to give fetch users too */}
+            <SearchResultItemContainer user={user} />
           </li>
         );
       });

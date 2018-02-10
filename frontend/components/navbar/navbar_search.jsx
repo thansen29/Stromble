@@ -29,15 +29,13 @@ class NavbarSearch extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    // this.props.submitSearch(this.state.content);
     this.props.history.push(`/athletes/search/?${this.state.content}`);
-    //put the content at the end of the url??
   }
 
   render(){
     return (
       <section className="search-component">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             className="search-input"

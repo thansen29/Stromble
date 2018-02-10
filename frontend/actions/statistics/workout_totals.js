@@ -73,56 +73,56 @@ export const receiveFastedSpeed = (speed) => {
 };
 
 
-export const requestRunDistance = () => dispatch => {
-  return StatsAPIUtil.fetchRunDistance().then((distance) => {
+export const requestRunDistance = (id) => dispatch => {
+  return StatsAPIUtil.fetchRunDistance(id).then((distance) => {
     dispatch(receiveRunDistance(distance));
   });
 };
 
-export const requestRideDistance = () => dispatch => {
-  return StatsAPIUtil.fetchRideDistance().then((distance) => {
+export const requestRideDistance = (id) => dispatch => {
+  return StatsAPIUtil.fetchRideDistance(id).then((distance) => {
     dispatch(receiveRideDistance(distance));
   });
 };
 
-export const requestLongestRunDistance = () => dispatch => {
-  return StatsAPIUtil.fetchLongestRunDistance().then((distance) => {
+export const requestLongestRunDistance = (id) => dispatch => {
+  return StatsAPIUtil.fetchLongestRunDistance(id).then((distance) => {
     dispatch(receiveLongestRunDistance(distance));
   });
 };
 
-export const requestLongestRideDistance = () => dispatch => {
+export const requestLongestRideDistance = (id) => dispatch => {
   return StatsAPIUtil.fetchLongestRideDistance().then((distance) => {
     dispatch(receiveLongestRideDistance(distance));
   });
 };
 
-export const requestLongestRunDuration = () => dispatch => {
+export const requestLongestRunDuration = (id) => dispatch => {
   return StatsAPIUtil.fetchLongestRunDuration().then((duration) => {
     dispatch(receiveLongestRunDuration(duration));
   });
 };
 
-export const requestLongestRideDuration = () => dispatch => {
-  return StatsAPIUtil.fetchLongestRideDuration().then((duration) => {
+export const requestLongestRideDuration = (id) => dispatch => {
+  return StatsAPIUtil.fetchLongestRideDuration(id).then((duration) => {
     dispatch(receiveLongestRideDuration(duration));
   });
 };
 
-export const requestTotalRuns = () => dispatch => {
-  return StatsAPIUtil.fetchTotalRuns().then((total) => {
+export const requestTotalRuns = (id) => dispatch => {
+  return StatsAPIUtil.fetchTotalRuns(id).then((total) => {
     dispatch(receiveTotalRuns(total));
   });
 };
 
-export const requestTotalRides = () => dispatch => {
-  return StatsAPIUtil.fetchTotalRides().then((total) => {
+export const requestTotalRides = (id) => dispatch => {
+  return StatsAPIUtil.fetchTotalRides(id).then((total) => {
     dispatch(receiveTotalRides(total));
   });
 };
 
-export const requestFastedSpeed = () => dispatch => {
-  return StatsAPIUtil.fetchFastedSpeed().then((speed) => {
+export const requestFastedSpeed = (id) => dispatch => {
+  return StatsAPIUtil.fetchFastedSpeed(id).then((speed) => {
     dispatch(receiveFastedSpeed(speed));
   });
 };
