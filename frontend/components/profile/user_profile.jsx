@@ -47,7 +47,7 @@ class UserProfile extends React.Component {
           <EditProfileContainer /> :
 
           <section className="profile-container">
-            <div className="profile-item h1">{this.state.fname}s Profile</div>
+            <div className="profile-item h1">{this.state.fname}&#39;s Profile</div>
             <form className="profile-form" onSubmit={this.handleSubmit}>
               <div className="profile-title">
                 <div className="offcenter">
@@ -70,9 +70,13 @@ class UserProfile extends React.Component {
                 { this.props.isFollowing ? 'Unfollow' : 'Follow' }
               </button>
             </form>
-          </section>
-        }
 
+            <main className="profile-following">
+              <h1 className="h1">Following</h1>
+            </main>
+            
+          </section>
+      }
       </section>
     );
   }

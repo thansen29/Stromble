@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchResultItemContainer from '../navbar/search_result_item_container';
 
 class EditProfileForm extends React.Component {
   constructor(props){
@@ -76,6 +77,27 @@ class EditProfileForm extends React.Component {
   }
 
   render(){
+    // let followers;
+    // let following;
+    // // debugger
+    // if(this.props.user){
+    //   following = this.props.user.following.map((user) => {
+    //     return (
+    //       <li key={user.id}>
+    //         <SearchResultItemContainer user={user} />
+    //       </li>
+    //     );
+    //   });
+    // }
+    // else if(this.props.user.followers.length){
+    //   followers = this.props.user.followers.map((user) => {
+    //     return (
+    //       <li key={user.id}>
+    //         <SearchResultItemContainer user={user} />
+    //       </li>
+    //     );
+    //   });
+    // }
     return (
       <section className="background">
         <section className="profile-container">
@@ -122,6 +144,11 @@ class EditProfileForm extends React.Component {
 
           </form>
         </section>
+
+        <main className="profile-following">
+          <h1 className="h1">Following</h1>
+        </main>
+
       </section>
     );
   }

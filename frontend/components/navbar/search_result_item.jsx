@@ -9,9 +9,11 @@ class SearchResultItem extends React.Component {
     this.state = {
       isFollowing: null,
       totalRuns: null,
-      totalRides: null
+      totalRides: null,
+      hovered: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleHover = this.toggleHover.bind(this);
   }
 
   componentDidMount(){
@@ -42,6 +44,12 @@ class SearchResultItem extends React.Component {
     });
   }
 
+  toggleHover(){
+    this.setState({
+      hovered: !this.state.hovered
+    });
+  }
+
   //something is wrong with the flow of rendering each item - refactor
   //to have its own container then figure out
   render(){
@@ -63,8 +71,11 @@ class SearchResultItem extends React.Component {
           { this.props.currentUserId !== this.props.user.id ?
             <button
               onClick={this.handleSubmit}
-              className="search-result-follow">
-            { this.state.isFollowing ? 'Unfollow' : 'Follow' }
+              className={this.state.isFollowing ? "search-result-following" : "search-result-follow"}
+              onMouseEnter={this.toggleHover}
+              onMouseLeave={this.toggleHover}>
+              { this.state.isFollowing ? this.state.hovered ? "Unfollow" : "Following" : 'Follow' }
+
             </button>
           : null }
 
