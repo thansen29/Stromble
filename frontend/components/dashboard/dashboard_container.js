@@ -6,6 +6,7 @@ import { requestRunDistance, requestRideDistance, requestLongestRunDistance,
    requestLongestRideDistance, requestLongestRunDuration, requestLongestRideDuration,
     requestTotalRuns, requestTotalRides, requestFastedSpeed } from '../../actions/statistics/workout_totals';
 import { openModal, closeModal } from '../../actions/modals/modal_actions';
+import { updateLoading } from '../../actions/loading/loading_actions';
 
 //need to come here after editing profile
 const mapStateToProps = state => {
@@ -14,7 +15,8 @@ const mapStateToProps = state => {
     stats: state.stats,
     isOpen: state.ui.modal["isOpen"],
     newUser: state.session.currentUser.fname === null,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    isLoading: state.ui.loading["isLoading"]
 
   };
 };
@@ -34,6 +36,7 @@ const mapDispatchToProps = dispatch => {
     requestFastedSpeed: (id) => dispatch(requestFastedSpeed(id)),
     openModal: () => dispatch(openModal()),
     closeModal: () => dispatch(closeModal()),
+    updateLoading: () => dispatch(updateLoading()),
   };
 };
 

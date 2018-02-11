@@ -20,10 +20,11 @@ class DashboardIndex extends React.Component {
     };
   }
 
-  componentWillMount(){
-    this.props.clearWorkouts();
-    this.props.requestWorkouts();
+  componentDidMount(){
     const id = this.props.currentUser.id;
+    if(this.props.newUser){
+      this.props.openModal();
+    }
 
     this.props.requestRunDistance(id);
     this.props.requestRideDistance(id);
@@ -32,7 +33,14 @@ class DashboardIndex extends React.Component {
     this.props.requestLongestRunDuration(id);
     this.props.requestLongestRideDuration(id);
     this.props.requestTotalRuns(id);
-    this.props.requestTotalRides(id);
+    this.props.requestTotalRides(id).then();
+
+    this.props.clearWorkouts();
+    this.props.requestWorkouts().then(() => {
+      window.setTimeout(() => {
+        this.props.updateLoading();
+      }, 500);
+    });
   }
 
   render(){
@@ -56,9 +64,19 @@ class DashboardIndex extends React.Component {
       { title: "shoe-tab", content: <RunTotalsContent stats={this.props.stats} /> },
       { title: "bike-tab", content: <RideTotalsContent stats={this.props.stats} /> }
     ];
+
     let numActivities = 0;
     if(this.props.stats.totalRides >= 0 && this.props.stats.totalRuns >= 0){
       numActivities = this.props.stats.totalRuns + this.props.stats.totalRides;
+    }
+
+    let numFollowers = 0;
+    let numFollowing = 0;
+    if(this.props.currentUser.followers.length){
+      numFollowers = this.props.currentUser.followers.length;
+    }
+    if(this.props.currentUser.following.length){
+      numFollowing = this.props.currentUser.following.length;
     }
 
     let recent;
@@ -69,86 +87,88 @@ class DashboardIndex extends React.Component {
       date = momentDate.format("MMMM D, YYYY");
 
     }
+
     return (
       <section className="dashboard-background">
         <Navbar />
-        <section className="dashboard-container">
 
-          { this.props.newUser ?
-            <ModalComponent>
-              <CreateProfileContainer />
-            </ModalComponent> : null
-          }
+          <section className="dashboard-container">
+            { this.props.isOpen ?
+              <ModalComponent>
+                <CreateProfileContainer />
+              </ModalComponent> : null
+            }
 
-          <aside className="dashboard-left">
-            <section className="profile-card">
-              <img className="profile-card-avatar" src={this.props.currentUser.avatar_url} />
-              <span className="card-name">
-                <Link to={`/users/${this.props.currentUser.id}`}>
-                  {this.props.currentUser.fname} {this.props.currentUser.lname}
-                </Link>
-              </span>
+            <aside className="dashboard-left">
+              <section className="profile-card">
+                <img className="profile-card-avatar" src={this.props.currentUser.avatar_url} />
+                <span className="card-name">
+                  <Link to={`/users/${this.props.currentUser.id}`}>
+                    {this.props.currentUser.fname} {this.props.currentUser.lname}
+                  </Link>
+                </span>
 
-              <div className="card-following">
-                <div className="following-titles">
-                  <div className='follow-title'>Following</div>
-                  <div className='follow-title'>Followers</div>
-                  <div className='follow-title'>Activities</div>
+                <div className="card-following">
+                  <div className="following-titles">
+                    <div className='follow-title'>Following</div>
+                    <div className='follow-title'>Followers</div>
+                    <div className='follow-title'>Activities</div>
+                  </div>
+
+                  <div className="following-stats">
+                    <div>{ numFollowing }</div>
+                    <div>{ numFollowers }</div>
+                    <Link to='/workouts'>
+                      <div>{numActivities}</div>
+                    </Link>
+                  </div>
                 </div>
 
-                <div className="following-stats">
-                  <div>{this.props.currentUser.following.length}</div>
-                  <div>{this.props.currentUser.followers.length}</div>
+                <div className="latest">
+                  <div>Latest Activity</div>
+                  { recent ?
+                    <Link to={`/workouts/${recent.id}`}>
+                      <span className="bold">{recent.title}</span> • {date}
+                    </Link>
+                    : null
+                  }
+                </div>
+
+                <div className="log">
                   <Link to='/workouts'>
-                    <div>{numActivities}</div>
+                    <label>
+                      <span>Your Training Log</span>
+                      <i className="fa fa-angle-right"></i>
+                    </label>
                   </Link>
                 </div>
-              </div>
 
-              <div className="latest">
-                <div>Latest Activity</div>
-                { recent ?
-                  <Link to={`/workouts/${recent.id}`}>
-                    <span className="bold">{recent.title}</span> • {date}
-                  </Link>
-                  : null
-                }
-              </div>
+              </section>
 
-              <div className="log">
-                <Link to='/workouts'>
-                  <label>
-                    <span>Your Training Log</span>
-                    <i className="fa fa-angle-right"></i>
-                  </label>
-                </Link>
-              </div>
+              <Tabs panes={tabs} />
+            </aside>
 
-            </section>
+            <main className="dashboard-main">
+              <ul className="dashboard-feed-ul">
+                { this.props.workouts ? workoutItems : message }
+              </ul>
+              {/* message */}
+            </main>
 
-            <Tabs panes={tabs} />
-          </aside>
+            <aside className="dashboard-right">
+              <a href="http://github.com/thansen29/">
+                <i className="fa fa-github" aria-hidden="true"></i>
+              </a>
+              <a href="http://www.linkedin.com/in/thomas-hansen-1a0a51132/">
+                <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+              </a>
+              <a href="http://www.tomhansen.io">
+                <i className="www"></i>
+              </a>
+            </aside>
 
-          <main className="dashboard-main">
-            <ul className="dashboard-feed-ul">
-              { this.props.workouts ? workoutItems : message }
-            </ul>
-            { message }
-          </main>
+          </section>
 
-          <aside className="dashboard-right">
-            <a href="http://github.com/thansen29/">
-              <i className="fa fa-github" aria-hidden="true"></i>
-            </a>
-            <a href="http://www.linkedin.com/in/thomas-hansen-1a0a51132/">
-              <i className="fa fa-linkedin-square" aria-hidden="true"></i>
-            </a>
-            <a href="http://www.tomhansen.io">
-              <i className="www"></i>
-            </a>
-          </aside>
-
-        </section>
 
       </section>
     );

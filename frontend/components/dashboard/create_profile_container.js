@@ -5,7 +5,7 @@ import { closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = state => {
   return {
-    ui: state.ui.modal["isOpen"],
+    isOpen: state.ui.modal["isOpen"],
     errors: state.errors.session,
     avatarUrl: state.session.currentUser.avatar_url
   };

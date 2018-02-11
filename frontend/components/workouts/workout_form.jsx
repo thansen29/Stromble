@@ -1,4 +1,4 @@
-
+``
 import React from 'react';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
@@ -39,6 +39,13 @@ class WorkoutForm extends React.Component {
     this.handleDropdown = this.handleDropdown.bind(this);
 
   }
+
+  moveCaret(e) {
+    let temp = e.target.value;
+    e.target.value = '';
+    e.target.value = temp;
+  }
+
   componentDidMount(){
     const momentDate = moment();
     const date = momentDate.format("MM/DD/YYYY");
@@ -192,6 +199,8 @@ class WorkoutForm extends React.Component {
               <label htmlFor="title">Title</label><br/>
               <div className="input-wrapper">
                 <input
+                  autoFocus
+                  onFocus={this.moveCaret}
                   className={this.props.errors.workout ? "title-input left-align workout-errors"
                     : "workout-input title-input left-align"}
                   type="text"

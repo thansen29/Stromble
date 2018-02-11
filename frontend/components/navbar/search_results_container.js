@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import SearchResults from './search_results';
-import { search } from '../../actions/search/search_actions';
+import { search, closeSearch } from '../../actions/search/search_actions';
 import { toArray } from '../../reducers/selectors';
 import { toggleFollow } from '../../actions/profile/profile_actions';
 import { requestTotalRuns, requestTotalRides } from '../../actions/statistics/workout_totals';
-import { closeModal } from '../../actions/modals/modal_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -28,7 +27,7 @@ const mapDispatchToProps = dispatch => {
     toggleFollow: (id) => dispatch(toggleFollow(id)),
     requestTotalRuns: (id) => dispatch(requestTotalRuns(id)),
     requestTotalRides: (id) => dispatch(requestTotalRides(id)),
-    closeModal: () => dispatch(closeModal())
+    closeSearch: () => dispatch(closeSearch())
   };
 };
 

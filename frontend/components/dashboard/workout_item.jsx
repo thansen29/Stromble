@@ -17,7 +17,7 @@ class WorkoutItem extends React.Component {
     momentDate = momentDate.parseZone();
     const day = momentDate.format("dddd");
     // const parsedDate = momentDate.calendar();
-    const parsedDate = momentDate.format("dddd, MMMM Do YYYY");
+    const parsedDate = momentDate.format("MMMM Do YYYY");
     const parsedTime = momentDate.format("h:mm A");
 
     let fname;
