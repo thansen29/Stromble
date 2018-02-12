@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
 import FollowsContainer from './follows_container';
@@ -13,9 +14,10 @@ class UserProfile extends React.Component {
       clicked: false,
       fname: "",
       lname: "",
-      follow: ""
+      follow: "",
+      hovered: false,
     };
-
+    this.toggleHover = this.toggleHover.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -48,6 +50,12 @@ class UserProfile extends React.Component {
     };
   }
 
+  toggleHover(){
+    this.setState({
+      hovered: !this.state.hovered
+    });
+  }
+
   render(){
     let followers;
     let following;
@@ -67,6 +75,7 @@ class UserProfile extends React.Component {
         );
       });
     }
+    //TODO: the follow button doesnt always update when following/unfollowing users
     return (
       <section className="background">
         <Navbar />
@@ -93,8 +102,12 @@ class UserProfile extends React.Component {
                 </li>
               </ul>
 
-              <button className="profile-form-save">
-                { this.props.isFollowing ? 'Unfollow' : 'Follow' }
+              <button
+                className={this.props.isFollowing ? "following-save" : "follow-save"}
+                onMouseEnter={this.toggleHover}
+                onMouseLeave={this.toggleHover}>
+                { this.props.isFollowing ? this.state.hovered ? "Unfollow" : "Following" : 'Follow' }
+
               </button>
             </form>
 

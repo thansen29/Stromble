@@ -2,44 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { checkFollowing } from '../../reducers/selectors';
 
-
+//TODO: follow list doesnt update properly on click follow
 class FollowsItem extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       isFollowing: null,
-      totalRuns: null,
-      totalRides: null,
       hovered: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleHover = this.toggleHover.bind(this);
+    this.fetchNewUser = this.fetchNewUser.bind(this);
   }
 
   componentDidMount(){
-    // this.props.requestTotalRuns(this.props.user.id);
-    // this.props.requestTotalRides(this.props.user.id);
     this.setState({
       isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId),
     });
   }
 
-  // componentWillReceiveProps(newProps){
-  //   this.setState({
-  //     totalRuns: newProps.stats.totalRuns,
-  //     totalRides: newProps.stats.totalRides
-  //   });
-  //   // newProps.requestTotalRuns(newProps.user.id);
-  //   // newProps.requestTotalRides(newProps.user.id);
-  // }
+  fetchNewUser(){
+    this.props.fetchUser(this.props.user.id);
+  }
 
   handleSubmit(e){
     e.preventDefault();
     this.props.toggleFollow(this.props.user.id).then(() => {
-      this.props.search(this.props.searchType, this.props.name).then(() => {
-        this.setState({
-          isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
-        });
+      this.setState({
+        isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
       });
     });
   }
@@ -50,8 +40,6 @@ class FollowsItem extends React.Component {
     });
   }
 
-  //something is wrong with the flow of rendering each item - refactor
-  //to have its own container then figure out
   render(){
     return (
       <main className="profile-follow-item">
@@ -62,7 +50,8 @@ class FollowsItem extends React.Component {
 
         <div className="follow-wrapper">
           <div className="search-row">
-            <Link to={`/users/${this.props.user.id}`}>
+            <Link to={`/users/${this.props.user.id}`}
+               onClick={this.fetchNewUser}>
               {this.props.user.fname} {this.props.user.lname}
             </Link>
 

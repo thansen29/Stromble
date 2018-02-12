@@ -2,11 +2,6 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :update, :show]
-    # resource :follows do
-    #   member do
-    #     patch :toggleFollow
-    #   end
-    # end
     patch 'follows/toggleFollow/:id', to: 'follows#toggleFollow'
     resource :session, only: [:create, :destroy]
     resources :workouts, except: :new

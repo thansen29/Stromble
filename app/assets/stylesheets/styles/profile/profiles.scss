@@ -15,6 +15,8 @@
 
 .profile-form {
   width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 
 .offcenter {
@@ -113,12 +115,18 @@
 
 .profile-form-save {
   background: #fc4c02;
+  transition: background-color 400ms;
   color: white;
   padding: 10px 20px;
   border-radius: 0px;
   font-size: 16px;
   margin-top: 15px;
-  margin-left: 44%;
+  align-self: center;
+  width: 35px;
+  &:hover {
+    background: #e34402;
+    transition: background-color 400ms;
+  }
 }
 
 .profile-following {
@@ -194,4 +202,40 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.follow-save {
+  background: #fc4c02;
+  color: white;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  border-radius: 0px;
+  font-size: 16px;
+  transition: background-color 400ms;
+  &:hover {
+    background: #e34402;
+    transition: background-color 400ms;
+  }
+  align-self: center;
+  margin-top: 10px;
+}
+
+.following-save {
+  transition: background-color 200ms;
+  background: white;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  border-radius: 0px;
+  font-size: 16px;
+  color: black;
+  border: 1px solid #ccccd1;
+  &:hover {
+    background: #e34402;
+    color: white;
+    transition: background-color 400ms;
+  }
+  align-self: center;
+  margin-top: 10px;
 }

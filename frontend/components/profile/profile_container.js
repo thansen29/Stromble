@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import { updateUser, fetchUser } from '../../actions/profile/profile_actions';
-import { toggleFollow } from '../../actions/profile/profile_actions';
+import { updateUser, fetchUser, toggleFollow } from '../../actions/profile/profile_actions';
 import { checkFollowing } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
