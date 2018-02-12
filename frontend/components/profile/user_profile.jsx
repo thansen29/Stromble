@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
+import SearchResultItemContainer from '../navbar/search_result_item_container';
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -74,7 +75,7 @@ class UserProfile extends React.Component {
             <main className="profile-following">
               <h1 className="h1">Following</h1>
             </main>
-            
+
           </section>
       }
       </section>

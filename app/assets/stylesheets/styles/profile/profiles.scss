@@ -127,3 +127,65 @@
   display: flex;
   flex-direction: column;
 }
+
+.profile-follow-item {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  & a {
+    color: #007FB6;
+    margin-bottom: 10px;
+    &:hover {
+      text-decoration: underline;
+    }
+  } & div {
+    align-self: center;
+  }
+}
+
+.profile-follow-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+}
+
+.follow-btn {
+  background: #fc4c02;
+  color: white;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  border-radius: 0px;
+  font-size: 16px;
+  transition: background-color 400ms;
+  &:hover {
+    background: #e34402;
+    transition: background-color 400ms;
+  }
+}
+
+.following-btn {
+  transition: background-color 200ms;
+  background: white;
+  padding: 10px;
+  width: 80px;
+  text-align: center;
+  border-radius: 0px;
+  font-size: 16px;
+  color: black;
+  border: 1px solid #ccccd1;
+  &:hover {
+    background: #e34402;
+    color: white;
+    transition: background-color 400ms;
+  }
+}
+.follow-wrapper {
+  margin-left: 10px;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  & div {
+    padding: 10px 0 0;
+  }
+}
