@@ -53,7 +53,6 @@ class SearchResultItem extends React.Component {
   //something is wrong with the flow of rendering each item - refactor
   //to have its own container then figure out
   render(){
-    // debugger
     return (
       <main className="search-result-item">
 

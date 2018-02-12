@@ -16,7 +16,8 @@ class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      newUser: null
+      newUser: null,
+      ready: false
     };
   }
 
@@ -39,9 +40,11 @@ class DashboardIndex extends React.Component {
     this.props.requestWorkouts().then(() => {
       window.setTimeout(() => {
         this.props.updateLoading();
+        this.setState({ ready: true });
       }, 500);
     });
   }
+
 
   render(){
     let workoutItems;
@@ -72,10 +75,11 @@ class DashboardIndex extends React.Component {
 
     let numFollowers = 0;
     let numFollowing = 0;
-    if(this.props.currentUser.followers.length){
+
+    if(this.props.currentUser && this.props.currentUser.followers.length){
       numFollowers = this.props.currentUser.followers.length;
     }
-    if(this.props.currentUser.following.length){
+    if(this.props.currentUser && this.props.currentUser.following.length){
       numFollowing = this.props.currentUser.following.length;
     }
 
@@ -87,7 +91,6 @@ class DashboardIndex extends React.Component {
       date = momentDate.format("MMMM D, YYYY");
 
     }
-
     return (
       <section className="dashboard-background">
         <Navbar />
@@ -149,10 +152,14 @@ class DashboardIndex extends React.Component {
             </aside>
 
             <main className="dashboard-main">
-              <ul className="dashboard-feed-ul">
-                { this.props.workouts ? workoutItems : message }
-              </ul>
-              {/* message */}
+              { this.props.isLoading ? <div className="loader">Loading...</div> :
+                <ul className="dashboard-feed-ul">
+                  { this.props.workouts ? workoutItems : null }
+                </ul>
+              }
+              <div className={!this.props.workouts.length && this.state.ready ? 'visible' : 'none'}>
+                { message }
+              </div>
             </main>
 
             <aside className="dashboard-right">

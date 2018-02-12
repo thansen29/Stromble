@@ -6,6 +6,7 @@ json.users do
       json.lname user.lname
       json.avatarUrl asset_path(user.avatar.url)
       json.followers user.followers.select(:follower_id).as_json(:except => :id)
+      json.following user.following.select(:followed_id).as_json(:except => :id)
     end
   end
 end

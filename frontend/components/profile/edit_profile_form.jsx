@@ -79,7 +79,6 @@ class EditProfileForm extends React.Component {
   render(){
     // let followers;
     // let following;
-    // // debugger
     // if(this.props.user){
     //   following = this.props.user.following.map((user) => {
     //     return (

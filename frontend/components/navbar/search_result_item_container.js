@@ -6,7 +6,6 @@ import { search } from '../../actions/search/search_actions';
 import { requestTotalRuns, requestTotalRides } from '../../actions/statistics/workout_totals';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   let searchType;
   if(ownProps.location.pathname.includes('athlete')){
     searchType = 'athlete';

@@ -9,7 +9,7 @@ const loadingReducer = (state = defaultState, action) => {
   switch (action.type) {
     case UPDATE_LOADING:
       newState = Object.assign({}, state);
-      newState["isLoading"] = !newState['isLoading'];
+      newState["isLoading"] = false;
       return newState;
     default:
       return state;
