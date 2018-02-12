@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
-import SearchResultItemContainer from '../navbar/search_result_item_container';
+import FollowsContainer from './follows_container';
+import DropdownComponent from '../dropdowns/dropdown_component';
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -11,7 +12,8 @@ class UserProfile extends React.Component {
       imageUrl: null,
       clicked: false,
       fname: "",
-      lname: ""
+      lname: "",
+      follow: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -40,7 +42,31 @@ class UserProfile extends React.Component {
     });
   }
 
+  handleSelection(field){
+    return e => {
+      this.setState({ [field]: e });
+    };
+  }
+
   render(){
+    let followers;
+    let following;
+    if(this.props.user){
+      following = this.props.user.following.map((user) => {
+        return (
+          <li key={user.id}>
+            <FollowsContainer user={user} />
+          </li>
+        );
+      });
+      followers = this.props.user.followers.map((user) => {
+        return (
+          <li key={user.id}>
+            <FollowsContainer user={user} />
+          </li>
+        );
+      });
+    }
     return (
       <section className="background">
         <Navbar />
@@ -72,8 +98,17 @@ class UserProfile extends React.Component {
               </button>
             </form>
 
-            <main className="profile-following">
-              <h1 className="h1">Following</h1>
+            <main className="other-profile-following">
+              <h1 className="h1">Following</h1><br />
+              <div className="sporty-input">
+                <DropdownComponent
+                  items={[`${this.state.fname + " is Following"}`, `Following ${this.state.fname}`]}
+                  onChange={this.handleSelection('follow')}
+                  initValue={'Following'}/>
+              </div>
+                <ul className="search-result-list">
+                  { this.state.follow === `Following ${this.state.fname}` ? followers : following }
+                </ul>
             </main>
 
           </section>

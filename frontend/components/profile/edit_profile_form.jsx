@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchResultItemContainer from '../navbar/search_result_item_container';
 import FollowsContainer from './follows_container';
+import DropdownComponent from '../dropdowns/dropdown_component';
 
 class EditProfileForm extends React.Component {
   constructor(props){
@@ -11,7 +11,8 @@ class EditProfileForm extends React.Component {
       imageUrl: null,
       clicked: false,
       fname: "",
-      lname: ""
+      lname: "",
+      follow: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -77,32 +78,24 @@ class EditProfileForm extends React.Component {
     }
   }
 
-  render(){
-    // let followers;
-    // let following;
-    // if(this.props.user){
-    //   following = this.props.user.following.map((user) => {
-    //     return (
-    //       <li key={user.id}>
-    //         <SearchResultItemContainer user={user} />
-    //       </li>
-    //     );
-    //   });
-    // }
-    // else if(this.props.user.followers.length){
-    //   followers = this.props.user.followers.map((user) => {
-    //     return (
-    //       <li key={user.id}>
-    //         <SearchResultItemContainer user={user} />
-    //       </li>
-    //     );
-    //   });
-    // }
+  handleSelection(field){
+    return e => {
+      this.setState({ [field]: e });
+    };
+  }
 
+  render(){
     let followers;
     let following;
     if(this.props.user){
       following = this.props.user.following.map((user) => {
+        return (
+          <li key={user.id}>
+            <FollowsContainer user={user} />
+          </li>
+        );
+      });
+      followers = this.props.user.followers.map((user) => {
         return (
           <li key={user.id}>
             <FollowsContainer user={user} />
@@ -160,8 +153,15 @@ class EditProfileForm extends React.Component {
 
         <main className="profile-following">
           <h1 className="h1">Following</h1>
+          <br />
+          <div className="distance-select">
+            <DropdownComponent
+              items={[`${"I'm Following"}`, 'Following Me']}
+              onChange={this.handleSelection('follow')}
+              initValue={`${"I'm Following"}`} />
+          </div>
             <ul className="search-result-list">
-              { following }
+              { this.state.follow === "Following Me" ? followers : following }
             </ul>
         </main>
 
