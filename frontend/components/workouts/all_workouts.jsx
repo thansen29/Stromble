@@ -2,22 +2,34 @@ import React from 'react';
 import moment from 'moment';
 import Navbar from '../navbar/navbar';
 import { Link } from 'react-router-dom';
+import Waypoint from 'react-waypoint';
 
 class AllWorkouts extends React.Component {
   constructor(props){
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
-    this.state = { workoutId: '' };
+    this.state = {
+      workoutId: '',
+      page: 1
+    };
+
+    this.getWorkouts = this.getWorkouts.bind(this);
   }
 
   componentDidMount(){
-    this.props.requestWorkouts();
+    this.getWorkouts();
   }
 
   handleDelete(id){
     return ((e) => {
       this.props.deleteWorkout(id);
     }).bind(this);
+  }
+
+  getWorkouts(){
+    const location = this.props.location.pathname;
+    this.props.requestWorkouts(this.state.page, location);//, location);
+    this.setState({ page: this.state.page += 1 });
   }
 
   render(){
@@ -66,6 +78,7 @@ class AllWorkouts extends React.Component {
               {workoutItems}
             </tbody>
           </table>
+          <Waypoint onEnter={this.getWorkouts} />
         </main>
       </section>
     );

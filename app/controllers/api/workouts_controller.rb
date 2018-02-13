@@ -3,7 +3,17 @@ require 'timeliness'
 class Api::WorkoutsController < ApplicationController
 
   def index
-    @workouts = Workout.all.where(user_id: current_user.id)
+    if params[:location] == '/workouts'
+      @workouts = Workout.all
+        .where(user_id: current_user.id)
+        .order(created_at: :desc)
+        .page(params[:page].to_i).per(20)
+    else
+      @workouts = Workout.all
+        .where(user_id: current_user.id)
+        .order(created_at: :desc)
+        .page(params[:page].to_i).per(4)
+    end
   end
 
   def show

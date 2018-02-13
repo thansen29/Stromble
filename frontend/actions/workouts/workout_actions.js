@@ -46,8 +46,8 @@ export const clearErrors = () => {
   };
 };
 
-export const requestWorkouts = () => dispatch => {
-  return WorkoutAPIUtil.fetchWorkouts().then((workouts) => {
+export const requestWorkouts = (page, location) => dispatch => {
+  return WorkoutAPIUtil.fetchWorkouts(page, location).then((workouts) => {
     dispatch(receiveWorkouts(workouts));
   }, (errors) => {
     dispatch(receiveErrors(errors));

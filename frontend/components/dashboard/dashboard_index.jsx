@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
+import Waypoint from 'react-waypoint';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import WorkoutItem from './workout_item';
@@ -17,8 +18,10 @@ class DashboardIndex extends React.Component {
     super(props);
     this.state = {
       newUser: null,
-      ready: false
+      ready: false,
+      page: 1
     };
+    this.getWorkouts = this.getWorkouts.bind(this);
   }
 
   componentDidMount(){
@@ -37,12 +40,12 @@ class DashboardIndex extends React.Component {
     this.props.requestTotalRides(id).then();
 
     this.props.clearWorkouts();
-    this.props.requestWorkouts().then(() => {
-      window.setTimeout(() => {
-        this.props.updateLoading();
-        this.setState({ ready: true });
-      }, 500);
-    });
+    this.getWorkouts();
+  }
+
+  getWorkouts(){
+    this.props.requestWorkouts(this.state.page);
+    this.setState({ page: this.state.page += 1 });
   }
 
 
@@ -160,6 +163,8 @@ class DashboardIndex extends React.Component {
               <div className={!this.props.workouts.length && this.state.ready ? 'visible' : 'none'}>
                 { message }
               </div>
+              <Waypoint
+                onEnter={this.getWorkouts} />
             </main>
 
             <aside className="dashboard-right">

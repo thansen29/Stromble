@@ -1,7 +1,8 @@
-export const fetchWorkouts = () => {
+export const fetchWorkouts = (page, location) => {
   return $.ajax({
     method: 'GET',
-    url: `api/workouts/`
+    url: `api/workouts/`,
+    data: { page, location }
   });
 };
 

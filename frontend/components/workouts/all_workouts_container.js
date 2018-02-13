@@ -12,7 +12,7 @@ const mapStateToProps = state => {
 const mapDistpatchToProps = dispatch => {
   return {
     deleteWorkout: id => dispatch(deleteWorkout(id)),
-    requestWorkouts: () => dispatch(requestWorkouts())
+    requestWorkouts: (page, location) => dispatch(requestWorkouts(page, location))
   };
 };
 
