@@ -87,22 +87,36 @@ class EditProfileForm extends React.Component {
   render(){
     let followers;
     let following;
-    if(this.props.user){
-      following = this.props.user.following.map((user) => {
-        return (
-          <li key={user.id}>
-            <FollowsContainer user={user} />
-          </li>
-        );
-      });
-      followers = this.props.user.followers.map((user) => {
-        return (
-          <li key={user.id}>
-            <FollowsContainer user={user} />
-          </li>
-        );
-      });
-    }
+    // if(this.props.user){
+    //   following = this.props.user.following.map((user) => {
+    //     return (
+    //       <li key={user.id}>
+    //         <FollowsContainer user={user} />
+    //       </li>
+    //     );
+    //   });
+    //   followers = this.props.user.followers.map((user) => {
+    //     return (
+    //       <li key={user.id}>
+    //         <FollowsContainer user={user} />
+    //       </li>
+    //     );
+    //   });
+    // }
+
+    // <main className="profile-following">
+    //   <h1 className="h1">Following</h1>
+    //   <br />
+    //   <div className="distance-select">
+    //     <DropdownComponent
+    //       items={[`${"I'm Following"}`, 'Following Me']}
+    //       onChange={this.handleSelection('follow')}
+    //       initValue={`${"I'm Following"}`} />
+    //   </div>
+    //     <ul className="search-result-list">
+    //       { this.state.follow === "Following Me" ? followers : following }
+    //     </ul>
+    // </main>
     // debugger
     return (
       <section className="background">
@@ -150,20 +164,6 @@ class EditProfileForm extends React.Component {
 
           </form>
         </section>
-
-        <main className="profile-following">
-          <h1 className="h1">Following</h1>
-          <br />
-          <div className="distance-select">
-            <DropdownComponent
-              items={[`${"I'm Following"}`, 'Following Me']}
-              onChange={this.handleSelection('follow')}
-              initValue={`${"I'm Following"}`} />
-          </div>
-            <ul className="search-result-list">
-              { this.state.follow === "Following Me" ? followers : following }
-            </ul>
-        </main>
 
       </section>
     );

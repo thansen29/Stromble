@@ -57,24 +57,37 @@ class UserProfile extends React.Component {
   }
 
   render(){
-    let followers;
-    let following;
-    if(this.props.user){
-      following = this.props.user.following.map((user) => {
-        return (
-          <li key={user.id}>
-            <FollowsContainer user={user} />
-          </li>
-        );
-      });
-      followers = this.props.user.followers.map((user) => {
-        return (
-          <li key={user.id}>
-            <FollowsContainer user={user} />
-          </li>
-        );
-      });
-    }
+    // let followers;
+    // let following;
+    // if(this.props.user){
+    //   following = this.props.user.following.map((user) => {
+    //     return (
+    //       <li key={user.id}>
+    //         <FollowsContainer user={user} />
+    //       </li>
+    //     );
+    //   });
+    //   followers = this.props.user.followers.map((user) => {
+    //     return (
+    //       <li key={user.id}>
+    //         <FollowsContainer user={user} />
+    //       </li>
+    //     );
+    //   });
+    // }
+
+    // <main className="other-profile-following">
+    //   <h1 className="h1">Following</h1><br />
+    //   <div className="sporty-input">
+    //     <DropdownComponent
+    //       items={[`${this.state.fname + " is Following"}`, `Following ${this.state.fname}`]}
+    //       onChange={this.handleSelection('follow')}
+    //       initValue={'Following'}/>
+    //   </div>
+    //     <ul className="search-result-list">
+    //       { this.state.follow === `Following ${this.state.fname}` ? followers : following }
+    //     </ul>
+    // </main>
     //TODO: the follow button doesnt always update when following/unfollowing users
     return (
       <section className="background">
@@ -111,18 +124,7 @@ class UserProfile extends React.Component {
               </button>
             </form>
 
-            <main className="other-profile-following">
-              <h1 className="h1">Following</h1><br />
-              <div className="sporty-input">
-                <DropdownComponent
-                  items={[`${this.state.fname + " is Following"}`, `Following ${this.state.fname}`]}
-                  onChange={this.handleSelection('follow')}
-                  initValue={'Following'}/>
-              </div>
-                <ul className="search-result-list">
-                  { this.state.follow === `Following ${this.state.fname}` ? followers : following }
-                </ul>
-            </main>
+
 
           </section>
       }
