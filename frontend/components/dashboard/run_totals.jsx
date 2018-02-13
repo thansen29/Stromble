@@ -10,9 +10,10 @@ class RunTotalsContent extends React.Component {
     const totalDistance = runDistance + rideDistance;
     //TODO: makes the units of measurement relative to what they actaully are ie
       //all stats are in kilometers
+
     return(
         <main className="stats-content">
-          <label className="stats-label">Total Distance Traveled</label>
+          <label className="stats-label follow-title">Total Distance Traveled</label>
             <div className="stats-value">{totalDistance} miles</div>
 
           <label className="stats-label">Total Number of Runs</label>

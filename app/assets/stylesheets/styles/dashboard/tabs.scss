@@ -1,6 +1,8 @@
 .tabs {
   background: white;
   padding: 0 0 10px 0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 0px rgba(13, 13, 18, 0.16)
 }
 
 
@@ -29,11 +31,12 @@
 
 .stats-content {
   padding: 10px 0 0 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .stats-label {
-  // font-weight: 400;
+  align-self: center;
   font-size: 16px;
   color: #2d2d32;
   margin-top: 10px;
@@ -42,8 +45,12 @@
 .stats-value {
   font-size: 13px;
   padding-bottom: 10px;
-  color: #2d2d32;
+  color: #666;
   text-align: center;
   margin-top: 5px;
-
+  width: 90%;
+  align-self: center;
+    &:not(:last-of-type){
+      border-bottom: 1px solid #ccccd1;
+    }
 }

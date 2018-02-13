@@ -92,13 +92,13 @@ export const requestLongestRunDistance = (id) => dispatch => {
 };
 
 export const requestLongestRideDistance = (id) => dispatch => {
-  return StatsAPIUtil.fetchLongestRideDistance().then((distance) => {
+  return StatsAPIUtil.fetchLongestRideDistance(id).then((distance) => {
     dispatch(receiveLongestRideDistance(distance));
   });
 };
 
 export const requestLongestRunDuration = (id) => dispatch => {
-  return StatsAPIUtil.fetchLongestRunDuration().then((duration) => {
+  return StatsAPIUtil.fetchLongestRunDuration(id).then((duration) => {
     dispatch(receiveLongestRunDuration(duration));
   });
 };
