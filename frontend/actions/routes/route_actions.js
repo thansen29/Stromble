@@ -32,8 +32,8 @@ export const receiveRouteErrors = errors => {
   };
 };
 
-export const requestRoutes = () => dispatch => {
-  return RouteAPIUtil.fetchRoutes().then((routes) => {
+export const requestRoutes = (page) => dispatch => {
+  return RouteAPIUtil.fetchRoutes(page).then((routes) => {
     dispatch(receiveRoutes(routes));
   }, (errors) => {
     dispatch(receiveRouteErrors(errors));

@@ -1,6 +1,9 @@
 class Api::RoutesController < ApplicationController
   def index
-    @routes = Route.all.where(user_id: current_user.id)
+    @routes = Route.all
+      .where(user_id: current_user.id)
+      .order(created_at: :desc)
+      .page(params[:page].to_i).per(3)
   end
 
   def show

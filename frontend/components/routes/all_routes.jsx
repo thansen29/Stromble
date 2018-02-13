@@ -3,16 +3,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import RouteItem from './route_item';
 import Navbar from '../navbar/navbar';
+import Waypoint from 'react-waypoint';
 
 class AllRoutes extends React.Component {
   constructor(props){
     super(props);
+    this.state = { page: 1 };
+
+    this.getRoutes = this.getRoutes.bind(this);
   }
 
   componentDidMount(){
-    this.props.requestRoutes();
+    // this.props.requestRoutes();
+    this.getRoutes();
   }
 
+  getRoutes(){
+    this.props.requestRoutes(this.state.page);
+    this.setState({ page: this.state.page += 1 });
+  }
 
   render(){
     let routes;
@@ -36,6 +45,7 @@ class AllRoutes extends React.Component {
             <ul className="all-routes-list">
               { routes }
             </ul>
+            <Waypoint onEnter={this.getRoutes} />
           </section>
         </section>
       </section>

@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestRoutes: () => dispatch(requestRoutes())
+    requestRoutes: (page) => dispatch(requestRoutes(page))
   };
 };
 
