@@ -1,6 +1,7 @@
 import React from 'react';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
+import Tabs from '../tabs/tabs';
 import WorkoutItems from './workout_items';
 
 class EditProfileForm extends React.Component {
@@ -115,6 +116,33 @@ class EditProfileForm extends React.Component {
         );
       });
     }
+    let followComponent =
+      <main className="profile-following">
+        <h1 className="h1">Following</h1>
+        <br />
+        <div className="distance-select">
+          <DropdownComponent
+            items={[`${"I'm Following"}`, 'Following Me']}
+            onChange={this.handleSelection('follow')}
+            initValue={`${"I'm Following"}`} />
+        </div>
+        <ul className="search-result-list">
+          { this.state.follow === "Following Me" ? followers : following }
+        </ul>
+      </main>;
+
+      let workoutsComponent =
+        <div className="waypoint">
+          <WorkoutItems
+            workouts={this.props.workouts}
+            currentUser={this.props.currentUser}
+            getWorkouts={this.getWorkouts}/>
+        </div>;
+
+      const tabs = [
+        { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
+        { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
+      ];
 
 
     return (
@@ -167,28 +195,9 @@ class EditProfileForm extends React.Component {
 
           </form>
 
-
-          <main className="profile-following">
-            <h1 className="h1">Following</h1>
-            <br />
-            <div className="distance-select">
-              <DropdownComponent
-                items={[`${"I'm Following"}`, 'Following Me']}
-                onChange={this.handleSelection('follow')}
-                initValue={`${"I'm Following"}`} />
-            </div>
-              <ul className="search-result-list">
-                { this.state.follow === "Following Me" ? followers : following }
-              </ul>
-          </main>
-
-          {/*
-          <div className="waypoint">
-            <WorkoutItems
-              workouts={this.props.workouts}
-              currentUser={this.props.currentUser}
-              getWorkouts={this.getWorkouts}/>
-          </div> */}
+          <div className="profile-tabs">
+            <Tabs panes={tabs} />
+          </div>
 
         </section>
       </section>

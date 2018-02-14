@@ -10,13 +10,13 @@
 .h1 {
   font-size: 30px;
   font-weight: 300;
-  padding-top: 50px;
+  padding-top: 30px;
   opacity: 0.9;
 }
 
 .profile-form {
   width: 70%;
-  height: 50%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   margin-bottom: -50px;
@@ -134,13 +134,15 @@
 }
 
 .profile-following {
-  margin-left: 15%;
+  // margin-left: 15%;
   display: flex;
   flex-direction: column;
   align-self: left;
-  width: 70%;
-  height: 100%;
-  padding-bottom: 100px;
+  // width: 70%;
+  // height: 100%;
+  height: 450px;
+  overflow: scroll;
+  // padding-bottom: 100px;
 }
 
 .profile-follow-item {
@@ -206,9 +208,16 @@
 }
 
 .other-profile-following {
-  width: 100%;
+  // margin-left: 15%;
   display: flex;
   flex-direction: column;
+  align-self: left;
+  overflow: scroll;
+  height: 450px;
+  // width: 50%;
+  height: 100%;
+  // padding-bottom: 100px;
+
 }
 
 .follow-save {
@@ -248,9 +257,10 @@
 }
 
 .profile-workouts {
-  margin-top: 50px;
+  // margin-top: 50px;
   min-width: 400px;
   overflow: scroll;
+  // width: 50%;
   height: 100%;
   align-self: left;
 }
@@ -263,7 +273,41 @@
 
 .waypoint {
   overflow: scroll;
-  height: 100%;
+  height: 400px;
+  // height: 100%;
   align-self: left;
   margin-top: 50px;
+}
+
+.profile-tabs {
+  position: absolute;
+  width: 50%;
+  top: 45%;
+}
+
+.header-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alt-header-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-header {
+  display: flex;
+  border-top: 2px solid rgb(249, 77, 31);
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.alt-profile-header {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }

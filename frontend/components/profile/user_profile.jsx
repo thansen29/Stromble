@@ -4,7 +4,7 @@ import EditProfileContainer from './edit_profile_container';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import WorkoutItems from './workout_items';
-
+import Tabs from '../tabs/tabs';
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -69,37 +69,51 @@ class UserProfile extends React.Component {
   }
 
   render(){
-    // let followers;
-    // let following;
-    // if(this.props.user){
-    //   following = this.props.user.following.map((user) => {
-    //     return (
-    //       <li key={user.id}>
-    //         <FollowsContainer user={user} />
-    //       </li>
-    //     );
-    //   });
-    //   followers = this.props.user.followers.map((user) => {
-    //     return (
-    //       <li key={user.id}>
-    //         <FollowsContainer user={user} />
-    //       </li>
-    //     );
-    //   });
-    // }
+    let followers;
+    let following;
+    if(this.props.user){
+      following = this.props.user.following.map((user) => {
+        return (
+          <li key={user.id}>
+            <FollowsContainer user={user} />
+          </li>
+        );
+      });
+      followers = this.props.user.followers.map((user) => {
+        return (
+          <li key={user.id}>
+            <FollowsContainer user={user} />
+          </li>
+        );
+      });
+    }
+    let followComponent =
+      <main className="other-profile-following">
+        <h1 className="h1">Following</h1><br />
+        <div className="sporty-input">
+          <DropdownComponent
+            items={[`${this.state.fname + " is Following"}`, `Following ${this.state.fname}`]}
+            onChange={this.handleSelection('follow')}
+            initValue={'Following'}/>
+        </div>
+          <ul className="search-result-list">
+            { this.state.follow === `Following ${this.state.fname}` ? followers : following }
+          </ul>
+      </main>;
 
-    // <main className="other-profile-following">
-    //   <h1 className="h1">Following</h1><br />
-    //   <div className="sporty-input">
-    //     <DropdownComponent
-    //       items={[`${this.state.fname + " is Following"}`, `Following ${this.state.fname}`]}
-    //       onChange={this.handleSelection('follow')}
-    //       initValue={'Following'}/>
-    //   </div>
-    //     <ul className="search-result-list">
-    //       { this.state.follow === `Following ${this.state.fname}` ? followers : following }
-    //     </ul>
-    // </main>
+      let workoutsComponent =
+        <div className="waypoint">
+          <WorkoutItems
+            workouts={this.props.workouts}
+            currentUser={this.props.currentUser}
+            getWorkouts={this.getWorkouts}/>
+        </div>;
+
+      const tabs = [
+        { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
+        { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
+      ];
+
     //TODO: the follow button doesnt always update when following/unfollowing users
 
     return (
@@ -140,13 +154,10 @@ class UserProfile extends React.Component {
                 </button>
 
               </form>
-
-              <div className="waypoint">
-                <WorkoutItems
-                  workouts={this.props.workouts}
-                  currentUser={this.props.currentUser}
-                  getWorkouts={this.getWorkouts}/>
+              <div className="profile-tabs">
+                <Tabs panes={tabs} />
               </div>
+
 
             </section>
           </section>

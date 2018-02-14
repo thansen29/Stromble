@@ -1,5 +1,5 @@
 import React from 'react';
-//this class is just for the top tabs
+
 const Headers = (props) => {
   const selected = props.selectedPane;
   const headers = props.panes.map((pane, index) => {
@@ -7,15 +7,15 @@ const Headers = (props) => {
     if(index === selected){
       klass = 'active';
     } else {
-      klass = 'inactive';
+      if(props.classs){
+        klass = props.classs;
+      } else {
+        klass = 'inactive';
+      }
     }
-    // let title = pane.title;
     let title =  klass === "active" ?
-    <span className={`${pane.title}`}></span>
-      : <span className={`alt-${pane.title}`}></span>;
-
-
-
+    <span className={`${pane.title}`}>{pane.word}</span>
+      : <span className={`alt-${pane.title}`}>{pane.word}</span>;
 
     return (
       <li

@@ -4,15 +4,13 @@ import Waypoint from 'react-waypoint';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import WorkoutItem from './workout_item';
-import Tabs from './tabs';
+import Tabs from '../tabs/tabs';
 import RunTotalsContent from './run_totals';
 import RideTotalsContent from './ride_totals';
 import StatsContainer from './stats_container';
 import ModalComponent from '../modals/modal_component';
 import CreateProfileContainer from './create_profile_container';
 
-//TODO: infinite scroll on dashboard index
-//TODO: loading ui to not flash that message before workouts get loaded
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
@@ -122,8 +120,12 @@ class DashboardIndex extends React.Component {
                   </div>
 
                   <div className="following-stats">
-                    <div>{ numFollowing }</div>
-                    <div>{ numFollowers }</div>
+                    <Link to={`/users/${this.props.currentUser.id}`}>
+                      <div>{ numFollowing }</div>
+                    </Link>
+                    <Link to={`/users/${this.props.currentUser.id}`}>
+                      <div>{ numFollowers }</div>
+                    </Link>
                     <Link to='/workouts'>
                       <div>{numActivities}</div>
                     </Link>

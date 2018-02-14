@@ -13,18 +13,16 @@ class Tabs extends React.Component{
     this.setState({ selectedPane: num });
   }
 
-
-
   render(){
-    //pass run and bike to tabs component from dashboard?
     let pane = this.props.panes[this.state.selectedPane];
-
+    let classs = this.props.panes[0].classs;
     return (
-      <section>
+      <section className="tabs-section">
         <div className="tabs">
           <Headers
             selectedPane={this.state.selectedPane}
             onTabChosen={this.selectTab}
+            classs={classs}
             panes={this.props.panes}/>
         <div className="tab-content">
           <article>
