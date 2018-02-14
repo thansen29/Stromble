@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
 import UserProfile from './user_profile';
-import { requestWorkouts } from '../../actions/workouts/workout_actions';
+import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
 import { updateUser, fetchUser, toggleFollow } from '../../actions/profile/profile_actions';
 import { checkFollowing } from '../../reducers/selectors';
 
@@ -24,7 +24,8 @@ const mapDispatchToProps = dispatch => {
     updateUser: (formData) => dispatch(updateUser(formData)),
     fetchUser: (id) => dispatch(fetchUser(id)),
     toggleFollow: (otherId) => dispatch(toggleFollow(otherId)),
-    requestWorkouts: (page, id) => dispatch(requestWorkouts(page, id))
+    requestWorkouts: (page, id) => dispatch(requestWorkouts(page, id)),
+    clearWorkouts: () => dispatch(clearWorkouts())
   };
 };
 

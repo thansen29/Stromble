@@ -1,10 +1,10 @@
 import React from 'react';
 import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
-import WorkoutItem from '../dashboard/workout_item';
-import Waypoint from 'react-waypoint';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
+import WorkoutItems from './workout_items';
+
 
 class UserProfile extends React.Component {
   constructor(props){
@@ -102,58 +102,53 @@ class UserProfile extends React.Component {
     // </main>
     //TODO: the follow button doesnt always update when following/unfollowing users
 
-    let workoutItems;
-    if(this.props.workouts.length > 0){
-      workoutItems = this.props.workouts.map((workout) => {
-        return (
-          <WorkoutItem workout={workout} key={workout.id} currentUser={this.props.user} />
-        );
-      });
-    }
-
     return (
       <section className="background">
         <Navbar />
         {this.props.id === this.props.currentUserId ?
           <EditProfileContainer /> :
 
-          <section className="profile-container">
-            <div className="profile-item h1">{this.state.fname}&#39;s Profile</div>
-            <form className="profile-form" onSubmit={this.handleSubmit}>
-              <div className="profile-title">
-                <div className="offcenter">
-                  <img
-                    className="profile-avatar"
-                    src={this.state.imageUrl} />
+          <section className="profile-background">
+            <section className="profile-container">
+
+              <div className="profile-item h1">{this.state.fname}&#39;s Profile</div>
+
+              <form className="profile-form" onSubmit={this.handleSubmit}>
+
+                <div className="profile-title">
+                  <div className="offcenter">
+                    <img
+                      className="profile-avatar"
+                      src={this.state.imageUrl} />
+                  </div>
                 </div>
+
+                <ul className="profile-title">
+                  <li>
+                    <span>Name</span>
+                      <main className="profile-item-content">
+                        <span>{this.state.fname} {this.state.lname}</span>
+                      </main>
+                  </li>
+                </ul>
+
+                <button
+                  className={this.props.isFollowing ? "following-save" : "follow-save"}
+                  onMouseEnter={this.toggleHover}
+                  onMouseLeave={this.toggleHover}>
+                  { this.props.isFollowing ? this.state.hovered ? "Unfollow" : "Following" : 'Follow' }
+                </button>
+
+              </form>
+
+              <div className="waypoint">
+                <WorkoutItems
+                  workouts={this.props.workouts}
+                  currentUser={this.props.currentUser}
+                  getWorkouts={this.getWorkouts}/>
               </div>
 
-              <ul className="profile-title">
-                <li>
-                  <span>Name</span>
-                    <main className="profile-item-content">
-                      <span>{this.state.fname} {this.state.lname}</span>
-                    </main>
-                </li>
-              </ul>
-
-              <button
-                className={this.props.isFollowing ? "following-save" : "follow-save"}
-                onMouseEnter={this.toggleHover}
-                onMouseLeave={this.toggleHover}>
-                { this.props.isFollowing ? this.state.hovered ? "Unfollow" : "Following" : 'Follow' }
-
-              </button>
-            </form>
-
-            <main className="profile-workouts">
-              <ul>
-                { workoutItems }
-              </ul>
-              <Waypoint
-                onEnter={this.getWorkouts} />
-            </main>
-
+            </section>
           </section>
       }
       </section>

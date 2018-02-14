@@ -1,8 +1,7 @@
 import React from 'react';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
-import WorkoutItem from '../dashboard/workout_item';
-import Waypoint from 'react-waypoint';
+import WorkoutItems from './workout_items';
 
 class EditProfileForm extends React.Component {
   constructor(props){
@@ -31,7 +30,6 @@ class EditProfileForm extends React.Component {
   }
 
   getWorkouts(){
-    console.log('helloooooo');
     if(this.props.user){
       this.props.requestWorkouts(this.state.page, this.props.user.id);
       this.setState({ page: this.state.page += 1 });
@@ -134,23 +132,17 @@ class EditProfileForm extends React.Component {
     // debugger
 
 
-    let workoutItems;
-    if(this.props.workouts.length > 0){
-      workoutItems = this.props.workouts.map((workout) => {
-        return (
-          <WorkoutItem workout={workout} key={workout.id} currentUser={this.props.currentUser} />
-        );
-      });
-    }
-
     return (
       <section className="profile-background">
         <section className="profile-container">
+
           <div className="profile-item h1">My Profile</div>
+
           <form className="profile-form" onSubmit={this.handleSubmit}>
             <div className="edit-profile-title">
               <div className="offcenter">
                 <span>Current Photo</span>
+
                 <label>
                   <img
                     className="edit-profile-avatar"
@@ -158,6 +150,7 @@ class EditProfileForm extends React.Component {
                   <input className="hidden-input" type="file" onChange={this.updateUser} />
                   <span className="grey-plus"></span>
                 </label>
+
               </div>
             </div>
 
@@ -189,14 +182,12 @@ class EditProfileForm extends React.Component {
 
           </form>
 
-          <main className="profile-workouts">
-            <ul>
-              { workoutItems }
-            </ul>
-
-            <Waypoint
-              onEnter={this.getWorkouts}/>
-          </main>
+          <div className="waypoint">
+            <WorkoutItems
+              workouts={this.props.workouts}
+              currentUser={this.props.currentUser}
+              getWorkouts={this.getWorkouts}/>
+          </div>
 
         </section>
       </section>
