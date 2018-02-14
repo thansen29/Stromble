@@ -16,9 +16,10 @@
 
 .profile-form {
   width: 70%;
-  height: 60%;
+  height: 50%;
   display: flex;
   flex-direction: column;
+  margin-bottom: -50px;
 }
 
 .offcenter {
@@ -133,10 +134,13 @@
 }
 
 .profile-following {
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 15%;
   display: flex;
   flex-direction: column;
+  align-self: left;
+  width: 70%;
+  height: 100%;
+  padding-bottom: 100px;
 }
 
 .profile-follow-item {
@@ -261,4 +265,5 @@
   overflow: scroll;
   height: 100%;
   align-self: left;
+  margin-top: 50px;
 }

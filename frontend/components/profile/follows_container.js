@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import FollowItem from './follows_item';
+import FollowsItem from './follows_item';
 import { toggleFollow, fetchUser } from '../../actions/profile/profile_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,4 +18,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FollowItem));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FollowsItem));
