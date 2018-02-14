@@ -44,7 +44,7 @@ class DashboardIndex extends React.Component {
   }
 
   getWorkouts(){
-    this.props.requestWorkouts(this.state.page);
+    this.props.requestWorkouts(this.state.page, this.props.currentUser.id);
     this.setState({ page: this.state.page += 1 });
   }
 

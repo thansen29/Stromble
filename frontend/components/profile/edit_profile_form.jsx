@@ -1,6 +1,8 @@
 import React from 'react';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
+import WorkoutItem from '../dashboard/workout_item';
+import Waypoint from 'react-waypoint';
 
 class EditProfileForm extends React.Component {
   constructor(props){
@@ -12,16 +14,28 @@ class EditProfileForm extends React.Component {
       clicked: false,
       fname: "",
       lname: "",
-      follow: ""
+      follow: "",
+      page: 1
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateUser = this.updateUser.bind(this);
     this.triggerChange = this.triggerChange.bind(this);
+    this.getWorkouts = this.getWorkouts.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchUser(this.props.id);
+    this.props.fetchUser(this.props.id).then(() => {
+      this.getWorkouts();
+    });
+  }
+
+  getWorkouts(){
+    console.log('helloooooo');
+    if(this.props.user){
+      this.props.requestWorkouts(this.state.page, this.props.user.id);
+      this.setState({ page: this.state.page += 1 });
+    }
   }
 
   componentWillReceiveProps(newProps){
@@ -118,8 +132,19 @@ class EditProfileForm extends React.Component {
     //     </ul>
     // </main>
     // debugger
+
+
+    let workoutItems;
+    if(this.props.workouts.length > 0){
+      workoutItems = this.props.workouts.map((workout) => {
+        return (
+          <WorkoutItem workout={workout} key={workout.id} currentUser={this.props.currentUser} />
+        );
+      });
+    }
+
     return (
-      <section className="background">
+      <section className="profile-background">
         <section className="profile-container">
           <div className="profile-item h1">My Profile</div>
           <form className="profile-form" onSubmit={this.handleSubmit}>
@@ -163,8 +188,17 @@ class EditProfileForm extends React.Component {
             <button className="profile-form-save">Save</button>
 
           </form>
-        </section>
 
+          <main className="profile-workouts">
+            <ul>
+              { workoutItems }
+            </ul>
+
+            <Waypoint
+              onEnter={this.getWorkouts}/>
+          </main>
+
+        </section>
       </section>
     );
   }

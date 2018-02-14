@@ -10,7 +10,7 @@ class Api::WorkoutsController < ApplicationController
         .page(params[:page].to_i).per(20)
     else
       @workouts = Workout.all
-        .where(user_id: current_user.id)
+        .where(user_id: params[:id])
         .order(created_at: :desc)
         .page(params[:page].to_i).per(4)
     end

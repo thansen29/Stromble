@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
+import WorkoutItem from '../dashboard/workout_item';
+import Waypoint from 'react-waypoint';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
 
@@ -16,15 +17,26 @@ class UserProfile extends React.Component {
       lname: "",
       follow: "",
       hovered: false,
+      page: 1
     };
     this.toggleHover = this.toggleHover.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getWorkouts = this.getWorkouts.bind(this);
 
   }
   //TODO: can only access other users pages if not already on this page
   //if already here, it does not fetch the new user
   componentDidMount(){
-    this.props.fetchUser(this.props.id);
+    this.props.fetchUser(this.props.id).then(() => {
+      this.getWorkouts();
+    });
+  }
+
+  getWorkouts(){
+    if(this.props.user){
+      this.props.requestWorkouts(this.state.page, this.props.user.id);
+      this.setState({ page: this.state.page += 1 });
+    }
   }
 
   componentWillReceiveProps(newProps){
@@ -89,6 +101,16 @@ class UserProfile extends React.Component {
     //     </ul>
     // </main>
     //TODO: the follow button doesnt always update when following/unfollowing users
+
+    let workoutItems;
+    if(this.props.workouts.length > 0){
+      workoutItems = this.props.workouts.map((workout) => {
+        return (
+          <WorkoutItem workout={workout} key={workout.id} currentUser={this.props.user} />
+        );
+      });
+    }
+
     return (
       <section className="background">
         <Navbar />
@@ -124,7 +146,13 @@ class UserProfile extends React.Component {
               </button>
             </form>
 
-
+            <main className="profile-workouts">
+              <ul>
+                { workoutItems }
+              </ul>
+              <Waypoint
+                onEnter={this.getWorkouts} />
+            </main>
 
           </section>
       }

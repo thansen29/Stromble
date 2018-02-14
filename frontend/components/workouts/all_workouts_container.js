@@ -5,14 +5,15 @@ import { deleteWorkout, requestWorkouts } from '../../actions/workouts/workout_a
 
 const mapStateToProps = state => {
   return {
-    workouts: _.values(state.workout.workouts).reverse()
+    workouts: _.values(state.workout.workouts).reverse(),
+    currentUser: state.session.currentUser
   };
 };
 
 const mapDistpatchToProps = dispatch => {
   return {
     deleteWorkout: id => dispatch(deleteWorkout(id)),
-    requestWorkouts: (page, location) => dispatch(requestWorkouts(page, location))
+    requestWorkouts: (page, id, location) => dispatch(requestWorkouts(page, id, location))
   };
 };
 

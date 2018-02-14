@@ -28,7 +28,7 @@ class AllWorkouts extends React.Component {
 
   getWorkouts(){
     const location = this.props.location.pathname;
-    this.props.requestWorkouts(this.state.page, location);//, location);
+    this.props.requestWorkouts(this.state.page, this.props.currentUser.id, location);
     this.setState({ page: this.state.page += 1 });
   }
 
