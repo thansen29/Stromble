@@ -11,6 +11,7 @@ import ModalComponent from '../modals/modal_component';
 import CreateProfileContainer from './create_profile_container';
 import WorkoutItems from '../workouts/workout_items';
 import ProfileCard from './profile_card';
+import DropdownComponent from '../dropdowns/dropdown_component';
 
 class DashboardIndex extends React.Component {
   constructor(props){
@@ -18,9 +19,14 @@ class DashboardIndex extends React.Component {
     this.state = {
       newUser: null,
       ready: false,
-      page: 1
+      page: 1,
+      selected: 'Your Activities',
+      hidden: 'Following',
+      clicked: true
     };
     this.getWorkouts = this.getWorkouts.bind(this);
+    this.handleSelection = this.handleSelection.bind(this);
+    this.hide = this.hide.bind(this);
   }
 
   componentDidMount(){
@@ -48,6 +54,22 @@ class DashboardIndex extends React.Component {
     });
   }
 
+  handleSelection(){
+    let selected = this.state.selected;
+    let hidden = this.state.hidden;
+    // let clicked = this.state.clicked;
+    this.setState({
+      selected: hidden,
+      hidden: selected,
+      clicked: !this.state.clicked
+    });
+  }
+
+  hide(){
+    this.setState({
+      clicked: !this.state.clicked
+    });
+  }
 
   render(){
     let workoutItems =
@@ -70,6 +92,20 @@ class DashboardIndex extends React.Component {
     return (
       <section className="dashboard-background">
         <Navbar />
+
+        <header tabIndex='0' className="dash-header">
+          <div tabIndex='0' className="dash-container" onClick={this.hide}>
+            <span>
+              { this.state.selected }
+            </span>
+            <span className="fa fa-angle-down"></span>
+            <span
+              className={ this.state.clicked ? 'hidden dash-content' : "dash-content" }
+              onClick={this.handleSelection}>
+              { this.state.hidden }
+            </span>
+          </div>
+        </header>
 
           <section className="dashboard-container">
             { this.props.isOpen ?
