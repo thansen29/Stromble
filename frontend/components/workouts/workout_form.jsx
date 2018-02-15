@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+// import TimePicker from 'rc-time-picker';
+// import 'rc-time-picker/assets/index.css';
+
 // import PropTypes from 'prop-types';
 // import "react-datepicker/dist/react-datepicker.css";
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
@@ -31,9 +34,8 @@ class WorkoutForm extends React.Component {
       startDate: moment(),
     };
 
-    // this.dayTime = "";
-
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleValueChange = this.handleValueChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
 
@@ -49,9 +51,20 @@ class WorkoutForm extends React.Component {
     const momentDate = moment();
     const date = momentDate.format("MM/DD/YYYY");
     const time = momentDate.format("h:mm A");
+    const regDate = new Date();
+    const hours = regDate.getHours();
+    let dayTime;
+    if(hours > 5 && hours < 12){
+      dayTime = "Morning ";
+    } else if (hours >= 12 && hours < 6){
+      dayTime = "Afternoon ";
+    } else {
+      dayTime = "Evening ";
+    }
     this.setState({
       date: date,
-      time: time
+      time: time,
+      title: dayTime + this.state.sport
     });
   }
 
@@ -63,6 +76,10 @@ class WorkoutForm extends React.Component {
     this.props.createWorkout(workout).then((() => {
       this.props.history.push(`/workouts/${this.props.workoutId}`);
     }).bind(this));
+  }
+
+  handleValueChange(value){
+    this.setState({ time: value });
   }
 
   handleChange(field){
@@ -183,8 +200,6 @@ class WorkoutForm extends React.Component {
                     type="text"
                     value={this.state.date}
                     onChange={this.handleChange('date')} />
-
-
                   <input
                     className="workout-input datetime"
                     type="text"
