@@ -1,5 +1,5 @@
 import React from 'react';
-import WorkoutItem from '../dashboard/workout_item';
+import WorkoutItem from './workout_item';
 import Waypoint from 'react-waypoint';
 
 const WorkoutItems = ({ workouts, currentUser, getWorkouts }) => {

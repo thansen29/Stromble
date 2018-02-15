@@ -31,7 +31,7 @@ class WorkoutForm extends React.Component {
       activity_type: "",
       descripton: "",
       private: false,
-      startDate: moment(),
+      // startDate: moment(),
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -56,7 +56,7 @@ class WorkoutForm extends React.Component {
     let dayTime;
     if(hours > 5 && hours < 12){
       dayTime = "Morning ";
-    } else if (hours >= 12 && hours < 6){
+    } else if (hours >= 12 && hours < 18){
       dayTime = "Afternoon ";
     } else {
       dayTime = "Evening ";
@@ -70,6 +70,7 @@ class WorkoutForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
+    // debugger
     const workout = Object.assign({}, this.state);
     workout['user_id'] = this.props.userId;
     delete workout['startDate'];

@@ -29,10 +29,12 @@ class WorkoutShow extends React.Component {
 
   render(){
     if(this.props.workout){
-      let momentDate = moment(this.props.workout.time);
+      let momentDate = moment(this.props.workout.date);
+      let momentTime = moment(this.props.workout.time);
       momentDate = momentDate.parseZone();
+      momentTime = momentTime.parseZone();
       const date = momentDate.format("MMMM D, YYYY");
-      const time = momentDate.format("h:mm A");
+      const time = momentTime.format("h:mm A");
       let durationHr = this.props.workout.duration_hr;
       let durationMin = this.props.workout.duration_min;
       let durationS = this.props.workout.duration_s;

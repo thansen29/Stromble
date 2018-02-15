@@ -3,13 +3,13 @@ import Navbar from '../navbar/navbar';
 import Waypoint from 'react-waypoint';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import WorkoutItem from './workout_item';
 import Tabs from '../tabs/tabs';
 import RunTotalsContent from './run_totals';
 import RideTotalsContent from './ride_totals';
 import StatsContainer from './stats_container';
 import ModalComponent from '../modals/modal_component';
 import CreateProfileContainer from './create_profile_container';
+import WorkoutItems from '../workouts/workout_items';
 
 class DashboardIndex extends React.Component {
   constructor(props){
@@ -48,15 +48,12 @@ class DashboardIndex extends React.Component {
 
 
   render(){
-    let workoutItems;
+    let workoutItems =
+      <WorkoutItems
+        workouts={this.props.workouts}
+        currentUser={this.props.currentUser}
+        getWorkouts={this.getWorkouts} />;
     let message;
-    if(this.props.workouts.length > 0){
-      workoutItems = this.props.workouts.map((workout) => {
-        return (
-          <WorkoutItem workout={workout} key={workout.id} currentUser={this.props.currentUser} />
-        );
-      });
-    }
     if(!workoutItems){
       message =
       <div className="no-workouts">
@@ -88,7 +85,7 @@ class DashboardIndex extends React.Component {
     let date;
     if(this.props.workouts.length){
       recent = this.props.workouts[0];
-      let momentDate = moment(recent.time);
+      let momentDate = moment(recent.date);
       date = momentDate.format("MMMM D, YYYY");
 
     }

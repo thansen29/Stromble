@@ -2,7 +2,7 @@ import React from 'react';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import Tabs from '../tabs/tabs';
-import WorkoutItems from './workout_items';
+import WorkoutItems from '../workouts/workout_items';
 
 class EditProfileForm extends React.Component {
   constructor(props){

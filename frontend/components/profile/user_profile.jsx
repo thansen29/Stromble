@@ -3,7 +3,7 @@ import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
 import FollowsContainer from './follows_container';
 import DropdownComponent from '../dropdowns/dropdown_component';
-import WorkoutItems from './workout_items';
+import WorkoutItems from '../workouts/workout_items';
 import Tabs from '../tabs/tabs';
 
 class UserProfile extends React.Component {
