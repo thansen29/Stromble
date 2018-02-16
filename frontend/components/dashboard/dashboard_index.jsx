@@ -126,7 +126,10 @@ class DashboardIndex extends React.Component {
 
             <main className="dashboard-main">
               <ul className="dashboard-feed-ul">
-                { this.props.workouts.length ? workoutItems : null }
+                {
+                  this.state.selected === "Following" ? "hi" :
+                    this.props.workouts.length ? workoutItems : null 
+                }
               </ul>
 
               <div className={!this.props.workouts.length && this.state.ready ? 'visible' : 'none'}>
