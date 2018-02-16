@@ -10,12 +10,11 @@ const ProfileCard = ({ totalRides, totalRuns, currentUser, workouts }) => {
 
   let numFollowers = 0;
   let numFollowing = 0;
-
-  if(currentUser && currentUser.followers.length){
-    numFollowers = currentUser.followers.length;
+  if(currentUser && currentUser.follower_ids.length){
+    numFollowers = currentUser.follower_ids.length;
   }
-  if(currentUser && currentUser.following.length){
-    numFollowing = currentUser.following.length;
+  if(currentUser && currentUser.following_ids.length){
+    numFollowing = currentUser.following_ids.length;
   }
 
   let recent;

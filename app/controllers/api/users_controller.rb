@@ -33,6 +33,32 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def followers
+    user = User.find(params[:id])
+    render partial: 'api/follows/follow_collection',
+           locals: { users: user.followers }
+  end
+
+  def following
+    user = User.find(params[:id])
+    render partial: 'api/follows/follow_collection',
+           locals: { users: user.following }
+  end
+
+  def follow
+    user_to_follow = User.find(params[:id])
+    current_user.follow(user_to_follow)
+    render partial: 'api/follows/follow_data',
+           locals: { follower: current_user, followed: user_to_follow}
+  end
+
+  def unfollow
+    user_to_unfollow = User.find(params[:id])
+    current_user.follow(user_to_unfollow)
+    render partial: 'api/follows/follow_data',
+           locals: { follower: current_user, followed: user_to_unfollow}
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :fname, :lname, :avatar)

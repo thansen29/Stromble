@@ -15,9 +15,37 @@ export const updateUser = (formData) => {
   });
 };
 
-export const toggleFollow = (otherId) => {
-  return $.ajax({
+export const followUser = userToFollowId => {
+  $.ajax({
     method: 'PATCH',
-    url: `api/follows/toggleFollow/${otherId}`
+    url: `api/users/${userToFollowId}/follow`
   });
 };
+
+export const unfollowUser = userToUnfollowId => {
+  $.ajax({
+    method: 'PATCH',
+    url: `api/users/${userToUnfollowId}/unfollow`
+  });
+};
+
+export const fetchUserFollowers = id => {
+  $.ajax({
+    method: 'GET',
+    url: `api/users/${id}/followers`
+  });
+};
+
+export const fetchUserFollowing = id => {
+  $.ajax({
+    method: 'GET',
+    url: `api/users/${id}/following`
+  });
+};
+
+// export const toggleFollow = (otherId) => {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: `api/follows/toggleFollow/${otherId}`
+//   });
+// };
