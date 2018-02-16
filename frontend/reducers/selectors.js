@@ -14,3 +14,14 @@ export const checkFollowing = (array, id) => {
 export const toArray = (object) => {
   return _.values(object);
 };
+
+export const isFollowing = (following, followers) => {
+  if(following){
+    for (let i = 0; i < following.length; i++) {
+      if(followers.includes(following[i])){
+        return true;
+      }
+    }
+    return false;
+  }
+};

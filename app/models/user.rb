@@ -69,18 +69,18 @@ class User < ApplicationRecord
   end
 
   def follow(other_user)
-    # follow = Follow.new
-    # follow.follower_id = self.id
-    # follow.followed_id = other_user.id
-    # follow.save!
-    following << other_user
+    follow = Follow.new
+    follow.follower_id = self.id
+    follow.followed_id = other_user.id
+    follow.save!
+    # following << other_user
   end
 
   def unfollow(other_user)
-    # id = self.id
-    # other = other_user.id
-    # Follow.where('follower_id = ? AND followed_id = ?', id, other).destroy_all
-    following.delete(other_user)
+    id = self.id
+    other = other_user.id
+    Follow.where('follower_id = ? AND followed_id = ?', id, other).destroy_all
+    # following.delete(other_user)
   end
 
 

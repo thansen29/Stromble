@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { checkFollowing } from '../../reducers/selectors';
+import { isFollowing } from '../../reducers/selectors';
 
 //TODO: follow list doesnt update properly on click follow
 class FollowsItem extends React.Component {
@@ -16,17 +16,38 @@ class FollowsItem extends React.Component {
   }
 
   componentDidMount(){
-    // this.setState({
-    //   isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId),
-    // });
+    this.setState({
+      isFollowing: isFollowing(this.props.currentUser.following_ids, this.props.user.followerIds)
+    });
   }
 
+  // componentWillReceiveProps(newProps){
+  //   console.log(this.props.otherFollows);
+  //   debugger
+  //   this.setState({
+  //     isFollowing: isFollowing(this.props.currentFollows, this.props.otherFollows)
+  //   });
+  // }
+
   fetchNewUser(){
-    // this.props.fetchUser(this.props.user.id);
+    this.props.fetchUser(this.props.user.id);
   }
 
   handleSubmit(e){
     e.preventDefault();
+    if(e.target.classList.value === "following-btn"){
+      this.props.unfollowUser(this.props.user.id).then(() => {
+        this.setState({
+          isFollowing: isFollowing(this.props.currentFollows, this.props.otherFollows)
+        });
+      });
+    } else {
+      this.props.followUser(this.props.user.id).then(() => {
+        this.setState({
+          isFollowing: isFollowing(this.props.currentFollows, this.props.otherFollows)
+        });
+      });
+    }
     // this.props.toggleFollow(this.props.user.id).then(() => {
     //   this.setState({
     //     isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
@@ -56,7 +77,7 @@ class FollowsItem extends React.Component {
             </Link>
 
           </div>
-          { this.props.currentUserId !== this.props.user.id ?
+          { this.props.currentUser.id.toString() !== this.props.user.id ?
             <button
               onClick={this.handleSubmit}
               className={this.state.isFollowing ? "following-btn" : "follow-btn"}

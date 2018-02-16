@@ -71,48 +71,48 @@ class UserProfile extends React.Component {
     });
   }
 
+  extractData(obj){
+    let array = [];
+    for(let id in obj){
+      if(id){
+        let user = {
+          id,
+          fname: obj[id].fname,
+          lname: obj[id].lname,
+          avatarUrl: obj[id].avatar_url,
+          followingIds: obj[id].following_ids,
+          followerIds: obj[id].follower_ids,
+        };
+          array.push(user);
+      }
+    }
+    return array;
+  }
+
   render(){
-    let followers = [];
+    let followers;
     let following;
     if(this.props.followers){
-      let followersObj = this.props.followers;
-      for(let id in followersObj){
-        if(id){
-          let user = {
-            id,
-            fname: followersObj[id].fname,
-            lname: followersObj[id].lname,
-            avatarUrl: followersObj[id].avatar_url
-          };
-            followers.push(<FollowsItem user={user} />);
-        }
-      }
+      followers = this.extractData(this.props.followers);
       followers = followers.map((user) => {
         return (
-            <li key={user.props.user.id}>
-              { user }
+            <li key={user.id}>
+              <FollowsContainer user={user} />
             </li>
         );
       });
     }
-    // let followers;
-    // let following;
-    // if(this.props.user){
-    //   following = this.props.user.following.map((user) => {
-    //     return (
-    //       <li key={user.id}>
-    //         <FollowsContainer user={user} />
-    //       </li>
-    //     );
-    //   });
-    //   followers = this.props.user.followers.map((user) => {
-    //     return (
-    //       <li key={user.id}>
-    //         <FollowsContainer user={user} />
-    //       </li>
-    //     );
-    //   });
-    // }
+
+    if(this.props.following){
+      following = this.extractData(this.props.following);
+      following = following.map((user) => {
+        return (
+            <li key={user.id}>
+              <FollowsContainer user={user} />
+            </li>
+        );
+      });
+    }
     // let followComponent =
     //   <main className="other-profile-following">
     //     <h1 className="h1">Following</h1><br />

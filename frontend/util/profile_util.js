@@ -24,7 +24,7 @@ export const followUser = userToFollowId => {
 
 export const unfollowUser = userToUnfollowId => {
   return $.ajax({
-    method: 'PATCH',
+    method: 'DELETE',
     url: `api/users/${userToUnfollowId}/unfollow`
   });
 };

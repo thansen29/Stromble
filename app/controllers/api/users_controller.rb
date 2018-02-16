@@ -48,15 +48,36 @@ class Api::UsersController < ApplicationController
   def follow
     user_to_follow = User.find(params[:id])
     current_user.follow(user_to_follow)
+    followId = Follow
+      .select(:id)
+      .where(follower_id: current_user.id, followed_id: user_to_follow.id)
     render partial: 'api/follows/follow_data',
-           locals: { follower: current_user, followed: user_to_follow}
+           # locals: { followId: Follow.select(:id).where(follower_id: current_user.id, followed_id: user_to_follow.id )}
+           locals: {
+            follower: current_user,
+            followed: user_to_follow,
+            other: user_to_follow.follower_ids,
+            followId: followId,
+            current: current_user.following_ids
+          }
   end
 
   def unfollow
     user_to_unfollow = User.find(params[:id])
-    current_user.follow(user_to_unfollow)
+    followId = Follow
+      .select(:id)
+      .where(follower_id: current_user.id, followed_id: user_to_unfollow.id)
+    current_user.unfollow(user_to_unfollow)
     render partial: 'api/follows/follow_data',
-           locals: { follower: current_user, followed: user_to_unfollow}
+           locals: {
+             follower: current_user,
+              followed: user_to_unfollow,
+              other: user_to_unfollow.follower_ids,
+              followId: followId,
+              current: current_user.following_ids
+            }
+           # locals: { followId: Follow.select(:id).where(follower_id: current_user.id, followed_id: user_to_unfollow.id )}
+
   end
 
   private
