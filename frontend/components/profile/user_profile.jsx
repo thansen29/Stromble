@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../navbar/navbar';
 import EditProfileContainer from './edit_profile_container';
 import FollowsContainer from './follows_container';
+import FollowsItem from './follows_item';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import WorkoutItems from '../workouts/workout_items';
 import Tabs from '../tabs/tabs';
@@ -29,6 +30,8 @@ class UserProfile extends React.Component {
   componentDidMount(){
     this.props.fetchUser(this.props.id).then(() => {
       this.getWorkouts();
+      this.props.fetchUserFollowers(this.props.id);
+      this.props.fetchUserFollowing(this.props.id);
     });
   }
 
@@ -69,6 +72,29 @@ class UserProfile extends React.Component {
   }
 
   render(){
+    let followers = [];
+    let following;
+    if(this.props.followers){
+      let followersObj = this.props.followers;
+      for(let id in followersObj){
+        if(id){
+          let user = {
+            id,
+            fname: followersObj[id].fname,
+            lname: followersObj[id].lname,
+            avatarUrl: followersObj[id].avatar_url
+          };
+            followers.push(<FollowsItem user={user} />);
+        }
+      }
+      followers = followers.map((user) => {
+        return (
+            <li key={user.props.user.id}>
+              { user }
+            </li>
+        );
+      });
+    }
     // let followers;
     // let following;
     // if(this.props.user){
@@ -155,6 +181,9 @@ class UserProfile extends React.Component {
 
               </form>
               <div className="profile-tabs">
+                <ul>
+                  { followers }
+                </ul>
                 {/*}<Tabs panes={tabs} /> */}
               </div>
 

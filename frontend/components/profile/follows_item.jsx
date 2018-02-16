@@ -16,22 +16,22 @@ class FollowsItem extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({
-      isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId),
-    });
+    // this.setState({
+    //   isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId),
+    // });
   }
 
   fetchNewUser(){
-    this.props.fetchUser(this.props.user.id);
+    // this.props.fetchUser(this.props.user.id);
   }
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.toggleFollow(this.props.user.id).then(() => {
-      this.setState({
-        isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
-      });
-    });
+    // this.props.toggleFollow(this.props.user.id).then(() => {
+    //   this.setState({
+    //     isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
+    //   });
+    // });
   }
 
   toggleHover(){

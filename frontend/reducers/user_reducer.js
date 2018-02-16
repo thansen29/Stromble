@@ -1,10 +1,14 @@
-import { RECEIVE_USER, RECEIVE_USERS, RECEIVE_FOLLOW, RECEIVE_UNFOLLOW } from '../actions/profile/profile_actions';
+import {
+  RECEIVE_USER, RECEIVE_FOLLOWERS, RECEIVE_FOLLOWING, RECEIVE_FOLLOW, RECEIVE_UNFOLLOW
+} from '../actions/profile/profile_actions';
 import { RECEIVE_FOUND_USERS } from '../actions/search/search_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
   viewedUser: null,
-  foundUsers: null
+  foundUsers: null,
+  followers: null,
+  following: null
 };
 
 const userReducer = (state = defaultState, action) => {
@@ -23,8 +27,11 @@ const userReducer = (state = defaultState, action) => {
       return newState;
 
     //might need to adjust this
-    case RECEIVE_USERS:
-      return Object.assign({}, state, { foundUsers: action.users });
+    case RECEIVE_FOLLOWERS:
+      return Object.assign({}, state, { followers: action.users });
+
+    case RECEIVE_FOLLOWING:
+      return Object.assign({}, state, { following: action.users });
 
     case RECEIVE_FOLLOW: {
       const {

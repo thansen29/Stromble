@@ -11,14 +11,15 @@ import { checkFollowing } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   // const array = state.session.currentUser.following;
-  const id = ownProps.match.params.id;
   return {
-    id,
+    id: ownProps.match.params.id,
     user: state.viewedUsers.viewedUser,
     currentUserId: state.session.currentUser.id.toString(),
     // isFollowing: checkFollowing(array, id),
     workouts: _.values(state.workout.workouts).reverse(),
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    followers: state.viewedUsers.followers,
+    following: state.viewedUsers.following,
   };
 };
 

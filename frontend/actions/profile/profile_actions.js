@@ -1,7 +1,8 @@
 import * as ProfileAPIUtil from '../../util/profile_util';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_USER = 'RECEIVE_USER';
-export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const RECEIVE_FOLLOWERS = 'RECEIVE_FOLLOWERS';
+export const RECEIVE_FOLLOWING = 'RECEIVE_FOLLOWING';
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 export const RECEIVE_UNFOLLOW = 'RECEIVE_UNFOLLOW';
 
@@ -21,9 +22,16 @@ export const receiveUser = user => {
   };
 };
 
-export const receiveUsers = users => {
+export const receiveFollowers = users => {
   return {
-    type: RECEIVE_USERS,
+    type: RECEIVE_FOLLOWERS,
+    users
+  };
+};
+
+export const receiveFollowing = users => {
+  return {
+    type: RECEIVE_FOLLOWING,
     users
   };
 };
@@ -77,13 +85,13 @@ export const unfollowUser = (userToUnfollowId) => dispatch => {
 
 export const fetchUserFollowers = (id) => dispatch => {
   return ProfileAPIUtil.fetchUserFollowers(id).then((followers) => {
-    dispatch(receiveUsers(followers));
+    dispatch(receiveFollowers(followers));
   });
 };
 
 export const fetchUserFollowing = (id) => dispatch => {
   return ProfileAPIUtil.fetchUserFollowing(id).then((following) => {
-    dispatch(receiveUsers(following));
+    dispatch(receiveFollowing(following));
   });
 };
 

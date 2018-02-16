@@ -16,28 +16,28 @@ export const updateUser = (formData) => {
 };
 
 export const followUser = userToFollowId => {
-  $.ajax({
+  return $.ajax({
     method: 'PATCH',
     url: `api/users/${userToFollowId}/follow`
   });
 };
 
 export const unfollowUser = userToUnfollowId => {
-  $.ajax({
+  return $.ajax({
     method: 'PATCH',
     url: `api/users/${userToUnfollowId}/unfollow`
   });
 };
 
 export const fetchUserFollowers = id => {
-  $.ajax({
+  return $.ajax({
     method: 'GET',
     url: `api/users/${id}/followers`
   });
 };
 
 export const fetchUserFollowing = id => {
-  $.ajax({
+  return $.ajax({
     method: 'GET',
     url: `api/users/${id}/following`
   });

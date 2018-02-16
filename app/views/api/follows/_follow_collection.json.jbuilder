@@ -1,5 +1,5 @@
 users.each do |user|
-  json.set! user.id do
-    json.partial! 'user', user: user
+  json.set! user.follower.id do
+    json.partial! 'user', user: user.follower
   end
-end 
+end
