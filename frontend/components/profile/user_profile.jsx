@@ -38,6 +38,7 @@ class UserProfile extends React.Component {
 
   getWorkouts(){
     if(this.props.user){
+      console.log(this.state.page);
       this.props.requestWorkouts(this.state.page, this.props.user.id);
       this.setState({ page: this.state.page += 1 });
     }
@@ -88,21 +89,23 @@ class UserProfile extends React.Component {
   }
 
   render(){
+    let followComponent =
+    <FollowComponent
+      followers={this.props.followers}
+      following={this.props.following} />;
 
-      // let workoutsComponent =
-      //   <div className="waypoint">
-      //     <WorkoutItems
-      //       workouts={this.props.workouts}
-      //       currentUser={this.props.currentUser}
-      //       getWorkouts={this.getWorkouts}/>
-      //   </div>;
-      //
-      // const tabs = [
-      //   { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
-      //   { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
-      // ];
+    let workoutsComponent =
+      <div className="waypoint">
+        <WorkoutItems
+          workouts={this.props.workouts}
+          currentUser={this.props.user}
+          getWorkouts={this.getWorkouts}/>
+      </div>;
 
-    //TODO: the follow button doesnt always update when following/unfollowing users
+      const tabs = [
+        { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
+        { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
+      ];
 
     return (
       <section className="background">
@@ -144,10 +147,8 @@ class UserProfile extends React.Component {
 
               </form>
               <div className="profile-tabs">
-                <FollowComponent
-                  followers={this.props.followers}
-                  following={this.props.following} />
-                {/*}<Tabs panes={tabs} /> */}
+
+                <Tabs panes={tabs} />
               </div>
 
 

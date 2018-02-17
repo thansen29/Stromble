@@ -4,6 +4,7 @@ import FollowsItem from './follows_item';
 import {
   followUser, unfollowUser, fetchUser, fetchUserFollowers,
    fetchUserFollowing, } from '../../actions/profile/profile_actions';
+import { requestWorkouts } from '../../actions/workouts/workout_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -21,7 +22,9 @@ const mapDispatchToProps = dispatch => {
     unfollowUser: id => dispatch(unfollowUser(id)),
     fetchUser: id => dispatch(fetchUser(id)),
     fetchUserFollowers: id => dispatch(fetchUserFollowers(id)),
-    fetchUserFollowing: id => dispatch(fetchUserFollowing(id))
+    fetchUserFollowing: id => dispatch(fetchUserFollowing(id)),
+    requestWorkouts: (page, id) => dispatch(requestWorkouts(page, id)),
+    
   };
 };
 

@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { isFollowing } from '../../reducers/selectors';
 
-//TODO: follow list doesnt update properly on click follow
 class FollowsItem extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       isFollowing: null,
-      hovered: false
+      hovered: false,
+      page: 1
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleHover = this.toggleHover.bind(this);
@@ -26,6 +26,8 @@ class FollowsItem extends React.Component {
     this.props.fetchUser(this.props.user.id);
     this.props.fetchUserFollowers(this.props.user.id);
     this.props.fetchUserFollowing(this.props.user.id);
+    this.props.requestWorkouts(this.state.page, this.props.user.id);
+
   }
 
   handleSubmit(e){

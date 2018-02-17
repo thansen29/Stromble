@@ -9,7 +9,9 @@ class WorkoutItem extends React.Component {
   }
 
   render(){
-    const { key, activity_type, description, distance, distance_unit, duration_hr, duration_min, duration_s, elevation, elevation_unit, sport, date, time, title, id} = this.props.workout;
+    const { key, activity_type, description, distance, distance_unit,
+      duration_hr, duration_min, duration_s, elevation, elevation_unit,
+      sport, date, time, title, id} = this.props.workout;
 
     // const pace = distance / ((parseFloat(duration_hr)) + ((parseFloat(duration_min)) / 60));
     const pace = ((duration_hr * 60) + duration_min) / distance;
@@ -71,10 +73,6 @@ class WorkoutItem extends React.Component {
                 <span className="show-datetime item-stat item-stat-el">Average Pace</span> : null
 
               }
-
-              {/* elevation ?
-                <span className="show-datetime item-stat-el">Elevation Gain</span> : null
-              */}
               <br/>
 
               <span className="item-stat-value">
@@ -88,12 +86,6 @@ class WorkoutItem extends React.Component {
               { distance ?
                 <span className="item-stat-value">{pace} min/{distance_unit}</span> : null
               }
-
-              {/* elevation ?
-                <span className="item-stat-value">
-                  {elevation}{elevation_unit}
-                </span> : null
-              */}
 
             </div>
           </div>

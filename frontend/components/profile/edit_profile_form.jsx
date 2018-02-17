@@ -98,19 +98,23 @@ class EditProfileForm extends React.Component {
 
   render(){
 
+    let followComponent =
+      <FollowComponent
+        followers={this.props.followers}
+        following={this.props.following} />;
 
-      // let workoutsComponent =
-      //   <div className="waypoint">
-      //     <WorkoutItems
-      //       workouts={this.props.workouts}
-      //       currentUser={this.props.currentUser}
-      //       getWorkouts={this.getWorkouts}/>
-      //   </div>;
-      //
-      // const tabs = [
-      //   { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
-      //   { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
-      // ];
+    let workoutsComponent =
+      <div className="waypoint">
+        <WorkoutItems
+          workouts={this.props.workouts}
+          currentUser={this.props.currentUser}
+          getWorkouts={this.getWorkouts}/>
+      </div>;
+
+    const tabs = [
+      { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
+      { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
+    ];
 
 
     return (
@@ -164,11 +168,9 @@ class EditProfileForm extends React.Component {
           </form>
 
           <div className="profile-tabs">
-            <FollowComponent
-              followers={this.props.followers}
-              following={this.props.following} />
 
-            {/*}<Tabs panes={tabs} />*/}
+
+            <Tabs panes={tabs} />
           </div>
 
         </section>
