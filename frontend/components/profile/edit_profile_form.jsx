@@ -1,8 +1,7 @@
 import React from 'react';
-import FollowsContainer from './follows_container';
-import DropdownComponent from '../dropdowns/dropdown_component';
 import Tabs from '../tabs/tabs';
 import WorkoutItems from '../workouts/workout_items';
+import FollowComponent from './follow_component';
 
 class EditProfileForm extends React.Component {
   constructor(props){
@@ -11,10 +10,8 @@ class EditProfileForm extends React.Component {
     this.state = {
       imageFile: null,
       imageUrl: null,
-      clicked: false,
       fname: "",
       lname: "",
-      follow: "",
       page: 1
     };
 
@@ -27,6 +24,8 @@ class EditProfileForm extends React.Component {
   componentDidMount(){
     this.props.fetchUser(this.props.id).then(() => {
       this.getWorkouts();
+      this.props.fetchUserFollowers(this.props.id);
+      this.props.fetchUserFollowing(this.props.id);
     });
   }
 
@@ -98,51 +97,20 @@ class EditProfileForm extends React.Component {
   }
 
   render(){
-    let followers;
-    let following;
-    if(this.props.user){
-      following = this.props.user.following.map((user) => {
-        return (
-          <li key={user.id}>
-            <FollowsContainer user={user} />
-          </li>
-        );
-      });
-      followers = this.props.user.followers.map((user) => {
-        return (
-          <li key={user.id}>
-            <FollowsContainer user={user} />
-          </li>
-        );
-      });
-    }
-    let followComponent =
-      <main className="profile-following">
-        <h1 className="h1">Following</h1>
-        <br />
-        <div className="distance-select">
-          <DropdownComponent
-            items={[`${"I'm Following"}`, 'Following Me']}
-            onChange={this.handleSelection('follow')}
-            initValue={`${"I'm Following"}`} />
-        </div>
-        <ul className="search-result-list">
-          { this.state.follow === "Following Me" ? followers : following }
-        </ul>
-      </main>;
 
-      let workoutsComponent =
-        <div className="waypoint">
-          <WorkoutItems
-            workouts={this.props.workouts}
-            currentUser={this.props.currentUser}
-            getWorkouts={this.getWorkouts}/>
-        </div>;
 
-      const tabs = [
-        { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
-        { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
-      ];
+      // let workoutsComponent =
+      //   <div className="waypoint">
+      //     <WorkoutItems
+      //       workouts={this.props.workouts}
+      //       currentUser={this.props.currentUser}
+      //       getWorkouts={this.getWorkouts}/>
+      //   </div>;
+      //
+      // const tabs = [
+      //   { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },
+      //   { word: "Following", content: followComponent, title: "profile-header", classs: 'header-bg' },
+      // ];
 
 
     return (
@@ -196,7 +164,11 @@ class EditProfileForm extends React.Component {
           </form>
 
           <div className="profile-tabs">
-            <Tabs panes={tabs} />
+            <FollowComponent
+              followers={this.props.followers}
+              following={this.props.following} />
+
+            {/*}<Tabs panes={tabs} />*/}
           </div>
 
         </section>

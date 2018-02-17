@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import FollowsItem from './follows_item';
-import { followUser, unfollowUser, fetchUser } from '../../actions/profile/profile_actions';
+import {
+  followUser, unfollowUser, fetchUser, fetchUserFollowers,
+   fetchUserFollowing, } from '../../actions/profile/profile_actions';
 
 const mapStateToProps = (state, ownProps) => {
 
@@ -17,7 +19,9 @@ const mapDispatchToProps = dispatch => {
   return {
     followUser: id => dispatch(followUser(id)),
     unfollowUser: id => dispatch(unfollowUser(id)),
-    fetchUser: id => dispatch(fetchUser(id))
+    fetchUser: id => dispatch(fetchUser(id)),
+    fetchUserFollowers: id => dispatch(fetchUserFollowers(id)),
+    fetchUserFollowing: id => dispatch(fetchUserFollowing(id))
   };
 };
 

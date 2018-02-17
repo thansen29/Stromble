@@ -21,16 +21,11 @@ class FollowsItem extends React.Component {
     });
   }
 
-  // componentWillReceiveProps(newProps){
-  //   console.log(this.props.otherFollows);
-  //   debugger
-  //   this.setState({
-  //     isFollowing: isFollowing(this.props.currentFollows, this.props.otherFollows)
-  //   });
-  // }
-
   fetchNewUser(){
+
     this.props.fetchUser(this.props.user.id);
+    this.props.fetchUserFollowers(this.props.user.id);
+    this.props.fetchUserFollowing(this.props.user.id);
   }
 
   handleSubmit(e){
@@ -48,11 +43,6 @@ class FollowsItem extends React.Component {
         });
       });
     }
-    // this.props.toggleFollow(this.props.user.id).then(() => {
-    //   this.setState({
-    //     isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
-    //   });
-    // });
   }
 
   toggleHover(){

@@ -16,7 +16,7 @@ const defaultState = {
 
 const userReducer = (state = defaultState, action) => {
   let newState;
-  let otherState = merge({}, state);
+  // let otherState = merge({}, state);
 
   switch (action.type) {
     case RECEIVE_USER:
@@ -32,7 +32,6 @@ const userReducer = (state = defaultState, action) => {
       newState.foundUsers = action.foundUsers.users;
       return newState;
 
-    //might need to adjust this
     case RECEIVE_FOLLOWERS:
       return Object.assign({}, state, { followers: action.users });
 
@@ -40,19 +39,21 @@ const userReducer = (state = defaultState, action) => {
       return Object.assign({}, state, { following: action.users });
 
     case RECEIVE_FOLLOW: {
+      newState = Object.assign({}, state);
       const otherFollows = action.followData.other_follows;
       const currentFollows = action.followData.current;
-      otherState.otherFollows = otherFollows;
-      otherState.currentFollows = currentFollows;
-      return otherState;
+      newState.otherFollows = otherFollows;
+      newState.currentFollows = currentFollows;
+      return newState;
     }
-    
+
     case RECEIVE_UNFOLLOW:
+      newState = Object.assign({}, state);
       const otherFollows = action.followData.other_follows;
       const currentFollows = action.followData.current;
-      otherState.otherFollows = otherFollows;
-      otherState.currentFollows = currentFollows;
-      return otherState;
+      newState.otherFollows = otherFollows;
+      newState.currentFollows = currentFollows;
+      return newState;
     default:
       return state;
   }

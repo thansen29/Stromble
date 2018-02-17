@@ -7,7 +7,6 @@ import {
   updateUser, fetchUser, fetchUserFollowers, fetchUserFollowing,
   followUser, unfollowUser
 } from '../../actions/profile/profile_actions';
-import { checkFollowing } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   // const array = state.session.currentUser.following;
@@ -15,11 +14,12 @@ const mapStateToProps = (state, ownProps) => {
     id: ownProps.match.params.id,
     user: state.viewedUsers.viewedUser,
     currentUserId: state.session.currentUser.id.toString(),
-    // isFollowing: checkFollowing(array, id),
     workouts: _.values(state.workout.workouts).reverse(),
     currentUser: state.session.currentUser,
     followers: state.viewedUsers.followers,
     following: state.viewedUsers.following,
+    currentFollows: state.viewedUsers.currentFollows,
+    otherFollows: state.viewedUsers.otherFollows,
   };
 };
 
