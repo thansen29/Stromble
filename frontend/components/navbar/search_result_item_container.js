@@ -13,11 +13,15 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
+    id: ownProps.match.params.id,
     user: ownProps.user,
     currentUserId: state.session.currentUser.id,
+    currentUser: state.session.currentUser,
     searchType,
     name: ownProps.location.search.slice(1),
-    stats: state.stats
+    stats: state.stats,
+    followers: state.viewedUsers.followers,
+    following: state.viewedUsers.following
   };
 };
 

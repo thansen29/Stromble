@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { checkFollowing } from '../../reducers/selectors';
-
+import { isFollowing } from '../../reducers/selectors';
 
 class SearchResultItem extends React.Component {
   constructor(props){
@@ -19,8 +18,9 @@ class SearchResultItem extends React.Component {
   componentDidMount(){
     // this.props.requestTotalRuns(this.props.user.id);
     // this.props.requestTotalRides(this.props.user.id);
+    // debugger
     this.setState({
-      isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId),
+      isFollowing: isFollowing(this.props.currentUser.following_ids, this.props.user.follower_ids)
     });
   }
 
@@ -35,13 +35,19 @@ class SearchResultItem extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    this.props.toggleFollow(this.props.user.id).then(() => {
-      this.props.search(this.props.searchType, this.props.name).then(() => {
+    if(e.target.classList.value === "search-result-follow"){
+      this.props.followUser(this.props.user.id).then(() => {
         this.setState({
-          isFollowing: checkFollowing(this.props.user.followers, this.props.currentUserId)
+          isFollowing: isFollowing(this.props.currentFollows, this.props.otherFollows)
         });
       });
-    });
+    } else {
+      this.props.unfollowUser(this.props.user.id).then(() => {
+        this.setState({
+          isFollowing: isFollowing(this.props.currentFollows, this.props.otherFollows)
+        });
+      });
+    }
   }
 
   toggleHover(){
@@ -50,8 +56,6 @@ class SearchResultItem extends React.Component {
     });
   }
 
-  //something is wrong with the flow of rendering each item - refactor
-  //to have its own container then figure out
   render(){
     return (
       <main className="search-result-item">

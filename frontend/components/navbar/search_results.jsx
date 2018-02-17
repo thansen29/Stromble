@@ -33,8 +33,6 @@ class SearchResults extends React.Component {
     this.props.search(this.props.searchType, this.state.content);
     this.props.history.push(`?${this.state.content}`);
     this.setState({ oldSearch: this.state.content });
-    //get the url again? force page to re render?
-    // this.props.submitSearch(this.state.content);
   }
 
   render(){
