@@ -21,9 +21,14 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def create
-    date = Timeliness.parse(workout_params[:date], :date)
+    # date = Timeliness.parse(workout_params[:date], :date)
+    date = workout_params[:date]
+    time = workout_params[:time]
+    together = "#{date} #{time}"
+    parsedDate = Timeliness.parse(together, :datetime, :zone => :current)
     @workout = Workout.new(workout_params)
-    @workout[:date] = date
+    @workout[:date] = parsedDate
+    @workout[:time] = parsedDate
     if @workout.save
       render :show
     else

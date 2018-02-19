@@ -6,7 +6,7 @@ class FollowComponent extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      follow: "",
+      follow: "Following",
       clicked: false,
     };
 
@@ -64,7 +64,7 @@ class FollowComponent extends React.Component {
 
     return (
       <main className="profile-following">
-        <h1 className="h1">Following</h1>
+        <h1 className="h1">{ this.state.follow }</h1>
         <br />
         <div className="distance-select">
           <DropdownComponent

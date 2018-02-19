@@ -62,6 +62,7 @@ class Api::UsersController < ApplicationController
           }
   end
 
+  #TODO: update this so that it uses user.follows? to work with following or not
   def unfollow
     user_to_unfollow = User.find(params[:id])
     followId = Follow

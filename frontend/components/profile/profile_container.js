@@ -9,7 +9,6 @@ import {
 } from '../../actions/profile/profile_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // const array = state.session.currentUser.following;
   return {
     id: ownProps.match.params.id,
     user: state.viewedUsers.viewedUser,
