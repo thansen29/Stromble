@@ -8,12 +8,19 @@ const defaultState = {
 };
 
 const sessionReducer = (state = defaultState, action) => {
+  let newState;
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return {
-        currentUser: action.user,
-        errors: []
-      };
+      newState = Object.assign({}, state, { currentUser: action.user } );
+      return newState;
+    case RECEIVE_USER:
+      if(state.currentUser.id === action.user.id) {
+        newState = Object.assign({}, state, { currentUser: action.user } );
+        return newState;
+      } else {
+        return state;
+      }
+
     default:
       return state;
   }

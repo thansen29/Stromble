@@ -13,6 +13,7 @@ import WorkoutItems from '../workouts/workout_items';
 import ProfileCard from './profile_card';
 import DropdownComponent from '../dropdowns/dropdown_component';
 
+//TODO: Sometimes the infinte scroll doesnt get any new items
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
@@ -65,19 +66,22 @@ class DashboardIndex extends React.Component {
     });
 
     if(hidden === 'Following'){
+      this.props.clearWorkouts();
       this.props.requestWorkouts(1, this.props.currentUser.id, 'feed').then(() => {
-        this.setState({ page: this.state.page += 1 });
+        this.setState({ page: this.state.page += 1, ready: true });
       });
     } else {
+      this.props.clearWorkouts();
       this.props.requestWorkouts(1, this.props.currentUser.id).then(() => {
-        this.setState({ page: this.state.page += 1 });
+        this.setState({ page: this.state.page += 1, ready: true });
       });
     }
   }
 
   hide(){
     this.setState({
-      clicked: !this.state.clicked
+      clicked: !this.state.clicked,
+      ready: false
     });
   }
 
@@ -141,7 +145,7 @@ class DashboardIndex extends React.Component {
             <main className="dashboard-main">
               <ul className="dashboard-feed-ul">
                 {
-                  this.state.selected === "Following" ? followItems :
+                  this.state.selected && this.state.ready === "Following" ? followItems :
                     this.props.workouts.length ? workoutItems : null
                 }
               </ul>

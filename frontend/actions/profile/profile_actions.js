@@ -50,15 +50,6 @@ export const receiveUnfollow = followData => {
   };
 };
 
-
-
-// export const updateFollows = (user) => {
-//   return {
-//     type: UPDATE_FOLLOWS,
-//     id: user.id
-//   };
-// };
-
 export const fetchUser = id => dispatch => {
   return ProfileAPIUtil.fetchUser(id).then((user) => {
     dispatch(receiveUser(user));
