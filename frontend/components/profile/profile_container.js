@@ -9,11 +9,16 @@ import {
 } from '../../actions/profile/profile_actions';
 
 const mapStateToProps = (state, ownProps) => {
+  const workouts = _.values(state.workout.workouts);
+  workouts.sort((a, b) => {
+    return b.date.localeCompare(a.date);
+  });
   return {
     id: ownProps.match.params.id,
     user: state.viewedUsers.viewedUser,
     currentUserId: state.session.currentUser.id.toString(),
-    workouts: _.values(state.workout.workouts).reverse(),
+    // workouts: _.values(state.workout.workouts).reverse(),
+    workouts,
     currentUser: state.session.currentUser,
     followers: state.viewedUsers.followers,
     following: state.viewedUsers.following,
