@@ -7,10 +7,14 @@ import { requestRunDistance, requestRideDistance, requestLongestRunDistance,
     requestTotalRuns, requestTotalRides, requestFastedSpeed } from '../../actions/statistics/workout_totals';
 import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
-//need to come here after editing profile
 const mapStateToProps = state => {
+  const workouts = _.values(state.workout.workouts);
+  workouts.sort((a, b) => {
+    return b.date.localeCompare(a.date);
+  });
   return {
-    workouts: _.values(state.workout.workouts).reverse(),
+    // workouts: _.values(state.workout.workouts).reverse(),
+    workouts,
     stats: state.stats,
     isOpen: state.ui.modal["isOpen"],
     newUser: state.session.currentUser.fname === null,

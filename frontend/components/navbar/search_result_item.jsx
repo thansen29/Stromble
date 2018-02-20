@@ -18,7 +18,6 @@ class SearchResultItem extends React.Component {
   componentDidMount(){
     // this.props.requestTotalRuns(this.props.user.id);
     // this.props.requestTotalRides(this.props.user.id);
-    // debugger
     this.setState({
       isFollowing: isFollowing(this.props.currentUser.following_ids, this.props.user.follower_ids)
     });

@@ -21,7 +21,9 @@ const mapStateToProps = (state, ownProps) => {
     name: ownProps.location.search.slice(1),
     stats: state.stats,
     followers: state.viewedUsers.followers,
-    following: state.viewedUsers.following
+    following: state.viewedUsers.following,
+    currentFollows: state.viewedUsers.currentFollows,
+    otherFollows: state.viewedUsers.otherFollows,
   };
 };
 
