@@ -25,7 +25,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    requestWorkouts: (page, id) => dispatch(requestWorkouts(page, id)),
+    requestWorkouts: (page, id, location) => dispatch(requestWorkouts(page, id, location)),
     clearWorkouts: () => dispatch(clearWorkouts()),
     requestRunDistance: (id) => dispatch(requestRunDistance(id)),
     requestRideDistance: (id) => dispatch(requestRideDistance(id)),

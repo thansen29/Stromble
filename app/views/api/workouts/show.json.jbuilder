@@ -1,1 +1,1 @@
-json.partial! 'workout', workout: @workout
+json.partial! 'workout', workout: @workout, user: @workout.user

@@ -7,6 +7,12 @@ class Api::WorkoutsController < ApplicationController
       @workouts = Workout.all
         .where(user_id: current_user.id)
         .page(params[:page].to_i).per(20)
+    elsif params[:location] == 'feed'
+      ids = current_user.following_ids.map {|id| Follow.where(id: id).pluck(:followed_id) }
+      ids = ids.map {|el| el.first }
+      @workouts = Workout.all
+        .where('user_id IN (?) OR user_id = ?', ids, current_user.id.to_s)
+        .page(params[:page].to_i).per(4)
     else
       @workouts = Workout.all
         .where(user_id: params[:id])

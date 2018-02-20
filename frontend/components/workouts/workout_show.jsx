@@ -11,6 +11,10 @@ class WorkoutShow extends React.Component {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.state = {
+      fname: '',
+      lname: ''
+    };
   }
 
   componentDidMount(){
@@ -48,18 +52,22 @@ class WorkoutShow extends React.Component {
       if(durationS.toString().length < 2){
         durationS = `0${durationS}`;
       }
+
       return (
         <section className="background">
           <Navbar />
           <section className="whole-container">
+            { this.props.workout.user_id === this.props.currentUserId ?
+              <div className="button-holder">
+                <button onClick={this.handleEdit} className="show-edit tooltip">
+                  <i className="fa fa-pencil" aria-hidden="true"></i>
+                </button>
 
-            <button onClick={this.handleEdit} className="show-edit tooltip">
-              <i className="fa fa-pencil" aria-hidden="true"></i>
-            </button>
-
-            <button onClick={this.handleDelete} className="show-delete">
-              <i className="fa fa-ban" aria-hidden="true"></i>
-            </button>
+                <button onClick={this.handleDelete} className="show-delete">
+                  <i className="fa fa-ban" aria-hidden="true"></i>
+                </button>
+              </div> : <div className="placeholder"></div>
+            }
 
             {this.props.isOpen ?
               <ModalComponent closeModal={this.props.closeModal}>
@@ -76,14 +84,14 @@ class WorkoutShow extends React.Component {
             <section className="show-container">
 
               <header className="show-header">
-                <span className="show-name">{this.props.currentUser.fname} {this.props.currentUser.lname} -- </span>
+                <span className="show-name">{this.props.workout.fname} {this.props.workout.lname} -- </span>
                 {this.props.workout.activity_type}
                 <div className={this.props.workout.private ? "fa fa-lock show-locked" : "show-unlocked"}></div>
               </header>
 
               <section className="show-body">
-                <Link to={`/users/${this.props.currentUser.id}`}>
-                  <img className="show-avatar" src={this.props.currentUser.avatar_url}/>
+                <Link to={`/users/${this.props.workout.user_id}`}>
+                  <img className="show-avatar" src={this.props.workout.avatar_url}/>
                 </Link>
                 <section className="show-leftside">
                   <section className="show-leftbody">

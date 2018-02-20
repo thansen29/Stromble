@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
   let workoutId = ownProps.match.params.id;
   return {
     workout: state.workout.workouts[workoutId],
-    currentUser: state.session.currentUser,
+    currentUserId: state.session.currentUser.id,
     isOpen: state.ui.modal["isOpen"]
   };
 };

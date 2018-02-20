@@ -57,12 +57,22 @@ class DashboardIndex extends React.Component {
   handleSelection(){
     let selected = this.state.selected;
     let hidden = this.state.hidden;
-    // let clicked = this.state.clicked;
     this.setState({
       selected: hidden,
       hidden: selected,
-      clicked: !this.state.clicked
+      clicked: !this.state.clicked,
+      page: 1
     });
+
+    if(hidden === 'Following'){
+      this.props.requestWorkouts(1, this.props.currentUser.id, 'feed').then(() => {
+        this.setState({ page: this.state.page += 1 });
+      });
+    } else {
+      this.props.requestWorkouts(1, this.props.currentUser.id).then(() => {
+        this.setState({ page: this.state.page += 1 });
+      });
+    }
   }
 
   hide(){
@@ -77,6 +87,12 @@ class DashboardIndex extends React.Component {
         workouts={this.props.workouts}
         currentUser={this.props.currentUser}
         getWorkouts={this.getWorkouts} />;
+
+    let followItems =
+      <WorkoutItems
+        workouts={this.props.workouts}
+        currentUser={this.props.currentUser}
+        getWorkout={this.getWorkouts} />;
 
     const message =
       <div className="no-workouts">
@@ -127,8 +143,8 @@ class DashboardIndex extends React.Component {
             <main className="dashboard-main">
               <ul className="dashboard-feed-ul">
                 {
-                  this.state.selected === "Following" ? "hi" :
-                    this.props.workouts.length ? workoutItems : null 
+                  this.state.selected === "Following" ? followItems :
+                    this.props.workouts.length ? workoutItems : null
                 }
               </ul>
 
