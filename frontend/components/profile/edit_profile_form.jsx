@@ -23,6 +23,7 @@ class EditProfileForm extends React.Component {
 
   componentDidMount(){
     this.props.fetchUser(this.props.id).then(() => {
+      this.props.clearWorkouts();
       this.getWorkouts();
       this.props.fetchUserFollowers(this.props.id);
       this.props.fetchUserFollowing(this.props.id);

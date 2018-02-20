@@ -2,7 +2,7 @@ import { RECEIVE_WORKOUTS, RECEIVE_WORKOUT, REMOVE_WORKOUT, CLEAR_WORKOUTS } fro
 
 const defaultState = {
   workouts: {},
-  activeWorkout: { id: null, userId: null }
+  activeWorkout: null
 };
 
 const workoutReducer = (state = defaultState, action) => {
@@ -15,9 +15,7 @@ const workoutReducer = (state = defaultState, action) => {
       return newState;
     case RECEIVE_WORKOUT:
       newWorkoutList = Object.assign({}, state.workouts, {[action.workout.id]: action.workout });
-      newState = Object.assign({}, state,
-        {workouts: newWorkoutList,
-         activeWorkout: {id: action.workout.id, userId: action.workout.user_id } });
+      newState = Object.assign({}, state, {workouts: newWorkoutList, activeWorkout: action.workout.id});
       return newState;
     case REMOVE_WORKOUT:
       newState = Object.assign({}, state);

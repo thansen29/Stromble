@@ -6,7 +6,6 @@ import WorkoutItems from '../workouts/workout_items';
 import Tabs from '../tabs/tabs';
 import { isFollowing } from '../../reducers/selectors';
 
-
 class UserProfile extends React.Component {
   constructor(props){
     super(props);
@@ -27,6 +26,7 @@ class UserProfile extends React.Component {
 
   componentDidMount(){
     this.props.fetchUser(this.props.id).then(() => {
+      this.props.clearWorkouts();
       this.getWorkouts();
       this.props.fetchUserFollowers(this.props.id);
       this.props.fetchUserFollowing(this.props.id);
@@ -38,7 +38,6 @@ class UserProfile extends React.Component {
 
   getWorkouts(){
     if(this.props.user){
-      console.log(this.state.page);
       this.props.requestWorkouts(this.state.page, this.props.user.id);
       this.setState({ page: this.state.page += 1 });
     }
@@ -52,6 +51,11 @@ class UserProfile extends React.Component {
         imageUrl: newProps.user.avatar_url,
         isFollowing: isFollowing(newProps.currentUser.following_ids, newProps.user.follower_ids)
       });
+      if(this.props.user && this.props.user.id !== newProps.user.id){
+        this.props.clearWorkouts();
+        this.props.requestWorkouts(1, newProps.user.id);
+        this.setState({ page: 2 });
+      }
     }
   }
 
@@ -108,10 +112,10 @@ class UserProfile extends React.Component {
       ];
 
     return (
-      <section className="background">
+      <section className="background" key="all">
         <Navbar />
         {this.props.id === this.props.currentUserId ?
-          <EditProfileContainer /> :
+          <EditProfileContainer key="edit"/> :
 
           <section className="profile-background">
             <section className="profile-container">

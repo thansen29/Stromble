@@ -11,37 +11,28 @@ class WorkoutItem extends React.Component {
   render(){
     const { key, activity_type, description, distance, distance_unit,
       duration_hr, duration_min, duration_s, elevation, elevation_unit,
-      sport, date, time, title, id} = this.props.workout;
+      sport, date, time, title, id, fname, lname, avatar_url, user_id,
+    } = this.props.workout;
 
-    // const pace = distance / ((parseFloat(duration_hr)) + ((parseFloat(duration_min)) / 60));
     const pace = ((duration_hr * 60) + duration_min) / distance;
     let momentTime = moment(time);
     let momentDate = moment(date);
     momentDate = momentDate.parseZone();
     momentTime = momentTime.parseZone();
     const day = momentDate.format("dddd");
-    // const parsedDate = momentDate.calendar();
     const parsedDate = momentDate.format("MMMM Do YYYY");
     const parsedTime = momentTime.format("h:mm A");
 
-    let fname;
-    let lname;
-    if(this.props.currentUser){
-      fname = this.props.currentUser.fname;
-      lname = this.props.currentUser.lname;
-    }
-
-    // <span className="item-avatar"></span>
     return (
       <section className="workout-item-container">
         <li key={key} className="workout-item">
           <div className="item-top-row">
-            <Link to={`/users/${this.props.currentUser.id}`}>
-              <img className="nav-avatar" src={this.props.currentUser.avatar_url} />
+            <Link to={`/users/${user_id}`}>
+              <img className="nav-avatar" src={avatar_url} />
             </Link>
 
             <div className="item-name-date">
-              <Link to={`/users/${this.props.currentUser.id}`}>{fname} {lname}</Link> <br/>
+              <Link to={`/users/${user_id}`}>{fname} {lname}</Link> <br/>
             <span className="show-datetime">{ parsedDate } at { parsedTime }</span>
             </div>
           </div>
