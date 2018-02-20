@@ -13,7 +13,6 @@ const mapStateToProps = state => {
     return b.date.localeCompare(a.date);
   });
   return {
-    // workouts: _.values(state.workout.workouts).reverse(),
     workouts,
     stats: state.stats,
     isOpen: state.ui.modal["isOpen"],

@@ -16,10 +16,6 @@ class AllWorkouts extends React.Component {
     this.getWorkouts = this.getWorkouts.bind(this);
   }
 
-  componentDidMount(){
-    this.getWorkouts();
-  }
-
   handleDelete(id){
     return ((e) => {
       this.props.deleteWorkout(id);
@@ -34,7 +30,7 @@ class AllWorkouts extends React.Component {
 
   render(){
     const workoutItems = this.props.workouts.map((workout) => {
-      let momentDate = moment(workout.time);//.parseZone();
+      let momentDate = moment(workout.time);
       const day = momentDate.format("dddd").substring(0, 3);
       const parsedDate = momentDate.format("M/DD/YYYY");
       let durationMin = workout.duration_min;
