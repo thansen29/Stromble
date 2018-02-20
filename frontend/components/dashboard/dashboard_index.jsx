@@ -21,11 +21,13 @@ class DashboardIndex extends React.Component {
       newUser: null,
       ready: false,
       page: 1,
+      feedPage: 1,
       selected: 'Your Activities',
       hidden: 'Following',
       clicked: true
     };
     this.getWorkouts = this.getWorkouts.bind(this);
+    this.updateFeed = this.updateFeed.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
     this.hide = this.hide.bind(this);
   }
@@ -44,14 +46,18 @@ class DashboardIndex extends React.Component {
     this.props.requestLongestRideDuration(id);
     this.props.requestTotalRuns(id);
     this.props.requestTotalRides(id);
-
     this.props.clearWorkouts();
-    this.getWorkouts();
   }
 
   getWorkouts(){
     this.props.requestWorkouts(this.state.page, this.props.currentUser.id).then(() =>{
       this.setState({ page: this.state.page += 1, ready: true });
+    });
+  }
+
+  updateFeed(){
+    this.props.requestWorkouts(this.state.feedPage, this.props.currentUser.id, "feed").then(() =>{
+      this.setState({ feedPage: this.state.feedPage += 1, ready: true });
     });
   }
 
@@ -62,19 +68,16 @@ class DashboardIndex extends React.Component {
       selected: hidden,
       hidden: selected,
       clicked: !this.state.clicked,
-      page: 1
+      page: 1,
+      feedPage: 1
     });
 
     if(hidden === 'Following'){
       this.props.clearWorkouts();
-      this.props.requestWorkouts(1, this.props.currentUser.id, 'feed').then(() => {
-        this.setState({ page: this.state.page += 1, ready: true });
-      });
+      this.updateFeed();
     } else {
       this.props.clearWorkouts();
-      this.props.requestWorkouts(1, this.props.currentUser.id).then(() => {
-        this.setState({ page: this.state.page += 1, ready: true });
-      });
+      this.getWorkouts();
     }
   }
 
@@ -86,15 +89,19 @@ class DashboardIndex extends React.Component {
   }
 
   render(){
-    let workoutItems =
-      <WorkoutItems
-        workouts={this.props.workouts}
-        getWorkouts={this.getWorkouts} />;
+    let workoutItems;
+    let followItems;
+    if(this.props.workouts){
+      workoutItems =
+        <WorkoutItems
+          workouts={this.props.workouts}
+          getWorkouts={this.getWorkouts} />;
 
-    let followItems =
-      <WorkoutItems
-        workouts={this.props.workouts}
-        getWorkout={this.getWorkouts} />;
+      followItems =
+        <WorkoutItems
+          workouts={this.props.workouts}
+          getWorkouts={this.updateFeed} />;
+    }
 
     const message =
       <div className="no-workouts">
@@ -145,7 +152,7 @@ class DashboardIndex extends React.Component {
             <main className="dashboard-main">
               <ul className="dashboard-feed-ul">
                 {
-                  this.state.selected && this.state.ready === "Following" ? followItems :
+                  this.state.selected === "Following" && this.state.ready ? followItems :
                     this.props.workouts.length ? workoutItems : null
                 }
               </ul>
@@ -155,7 +162,11 @@ class DashboardIndex extends React.Component {
               </div>
 
               <Waypoint
-                onEnter={this.getWorkouts} />
+                onEnter={ this.state.selected === "Following" ?
+                  this.updateFeed :
+                  this.getWorkouts
+                } />
+
             </main>
 
             <aside className="dashboard-right">

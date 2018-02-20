@@ -9,9 +9,10 @@ class Api::WorkoutsController < ApplicationController
         .page(params[:page].to_i).per(20)
     elsif params[:location] == 'feed'
       ids = current_user.following_ids.map {|id| Follow.where(id: id).pluck(:followed_id) }
-      ids = ids.map {|el| el.first }
+      ids = ids.map {|el| el.first unless el.first == params[:id].to_i }
+
       @workouts = Workout.all
-        .where('user_id IN (?) OR user_id = ?', ids, current_user.id.to_s)
+        .where('user_id IN (?)', ids)# OR user_id = ?', ids, current_user.id.to_s)
         .page(params[:page].to_i).per(4)
     else
       @workouts = Workout.all

@@ -2,6 +2,10 @@ body {
   background: #f5f5fa;
 }
 
+.dashboard-feed-ul {
+  height: 100%;
+}
+
 .none {
   display: none;
 }
@@ -20,7 +24,7 @@ body {
 .dash-header {
   font-weight: 300;
   font-size: 20px;
-  opacity: 0.9;
+  // opacity: 0.9;
   width: 160px;
   padding: 10px 0 10px 10px;
   margin-bottom: 15px;
@@ -28,6 +32,7 @@ body {
   position: relative;
   display: inline-block;
   left: 35%;
+  z-index: 120;
   &:hover {
     background: white;
     border-radius: 5px;
@@ -53,6 +58,7 @@ body {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   box-shadow: 0 5px 5px rgba(0,0,0,0.025);
+  transition: visibility 0.5s;
   &:hover {
     background: whitesmoke;
     color: rgb(9, 71, 111);
@@ -62,6 +68,8 @@ body {
 
 .dash-container:focus .dash-content {
   visibility: visible;
+  pointer-events: auto;
+
 }
 
 .hidden {
