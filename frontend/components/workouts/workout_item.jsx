@@ -9,7 +9,8 @@ class WorkoutItem extends React.Component {
     super(props);
 
     this.state = {
-      liked: false
+      liked: false,
+      anyLikes: false
     };
 
     this.handleLike = this.handleLike.bind(this);
@@ -18,17 +19,17 @@ class WorkoutItem extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     if(this.props.workout.liker_ids.includes(this.props.currentUser.id)){
       this.setState({ liked: true });
+    }
+    if(this.props.workout.liker_ids.length){
+      this.setState({ anyLikes: true });
     }
   }
 
   handleLike(){
     this.props.likeWorkout(this.props.workout.id).then(() => {
-      this.setState({
-        liked: true
-      });
+      this.setState({ liked: true, anyLikes: true });
     });
   }
 
@@ -129,10 +130,10 @@ class WorkoutItem extends React.Component {
           </div>
 
           <div className="item-socials">
-            { likers ? null : likeText }
-            <span className="item-social-likers">
-              { likers }
-            </span>
+            { this.state.anyLikes ? null : likeText }
+              <span className="item-social-likers">
+                 { likers }
+              </span>
 
             <span className="item-social-buttons">
               <button

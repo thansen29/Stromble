@@ -38,13 +38,13 @@ const workoutReducer = (state = defaultState, action) => {
 			return defaultState;
     case RECEIVE_LIKE:
       newState = Object.assign({}, state);
-			//TODO: liking for the first time raises error here
+			//TODO: DRY up this code
 			newState.workouts[action.likeData.workoutId].liker_ids.push(action.likeData.likerId);
 			if(newState.workouts[action.likeData.workoutId].likers){
-				newState.workouts[action.likeData.workoutId].likers.push(action.likeData.liker);
-			} //else {
-				// newState.workouts[action.likeData.workoutId]['likers'] = [action.likeData.liker];
-			// }
+				newState.workouts[action.likeData.workoutId].likers[action.likeData.liker.id] = action.likeData.liker;
+			} else {
+				newState.workouts[action.likeData.workoutId]['likers'] = [action.likeData.liker];
+			}
       return newState;
 		default:
 			return state;
