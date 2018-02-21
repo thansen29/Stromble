@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import _ from 'lodash';
 
 
 class WorkoutItem extends React.Component {
@@ -17,9 +18,10 @@ class WorkoutItem extends React.Component {
   }
 
   componentDidMount(){
-    // if(this.props.workout.liker_ids.includes(this.props.currentUser.id)){
-    //   this.setState({ liked: true });
-    // }
+    debugger
+    if(this.props.workout.liker_ids.includes(this.props.currentUser.id)){
+      this.setState({ liked: true });
+    }
   }
 
   handleLike(){
@@ -46,24 +48,27 @@ class WorkoutItem extends React.Component {
     const parsedTime = momentTime.format("h:mm A");
 
     let likers;
-    // if(this.props.workout.likers.length){
-    //   likers = this.props.workout.likers.map((user) => {
-    //     return (
-    //       <span
-    //         className="likers"
-    //         key={ user.id }>
-    //         { user.avatar_url }
-    //       </span>
-    //     );
-    //   });
-    // } else {
-    //   likers =
-    //     <span
-    //       className="like-text"
-    //       onClick={ this.handleLike }>
-    //       Be the first to give kudos!
-    //     </span>;
-    // }
+    let likeText =
+        <span
+          className="like-text"
+          onClick={ this.handleLike }>
+          Be the first to give kudos!
+        </span>;
+
+    if(this.props.workout.likers){
+      const likerArr = _.values(this.props.workout.likers);
+      likers = likerArr.map((user) => {
+        return (
+          <span
+            className="likers"
+            key={ user.id }>
+            <Link to={`/users/${user.id}`}>
+              <img className="item-sm-avatar" src={ user.avatarUrl } />
+            </Link>
+          </span>
+        );
+      });
+    }
 
     return (
       <section className="workout-item-container">
@@ -124,6 +129,7 @@ class WorkoutItem extends React.Component {
           </div>
 
           <div className="item-socials">
+            { likers ? null : likeText }
             <span className="item-social-likers">
               { likers }
             </span>

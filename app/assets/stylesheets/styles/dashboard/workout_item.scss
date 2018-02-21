@@ -132,9 +132,17 @@
 }
 
 .item-social-likers {
-
+  display: flex;
+  width: 75px;
+  overflow: hidden;
 }
 
 .orange {
   color: rgb(249, 77, 31);
+}
+
+.item-sm-avatar {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
 }

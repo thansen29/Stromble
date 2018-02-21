@@ -27,7 +27,6 @@ class UserProfile extends React.Component {
   componentDidMount(){
     this.props.fetchUser(this.props.id).then(() => {
       this.props.clearWorkouts();
-      // this.getWorkouts();
       this.props.fetchUserFollowers(this.props.id);
       this.props.fetchUserFollowing(this.props.id);
       this.setState({
@@ -98,13 +97,17 @@ class UserProfile extends React.Component {
       followers={this.props.followers}
       following={this.props.following} />;
 
-    let workoutsComponent =
-      <div className="waypoint">
-        <WorkoutItems
-          workouts={this.props.workouts}
-          currentUser={this.props.user}
-          getWorkouts={this.getWorkouts}/>
-      </div>;
+    let workoutsComponent;
+    if(this.props.user){
+      workoutsComponent =
+        <div className="waypoint">
+          <WorkoutItems
+            workouts={this.props.workouts}
+            currentUser={this.props.user}
+            getWorkouts={this.getWorkouts}
+            likeWorkout={this.props.likeWorkout}/>
+        </div>;
+    }
 
       const tabs = [
         { word: "Overview", content: workoutsComponent, title: "profile-header", classs: 'header-bg' },

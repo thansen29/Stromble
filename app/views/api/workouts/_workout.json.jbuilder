@@ -9,9 +9,12 @@ json.avatar_url asset_path(user.avatar.url)
 json.liker_ids workout.liker_ids
 json.likers do
   workout.likers.each do |liker|
-    json.fname liker.fname
-    json.lname liker.lname
-    json.avatarUrl asset_path(liker.avatar.url)
+    json.set! liker.id do
+      json.id liker.id
+      json.fname liker.fname
+      json.lname liker.lname
+      json.avatarUrl asset_path(liker.avatar.url)
+    end
   end
 end
 #

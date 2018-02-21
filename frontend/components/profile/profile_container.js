@@ -4,8 +4,13 @@ import * as _ from 'lodash';
 import UserProfile from './user_profile';
 import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
 import {
-  updateUser, fetchUser, fetchUserFollowers, fetchUserFollowing,
-  followUser, unfollowUser
+  updateUser,
+  fetchUser,
+  fetchUserFollowers,
+  fetchUserFollowing,
+  followUser,
+  unfollowUser,
+  likeWorkout
 } from '../../actions/profile/profile_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -36,7 +41,9 @@ const mapDispatchToProps = dispatch => {
     followUser: id => dispatch(followUser(id)),
     unfollowUser: id => dispatch(unfollowUser(id)),
     requestWorkouts: (page, id) => dispatch(requestWorkouts(page, id)),
-    clearWorkouts: () => dispatch(clearWorkouts())
+    clearWorkouts: () => dispatch(clearWorkouts()),
+    likeWorkout: id => dispatch(likeWorkout(id))
+
   };
 };
 

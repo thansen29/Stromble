@@ -3,8 +3,13 @@ import * as _ from 'lodash';
 import { connect } from 'react-redux';
 import EditProfile from './edit_profile_form';
 import {
-  updateUser, fetchUser, fetchUserFollowers, fetchUserFollowing,
-  followUser, unfollowUser
+  updateUser,
+  fetchUser,
+  fetchUserFollowers,
+  fetchUserFollowing,
+  followUser,
+  unfollowUser,
+  likeWorkout
 } from '../../actions/profile/profile_actions';
 import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
 import { withRouter } from 'react-router-dom';
@@ -37,6 +42,8 @@ const mapDispatchToProps = dispatch => {
     fetchUserFollowing: id => dispatch(fetchUserFollowing(id)),
     followUser: id => dispatch(followUser(id)),
     unfollowUser: id => dispatch(unfollowUser(id)),
+    likeWorkout: id => dispatch(likeWorkout(id))
+
   };
 };
 

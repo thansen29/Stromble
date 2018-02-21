@@ -108,7 +108,8 @@ class EditProfileForm extends React.Component {
         <WorkoutItems
           workouts={this.props.workouts}
           currentUser={this.props.currentUser}
-          getWorkouts={this.getWorkouts}/>
+          getWorkouts={this.getWorkouts}
+          likeWorkout={this.props.likeWorkout}/>
       </div>;
 
     const tabs = [
