@@ -7,7 +7,7 @@
 }
 
 .workout-item {
-  margin: 30px;
+  margin: 30px 30px 5px 30px;
   display: flex;
   flex-direction: column;
 }
@@ -74,4 +74,39 @@
   font-size: 16px;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+}
+
+.item-socials {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+
+}
+
+.item-social-buttons {
+  margin-right: 7%;
+}
+
+.fa-thumbs-o-up {
+  font-size: 14px;
+  color: grey;
+}
+
+.like-button {
+  padding: 5px 10px;
+  border: 1px solid #ccccd1;
+  border-radius: 2px;
+  margin-right: 5px;
+  background: whitesmoke;
+  transition: background-color 300ms;
+  &:hover {
+    background: white;
+    transition: background-color 300ms;
+    // border-radius: 0;
+  }
+}
+
+.item-social-likers {
+
 }

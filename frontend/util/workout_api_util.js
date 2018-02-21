@@ -35,3 +35,17 @@ export const deleteWorkout = id => {
     url: `api/workouts/${id}`
   });
 };
+
+export const likeWorkout = id => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/workouts/${id}/like`
+  });
+};
+
+export const unlikeWorkout = id => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/workouts/${id}/unlike`
+  });
+};

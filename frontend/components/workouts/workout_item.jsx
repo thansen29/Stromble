@@ -6,6 +6,14 @@ import moment from 'moment';
 class WorkoutItem extends React.Component {
   constructor(props){
     super(props);
+
+    this.handleLike = this.handleLike.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+
+  }
+
+  handleLike(){
+
   }
 
   render(){
@@ -79,6 +87,26 @@ class WorkoutItem extends React.Component {
               }
 
             </div>
+          </div>
+
+          <div className="item-socials">
+            <span className="item-social-likers">
+              kudos
+            </span>
+
+            <span className="item-social-buttons">
+              <button
+                className="like-button"
+                onClick={this.handleLike}>
+                <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+              </button>
+
+              <button
+                onClick={this.handleComment}>
+                <i className="chat-icon"></i>
+              </button>
+            </span>
+
           </div>
         </li>
       </section>

@@ -63,6 +63,20 @@ class Api::WorkoutsController < ApplicationController
     render json: {}
   end
 
+  def like
+    workout = Workout.find(params[:id])
+    workout.like(current_user)
+    render partial: 'api/likes/like_data',
+           locals: { liker: current_user, workout: workout }
+  end
+
+  def unlike
+    workout = Workout.find(params[:id])
+    workout.unlike(current_user)
+    render partial: 'api/likes/like_data',
+           locals: { liker: current_user, workout: workout }
+  end
+
   private
   def workout_params
     params.require(:workout).permit(:user_id, :distance, :distance_unit,
