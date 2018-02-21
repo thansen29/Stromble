@@ -30,4 +30,15 @@ class Workout < ApplicationRecord
 
 
   belongs_to :user
+  has_many :likes, dependent: :destroy
+
+  has_many :likers, through: :likes, source: :user
+
+  def like(other_user)
+    likers << other_user
+  end
+
+  def unlike(other_user)
+    likers.delete(other_user)
+  end
 end

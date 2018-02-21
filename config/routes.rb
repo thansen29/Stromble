@@ -11,7 +11,12 @@ Rails.application.routes.draw do
     end
     resources :users, only: :show
     resource :session, only: [:create, :destroy]
-    resources :workouts, except: :new
+    resources :workouts, except: :new do
+      member do
+        patch :like
+        delete :unlike
+      end
+    end
     resources :routes, only: [:index, :show, :create, :destroy]
     get 'search', to: 'search#query'
     get 'total_run_distance/:id', to: 'statistics#total_run_distance'
