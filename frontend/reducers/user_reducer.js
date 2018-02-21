@@ -16,7 +16,8 @@ const defaultState = {
   followers: null,
   following: null,
   currentFollows: null,
-  otherFollows: null
+  otherFollows: null,
+  currentUserLikes: []
 };
 
 const userReducer = (state = defaultState, action) => {
@@ -59,6 +60,9 @@ const userReducer = (state = defaultState, action) => {
       newState.otherFollows = otherFollows;
       newState.currentFollows = currentFollows;
       return newState;
+    case RECEIVE_LIKE:
+      newState = Object.assign({}, state);
+      newState.currentUserLikes.push(action.likeData.workoutId);
     default:
       return state;
   }
