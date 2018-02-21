@@ -12,12 +12,20 @@ class Api::WorkoutsController < ApplicationController
       ids = ids.map {|el| el.first unless el.first == params[:id].to_i }
 
       @workouts = Workout.all
-        .where('user_id IN (?)', ids)# OR user_id = ?', ids, current_user.id.to_s)
+        .where('user_id IN (?)', ids)
+        .where.not('private = ?', true)
         .page(params[:page].to_i).per(4)
     else
-      @workouts = Workout.all
-        .where(user_id: params[:id])
-        .page(params[:page].to_i).per(4)
+      if current_user.id != params[:id]
+        @workouts = Workout.all
+          .where(user_id: params[:id])
+          .where.not('private = ?', true)
+          .page(params[:page].to_i).per(4)
+      else
+        @workouts = Workout.all
+          .where(user_id: params[:id])
+          .page(params[:page].to_i).per(4)
+      end
     end
   end
 
@@ -26,7 +34,6 @@ class Api::WorkoutsController < ApplicationController
   end
 
   def create
-    # date = Timeliness.parse(workout_params[:date], :date)
     date = workout_params[:date]
     time = workout_params[:time]
     together = "#{date} #{time}"
