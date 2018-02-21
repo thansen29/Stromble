@@ -13,7 +13,6 @@ import WorkoutItems from '../workouts/workout_items';
 import ProfileCard from './profile_card';
 import DropdownComponent from '../dropdowns/dropdown_component';
 
-//TODO: Sometimes the infinte scroll doesnt get any new items
 class DashboardIndex extends React.Component {
   constructor(props){
     super(props);
