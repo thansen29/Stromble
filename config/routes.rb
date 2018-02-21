@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     resources :workouts, except: :new do
       member do
         patch :like
-        delete :unlike
       end
     end
     resources :routes, only: [:index, :show, :create, :destroy]

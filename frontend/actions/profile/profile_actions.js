@@ -5,8 +5,7 @@ export const RECEIVE_FOLLOWERS = 'RECEIVE_FOLLOWERS';
 export const RECEIVE_FOLLOWING = 'RECEIVE_FOLLOWING';
 export const RECEIVE_FOLLOW = 'RECEIVE_FOLLOW';
 export const RECEIVE_UNFOLLOW = 'RECEIVE_UNFOLLOW';
-
-// export const UPDATE_FOLLOWS = 'UPDATE_FOLLOWS';
+export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 
 export const receiveCurrentUser = user => {
   return {
@@ -50,6 +49,11 @@ export const receiveUnfollow = followData => {
   };
 };
 
+export const receiveLike = likeData => ({
+  type: RECEIVE_LIKE,
+  likeData
+});
+
 export const fetchUser = id => dispatch => {
   return ProfileAPIUtil.fetchUser(id).then((user) => {
     dispatch(receiveUser(user));
@@ -83,6 +87,12 @@ export const fetchUserFollowers = (id) => dispatch => {
 export const fetchUserFollowing = (id) => dispatch => {
   return ProfileAPIUtil.fetchUserFollowing(id).then((following) => {
     dispatch(receiveFollowing(following));
+  });
+};
+
+export const likeWorkout = id => dispatch => {
+  return ProfileAPIUtil.likeWorkout(id).then((payload) => {
+    dispatch(receiveLike(payload));
   });
 };
 

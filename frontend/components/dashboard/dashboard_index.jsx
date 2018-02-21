@@ -94,12 +94,16 @@ class DashboardIndex extends React.Component {
       workoutItems =
         <WorkoutItems
           workouts={this.props.workouts}
-          getWorkouts={this.getWorkouts} />;
+          getWorkouts={this.getWorkouts}
+          currentUser={this.props.currentUser}
+          likeWorkout={this.props.likeWorkout} />;
 
       followItems =
         <WorkoutItems
           workouts={this.props.workouts}
-          getWorkouts={this.updateFeed} />;
+          getWorkouts={this.updateFeed}
+          currentUser={this.props.currentUser}
+          likeWorkout={this.props.likeWorkout} />;
     }
 
     const message =

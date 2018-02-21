@@ -52,7 +52,6 @@ class Api::UsersController < ApplicationController
       .select(:id)
       .where(follower_id: current_user.id, followed_id: user_to_follow.id)
     render partial: 'api/follows/follow_data',
-           # locals: { followId: Follow.select(:id).where(follower_id: current_user.id, followed_id: user_to_follow.id )}
            locals: {
             follower: current_user,
             followed: user_to_follow,
@@ -77,8 +76,6 @@ class Api::UsersController < ApplicationController
               followId: followId,
               current: current_user.following_ids
             }
-           # locals: { followId: Follow.select(:id).where(follower_id: current_user.id, followed_id: user_to_unfollow.id )}
-
   end
 
   private

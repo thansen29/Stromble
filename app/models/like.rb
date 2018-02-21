@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
   validates :user, uniqueness: { scope: :workout }
-  belongs to :workout
-  belongs to :user
+  belongs_to :workout
+  belongs_to :user
 
 end

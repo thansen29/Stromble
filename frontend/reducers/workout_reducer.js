@@ -3,9 +3,8 @@ import {
 	RECEIVE_WORKOUT,
 	REMOVE_WORKOUT,
 	CLEAR_WORKOUTS,
-  RECEIVE_LIKE,
-  RECEIVE_UNLIKE
 } from '../actions/workouts/workout_actions';
+import { RECEIVE_LIKE } from '../actions/profile/profile_actions';
 
 const defaultState = {
 	workouts: {},
@@ -39,17 +38,8 @@ const workoutReducer = (state = defaultState, action) => {
 			return defaultState;
     case RECEIVE_LIKE:
       newState = Object.assign({}, state);
-      newState.likeData = {
-        user: action.likeData.user,
-        likers: action.likeData.likers
-      };
-      return newState;
-    case RECEIVE_UNLIKE:
-      newState = Object.assign({}, state);
-      newState.likeData = {
-        user: action.likeData.user,
-        likers: action.likeData.likers
-      };
+			newState.workouts[action.likeData.workoutId].likers.push(action.likeData.user);
+			newState.workouts[action.likeData.workoutId].liker_ids.push(action.likeData.user.id);
       return newState;
 		default:
 			return state;
@@ -57,11 +47,3 @@ const workoutReducer = (state = defaultState, action) => {
 };
 
 export default workoutReducer;
-
-// workout: {
-//   workouts: {
-//     30: {}
-//   },
-//   activeWorkout: 30,
-//   workoutLoading: true
-// }

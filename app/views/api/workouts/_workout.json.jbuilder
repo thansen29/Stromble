@@ -5,3 +5,5 @@ json.extract! workout, :id, :user_id, :sport, :title, :distance,
 json.fname user.fname
 json.lname user.lname
 json.avatar_url asset_path(user.avatar.url)
+json.likers workout.likers
+json.liker_ids workout.liker_ids

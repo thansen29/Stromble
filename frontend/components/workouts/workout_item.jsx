@@ -7,13 +7,27 @@ class WorkoutItem extends React.Component {
   constructor(props){
     super(props);
 
+    this.state = {
+      liked: false
+    };
+
     this.handleLike = this.handleLike.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
-  handleLike(){
+  componentDidMount(){
+    if(this.props.workout.liker_ids.includes(this.props.currentUser.id)){
+      this.setState({ liked: true });
+    }
+  }
 
+  handleLike(){
+    this.props.likeWorkout(this.props.workout.id).then(() => {
+      this.setState({
+        liked: true
+      });
+    });
   }
 
   render(){
@@ -30,6 +44,26 @@ class WorkoutItem extends React.Component {
     const day = momentDate.format("dddd");
     const parsedDate = momentDate.format("MMMM Do YYYY");
     const parsedTime = momentTime.format("h:mm A");
+
+    let likers;
+    if(this.props.workout.likers.length){
+      likers = this.props.workout.likers.map((user) => {
+        return (
+          <span
+            className="likers"
+            key={ user.id }>
+            { user.avatar_url }
+          </span>
+        );
+      });
+    } else {
+      likers =
+        <span
+          className="like-text"
+          onClick={ this.handleLike }>
+          Be the first to give kudos!
+        </span>;
+    }
 
     return (
       <section className="workout-item-container">
@@ -91,19 +125,26 @@ class WorkoutItem extends React.Component {
 
           <div className="item-socials">
             <span className="item-social-likers">
-              kudos
+              { likers }
             </span>
 
             <span className="item-social-buttons">
               <button
-                className="like-button"
-                onClick={this.handleLike}>
-                <i className="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                className={ this.state.liked ? "like-disabled" : "like-button" }
+                onClick={this.handleLike}
+                disabled={ this.state.liked }>
+                <i
+                  className={ this.state.liked
+                    ? "fa fa-thumbs-o-up orange"
+                    : "fa fa-thumbs-o-up"
+                   }
+                  aria-hidden="true">
+                </i>
               </button>
 
               <button
                 onClick={this.handleComment}>
-                <i className="chat-icon"></i>
+                <i className="chat-icon" disabled></i>
               </button>
             </span>
 

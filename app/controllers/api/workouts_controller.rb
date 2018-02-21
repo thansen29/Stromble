@@ -65,14 +65,7 @@ class Api::WorkoutsController < ApplicationController
 
   def like
     workout = Workout.find(params[:id])
-    workout.like(current_user)
-    render partial: 'api/likes/like_data',
-           locals: { liker: current_user, workout: workout }
-  end
-
-  def unlike
-    workout = Workout.find(params[:id])
-    workout.unlike(current_user)
+    current_user.like(workout)
     render partial: 'api/likes/like_data',
            locals: { liker: current_user, workout: workout }
   end

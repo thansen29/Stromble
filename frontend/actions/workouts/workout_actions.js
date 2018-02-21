@@ -5,8 +5,6 @@ export const REMOVE_WORKOUT = 'REMOVE_WORKOUT';
 export const CLEAR_WORKOUTS = 'CLEAR_WORKOUTS';
 export const RECEIVE_WORKOUT_ERRORS = 'RECEIVE_WORKOUT_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
-export const RECEIVE_LIKE = 'RECEIVE_LIKE';
-export const RECEIVE_UNLIKE = 'RECEIVE_UNLIKE';
 
 export const receiveWorkouts = workouts => {
   return {
@@ -48,16 +46,6 @@ export const clearErrors = () => {
   };
 };
 
-export const receiveLike = likeData => ({
-  type: RECEIVE_LIKE,
-  likeData
-});
-
-export const receiveUnlike = likeData => ({
-  type: RECEIVE_UNLIKE,
-  likeData
-});
-
 export const requestWorkouts = (page, id, location) => dispatch => {
   return WorkoutAPIUtil.fetchWorkouts(page, id, location).then((workouts) => {
     dispatch(receiveWorkouts(workouts));
@@ -95,17 +83,5 @@ export const deleteWorkout = id => dispatch => {
     dispatch(removeWorkout(id));
   }, (errors) => {
     dispatch(receiveErrors(errors));
-  });
-};
-
-export const likeWorkout = id => dispatch => {
-  return WorkoutAPIUtil.likeWorkout(id).then((payload) => {
-    dispatch(receiveLike(payload));
-  });
-};
-
-export const unlikeWorkout = id => dispatch => {
-  return WorkoutAPIUtil.unlikeWorkout(id).then((payload) => {
-    dispatch(receiveUnlike(payload));
   });
 };

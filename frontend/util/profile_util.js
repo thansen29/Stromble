@@ -43,9 +43,9 @@ export const fetchUserFollowing = id => {
   });
 };
 
-// export const toggleFollow = (otherId) => {
-//   return $.ajax({
-//     method: 'PATCH',
-//     url: `api/follows/toggleFollow/${otherId}`
-//   });
-// };
+export const likeWorkout = id => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/workouts/${id}/like`
+  });
+};

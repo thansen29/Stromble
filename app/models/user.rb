@@ -84,6 +84,13 @@ class User < ApplicationRecord
     # following.delete(other_user)
   end
 
+  def like(workout)
+    like = Like.new
+    like.user_id = self.id
+    like.workout_id = workout.id
+    like.save!
+  end
+
 
   private
   def ensure_session_token

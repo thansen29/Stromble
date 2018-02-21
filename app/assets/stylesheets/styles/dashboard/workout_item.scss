@@ -103,10 +103,38 @@
   &:hover {
     background: white;
     transition: background-color 300ms;
-    // border-radius: 0;
+  }
+}
+
+.like-disabled {
+  padding: 5px 10px;
+  border: 1px solid #ccccd1;
+  border-radius: 2px;
+  margin-right: 5px;
+  background: whitesmoke;
+  transition: background-color 300ms;
+  pointer-events: none;
+  // &:hover {
+  //   background: white;
+  //   transition: background-color 300ms;
+  // }
+}
+
+.like-text {
+  transition: color 200ms;
+  font-size: 13px;
+  opacity: 0.9;
+  &:hover {
+    color: rgb(9, 71, 111);
+    transition: color 200ms;
+    cursor: pointer;
   }
 }
 
 .item-social-likers {
 
+}
+
+.orange {
+  color: rgb(249, 77, 31);
 }
