@@ -38,8 +38,8 @@ const workoutReducer = (state = defaultState, action) => {
 			return defaultState;
     case RECEIVE_LIKE:
       newState = Object.assign({}, state);
-			newState.workouts[action.likeData.workoutId].likers.push(action.likeData.user);
-			newState.workouts[action.likeData.workoutId].liker_ids.push(action.likeData.user.id);
+			newState.workouts[action.likeData.workoutId].liker_ids.push(action.likeData.likerId);
+			newState.workouts[action.likeData.workoutId].likers.push(action.likeData.likers);
       return newState;
 		default:
 			return state;

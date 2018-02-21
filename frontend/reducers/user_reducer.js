@@ -1,5 +1,10 @@
 import {
-  RECEIVE_USER, RECEIVE_FOLLOWERS, RECEIVE_FOLLOWING, RECEIVE_FOLLOW, RECEIVE_UNFOLLOW
+  RECEIVE_USER,
+  RECEIVE_FOLLOWERS,
+  RECEIVE_FOLLOWING,
+  RECEIVE_FOLLOW,
+  RECEIVE_UNFOLLOW,
+  RECEIVE_LIKE
 } from '../actions/profile/profile_actions';
 import { RECEIVE_FOUND_USERS } from '../actions/search/search_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session/session_actions';

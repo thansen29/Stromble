@@ -1,5 +1,5 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session/session_actions';
-import { RECEIVE_USER, RECEIVE_LIKE } from '../actions/profile/profile_actions';
+import { RECEIVE_USER } from '../actions/profile/profile_actions';
 
 
 const defaultState = {
@@ -23,10 +23,6 @@ const sessionReducer = (state = defaultState, action) => {
       } else {
         return state;
       }
-    case RECEIVE_LIKE:
-      newState = Object.assign({}, state);
-      newState.likes.push(action.likeData.workoutId);
-      return newState;
     default:
       return state;
   }

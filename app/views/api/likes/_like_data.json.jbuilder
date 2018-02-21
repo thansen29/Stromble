@@ -1,6 +1,10 @@
-json.user liker #need just the fname, lname, and avatar
-json.likers workout.likers
-json.workoutId workout.id
+json.likers do
+  workout.likers.each do |liker|
+    json.fname liker.fname
+    json.lname liker.lname
+    json.avatarUrl asset_path(liker.avatar.url)
+  end
+end
 
-# json.liker_id liker.id
-# json.photo_id photo.id
+json.likerId liker.id
+json.workoutId workout.id

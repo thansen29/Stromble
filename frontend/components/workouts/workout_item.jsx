@@ -17,9 +17,9 @@ class WorkoutItem extends React.Component {
   }
 
   componentDidMount(){
-    if(this.props.workout.liker_ids.includes(this.props.currentUser.id)){
-      this.setState({ liked: true });
-    }
+    // if(this.props.workout.liker_ids.includes(this.props.currentUser.id)){
+    //   this.setState({ liked: true });
+    // }
   }
 
   handleLike(){
@@ -46,24 +46,24 @@ class WorkoutItem extends React.Component {
     const parsedTime = momentTime.format("h:mm A");
 
     let likers;
-    if(this.props.workout.likers.length){
-      likers = this.props.workout.likers.map((user) => {
-        return (
-          <span
-            className="likers"
-            key={ user.id }>
-            { user.avatar_url }
-          </span>
-        );
-      });
-    } else {
-      likers =
-        <span
-          className="like-text"
-          onClick={ this.handleLike }>
-          Be the first to give kudos!
-        </span>;
-    }
+    // if(this.props.workout.likers.length){
+    //   likers = this.props.workout.likers.map((user) => {
+    //     return (
+    //       <span
+    //         className="likers"
+    //         key={ user.id }>
+    //         { user.avatar_url }
+    //       </span>
+    //     );
+    //   });
+    // } else {
+    //   likers =
+    //     <span
+    //       className="like-text"
+    //       onClick={ this.handleLike }>
+    //       Be the first to give kudos!
+    //     </span>;
+    // }
 
     return (
       <section className="workout-item-container">
