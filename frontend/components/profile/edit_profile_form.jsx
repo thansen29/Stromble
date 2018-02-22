@@ -109,7 +109,10 @@ class EditProfileForm extends React.Component {
           workouts={this.props.workouts}
           currentUser={this.props.currentUser}
           getWorkouts={this.getWorkouts}
-          likeWorkout={this.props.likeWorkout}/>
+          likeWorkout={this.props.likeWorkout}
+          openModal={this.props.openModal}
+          closeModal={this.props.closeModal}
+          isOpen={this.props.isOpen}/>
       </div>;
 
     const tabs = [

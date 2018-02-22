@@ -2,7 +2,7 @@ import React from 'react';
 import WorkoutItem from './workout_item';
 import Waypoint from 'react-waypoint';
 
-const WorkoutItems = ({ workouts, getWorkouts, currentUser, likeWorkout }) => {
+const WorkoutItems = ({ workouts, getWorkouts, currentUser, likeWorkout, openModal, closeModal, isOpen }) => {
   let workoutItems;
   if(workouts.length > 0){
     workoutItems = workouts.map((workout) => {
@@ -11,7 +11,10 @@ const WorkoutItems = ({ workouts, getWorkouts, currentUser, likeWorkout }) => {
           workout={workout}
           key={workout.id}
           currentUser={currentUser}
-          likeWorkout={likeWorkout} />
+          likeWorkout={likeWorkout}
+          openModal={openModal}
+          closeModal={closeModal}
+          isOpen={isOpen}/>
       );
     });
   }

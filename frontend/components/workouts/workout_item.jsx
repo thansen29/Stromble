@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import _ from 'lodash';
+import ModalComponent from '../modals/modal_component';
+import LikeComponent from './like_component';
 
-
+//TODO: trigger the opening of modal when clicking on the alread clicked button
 class WorkoutItem extends React.Component {
   constructor(props){
     super(props);
@@ -75,7 +77,7 @@ class WorkoutItem extends React.Component {
       <section className="workout-item-container">
         <li key={key} className="workout-item">
           <div className="item-top-row">
-            
+
             <Link to={`/users/${user_id}`}>
               <img className="nav-avatar" src={avatar_url} />
             </Link>
@@ -168,6 +170,13 @@ class WorkoutItem extends React.Component {
 
           </div>
         </li>
+        { this.props.isOpen ?
+          <ModalComponent>
+            <LikeComponent
+              users={this.props.workout.likers}
+              title={this.props.workout.title} />
+          </ModalComponent> : null
+        }
       </section>
     );
   }

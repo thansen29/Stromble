@@ -12,6 +12,7 @@ import {
   unfollowUser,
   likeWorkout
 } from '../../actions/profile/profile_actions';
+import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const workouts = _.values(state.workout.workouts);
@@ -29,6 +30,7 @@ const mapStateToProps = (state, ownProps) => {
     following: state.viewedUsers.following,
     currentFollows: state.viewedUsers.currentFollows,
     otherFollows: state.viewedUsers.otherFollows,
+    isOpen: state.ui.modal["isOpen"]
   };
 };
 
@@ -42,7 +44,9 @@ const mapDispatchToProps = dispatch => {
     unfollowUser: id => dispatch(unfollowUser(id)),
     requestWorkouts: (page, id) => dispatch(requestWorkouts(page, id)),
     clearWorkouts: () => dispatch(clearWorkouts()),
-    likeWorkout: id => dispatch(likeWorkout(id))
+    likeWorkout: id => dispatch(likeWorkout(id)),
+    openModal: () => dispatch(openModal()),
+    closeModal: () => dispatch(closeModal()),
 
   };
 };

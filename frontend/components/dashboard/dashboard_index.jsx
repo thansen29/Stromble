@@ -96,14 +96,20 @@ class DashboardIndex extends React.Component {
           workouts={this.props.workouts}
           getWorkouts={this.getWorkouts}
           currentUser={this.props.currentUser}
-          likeWorkout={this.props.likeWorkout} />;
+          likeWorkout={this.props.likeWorkout}
+          openModal={this.props.openModal}
+          closeModal={this.props.closeModal}
+          isOpen={this.props.isOpen}/>;
 
       followItems =
         <WorkoutItems
           workouts={this.props.workouts}
           getWorkouts={this.updateFeed}
           currentUser={this.props.currentUser}
-          likeWorkout={this.props.likeWorkout} />;
+          likeWorkout={this.props.likeWorkout}
+          openModal={this.props.openModal}
+          closeModal={this.props.closeModal}
+          isOpen={this.props.isOpen}/>;
     }
 
     const message =
