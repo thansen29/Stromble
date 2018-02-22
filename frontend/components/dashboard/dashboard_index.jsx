@@ -29,11 +29,13 @@ class DashboardIndex extends React.Component {
     this.updateFeed = this.updateFeed.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
     this.hide = this.hide.bind(this);
+    this.newUser = this.newUser.bind(this);
   }
 
   componentDidMount(){
     const id = this.props.currentUser.id;
     if(this.props.newUser){
+      this.setState({ newUser: true });
       this.props.openModal();
     }
 
@@ -78,6 +80,10 @@ class DashboardIndex extends React.Component {
       this.props.clearWorkouts();
       this.getWorkouts();
     }
+  }
+
+  newUser(){
+    this.setState({ newUser: false });
   }
 
   hide(){
@@ -142,9 +148,9 @@ class DashboardIndex extends React.Component {
         </header>
 
           <section className="dashboard-container">
-            { this.props.isOpen ?
+            { this.props.isOpen && this.state.newUser ?
               <ModalComponent>
-                <CreateProfileContainer />
+                <CreateProfileContainer newUser={this.newUser}/>
               </ModalComponent> : null
             }
 

@@ -12,10 +12,13 @@ class WorkoutItem extends React.Component {
 
     this.state = {
       liked: false,
-      anyLikes: false
+      anyLikes: false,
+      open: false
     };
 
     this.handleLike = this.handleLike.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeState = this.closeState.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -33,6 +36,16 @@ class WorkoutItem extends React.Component {
     this.props.likeWorkout(this.props.workout.id).then(() => {
       this.setState({ liked: true, anyLikes: true });
     });
+  }
+
+  openModal(){
+    this.setState({ open: true });
+    this.props.openModal();
+  }
+
+  closeState(){
+    this.setState({ open: false });
+
   }
 
   render(){
@@ -150,9 +163,11 @@ class WorkoutItem extends React.Component {
 
             <span className="item-social-buttons">
               <button
-                className={ this.state.liked ? "like-disabled" : "like-button" }
-                onClick={this.handleLike}
-                disabled={ this.state.liked }>
+                className="like-button"
+                onClick={
+                  this.state.liked ?
+                  this.openModal :
+                  this.handleLike }>
                 <i
                   className={ this.state.liked
                     ? "fa fa-thumbs-o-up orange"
@@ -170,13 +185,16 @@ class WorkoutItem extends React.Component {
 
           </div>
         </li>
-        { this.props.isOpen ?
-          <ModalComponent>
+
+        { this.props.isOpen && this.state.open ?
+          <ModalComponent closeModal={this.props.closeModal}>
             <LikeComponent
               users={this.props.workout.likers}
-              title={this.props.workout.title} />
+              title={this.props.workout.title}
+              closeState={this.closeState} />
           </ModalComponent> : null
         }
+
       </section>
     );
   }

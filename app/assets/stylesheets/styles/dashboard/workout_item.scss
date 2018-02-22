@@ -3,7 +3,10 @@
   margin-bottom: 20px;
   background: white;
   border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(13, 13, 18, 0.16)
+  box-shadow: 0px 2px 4px rgba(13, 13, 18, 0.16);
+  // & .animate-opacity .modal-screen {
+  //   background: rgba(0, 0, 0, 0.4);
+  // }
 }
 
 .workout-item {
@@ -156,4 +159,49 @@
 .num-kudos {
   font-size: 12px;
   opacity: 0.9;
+}
+
+.likes-container {
+  width: 50%;
+  background: white;
+  border-radius: 3px;
+  z-index: 160;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+}
+
+.likes-container-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 20px 0;
+  margin-left: 20px;
+  // margin-left: 20px;
+  border-bottom: 1px solid #ccccd1;
+  width: 90%;
+}
+
+.like-header-title {
+  margin-left: 10px;
+  font-size: 24px;
+  opacity: 0.9;
+}
+
+.like-item-container {
+  display: flex;
+  // justify-content: space-around;
+  align-items: center;
+}
+
+.like-item-left {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  & .like-item-name {
+    margin-left: 20px;
+    color: #007FB6;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

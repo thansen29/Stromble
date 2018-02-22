@@ -56,6 +56,7 @@ class CreateProfileForm extends React.Component {
       // this.props.updateUser(formData);
       this.props.updateUser(formData).then(() => {
         this.props.closeModal();
+        this.props.newUser();
       });
     }
   }

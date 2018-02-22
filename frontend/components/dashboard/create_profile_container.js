@@ -11,10 +11,11 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+
   return {
     closeModal: () => dispatch(closeModal()),
-    updateUser: (formData) => dispatch(updateUser(formData))
+    updateUser: (formData) => dispatch(updateUser(formData)),
   };
 };
 

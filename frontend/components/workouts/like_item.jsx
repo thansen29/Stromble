@@ -19,9 +19,24 @@ class LikeItem extends React.Component {
     // });
   }
 
+  componentWillUnmount(){
+    this.props.closeState();
+  }
+
   render(){
+    const { user, title } = this.props;
+
     return (
-      <div></div>
+      <section className="like-item-container">
+        <div className="like-item-left">
+          <img className="nav-avatar" src={ user.avatarUrl } />
+          <span className="like-item-name">
+            <Link to={`/users/${user.id}`}>
+              { user.fname } { user.lname}
+            </Link>
+          </span>
+        </div>
+      </section>
     );
   }
 }

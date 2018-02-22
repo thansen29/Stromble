@@ -5,7 +5,6 @@ import { fetchUserFollowers, fetchUserFollowing,
 followUser, unfollowUser } from '../../actions/profile/profile_actions';
 
 export const mapStateToProps = (state, ownProps) => {
-  debugger
   //NOTE: viewedUsers is not populated here.
   return {
     user: ownProps.user,
