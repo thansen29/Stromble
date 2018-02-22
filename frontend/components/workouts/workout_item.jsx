@@ -131,9 +131,15 @@ class WorkoutItem extends React.Component {
 
           <div className="item-socials">
             { this.state.anyLikes ? null : likeText }
+
+            <div className="social-likers-wrapper">
               <span className="item-social-likers">
                  { likers }
               </span>
+              <span className="num-kudos">
+                { likers ? `${likers.length} kudos` : null }
+              </span>
+            </div>
 
             <span className="item-social-buttons">
               <button

@@ -135,6 +135,7 @@
   display: flex;
   width: 75px;
   overflow: hidden;
+  margin-right: 10px;
 }
 
 .orange {
@@ -145,4 +146,14 @@
   border-radius: 50%;
   width: 25px;
   height: 25px;
+}
+
+.social-likers-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.num-kudos {
+  font-size: 12px;
+  opacity: 0.9;
 }
