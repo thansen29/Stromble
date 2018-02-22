@@ -165,13 +165,14 @@
 }
 
 .likes-container {
-  width: 50%;
+  width: 600px;
   background: white;
   border-radius: 3px;
   z-index: 160;
-  position: absolute;
-  top: 10%;
-  left: 25%;
+  position: fixed;
+  top: 15%;
+  left: 35%;
+  padding-bottom: 50px;
 }
 
 .likes-container-header {
@@ -179,7 +180,6 @@
   align-items: center;
   padding: 20px 0px 20px 0;
   margin-left: 20px;
-  // margin-left: 20px;
   border-bottom: 1px solid #ccccd1;
   width: 90%;
 }

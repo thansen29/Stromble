@@ -10,12 +10,10 @@ class LikeItem extends React.Component {
     };
 
     this.followUser = this.followUser.bind(this);
-    // this.toggleHover = this.toggleHover.bind(this);
   }
 
   componentDidMount(){
     this.props.fetchUserFollowers(this.props.user.id).then(() => {
-      // const bool = this.isFollowing(this.props.currentUser.id, this.props.followers);
       this.setState({
         isFollowing: this.isFollowing(this.props.currentUser.id, this.props.followers),
         ready: true
