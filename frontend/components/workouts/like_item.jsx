@@ -1,26 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { isFollowing } from '../../reducers/selectors';
 
 class LikeItem extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       isFollowing: null,
-      hovered: false
+      ready: false
     };
 
+    this.followUser = this.followUser.bind(this);
     // this.toggleHover = this.toggleHover.bind(this);
   }
 
   componentDidMount(){
-    // this.setState({
-    //   isFollowing: isFollowing(this.props.currentUser.following_ids, this.props.user.follower_ids)
-    // });
+    this.props.fetchUserFollowers(this.props.user.id).then(() => {
+      // const bool = this.isFollowing(this.props.currentUser.id, this.props.followers);
+      this.setState({
+        isFollowing: this.isFollowing(this.props.currentUser.id, this.props.followers),
+        ready: true
+      });
+    });
+  }
+
+  isFollowing(id, array2){
+    return array2.includes(id.toString());
   }
 
   componentWillUnmount(){
     this.props.closeState();
+  }
+
+  followUser(){
+    this.props.followUser(this.props.user.id).then(() => {
+      this.setState({ isFollowing: true });
+    });
   }
 
   render(){
@@ -28,14 +42,26 @@ class LikeItem extends React.Component {
 
     return (
       <section className="like-item-container">
+
         <div className="like-item-left">
-          <img className="nav-avatar" src={ user.avatarUrl } />
+          <Link to={`/users/${user.id}`}>
+            <img className="nav-avatar" src={ user.avatarUrl } />
+          </Link>
+
           <span className="like-item-name">
             <Link to={`/users/${user.id}`}>
               { user.fname } { user.lname}
             </Link>
           </span>
         </div>
+
+        { !this.state.ready ? null :
+           this.state.isFollowing ? null :
+            <button className="follow-btn" onClick={this.followUser}>
+              Follow
+            </button>
+        }
+
       </section>
     );
   }

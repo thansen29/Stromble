@@ -22,7 +22,6 @@ const defaultState = {
 
 const userReducer = (state = defaultState, action) => {
   let newState;
-  // let otherState = merge({}, state);
 
   switch (action.type) {
     case RECEIVE_USER:

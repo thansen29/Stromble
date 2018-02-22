@@ -156,7 +156,7 @@ class WorkoutItem extends React.Component {
               <span className="item-social-likers">
                  { likers }
               </span>
-              <span className="num-kudos">
+              <span className="num-kudos" onClick={this.openModal}>
                 { likers ? `${likers.length} kudos` : null }
               </span>
             </div>
