@@ -182,10 +182,10 @@ class WorkoutItem extends React.Component {
                 </i>
               </button>
 
-              <button
+              { /*<button
                 onClick={this.handleComment}>
                 <i className="chat-icon" disabled></i>
-              </button>
+              </button> */}
             </span>
 
           </div>
