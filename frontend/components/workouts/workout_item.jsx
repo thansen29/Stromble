@@ -75,13 +75,18 @@ class WorkoutItem extends React.Component {
       <section className="workout-item-container">
         <li key={key} className="workout-item">
           <div className="item-top-row">
+            
             <Link to={`/users/${user_id}`}>
               <img className="nav-avatar" src={avatar_url} />
             </Link>
 
             <div className="item-name-date">
               <Link to={`/users/${user_id}`}>{fname} {lname}</Link> <br/>
-            <span className="show-datetime">{ parsedDate } at { parsedTime }</span>
+
+            <span className="show-datetime">
+              { parsedDate } at { parsedTime }
+            </span>
+
             </div>
           </div>
 

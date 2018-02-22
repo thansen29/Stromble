@@ -9,7 +9,6 @@ import { RECEIVE_LIKE } from '../actions/profile/profile_actions';
 const defaultState = {
 	workouts: {},
 	activeWorkout: null,
-  likeData: null
 };
 
 const workoutReducer = (state = defaultState, action) => {
@@ -38,12 +37,13 @@ const workoutReducer = (state = defaultState, action) => {
 			return defaultState;
     case RECEIVE_LIKE:
       newState = Object.assign({}, state);
-			//TODO: DRY up this code
-			newState.workouts[action.likeData.workoutId].liker_ids.push(action.likeData.likerId);
-			if(newState.workouts[action.likeData.workoutId].likers){
-				newState.workouts[action.likeData.workoutId].likers[action.likeData.liker.id] = action.likeData.liker;
+			const data = action.likeData;
+			const currentWorkout = newState.workouts[data.workoutId];
+			currentWorkout.liker_ids.push(data.likerId);
+			if(currentWorkout.likers){
+				currentWorkout.likers[data.liker.id] = data.liker;
 			} else {
-				newState.workouts[action.likeData.workoutId]['likers'] = [action.likeData.liker];
+				currentWorkout['likers'] = [data.liker];
 			}
       return newState;
 		default:
