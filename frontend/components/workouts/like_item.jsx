@@ -6,7 +6,8 @@ class LikeItem extends React.Component {
     super(props);
     this.state = {
       isFollowing: null,
-      ready: false
+      ready: false,
+      own: null
     };
 
     this.followUser = this.followUser.bind(this);
@@ -37,7 +38,6 @@ class LikeItem extends React.Component {
 
   render(){
     const { user, title } = this.props;
-
     return (
       <section className="like-item-container">
 

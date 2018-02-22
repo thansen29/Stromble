@@ -33,6 +33,11 @@ class WorkoutItem extends React.Component {
   }
 
   handleLike(){
+    if(this.props.workout.user_id === this.props.currentUser.id){
+      this.openModal();
+      return;
+    }
+
     this.props.likeWorkout(this.props.workout.id).then(() => {
       this.setState({ liked: true, anyLikes: true });
     });

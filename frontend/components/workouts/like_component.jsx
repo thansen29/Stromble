@@ -30,7 +30,10 @@ const LikeComponent = ({ users, title, currentUser, closeState }) => {
        </header>
 
        <ul>
-         { items }
+         { items.length ?
+           items :
+           <div className="no-entry">This entry has no kudos yet.</div>
+         }
        </ul>
 
      </section>
