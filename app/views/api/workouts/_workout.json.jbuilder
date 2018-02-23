@@ -5,7 +5,6 @@ json.extract! workout, :id, :user_id, :sport, :title, :distance,
 json.fname user.fname
 json.lname user.lname
 json.avatar_url asset_path(user.avatar.url)
-# json.likers workout.likers
 json.liker_ids workout.liker_ids
 json.likers do
   workout.likers.each do |liker|
@@ -17,9 +16,13 @@ json.likers do
     end
   end
 end
-#
-# json.liker_ids do
-#   workout.likers.each do |liker|
-#     json.id liker.id
+
+json.comments workout.comments
+# json.comments workout.comments.each do |comment|
+#   json.set! comment.id do
+#     json.id comment.id
+#     json.userId comment.author_id
+#     json.workoutId comment.workout_id
+#     json.body comment.body
 #   end
 # end

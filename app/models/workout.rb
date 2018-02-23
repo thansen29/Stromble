@@ -28,9 +28,9 @@ class Workout < ApplicationRecord
 
   validates :private, inclusion: { in: [true, false] }
 
-
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_many :likers, through: :likes, source: :user
 

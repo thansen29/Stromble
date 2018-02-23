@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :workouts
   has_many :routes
   has_many :likes
+  has_many :comments
 
   has_many :followers,
     class_name: :Follow,
@@ -89,6 +90,20 @@ class User < ApplicationRecord
     like.user_id = self.id
     like.workout_id = workout.id
     like.save!
+  end
+
+  def comment(workout_id, body)
+    comment = Comment.new
+    comment.author_id = self.id
+    comment.workout_id = workout_id
+    comment.body = body
+    comment.save!
+  end
+
+  def uncomment(workout_id)
+    id = self.id
+    workout = workout.id
+    Comment.where('author_id = ? AND workout_id = ?', id, workout).destroy_all
   end
 
 

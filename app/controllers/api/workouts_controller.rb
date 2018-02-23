@@ -70,6 +70,24 @@ class Api::WorkoutsController < ApplicationController
            locals: { liker: current_user, workout: workout }
   end
 
+  def comment
+    workout = Workout.find(params[:id])
+    body = params[:body]
+    current_user.comment(workout, body)
+    render partial: 'api/comments/comment_data',
+           locals: {
+             userId: current_user.id,
+             workoutId: workout.id,
+             body: body
+           }
+  end
+
+  def uncomment
+    workout_id = params[:id]
+    current_user.uncomment(workout_id)
+    render partial: 'api/comments/comment_data'
+  end
+
   private
   def workout_params
     params.require(:workout).permit(:user_id, :distance, :distance_unit,
