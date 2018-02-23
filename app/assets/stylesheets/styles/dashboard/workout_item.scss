@@ -294,7 +294,7 @@
   }
 }
 
-.comment-right {
+.comment-right-hov {
   flex: 1;
   text-align: end;
   padding: 5px;
@@ -317,6 +317,18 @@
   &:hover .time-ago {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
+  }
+}
+
+.comment-right{
+  flex: 1;
+  text-align: end;
+  padding: 5px;
+  font-size: 12px;
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+  & span {
+    color: #666;
   }
 }
 
