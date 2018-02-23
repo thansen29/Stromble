@@ -3,6 +3,8 @@ import {
 	RECEIVE_WORKOUT,
 	REMOVE_WORKOUT,
 	CLEAR_WORKOUTS,
+	RECEIVE_COMMENT,
+	REMOVE_COMMENT
 } from '../actions/workouts/workout_actions';
 import { RECEIVE_LIKE } from '../actions/profile/profile_actions';
 
@@ -50,7 +52,25 @@ const workoutReducer = (state = defaultState, action) => {
 				currentWorkout['likers'] = [data.liker];
 			}
       return newState;
-			
+
+		case RECEIVE_COMMENT:
+			newState = Object.assign({}, state);
+			const { workoutId, commentId, body, userId, avatarUrl, fname,
+				 			lname } = action.commentData;
+
+			const fullComment = { [commentId] :{
+				avatarUrl, body, fname, lname, id: commentId, workoutId
+			} };
+
+			const comment = {
+				avatarUrl, body, fname, lname, id: commentId, workoutId
+			};
+			if(newState.workouts[workoutId].comments){
+				newState.workouts[workoutId].comments[commentId] = comment;
+			} else {
+				newState.workouts[workoutId]['comments'] = fullComment;
+			}
+			return newState;
 		default:
 			return state;
 	}

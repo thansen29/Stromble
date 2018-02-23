@@ -11,7 +11,12 @@ import {
   unfollowUser,
   likeWorkout
 } from '../../actions/profile/profile_actions';
-import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
+import {
+  requestWorkouts,
+  clearWorkouts,
+  createComment,
+  deleteComment
+} from '../../actions/workouts/workout_actions';
 import { withRouter } from 'react-router-dom';
 import { openModal, closeModal } from '../../actions/modals/modal_actions';
 
@@ -45,6 +50,8 @@ const mapDispatchToProps = dispatch => {
     likeWorkout: id => dispatch(likeWorkout(id)),
     openModal: () => dispatch(openModal()),
     closeModal: () => dispatch(closeModal()),
+    createComment: (id, body) => dispatch(createComment(id, body)),
+    deleteComment: (id) => dispatch(deleteComment(id))
 
   };
 };

@@ -92,10 +92,10 @@ class User < ApplicationRecord
     like.save!
   end
 
-  def comment(workout_id, body)
+  def comment(workout, body)
     comment = Comment.new
     comment.author_id = self.id
-    comment.workout_id = workout_id
+    comment.workout_id = workout.id
     comment.body = body
     comment.save!
   end

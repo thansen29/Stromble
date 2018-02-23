@@ -42,13 +42,16 @@ class WorkoutItem extends React.Component {
 
   handleChange(field){
     return e => {
-      this.setState({ ['field']: e.target.value });
+      this.setState({ [field]: e.target.value });
     };
   }
 
   handleSubmit(e){
     e.preventDefault();
-    // this.props.postComment(this.props.workout.id, this.state.body);
+    this.props.createComment(this.props.workout.id, this.state.body)
+    .then(() => {
+      this.setState({ body: "" });
+    });
   }
 
   handleLike(){
@@ -253,9 +256,15 @@ class WorkoutItem extends React.Component {
               <input
                 className="comment-input"
                 placeholder="Add a comment..."
-                onChange={this.handleChange('body')} />
+                onChange={this.handleChange('body')}
+                value={this.state.body} />
 
-              <button className="comment-button">Post</button>
+              <button
+                onClick={this.handleSubmit}
+                className="comment-button">
+                Post
+              </button>
+
             </form>
             : null
           }

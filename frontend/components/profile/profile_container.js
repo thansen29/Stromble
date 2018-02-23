@@ -2,7 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
 import UserProfile from './user_profile';
-import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
+import {
+  requestWorkouts,
+  clearWorkouts,
+  createComment,
+  deleteComment
+} from '../../actions/workouts/workout_actions';
 import {
   updateUser,
   fetchUser,
@@ -47,6 +52,8 @@ const mapDispatchToProps = dispatch => {
     likeWorkout: id => dispatch(likeWorkout(id)),
     openModal: () => dispatch(openModal()),
     closeModal: () => dispatch(closeModal()),
+    createComment: (id, body) => dispatch(createComment(id, body)),
+    deleteComment: (id) => dispatch(deleteComment(id))
 
   };
 };

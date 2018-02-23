@@ -74,10 +74,10 @@ class Api::WorkoutsController < ApplicationController
     workout = Workout.find(params[:id])
     body = params[:body]
     current_user.comment(workout, body)
-    commentId = Comment.where('author_id = ? AND workout_id = ?', current_user.id, workout.id)
+    commentId = Comment.last.id
     render partial: 'api/comments/comment_data',
            locals: {
-             userId: current_user.id,
+             user: current_user,
              workoutId: workout.id,
              body: body,
              commentId: commentId

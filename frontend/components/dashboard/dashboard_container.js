@@ -1,10 +1,16 @@
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import DashboardIndex from './dashboard_index';
-import { requestWorkouts, clearWorkouts } from '../../actions/workouts/workout_actions';
+import {
+  requestWorkouts,
+  clearWorkouts,
+  createComment,
+  deleteComment
+} from '../../actions/workouts/workout_actions';
 import { requestRunDistance, requestRideDistance, requestLongestRunDistance,
-   requestLongestRideDistance, requestLongestRunDuration, requestLongestRideDuration,
-    requestTotalRuns, requestTotalRides, requestFastedSpeed } from '../../actions/statistics/workout_totals';
+   requestLongestRideDistance, requestLongestRunDuration,
+   requestLongestRideDuration, requestTotalRuns, requestTotalRides,
+   requestFastedSpeed } from '../../actions/statistics/workout_totals';
 import { openModal, closeModal } from '../../actions/modals/modal_actions';
 import { likeWorkout } from '../../actions/profile/profile_actions';
 
@@ -38,7 +44,9 @@ const mapDispatchToProps = dispatch => {
     requestFastedSpeed: (id) => dispatch(requestFastedSpeed(id)),
     openModal: () => dispatch(openModal()),
     closeModal: () => dispatch(closeModal()),
-    likeWorkout: id => dispatch(likeWorkout(id))
+    likeWorkout: id => dispatch(likeWorkout(id)),
+    createComment: (id, body) => dispatch(createComment(id, body)),
+    deleteComment: (id) => dispatch(deleteComment(id))
   };
 };
 
