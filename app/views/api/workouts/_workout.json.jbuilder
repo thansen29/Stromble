@@ -27,6 +27,7 @@ json.comments do
       json.avatarUrl comment.author.avatar.url
       json.workoutId comment.workout_id
       json.body comment.body
+      json.createdAt comment.created_at
     end
   end
 end

@@ -75,12 +75,14 @@ class Api::WorkoutsController < ApplicationController
     body = params[:body]
     current_user.comment(workout, body)
     commentId = Comment.last.id
+    createdAt = Comment.last.created_at
     render partial: 'api/comments/comment_data',
            locals: {
              user: current_user,
              workoutId: workout.id,
              body: body,
-             commentId: commentId
+             commentId: commentId,
+             createdAt: createdAt
            }
   end
 

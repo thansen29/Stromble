@@ -120,7 +120,9 @@ class WorkoutItem extends React.Component {
       commentItems = comments.map((comment) => {
         return (
           <li key={comment.id}>
-            <CommentItem comment={comment} />
+            <CommentItem
+              comment={comment}
+              currentUser={this.props.currentUser} />
           </li>
 
         );

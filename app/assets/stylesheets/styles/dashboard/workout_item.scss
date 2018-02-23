@@ -223,8 +223,11 @@
 }
 
 .comment-section {
-  max-height: 100px;
+  max-height: 110px;
   overflow: hidden;
+  & ul li {
+    margin-bottom: 5px;
+  }
 }
 
 .comment-item-wrapper {
@@ -241,6 +244,7 @@
 .comment-text {
   font-size: 12px;
   margin-bottom: 2px;
+  display: flex;
   & a {
     font-weight: bold;
     margin-bottom: 10px;
@@ -257,6 +261,7 @@
   padding-bottom: 15px;
   transition: color 200ms;
   margin-right: 5px;
+  margin-top: 10px;
   &:hover {
     color: rgb(9, 71, 111);
     cursor: pointer;
@@ -275,7 +280,7 @@
   background: whitesmoke;
   padding: 5px;
   font-size: 12px;
-  width: 75%
+  width: 75%;
 }
 
 .comment-button {
@@ -287,4 +292,49 @@
   &:hover {
     background: whitesmoke;
   }
+}
+
+.comment-right {
+  flex: 1;
+  text-align: end;
+  padding: 5px;
+  font-size: 12px;
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+  & span {
+    color: #666;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &:hover .delete-comment {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &:hover .time-ago {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+.delete-comment {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 100;
+  // bottom: 15px;
+  margin-left: 35px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 5px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.time-ago {
+  position: relative;
+  top: 10px;
 }
