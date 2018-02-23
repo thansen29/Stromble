@@ -157,6 +157,7 @@
   font-size: 12px;
   opacity: 0.9;
   transition: color 200ms;
+  margin-right: 5px;
   &:hover {
     color: rgb(9, 71, 111);
     cursor: pointer;
@@ -219,4 +220,46 @@
   width: 90%;
   margin-left: 20px;
   opacity: 0.9;
+}
+
+.comment-section {
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.comment-item-wrapper {
+  display: flex;
+  padding-bottom: 15px;
+}
+
+.comment-item-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.comment-text {
+  font-size: 12px;
+  margin-bottom: 2px;
+  & a {
+    font-weight: bold;
+    margin-bottom: 10px;
+    &:hover {
+      color: rgb(9, 71, 111);
+      cursor: pointer;
+    }
+  }
+}
+
+.see-all {
+  font-size: 12px;
+  opacity: 0.9;
+  padding-bottom: 15px;
+  transition: color 200ms;
+  margin-right: 5px;
+  &:hover {
+    color: rgb(9, 71, 111);
+    cursor: pointer;
+    transition: color 200ms;
+  }
 }

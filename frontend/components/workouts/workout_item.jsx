@@ -4,8 +4,8 @@ import moment from 'moment';
 import _ from 'lodash';
 import ModalComponent from '../modals/modal_component';
 import LikeComponent from './like_component';
+import CommentItem from './comment_item';
 
-//TODO: trigger the opening of modal when clicking on the alread clicked button
 class WorkoutItem extends React.Component {
   constructor(props){
     super(props);
@@ -91,6 +91,20 @@ class WorkoutItem extends React.Component {
       });
     }
 
+    let comments;
+    let commentItems;
+    if(this.props.workout.comments){
+      comments = _.values(this.props.workout.comments);
+      commentItems = comments.map((comment) => {
+        return (
+          <li key={comment.id}>
+            <CommentItem comment={comment} />
+          </li>
+
+        );
+      });
+    }
+
     return (
       <section className="workout-item-container">
         <li key={key} className="workout-item">
@@ -155,15 +169,24 @@ class WorkoutItem extends React.Component {
           </div>
 
           <div className="item-socials">
-            { this.state.anyLikes ? null : likeText }
+            { this.state.anyLikes ||
+              this.props.workout.user_id === this.props.currentUser.id
+              ? null : likeText
+            }
 
             <div className="social-likers-wrapper">
               <span className="item-social-likers">
                  { likers }
               </span>
+
               <span className="num-kudos" onClick={this.openModal}>
                 { likers ? `${likers.length} kudos` : null }
               </span>
+
+              <span className="num-kudos">
+                { comments ? `${comments.length} comments` : null }
+              </span>
+
             </div>
 
             <span className="item-social-buttons">
@@ -189,6 +212,17 @@ class WorkoutItem extends React.Component {
             </span>
 
           </div>
+
+          <div className="comment-section">
+            <ul>
+              { commentItems }
+            </ul>
+          </div>
+          { comments ? comments.length > 2 ?
+            <span className="see-all">
+              See all { comments.length } comments
+            </span> : null : null
+          }
         </li>
 
         { this.props.isOpen && this.state.open ?

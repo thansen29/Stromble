@@ -22,16 +22,21 @@ json.comments do
     json.set! comment.id do
       json.id comment.id
       json.userId comment.author_id
+      json.fname comment.author.fname
+      json.lname comment.author.lname
+      json.avatarUrl comment.author.avatar.url
       json.workoutId comment.workout_id
       json.body comment.body
     end
   end
 end
-# json.comments workout.comments.each do |comment|
-#   json.set! comment.id do
-#     json.id comment.id
-#     json.userId comment.author_id
-#     json.workoutId comment.workout_id
-#     json.body comment.body
+# json.comments do
+#   workout.comments.each do |comment|
+#     json.set! comment.id do
+#       json.id comment.id
+#       json.userId comment.author_id
+#       json.workoutId comment.workout_id
+#       json.body comment.body
+#     end
 #   end
 # end
