@@ -26,7 +26,6 @@ class CommentItem extends React.Component {
             </span>
 
 
-
         </div>
 
       </section>

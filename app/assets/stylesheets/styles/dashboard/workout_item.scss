@@ -263,3 +263,28 @@
     transition: color 200ms;
   }
 }
+
+.comment-form {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  border-top: 1px solid #ccccd1;
+}
+
+.comment-input {
+  background: whitesmoke;
+  padding: 5px;
+  font-size: 12px;
+  width: 75%
+}
+
+.comment-button {
+  background: white;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 14px;
+  color: rgb(249, 77, 31);
+  &:hover {
+    background: whitesmoke;
+  }
+}

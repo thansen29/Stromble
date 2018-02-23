@@ -13,13 +13,17 @@ class WorkoutItem extends React.Component {
     this.state = {
       liked: false,
       anyLikes: false,
-      open: false
+      open: false,
+      commentField: false,
+      body: ""
     };
 
     this.handleLike = this.handleLike.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeState = this.closeState.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleComment = this.handleComment.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -30,6 +34,21 @@ class WorkoutItem extends React.Component {
     if(this.props.workout.liker_ids.length){
       this.setState({ anyLikes: true });
     }
+  }
+
+  handleComment(){
+    this.setState({ commentField: true });
+  }
+
+  handleChange(field){
+    return e => {
+      this.setState({ ['field']: e.target.value });
+    };
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    // this.props.postComment(this.props.workout.id, this.state.body);
   }
 
   handleLike(){
@@ -205,10 +224,10 @@ class WorkoutItem extends React.Component {
                 </i>
               </button>
 
-              { /*<button
+              <button
                 onClick={this.handleComment}>
-                <i className="chat-icon" disabled></i>
-              </button> */}
+                <i className="chat-icon"></i>
+              </button>
             </span>
 
           </div>
@@ -218,11 +237,29 @@ class WorkoutItem extends React.Component {
               { commentItems }
             </ul>
           </div>
+
           { comments ? comments.length > 2 ?
             <span className="see-all">
               See all { comments.length } comments
             </span> : null : null
           }
+
+          { this.state.commentField ?
+            <form className="comment-form" onSubmit={ this.handleSubmit }>
+              <img
+                className="item-sm-avatar"
+                src={ this.props.currentUser.avatar_url } />
+
+              <input
+                className="comment-input"
+                placeholder="Add a comment..."
+                onChange={this.handleChange('body')} />
+
+              <button className="comment-button">Post</button>
+            </form>
+            : null
+          }
+
         </li>
 
         { this.props.isOpen && this.state.open ?
