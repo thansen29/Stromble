@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import moment from 'moment';
-import _ from 'lodash';
-import LikeIndex from './like_index';
 import WorkoutItemContent from './workout_item_content';
+import LikeIndex from './likes/like_index';
 
 const WorkoutItem = (props) => {
   const key = props.workout.key;

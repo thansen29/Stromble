@@ -2,10 +2,9 @@ import { connect } from 'react-redux';
 import LikeItem from './like_item';
 import _ from 'lodash';
 import { fetchUserFollowers, fetchUserFollowing,
-followUser} from '../../actions/profile/profile_actions';
+followUser} from '../../../actions/profile/profile_actions';
 
 export const mapStateToProps = (state, ownProps) => {
-  //NOTE: viewedUsers is not populated here.
   let followers;
   if(state.viewedUsers.followers){
     followers = Object.keys(state.viewedUsers.followers);
@@ -16,7 +15,6 @@ export const mapStateToProps = (state, ownProps) => {
     title: ownProps.title,
     currentUser: state.session.currentUser,
     followers,
-    // followers: _.values(state.viewedUsers.followers),
     currentFollowing: state.session.currentUser.following
   };
 };
