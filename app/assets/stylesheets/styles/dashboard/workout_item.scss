@@ -225,6 +225,7 @@
 .comment-section {
   max-height: 110px;
   overflow: hidden;
+  padding-bottom: 10px;
   & ul li {
     margin-bottom: 5px;
   }
@@ -273,6 +274,7 @@
   display: flex;
   justify-content: space-between;
   padding: 15px 0;
+  margin-top: 15px;
   border-top: 1px solid #ccccd1;
 }
 
@@ -349,4 +351,8 @@
 .time-ago {
   position: relative;
   top: 10px;
+}
+
+.like-index-container {
+  padding-bottom: 15px;
 }
