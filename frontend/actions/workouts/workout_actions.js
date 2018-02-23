@@ -2,6 +2,8 @@ import * as WorkoutAPIUtil from '../../util/workout_api_util';
 export const RECEIVE_WORKOUTS = 'RECEIVE_WORKOUTS';
 export const RECEIVE_WORKOUT = 'RECEIVE_WORKOUT';
 export const REMOVE_WORKOUT = 'REMOVE_WORKOUT';
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export const CLEAR_WORKOUTS = 'CLEAR_WORKOUTS';
 export const RECEIVE_WORKOUT_ERRORS = 'RECEIVE_WORKOUT_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
@@ -46,6 +48,20 @@ export const clearErrors = () => {
   };
 };
 
+export const receiveComment = (commentData) => {
+  return {
+    type: RECEIVE_COMMENT,
+    commentData
+  };
+};
+
+export const removeComment = (commentData) => {
+  return {
+    type: REMOVE_COMMENT,
+    commentData
+  };
+};
+
 export const requestWorkouts = (page, id, location) => dispatch => {
   return WorkoutAPIUtil.fetchWorkouts(page, id, location).then((workouts) => {
     dispatch(receiveWorkouts(workouts));
@@ -83,5 +99,17 @@ export const deleteWorkout = id => dispatch => {
     dispatch(removeWorkout(id));
   }, (errors) => {
     dispatch(receiveErrors(errors));
+  });
+};
+
+export const createComment = (id, body) => dispatch => {
+  return WorkoutAPIUtil.createComment(id, body).then((commentData) => {
+    dispatch(receiveComment(commentData));
+  });
+};
+
+export const deleteComment = id => dispatch => {
+  return WorkoutAPIUtil.deleteComment(id).then((commentData) => {
+    dispatch(removeComment(commentData));
   });
 };

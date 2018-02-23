@@ -19,6 +19,7 @@ const workoutReducer = (state = defaultState, action) => {
 			newWorkoutList = Object.assign({}, state.workouts, action.workouts);
 			newState = Object.assign({}, state, { workouts: newWorkoutList });
 			return newState;
+
 		case RECEIVE_WORKOUT:
 			newWorkoutList = Object.assign({}, state.workouts, {
 				[action.workout.id]: action.workout
@@ -28,13 +29,16 @@ const workoutReducer = (state = defaultState, action) => {
 				activeWorkout: action.workout.id
 			});
 			return newState;
+
 		case REMOVE_WORKOUT:
 			newState = Object.assign({}, state);
 			delete newState.workouts[action.workoutId];
 			newState.activeWorkout = null;
 			return newState;
+
 		case CLEAR_WORKOUTS:
 			return defaultState;
+
     case RECEIVE_LIKE:
       newState = Object.assign({}, state);
 			const data = action.likeData;
@@ -46,6 +50,7 @@ const workoutReducer = (state = defaultState, action) => {
 				currentWorkout['likers'] = [data.liker];
 			}
       return newState;
+			
 		default:
 			return state;
 	}

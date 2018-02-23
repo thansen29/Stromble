@@ -35,3 +35,18 @@ export const deleteWorkout = id => {
     url: `api/workouts/${id}`
   });
 };
+
+export const createComment = (id, body) => {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/workouts/${id}/comment`,
+    data: { body }
+  });
+};
+
+export const deleteComment = id => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/workouts/${id}/uncomment`
+  });
+};
