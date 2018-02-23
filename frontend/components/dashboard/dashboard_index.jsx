@@ -104,6 +104,7 @@ class DashboardIndex extends React.Component {
           currentUser={this.props.currentUser}
           likeWorkout={this.props.likeWorkout}
           openModal={this.props.openModal}
+          closeModal={this.props.closeModal}
           isOpen={this.props.isOpen}
           createComment={this.props.createComment}
           deleteComment={this.props.deleteComment}/>;
@@ -115,6 +116,7 @@ class DashboardIndex extends React.Component {
           currentUser={this.props.currentUser}
           likeWorkout={this.props.likeWorkout}
           openModal={this.props.openModal}
+          closeModal={this.props.closeModal}
           isOpen={this.props.isOpen}
           createComment={this.props.createComment}
           deleteComment={this.props.deleteComment}/>;

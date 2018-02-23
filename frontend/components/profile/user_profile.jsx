@@ -98,7 +98,6 @@ class UserProfile extends React.Component {
       following={this.props.following} />;
 
     let workoutsComponent;
-    //might need to change currentUser back
     if(this.props.user){
       workoutsComponent =
         <div className="waypoint">
@@ -108,6 +107,7 @@ class UserProfile extends React.Component {
             getWorkouts={this.getWorkouts}
             likeWorkout={this.props.likeWorkout}
             openModal={this.props.openModal}
+            closeModal={this.props.closeModal}
             isOpen={this.props.isOpen}
             createComment={this.props.createComment}
             deleteComment={this.props.deleteComment} />
