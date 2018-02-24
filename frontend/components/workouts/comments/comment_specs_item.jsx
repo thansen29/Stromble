@@ -35,7 +35,7 @@ class CommentSpecsItem extends React.Component {
 
     return (
       <section
-        className="comment-item-wrapper"
+        className="comment-spec-item-wrapper"
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleHover}>
 

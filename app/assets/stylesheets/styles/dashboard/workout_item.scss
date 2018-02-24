@@ -255,6 +255,21 @@
     transition: opacity 0.3s ease-in-out;
   }
 }
+.comment-spec-item-wrapper {
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccccd1;
+  transition: opacity 0.3s ease-in-out;
+  &:hover .delete-comment {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  &:hover .time-ago {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
 
 .comment-item-text {
   display: flex;
@@ -443,12 +458,14 @@
 .like-modal-button-dis {
   cursor: not-allowed;
   padding: 10px;
+  color: #666;
   border: 1px solid #ccccd1;
   border-radius: 1px;
 }
 
 .like-modal-button {
   padding: 10px;
+  color: #666;
   border: 1px solid #ccccd1;
   border-radius: 1px;
 }
