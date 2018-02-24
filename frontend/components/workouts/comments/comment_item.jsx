@@ -7,6 +7,7 @@ class CommentItem extends React.Component {
     super(props);
     this.state = { hovered: false, ownComment: false };
     this.handleHover = this.handleHover.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount(){
@@ -19,6 +20,10 @@ class CommentItem extends React.Component {
     this.setState({ hovered: !this.state.hovered });
   }
 
+  handleDelete(){
+    this.props.deleteComment(this.props.comment.id);
+  }
+  //TODO: fix hover fading
   render(){
     const fromNow = moment(this.props.comment.createdAt).fromNow();
 
@@ -26,7 +31,7 @@ class CommentItem extends React.Component {
       <section
         className="comment-item-wrapper"
         onMouseEnter={this.handleHover}
-        onMouseLeave={this.handelHover}>
+        onMouseLeave={this.handleHover}>
 
         <Link to={`/users/${this.props.comment.userId}`}>
           <img className="item-sm-avatar" src={ this.props.comment.avatarUrl } />
@@ -46,15 +51,18 @@ class CommentItem extends React.Component {
 
         </div>
 
-        <span className={this.state.ownComment ? "comment-right-hov" : "comment-right" }>
-          { this.state.ownComment ?
-            <span
-              className="delete-comment"
-              onClick={this.handleDelete}>&times;
-            </span> : null
+        <span
+          className={this.state.ownComment ? "comment-right-hov" : "comment-right" }>
+          { this.state.ownComment && this.state.hovered ?
+              <span
+                className="delete-comment"
+                onClick={this.handleDelete}>&times;
+              </span> : null
           }
 
-          <span className="time-ago">{ fromNow }</span>
+          { this.state.hovered ? null :
+            <span className="time-ago">{ fromNow }</span>
+          }
 
 
         </span>

@@ -234,12 +234,23 @@
 .comment-item-wrapper {
   display: flex;
   padding-bottom: 15px;
+  transition: opacity 0.3s ease-in-out;
+  &:hover .delete-comment {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  &:hover .time-ago {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
 }
 
 .comment-item-text {
   display: flex;
   flex-direction: column;
   margin-left: 15px;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .comment-text {
@@ -305,21 +316,16 @@
   transition: opacity 0.3s ease-in-out;
   & span {
     color: #666;
-    &:hover {
-      cursor: pointer;
-    }
   }
-  &:hover .delete-comment {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-    &:hover {
-      cursor: pointer;
-    }
-  }
-  &:hover .time-ago {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
+}
+.comment-right-hov:hover .delete-comment {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+.comment-right-hov:hover .time-ago {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .comment-right{
@@ -328,22 +334,23 @@
   padding: 5px;
   font-size: 12px;
   position: relative;
-  transition: opacity 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   & span {
     color: #666;
   }
 }
 
 .delete-comment {
-  position: absolute;
+  position: relative;
   font-size: 22px;
   font-weight: 100;
-  // bottom: 15px;
   margin-left: 35px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
   padding: 5px;
+  transition: opacity 0.3s ease-in-out;
   &:hover {
+    // opacity: 1;
+    // transition: opacity 0.3s ease-in-out;
     cursor: pointer;
   }
 }
@@ -351,6 +358,12 @@
 .time-ago {
   position: relative;
   top: 10px;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  // &:hover {
+  //   opacity: 0;
+  //   transition: opacity 0.3s ease-in-out;
+  // }
 }
 
 .like-index-container {

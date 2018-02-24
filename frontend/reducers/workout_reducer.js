@@ -59,17 +59,22 @@ const workoutReducer = (state = defaultState, action) => {
 				 			lname } = action.commentData;
 
 			const fullComment = { [commentId] :{
-				avatarUrl, body, fname, lname, id: commentId, workoutId
+				avatarUrl, body, fname, lname, id: commentId, workoutId, userId
 			} };
 
 			const comment = {
-				avatarUrl, body, fname, lname, id: commentId, workoutId
+				avatarUrl, body, fname, lname, id: commentId, workoutId, userId
 			};
 			if(newState.workouts[workoutId].comments){
 				newState.workouts[workoutId].comments[commentId] = comment;
 			} else {
 				newState.workouts[workoutId]['comments'] = fullComment;
 			}
+			return newState;
+
+		case REMOVE_COMMENT:
+			newState = Object.assign({}, state);
+			delete newState.workouts[action.commentData.workoutId].comments[action.commentData.commentId];
 			return newState;
 		default:
 			return state;

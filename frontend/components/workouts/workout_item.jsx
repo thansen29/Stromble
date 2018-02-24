@@ -17,7 +17,8 @@ const WorkoutItem = (props) => {
           openModal={props.openModal}
           likeWorkout={props.likeWorkout}
           createComment={props.createComment}
-          closeModal={props.closeModal}/>
+          closeModal={props.closeModal}
+          deleteComment={props.deleteComment}/>
 
       </li>
     </section>

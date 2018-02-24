@@ -21,9 +21,6 @@ class CommentIndex extends React.Component {
     this.setState({ commentField: newProps.commentField });
   }
 
-  componentDidMount(){
-  }
-
   handleChange(field){
     return e => {
       this.setState({ [field]: e.target.value });
@@ -49,7 +46,8 @@ class CommentIndex extends React.Component {
           <li key={comment.id}>
             <CommentItem
               comment={comment}
-              currentUser={this.props.currentUser} />
+              currentUser={this.props.currentUser}
+              deleteComment={this.props.deleteComment} />
           </li>
 
         );

@@ -100,10 +100,8 @@ class User < ApplicationRecord
     comment.save!
   end
 
-  def uncomment(workout_id)
-    id = self.id
-    workout = workout.id
-    Comment.where('author_id = ? AND workout_id = ?', id, workout).destroy_all
+  def uncomment(commentId)
+    Comment.find(commentId).delete
   end
 
 

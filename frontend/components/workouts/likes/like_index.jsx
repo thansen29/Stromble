@@ -133,7 +133,8 @@ class LikeIndex extends React.Component {
           currentUser={this.props.currentUser}
           workout={this.props.workout}
           commentField={this.state.commentField}
-          createComment={this.props.createComment} />
+          createComment={this.props.createComment}
+          deleteComment={this.props.deleteComment}/>
 
         { this.props.isOpen && this.state.open ?
           <ModalComponent closeModal={this.props.closeModal}>
