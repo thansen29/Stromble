@@ -26,10 +26,6 @@ class LikeItem extends React.Component {
     return array2.includes(id.toString());
   }
 
-  componentWillUnmount(){
-    this.props.closeState();
-  }
-
   followUser(){
     this.props.followUser(this.props.user.id).then(() => {
       this.setState({ isFollowing: true });

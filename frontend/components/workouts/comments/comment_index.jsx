@@ -27,7 +27,6 @@ class CommentIndex extends React.Component {
     };
   }
 
-
   handleSubmit(e){
     e.preventDefault();
     this.props.createComment(this.props.workout.id, this.state.body)
@@ -63,7 +62,7 @@ class CommentIndex extends React.Component {
         </div>
 
         { comments ? comments.length > 2 ?
-          <span className="see-all">
+          <span className="see-all" onClick={this.props.openModal}>
             See all { comments.length } comments
           </span> : null : null
         }

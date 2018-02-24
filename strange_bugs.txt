@@ -21,3 +21,5 @@ pathfinding for ghosts. algorithm spits out a path, right three times, then up t
 infinite scroll. reading all these things about all these react packages and need to keep track of all these things to make it work. the simple and easy solution was the kaminari gem, and the react waypoint library. the gem gives easy access to limit the amount of data it fetches, while the waypoint lets you set a spot on the screen for once its reached it will trigger a callback which will fetch more.
 
 could not figure out why an api call i was making wasn’t returning a promise. looking everywhere to see why, was able to see that the query was successful and working as planned, but then still getting an error saying i can’t use then on an undefined. Then i realized i wasn’t returning the ajax call to the action creator
+
+consecutive modals would make the screen darker and darker. had to use component will dismount to send a closestate function up that will change the internal states open status

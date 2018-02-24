@@ -45,6 +45,10 @@ class LikeIndex extends React.Component {
     });
   }
 
+  componentWillUnmount(){
+    this.closeState();
+  }
+
   openModal(){
     this.setState({ open: true });
     this.props.openModal();
@@ -100,7 +104,7 @@ class LikeIndex extends React.Component {
               { likers ? `${likers.length} kudos` : null }
             </span>
 
-            <span className="num-kudos">
+            <span className="num-kudos" onClick={this.openModal}>
               { comments ? `${comments.length} comments` : null }
             </span>
           </div>
@@ -133,6 +137,8 @@ class LikeIndex extends React.Component {
           currentUser={this.props.currentUser}
           workout={this.props.workout}
           commentField={this.state.commentField}
+          openModal={this.openModal}
+          openState={this.openState}
           createComment={this.props.createComment}
           deleteComment={this.props.deleteComment}/>
 

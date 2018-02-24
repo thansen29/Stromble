@@ -46,7 +46,8 @@ class CommentSpecs extends React.Component {
             <CommentSpecsItem
               comment={comment}
               currentUser={this.props.currentUser}
-              deleteComment={this.props.deleteComment} />
+              deleteComment={this.props.deleteComment}
+              closeState={this.props.closeState}/>
           </li>
 
         );
