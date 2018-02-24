@@ -151,7 +151,8 @@ class LikeIndex extends React.Component {
               workout={this.props.workout}
               commentField={this.state.commentField}
               createComment={this.props.createComment}
-              deleteComment={this.props.deleteComment}/>
+              deleteComment={this.props.deleteComment}
+              handleLike={this.handleLike}/>
           </ModalComponent> : null
         }
       </section>

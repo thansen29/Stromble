@@ -173,7 +173,7 @@
   position: fixed;
   top: 15%;
   left: 35%;
-  padding-bottom: 50px;
+  padding-bottom: 25px;
 }
 
 .likes-container-header {
@@ -226,6 +226,7 @@
   max-height: 110px;
   overflow: hidden;
   padding-bottom: 10px;
+  margin-top: 15px;
   & ul li {
     margin-bottom: 5px;
   }
@@ -335,7 +336,7 @@
   padding: 10px;
   width: 75%;
   &:focus {
-    border: 2px solid rgba(81, 140, 203, 1);// #0d6ba7;
+    border: 1px solid rgba(81, 140, 203, 1);// #0d6ba7;
   }
 }
 
@@ -430,4 +431,24 @@
 
 .from-now {
   color: #666;
+}
+
+.kudos-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.like-modal-button-dis {
+  cursor: not-allowed;
+  padding: 10px;
+  border: 1px solid #ccccd1;
+  border-radius: 1px;
+}
+
+.like-modal-button {
+  padding: 10px;
+  border: 1px solid #ccccd1;
+  border-radius: 1px;
 }

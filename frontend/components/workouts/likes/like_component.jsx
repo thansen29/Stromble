@@ -28,14 +28,33 @@ const mapDispatchToProps = dispatch => {
 class LikeComponent extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      ownWorkout: false
+    };
+
+    this.handleLike = this.handleLike.bind(this);
+  }
+
+  componentDidMount(){
+    if(this.props.currentUser.id === this.props.workout.user_id){
+      this.setState({ ownWorkout: true });
+    }
+  }
+
+  componentWillReceiveProps(newProps){
+    if(this.props.workout.liker_ids.includes(this.props.currentUser.id)){
+      this.setState({ ownWorkout: true });
+    }
   }
 
   componentWillUnmount(){
     this.props.closeState();
   }
 
-// const LikeComponent = ({ users, title, currentUser, closeState, workout,
-//    commentField, createComment, deleteComment  }) => {
+  handleLike(){
+    this.props.handleLike();
+  }
+
   render(){
     let likeItems = this.props.users.map((user) => {
       return (
@@ -83,12 +102,19 @@ class LikeComponent extends React.Component {
 
           <Tabs panes={tabs} />
 
-          <ul>
-            {/* likeItems.length ?
-              likeItems :
-              <div className="no-entry">This entry has no kudos yet.</div>
-            */}
-          </ul>
+        <div className='kudos-wrapper'>
+          { this.state.ownWorkout ?
+            <button className="like-modal-button-dis">
+              Give Kudos
+            </button>
+          :
+          <button
+            className="like-modal-button"
+            onClick={this.handleLike}>
+            Give Kudos
+          </button>
+          }
+        </div>
 
         </section>
       );
