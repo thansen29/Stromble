@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 import React from 'react';
 import _ from 'lodash';
 import LikeItemContainer from './like_item_container';
-
+import CommentSpecs from '../comments/comment_specs';
+import {
+  createComment,
+  deleteComment
+} from '../../../actions/workouts/workout_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     users: _.values(ownProps.users),
@@ -12,8 +16,16 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const LikeComponent = ({ users, title, currentUser, closeState }) => {
-  let items = users.map((user) => {
+const mapDispatchToProps = dispatch => {
+  return {
+    createComment: (id, body) => dispatch(createComment(id, body)),
+    deleteComment: (id) => dispatch(deleteComment(id))
+  };
+};
+
+const LikeComponent = ({ users, title, currentUser, closeState, workout,
+   commentField, createComment, deleteComment  }) => {
+  let likeItems = users.map((user) => {
     return (
       <li key={ user.id }>
         <LikeItemContainer user={user} title={title} closeState={closeState} />
@@ -30,10 +42,18 @@ const LikeComponent = ({ users, title, currentUser, closeState }) => {
        </header>
 
        <ul>
-         { items.length ?
-           items :
+         {/* likeItems.length ?
+           likeItems :
            <div className="no-entry">This entry has no kudos yet.</div>
-         }
+         */}
+         <section className="modal-comment">
+           <CommentSpecs
+             currentUser={currentUser}
+             workout={workout}
+             commentField={commentField}
+             createComment={createComment}
+             deleteComment={deleteComment}/>
+         </section>
        </ul>
 
      </section>
@@ -41,4 +61,4 @@ const LikeComponent = ({ users, title, currentUser, closeState }) => {
 
 };
 
-export default connect(mapStateToProps, null)(LikeComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(LikeComponent);

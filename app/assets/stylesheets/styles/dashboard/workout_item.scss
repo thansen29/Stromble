@@ -231,6 +231,15 @@
   }
 }
 
+.comment-spec-section {
+  max-height: 240px;
+  overflow: scroll;
+  padding-bottom: 10px;
+  & ul li {
+    margin-bottom: 5px;
+  }
+}
+
 .comment-item-wrapper {
   display: flex;
   padding-bottom: 15px;
@@ -253,6 +262,13 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+.comment-spec-item-text {
+  display: flex;
+  // flex-direction: column;
+  margin-left: 15px;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .comment-text {
   font-size: 12px;
   margin-bottom: 2px;
@@ -262,6 +278,23 @@
     margin-bottom: 10px;
     &:hover {
       color: rgb(9, 71, 111);
+      cursor: pointer;
+    }
+  }
+}
+.comment-spec-text {
+  font-size: 12px;
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 127, 182);
+  margin-right: 10px;
+  & a {
+    font-weight: bold;
+    margin-bottom: 10px;
+    &:hover {
+      color: #005b83;
+      text-decoration: underline;
       cursor: pointer;
     }
   }
@@ -296,12 +329,33 @@
   width: 75%;
 }
 
+.comment-spec-input {
+  background: white;
+  border: 1px solid black;
+  padding: 10px;
+  width: 75%;
+  &:focus {
+    border: 2px solid rgba(81, 140, 203, 1);// #0d6ba7;
+  }
+}
+
 .comment-button {
   background: white;
   border-radius: 2px;
   padding: 5px;
   font-size: 14px;
   color: rgb(249, 77, 31);
+  &:hover {
+    background: whitesmoke;
+  }
+}
+
+.comment-spec-button {
+  background: white;
+  border-radius: 2px;
+  border: 1px solid #ccccd1;
+  padding: 10px;
+  font-size: 14px;
   &:hover {
     background: whitesmoke;
   }
@@ -318,15 +372,15 @@
     color: #666;
   }
 }
-.comment-right-hov:hover .delete-comment {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-  cursor: pointer;
-}
-.comment-right-hov:hover .time-ago {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
+// .comment-right-hov:hover .delete-comment {
+//   opacity: 1;
+//   transition: opacity 0.3s ease-in-out;
+//   cursor: pointer;
+// }
+// .comment-right-hov:hover .time-ago {
+//   opacity: 0;
+//   transition: opacity 0.3s ease-in-out;
+// }
 
 .comment-right{
   flex: 1;
@@ -368,4 +422,12 @@
 
 .like-index-container {
   padding-bottom: 15px;
+}
+
+.modal-comment {
+  padding: 20px 20px 0 20px;
+}
+
+.from-now {
+  color: #666;
 }

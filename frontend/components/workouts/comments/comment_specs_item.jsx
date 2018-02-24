@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-class CommentItem extends React.Component {
+class CommentSpecsItem extends React.Component {
   constructor(props){
     super(props);
     this.state = { hovered: false, ownComment: false };
@@ -43,12 +43,14 @@ class CommentItem extends React.Component {
           <img className="item-sm-avatar" src={ this.props.comment.avatarUrl } />
         </Link>
 
-        <div className="comment-item-text">
+        <div className="comment-spec-item-text">
 
-          <span className="comment-text">
+          <span className="comment-spec-text">
             <Link to={`/users/${this.props.comment.userId}`}>
                 { this.props.comment.fname } { this.props.comment.lname}
             </Link>
+
+            <div className="from-now">{ fromNow }</div>
           </span>
 
           <span className="comment-text">
@@ -66,15 +68,10 @@ class CommentItem extends React.Component {
               </span> : null
           }
 
-          { this.state.hovered ? null :
-            <span className="time-ago">{ fromNow }</span>
-          }
-
-
         </span>
       </section>
     );
   }
 }
 
-export default CommentItem;
+export default CommentSpecsItem;

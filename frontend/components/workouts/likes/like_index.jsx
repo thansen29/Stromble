@@ -141,7 +141,11 @@ class LikeIndex extends React.Component {
             <LikeComponent
               users={this.props.workout.likers}
               title={this.props.workout.title}
-              closeState={this.closeState} />
+              closeState={this.closeState}
+              workout={this.props.workout}
+              commentField={this.state.commentField}
+              createComment={this.props.createComment}
+              deleteComment={this.props.deleteComment}/>
           </ModalComponent> : null
         }
       </section>
