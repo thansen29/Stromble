@@ -57,21 +57,20 @@ class CommentItem extends React.Component {
 
         </div>
 
-        <span
-          className={this.state.ownComment ? "comment-right-hov" : "comment-right" }>
-          { this.state.ownComment && this.state.hovered ?
-              <span
-                className="delete-comment"
-                onClick={this.handleDelete}>&times;
-              </span> : null
+        <span className="comment-right">
+          { !this.state.ownComment ?
+            <span className="static-time-ago">{ fromNow }</span>
+            :
+              this.state.hovered ?
+                <span
+                  onClick={this.handleDelete}
+                  className="delete-comment">&times;</span>
+              :
+                <span className="time-ago">{ fromNow }</span>
           }
-
-          { this.state.hovered ? null :
-            <span className="time-ago">{ fromNow }</span>
-          }
-
-
         </span>
+
+
       </section>
     );
   }

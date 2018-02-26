@@ -244,15 +244,15 @@
 .comment-item-wrapper {
   display: flex;
   padding-bottom: 15px;
-  transition: opacity 0.3s ease-in-out;
+  transition: all 0.3s ease;
   &:hover .delete-comment {
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+    transition: all 0.3s ease;
     cursor: pointer;
   }
   &:hover .time-ago {
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: all 0.3s ease;
   }
 }
 .comment-spec-item-wrapper {
@@ -280,7 +280,6 @@
 
 .comment-spec-item-text {
   display: flex;
-  // flex-direction: column;
   margin-left: 15px;
   transition: opacity 0.3s ease-in-out;
 }
@@ -351,7 +350,7 @@
   padding: 10px;
   width: 75%;
   &:focus {
-    border: 1px solid rgba(81, 140, 203, 1);// #0d6ba7;
+    border: 1px solid rgba(81, 140, 203, 1);
   }
 }
 
@@ -377,27 +376,6 @@
   }
 }
 
-.comment-right-hov {
-  flex: 1;
-  text-align: end;
-  padding: 5px;
-  font-size: 12px;
-  position: relative;
-  transition: opacity 0.3s ease-in-out;
-  & span {
-    color: #666;
-  }
-}
-// .comment-right-hov:hover .delete-comment {
-//   opacity: 1;
-//   transition: opacity 0.3s ease-in-out;
-//   cursor: pointer;
-// }
-// .comment-right-hov:hover .time-ago {
-//   opacity: 0;
-//   transition: opacity 0.3s ease-in-out;
-// }
-
 .comment-right{
   flex: 1;
   text-align: end;
@@ -410,6 +388,19 @@
   }
 }
 
+.comment-right-hov {
+  flex: 1;
+  text-align: end;
+  padding: 5px;
+  font-size: 12px;
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+  & span {
+    color: #666;
+  }
+}
+
+
 .delete-comment {
   position: relative;
   font-size: 22px;
@@ -417,10 +408,9 @@
   margin-left: 35px;
   opacity: 0;
   padding: 5px;
-  transition: opacity 0.3s ease-in-out;
+  transition: all 0.3s ease;
+
   &:hover {
-    // opacity: 1;
-    // transition: opacity 0.3s ease-in-out;
     cursor: pointer;
   }
 }
@@ -429,11 +419,11 @@
   position: relative;
   top: 10px;
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-  // &:hover {
-  //   opacity: 0;
-  //   transition: opacity 0.3s ease-in-out;
-  // }
+}
+
+.static-time-ago {
+  position: relative;
+  top: 10px;
 }
 
 .like-index-container {

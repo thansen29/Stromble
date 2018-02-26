@@ -29,7 +29,7 @@ class CommentSpecsItem extends React.Component {
   handleDelete(){
     this.props.deleteComment(this.props.comment.id);
   }
-  //TODO: fix hover fading
+
   render(){
     const fromNow = moment(this.props.comment.createdAt).fromNow();
 
