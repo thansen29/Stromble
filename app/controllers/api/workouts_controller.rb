@@ -6,7 +6,6 @@ class Api::WorkoutsController < ApplicationController
     if params[:location] == '/workouts'
       @workouts = Workout.all
         .where(user_id: current_user.id)
-        .includes(comments: :author)
         .page(params[:page].to_i).per(20)
     elsif params[:location] == 'feed'
       ids = current_user.following_ids.map {|id| Follow.where(id: id).pluck(:followed_id) }
