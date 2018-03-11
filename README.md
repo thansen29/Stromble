@@ -101,6 +101,14 @@ Through Google Maps API, users are greeted with a map zeroed in on midtown Manha
 ```    
 
 ## Future Add-ons
-One future plan for this app is to turn it into a social media app, much like Strava. User's will be able to connect with others, and follow/be followed by them. Connected users can then view each others' activities, comment, and give them kudos.
+One future plan for this app is to add more functionality to the custom
+route building. At present, it initially zones in on a static location
+set in midtown manhattan. I'd like to have it zone in on the current user's
+location, with the manhattan as the fallback in case the user blocks the
+outgoing request for location checking. I'd also like to add in a search
+feature for the location, and the option to toggle between running and biking
 
-Another plan is to improve functionality of the custom route creation. Users should be able to chain markers to increment their route rather than being limited to two end points. Search functionality for locations, as well as dynamic map centering based on the user's current location when loading the app are additional planned features.
+Another addition I'd like to make is the ability to select one of your
+custom routes when creating a workout. The workout's show page as well as
+the dashboard should also display a preview of the route if the workout
+included a route.
