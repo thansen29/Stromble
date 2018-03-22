@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from './navbar';
 import SearchResultItemContainer from './search_result_item_container';
-import clone from 'clone';
 
 class SearchResults extends React.Component {
   constructor(props){

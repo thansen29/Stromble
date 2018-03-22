@@ -1,16 +1,8 @@
 import React from 'react';
-import Select from 'react-select';
 import { Link } from 'react-router-dom';
 import DropdownComponent from '../dropdowns/dropdown_component';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-// import TimePicker from 'rc-time-picker';
-// import 'rc-time-picker/assets/index.css';
-
-// import PropTypes from 'prop-types';
-// import "react-datepicker/dist/react-datepicker.css";
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
 
 //TODO: date picker and time scroll
 class WorkoutForm extends React.Component {

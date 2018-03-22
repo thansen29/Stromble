@@ -234,7 +234,7 @@
 
 .comment-spec-section {
   max-height: 240px;
-  overflow: scroll;
+  overflow-y: scroll;
   padding-bottom: 10px;
   & ul li {
     margin-bottom: 5px;

@@ -4,8 +4,8 @@ import moment from 'moment';
 import WorkoutEditContainer from './workout_edit_container';
 import ModalComponent from '../modals/modal_component';
 import { Link } from 'react-router-dom';
+import ReactTooltip from 'react-tooltip';
 
-//TODO: tool tips for buttons
 class WorkoutShow extends React.Component {
   constructor(props){
     super(props);
@@ -59,13 +59,23 @@ class WorkoutShow extends React.Component {
           <section className="whole-container">
             { this.props.workout.user_id === this.props.currentUserId ?
               <div className="button-holder">
-                <button onClick={this.handleEdit} className="show-edit tooltip">
+                <button data-tip="React-tooltip" onClick={this.handleEdit} className="show-edit tooltip">
                   <i className="fa fa-pencil" aria-hidden="true"></i>
+                  <ReactTooltip place="top" type="dark" effect="solid">
+                    <span>Edit</span>
+                  </ReactTooltip>
+
+
                 </button>
 
-                <button onClick={this.handleDelete} className="show-delete">
+                <button data-tip="React-tooltip" data-for="delete-tip" onClick={this.handleDelete} className="show-delete">
                   <i className="fa fa-ban" aria-hidden="true"></i>
                 </button>
+
+                <ReactTooltip place="top" type="dark" effect="solid" id="delete-tip">
+                  <span>Delete</span>
+                </ReactTooltip>
+
               </div> : <div className="placeholder"></div>
             }
 
