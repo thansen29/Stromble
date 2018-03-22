@@ -174,11 +174,12 @@ class DashboardIndex extends React.Component {
                   this.state.selected === "Following" && this.state.ready ? followItems :
                     this.props.workouts.length ? workoutItems : null
                 }
+                
+                <div className={!this.props.workouts.length && this.state.ready ? 'visible' : 'none'}>
+                  { message }
+                </div>
               </ul>
 
-              <div className={!this.props.workouts.length && this.state.ready ? 'visible' : 'none'}>
-                { message }
-              </div>
 
               <Waypoint
                 onEnter={ this.state.selected === "Following" ?
