@@ -205,6 +205,8 @@
   display: inline-block;
   padding: 16px 0;
   padding-left: 10px;
+  // border-left: 1px solid transparent;
+  // border-right: 1px solid transparent;
 }
 
 .nav-dropdown-content {
@@ -218,7 +220,7 @@
   z-index: 5;
   margin-top: 38px;
   margin-left: -11px;
-  width: 140%
+  width: 140%;
 }
 
 .nav-dropdown-content a {
@@ -232,8 +234,8 @@
 
 .nav-dropdown:hover {
   cursor: pointer;
-  border-right: 1px solid #ccccd1;
-  border-left: 1px solid #ccccd1;
+  // border-right: 1px solid #ccccd1;
+  // border-left: 1px solid #ccccd1;
 }
 
 .nav-dropdown:hover .nav-dropdown-content{
@@ -258,6 +260,7 @@
   z-index: 1;
   margin-top: 49px;
   width: 214%;
+  margin-left: 1px;
 }
 
 .nav-profile-dropdown-content a {
@@ -296,6 +299,7 @@
   border-top: 1px solid #ccccd1;
   z-index: 1;
   margin-top: 35px;
+  margin-left: -1px;
   width: 215%;
 }
 
@@ -321,10 +325,22 @@
 
 .nav-dashboard-container {
   position: relative;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  &:hover {
+    border-left: 1px solid #ccccd1;
+    border-right: 1px solid #ccccd1;
+  }
 }
 
 .nav-training-container {
   position: relative;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  &:hover {
+    border-left: 1px solid #ccccd1;
+    border-right: 1px solid #ccccd1;
+  }
 }
 
 .nav-profile-container {
@@ -352,12 +368,11 @@
   height: 2px;
   content: ' ';
   display: block;
-  width: 98%;
+  width: 100%;
   position: absolute;
   bottom: -1px;
   background: white;
   z-index: 100;
-  margin-left: 1px;
   cursor: pointer;
 }
 
@@ -365,12 +380,11 @@
   height: 2px;
   content: ' ';
   display: block;
-  width: 98%;
+  width: 100%;
   position: absolute;
   bottom: -1px;
   background: white;
   z-index: 100;
-  margin-left: 1px;
   cursor: pointer;
 
 }
@@ -379,7 +393,7 @@
   height: 2px;
   content: ' ';
   display: block;
-  width: 99%;
+  width: 100%;
   position: absolute;
   bottom: -1px;
   left: 0px;
@@ -393,12 +407,11 @@
   height: 2px;
   content: ' ';
   display: block;
-  width: 99%;
+  width: 100%;
   position: absolute;
   bottom: -1px;
   background: white;
   z-index: 100;
-  margin-left: 1px;
   cursor: pointer;
 
 }
