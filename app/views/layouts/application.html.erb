@@ -6,7 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=AIzaSyAzqV02RQ3R5tDuhiUPlhww_AhPN0rukT0" %>
+    <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?key=#{ENV['google_api_key']}" %>
 
     <link href="http://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 
