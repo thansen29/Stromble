@@ -13,12 +13,12 @@ const RouteItem = ({route}) => {
       <div className="route-item-container">
         <img src={url} alt="preview goes here"/>
         <div className="route-item-details">
-          <Link to={`/routes/${route.id}`}>{route.title}</Link>
+          <Link to={ `/routes/${route.id}` }>{ route.title }</Link>
           <ul className="route-item-content">
             <li>
-              <span className="route-item-data">{route.distance}</span>
+              <span className="route-item-data">{ route.distance }</span>
                 <span className="show-datetime unit">mi</span>
-              <span className="route-item-data">{route.elevation_gain}</span>
+              <span className="route-item-data">{ route.elevation_gain }</span>
                 <span className="show-datetime unit">meters</span>
             </li>
 
@@ -36,4 +36,3 @@ const RouteItem = ({route}) => {
 };
 
 export default RouteItem;
-// http://maps.googleapis.com/maps/api/staticmap?size=400x400&path=color:0x0000ff|weight:5|40.7507682204469,-73.9744663238525|40.7608783063089,-73.9870834350586

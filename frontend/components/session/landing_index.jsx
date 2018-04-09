@@ -10,14 +10,11 @@ class LandingIndex extends React.Component {
   }
 
   componentDidMount(){
-    this.props.clearErrors(); //why does the image not render without this?
+    this.props.clearErrors();
     this.image = this.sampleImage();
   }
 
   sampleImage(){
-    // const img1 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/pexels-photo-302804_oy0xnz.jpg' />;
-    // const img2 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660638/road-sun-rays-path_t4dtzb.jpg' />;
-    // const img3 = <img className='img' src='http://res.cloudinary.com/stromble/image/upload/v1514660639/fall-autumn-red-season_bjdaco.jpg' />;
     const img1 = "background-1";
     const img2 = "background-2";
     const img3 = "background-3";
@@ -27,7 +24,7 @@ class LandingIndex extends React.Component {
 
   render(){
     return (
-      <section className={`${this.image} background-container`}>
+      <section className={ `${this.image} background-container` }>
         <div className="top-left logo white">stromble</div>
 
         <div className="improvise white">Improvise. Adapt. Overcome</div>
@@ -35,10 +32,10 @@ class LandingIndex extends React.Component {
           <ul className="landing-ul">
             <li><h1>Here to join?</h1></li>
             <li>
-              <p onClick={this.props.openModal}>Use my email</p>
+              <p onClick={ this.props.openModal }>Use my email</p>
               { this.props.ui ?
               <ModalComponent>
-                <SignupContainer history={this.props.history} />
+                <SignupContainer history={ this.props.history } />
               </ModalComponent>
               : null }
             </li>
@@ -56,9 +53,5 @@ class LandingIndex extends React.Component {
     );
   }
 }
-
-// {this.props.ui ?
-//   <SignupContainer history={this.props.history} /> : null
-// }
 
 export default LandingIndex;

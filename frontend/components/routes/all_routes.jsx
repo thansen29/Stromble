@@ -1,4 +1,3 @@
-// http://maps.googleapis.com/maps/api/staticmap?size=400x400&path=color:0x0000ff|weight:5|40.7507682204469,-73.9744663238525|40.7608783063089,-73.9870834350586
 import React from 'react';
 import { Link } from 'react-router-dom';
 import RouteItem from './route_item';
@@ -14,7 +13,7 @@ class AllRoutes extends React.Component {
   }
 
   componentDidMount(){
-    // this.props.requestRoutes();
+
     this.getRoutes();
   }
 
@@ -28,7 +27,7 @@ class AllRoutes extends React.Component {
     if(this.props.routes.length > 0){
       routes = this.props.routes.map((route) => {
         return (
-          <RouteItem route={route} key={route.id} />
+          <RouteItem route={ route } key={ route.id } />
         );
     });
   }
@@ -45,7 +44,7 @@ class AllRoutes extends React.Component {
             <ul className="all-routes-list">
               { routes }
             </ul>
-            <Waypoint onEnter={this.getRoutes} />
+            <Waypoint onEnter={ this.getRoutes } />
           </section>
         </section>
       </section>

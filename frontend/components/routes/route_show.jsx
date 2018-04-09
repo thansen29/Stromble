@@ -54,7 +54,7 @@ class RouteShow extends React.Component {
         <section className="route-show-container">
           <div className="route-show-leftside">
             <header>
-              <h1>{title} {privacy ? <i className="fa fa-lock"></i> : null}</h1>
+              <h1>{ title } { privacy ? <i className="fa fa-lock"></i> : null }</h1>
             </header>
             <div className="route-image-container">
               <img src={url} alt="image preview" />
@@ -63,19 +63,19 @@ class RouteShow extends React.Component {
 
           <aside className="route-show-details">
             <div className="route-show-user-info">
-              <Link to={`/users/${this.props.currentUser.id}`}>
-                <img className="route-avatar" src={this.props.currentUser.avatar_url} />
+              <Link to={ `/users/${this.props.currentUser.id}` }>
+                <img className="route-avatar" src={ this.props.currentUser.avatar_url } />
               </Link>
               <span className="route-name-details">
-                <div className="route-show-name">By {this.props.currentUser.fname} {this.props.currentUser.lname}</div>
-                <div className="show-datetime">Created on {date}</div>
+                <div className="route-show-name">By { this.props.currentUser.fname } { this.props.currentUser.lname }</div>
+                <div className="show-datetime">Created on { date }</div>
               </span>
             </div>
 
             <div className="route-show-item-body">
               <div>
-                <span className="item-stat-value">{distance}mi</span>
-                <span className="item-stat-value">{elevationGain}meters</span>
+                <span className="item-stat-value">{ distance }mi</span>
+                <span className="item-stat-value">{ elevationGain }meters</span>
               </div>
               <div>
                 <span className="show-datetime route-show-el">Distance</span>
@@ -83,14 +83,14 @@ class RouteShow extends React.Component {
               </div>
 
               <div className="show-datetime route-show-el moving-time">
-                Est. Moving Time {duration} mins
+                Est. Moving Time { duration } mins
               </div>
             </div>
 
-            <span className="route-show-desc">{description}</span>
+            <span className="route-show-desc">{ description }</span>
 
             <div className="route-show-delete">
-              <button onClick={this.handleDelete}className="route-show-delete-btn">Delete Route</button>
+              <button onClick={ this.handleDelete } className="route-show-delete-btn">Delete Route</button>
             </div>
           </aside>
 

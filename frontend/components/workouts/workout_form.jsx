@@ -59,7 +59,6 @@ class WorkoutForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    // debugger
     const workout = Object.assign({}, this.state);
     workout['user_id'] = this.props.userId;
     delete workout['startDate'];
@@ -96,24 +95,29 @@ class WorkoutForm extends React.Component {
     return (
       <main className="form-container">
         <h1>Manual Entry</h1>
-        <span className="route-error-message">{this.props.errors.workout}</span>
-        <form className="workout-form" onSubmit={this.handleSubmit}>
+        <span className="route-error-message">{ this.props.errors.workout }</span>
+        <form className="workout-form" onSubmit={ this.handleSubmit }>
+
           <section className="workout-row">
             <div className="field-container">
               <label htmlFor="distance">Distance</label><br/>
+
               <div className="input-wrapper" tabIndex="1">
                 <input
                   className="right-line workout-input"
                   type="number"
-                  value={this.state.distance}
-                  onChange={this.handleChange('distance')} />
+                  value={ this.state.distance }
+                  onChange={ this.handleChange('distance') } />
+
                 <div className="distance-select">
                   <DropdownComponent
                     items={['kilometers', 'meters', 'miles', 'yards']}
-                    onChange={this.handleSelection('distance_unit')}
-                    initValue={distance_unit}
+                    onChange={ this.handleSelection('distance_unit') }
+                    initValue={ distance_unit }
                     />
+
                 </div>
+
               </div>
             </div>
 
@@ -125,22 +129,22 @@ class WorkoutForm extends React.Component {
                   type="number"
                   min="0"
                   max="24"
-                  value={this.state.duration_hr}
-                  onChange={this.handleChange('duration_hr')} />
+                  value={ this.state.duration_hr }
+                  onChange={ this.handleChange('duration_hr') } />
                 <input
                   className="workout-input right-line duration-box minutes"
                   type="number"
                   min="0"
                   max="59"
-                  value={this.state.duration_min}
-                  onChange={this.handleChange('duration_min')} />
+                  value={ this.state.duration_min }
+                  onChange={ this.handleChange('duration_min') } />
                 <input
                   className="workout-input duration-box seconds"
                   type="number"
                   min="0"
                   max="59"
-                  value={this.state.duration_s}
-                  onChange={this.handleChange('duration_s')} />
+                  value={ this.state.duration_s }
+                  onChange={ this.handleChange('duration_s') } />
               </div>
             </div>
 
@@ -150,15 +154,17 @@ class WorkoutForm extends React.Component {
                 <input
                   className="workout-input right-line"
                   type="number"
-                  value={this.state.elevation}
-                  onChange={this.handleChange('elevation')} />
+                  value={ this.state.elevation }
+                  onChange={ this.handleChange('elevation') } />
+
                 <div className="distance-select">
                   <DropdownComponent
                     items={['feet', 'meters']}
-                    onChange={this.handleSelection('elevation_unit')}
-                    initValue={elevation_unit}
+                    onChange={ this.handleSelection('elevation_unit') }
+                    initValue={ elevation_unit }
                     />
                 </div>
+
               </div>
             </div>
           </section>
@@ -170,8 +176,8 @@ class WorkoutForm extends React.Component {
                 <div className="input-wrapper sporty-input">
                   <DropdownComponent
                     items={['Run', 'Ride']}
-                    onChange={this.handleSelection('sport')}
-                    initValue={sport}
+                    onChange={ this.handleSelection('sport') }
+                    initValue={ sport }
                     />
                 </div>
               </div>
@@ -182,13 +188,13 @@ class WorkoutForm extends React.Component {
                   <input
                     className="workout-input right-line datetime"
                     type="text"
-                    value={this.state.date}
-                    onChange={this.handleChange('date')} />
+                    value={ this.state.date }
+                    onChange={ this.handleChange('date') } />
                   <input
                     className="workout-input datetime"
                     type="text"
-                    value={this.state.time}
-                    onChange={this.handleChange('time')} />
+                    value={ this.state.time }
+                    onChange={ this.handleChange('time') } />
                 </div>
               </div>
             </section>
@@ -198,12 +204,12 @@ class WorkoutForm extends React.Component {
               <div className="input-wrapper">
                 <input
                   autoFocus
-                  onFocus={this.moveCaret}
-                  className={this.props.errors.workout ? "title-input left-align workout-errors"
-                    : "workout-input title-input left-align"}
+                  onFocus={ this.moveCaret }
+                  className={ this.props.errors.workout ? "title-input left-align workout-errors"
+                    : "workout-input title-input left-align" }
                   type="text"
-                  value={this.state.title}
-                  onChange={this.handleChange('title')}/>
+                  value={ this.state.title }
+                  onChange={ this.handleChange('title') } />
               </div>
             </div>
           </section>
@@ -211,12 +217,12 @@ class WorkoutForm extends React.Component {
           <section className="workout-row bottom-row">
             <section className="bottom-container">
               <div className="field-container">
-                <label htmlFor="activity-type">{this.state.sport} type</label><br/>
+                <label htmlFor="activity-type">{ this.state.sport } type</label><br/>
                 <div className="input-wrapper activity-input">
                   <DropdownComponent
                     items={['Race', 'Workout']}
-                    onChange={this.handleSelection('activity_type')}
-                    initValue={activity_type}
+                    onChange={ this.handleSelection('activity_type') }
+                    initValue={ activity_type }
                     />
                 </div>
               </div>
@@ -227,16 +233,16 @@ class WorkoutForm extends React.Component {
               <div className="input-wrapper">
                 <textarea
                   className="workout-input workout-description title-input"
-                  value={this.state.description}
-                  onChange={this.handleChange('description')}
+                  value={ this.state.description }
+                  onChange={ this.handleChange('description') }
                   placeholder="How did it go? Were you tired or rested? How was the weather?" />
               </div>
             </div>
 
             <label>
               <div className="privacy">
-                <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
-                <div className={this.state.private ? "fa fa-lock locked" : "unlocked"}></div>
+                <input onClick={ this.handleCheck } className="checkbox" type="checkbox" />
+                <div className={ this.state.private ? "fa fa-lock locked" : "unlocked" }></div>
               </div>
             </label>
           </section>
@@ -250,9 +256,5 @@ class WorkoutForm extends React.Component {
     );
   }
 }
-//
-// <DatePicker
-//   selected={this.state.startDate}
-//   onChange={this.handleChange} />
 
 export default WorkoutForm;

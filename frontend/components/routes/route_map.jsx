@@ -39,7 +39,6 @@ class RouteMap extends React.Component {
       const lng = e.latLng.lng();
       const position = { lat, lng };
       this.createMarker(position);
-
     });
   }
 

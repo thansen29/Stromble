@@ -22,11 +22,11 @@ const WorkoutItemContent = ({workout}) => {
       <div className="item-top-row">
 
         <Link to={`/users/${user_id}`}>
-          <img className="nav-avatar" src={avatar_url} />
+          <img className="nav-avatar" src={ avatar_url } />
         </Link>
 
         <div className="item-name-date">
-          <Link to={`/users/${user_id}`}>{fname} {lname}</Link> <br/>
+          <Link to={`/users/${user_id}`}>{ fname } { lname }</Link> <br/>
 
         <span className="show-datetime">
           { parsedDate } at { parsedTime }
@@ -65,15 +65,15 @@ const WorkoutItemContent = ({workout}) => {
           <br/>
 
           <span className="item-stat-value">
-            {duration_hr}h {duration_min}m
+            { duration_hr }h { duration_min }m
           </span>
 
           { distance ?
-            <span className="item-stat-value">{distance}{distance_unit}</span> : null
+            <span className="item-stat-value">{ distance }{ distance_unit }</span> : null
           }
 
           { distance ?
-            <span className="item-stat-value">{pace} min/{distance_unit}</span> : null
+            <span className="item-stat-value">{ pace } min/{ distance_unit }</span> : null
           }
 
         </div>

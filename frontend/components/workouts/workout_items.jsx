@@ -8,15 +8,15 @@ const WorkoutItems = ({ workouts, getWorkouts, currentUser, likeWorkout, openMod
     workoutItems = workouts.map((workout) => {
       return (
         <WorkoutItem
-          workout={workout}
-          key={workout.id}
-          currentUser={currentUser}
-          likeWorkout={likeWorkout}
-          openModal={openModal}
-          closeModal={closeModal}
-          isOpen={isOpen}
-          createComment={createComment}
-          deleteComment={deleteComment} />
+          workout={ workout }
+          key={ workout.id }
+          currentUser={ currentUser }
+          likeWorkout={ likeWorkout }
+          openModal={ openModal }
+          closeModal={ closeModal }
+          isOpen={ isOpen }
+          createComment={ createComment }
+          deleteComment={ deleteComment } />
       );
     });
   }
@@ -26,7 +26,7 @@ const WorkoutItems = ({ workouts, getWorkouts, currentUser, likeWorkout, openMod
       <ul>
         { workoutItems }
       </ul>
-      <Waypoint onEnter={getWorkouts} />
+      <Waypoint onEnter={ getWorkouts } />
 
     </main>
   );

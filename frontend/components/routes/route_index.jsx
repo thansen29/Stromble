@@ -57,29 +57,29 @@ class RouteIndex extends React.Component {
           { button }
 
         </section>
-        {this.props.isOpen ?
-          <ModalComponent closeModal={this.props.closeModal}>
-            <RouteFormContainer state={this.state} history={this.props.history}/>
+        { this.props.isOpen ?
+          <ModalComponent closeModal={ this.props.closeModal }>
+            <RouteFormContainer state={ this.state } history={ this.props.history }/>
           </ModalComponent> : null }
 
-        <RouteMap onChange={this.handleProps}/>
+        <RouteMap onChange={ this.handleProps }/>
 
         <section className="route-bottom-bar">
           <ul>
             <li>
-              <strong>{this.state.route_type}</strong>
+              <strong>{ this.state.route_type }</strong>
               <div className="route-label">Route Type</div>
             </li>
             <li>
-              <strong>{this.state.distance} {this.state.distance_unit}</strong>
+              <strong>{ this.state.distance } { this.state.distance_unit }</strong>
               <div className="route-label">Distance</div>
             </li>
             <li>
-              <strong>{this.state.elevation_gain} {this.state.elevation_unit}</strong>
+              <strong>{ this.state.elevation_gain } { this.state.elevation_unit }</strong>
               <div className="route-label">Elevation Gain</div>
             </li>
             <li>
-              <strong>{this.state.duration} mins</strong>
+              <strong>{ this.state.duration } mins</strong>
               <div className="route-label">Est. Moving Time</div>
             </li>
           </ul>

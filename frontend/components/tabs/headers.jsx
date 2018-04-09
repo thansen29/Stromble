@@ -13,23 +13,23 @@ const Headers = (props) => {
         klass = 'inactive';
       }
     }
-    let title =  klass === "active" ?
-    <span className={`${pane.title}`}>{pane.word}</span>
-      : <span className={`alt-${pane.title}`}>{pane.word}</span>;
+    let title = klass === "active" ?
+    <span className={ `${pane.title}` }>{ pane.word }</span>
+      : <span className={ `alt-${pane.title}` }>{ pane.word }</span>;
 
     return (
       <li
-        key={index}
-        className={klass}
-        onClick={props.onTabChosen.bind(null, index)}>
-        {title}{' '}
+        key={ index }
+        className={ klass }
+        onClick={ props.onTabChosen.bind(null, index) }>
+        { title }{' '}
       </li>
     );
   });
 
   return (
     <ul className='tab-header'>
-      {headers}
+      { headers }
     </ul>
   );
 };

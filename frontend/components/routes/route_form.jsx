@@ -78,29 +78,31 @@ class RouteForm extends React.Component {
             <label>Route Name (required)</label>
             <input
               className='route-form-input'
-              onChange={this.handleChange('title')}
-              value={this.state.title} />
-            <span className="route-error-message">{this.props.errors.route}</span>
+              onChange={ this.handleChange('title') }
+              value={ this.state.title } />
+
+            <span className="route-error-message">{ this.props.errors.route }</span>
+
           </div>
           <div className="input-wrapper-route">
             <label>Description</label>
             <textarea
               className="route-form-input"
-              onChange={this.handleChange('description')}
-              value={this.state.description} />
+              onChange={ this.handleChange('description') }
+              value={ this.state.description } />
           </div>
 
           <label className="route-privacy">
             <div className="privacy">
-              <input onClick={this.handleCheck} className="checkbox" type="checkbox" />
+              <input onClick={ this.handleCheck } className="checkbox" type="checkbox" />
               <span>Private</span>
             </div>
           </label>
         </main>
 
         <footer className="route-buttons">
-          <button onClick={this.handleClose} className="route-form-cancel">Cancel</button>
-          <button onClick={this.handleSubmit} className="route-form-save">Save</button>
+          <button onClick={ this.handleClose } className="route-form-cancel">Cancel</button>
+          <button onClick={ this.handleSubmit } className="route-form-save">Save</button>
         </footer>
 
       </section>

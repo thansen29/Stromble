@@ -42,11 +42,11 @@ class CommentIndex extends React.Component {
       comments = _.values(this.props.workout.comments);
       commentItems = comments.map((comment) => {
         return (
-          <li key={comment.id}>
+          <li key={ comment.id }>
             <CommentItem
-              comment={comment}
-              currentUser={this.props.currentUser}
-              deleteComment={this.props.deleteComment} />
+              comment={ comment }
+              currentUser={ this.props.currentUser }
+              deleteComment={ this.props.deleteComment } />
           </li>
 
         );
@@ -62,7 +62,7 @@ class CommentIndex extends React.Component {
         </div>
 
         { comments ? comments.length > 2 ?
-          <span className="see-all" onClick={this.props.openModal}>
+          <span className="see-all" onClick={ this.props.openModal }>
             See all { comments.length } comments
           </span> : null : null
         }
@@ -76,11 +76,11 @@ class CommentIndex extends React.Component {
             <input
               className="comment-input"
               placeholder="Add a comment..."
-              onChange={this.handleChange('body')}
-              value={this.state.body} />
+              onChange={ this.handleChange('body') }
+              value={ this.state.body } />
 
             <button
-              onClick={this.handleSubmit}
+              onClick={ this.handleSubmit }
               className="comment-button">
               Post
             </button>

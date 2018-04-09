@@ -51,7 +51,7 @@ class LikeItem extends React.Component {
 
         { !this.state.ready ? null :
            this.state.isFollowing ? null :
-            <button className="follow-btn" onClick={this.followUser}>
+            <button className="follow-btn" onClick={ this.followUser }>
               Follow
             </button>
         }

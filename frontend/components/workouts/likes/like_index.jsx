@@ -100,11 +100,11 @@ class LikeIndex extends React.Component {
                { likers }
             </span>
 
-            <span className="num-kudos" onClick={this.openModal}>
+            <span className="num-kudos" onClick={ this.openModal }>
               { likers ? `${likers.length} kudos` : null }
             </span>
 
-            <span className="num-kudos" onClick={this.openModal}>
+            <span className="num-kudos" onClick={ this.openModal }>
               { comments ? `${comments.length} comments` : null }
             </span>
           </div>
@@ -126,7 +126,7 @@ class LikeIndex extends React.Component {
             </button>
 
             <button
-              onClick={this.handleComment}>
+              onClick={ this.handleComment }>
               <i className="chat-icon"></i>
             </button>
           </span>
@@ -134,25 +134,25 @@ class LikeIndex extends React.Component {
         </div>
 
         <CommentIndex
-          currentUser={this.props.currentUser}
-          workout={this.props.workout}
-          commentField={this.state.commentField}
-          openModal={this.openModal}
-          openState={this.openState}
-          createComment={this.props.createComment}
-          deleteComment={this.props.deleteComment}/>
+          currentUser={ this.props.currentUser }
+          workout={ this.props.workout }
+          commentField={ this.state.commentField }
+          openModal={ this.openModal }
+          openState={ this.openState }
+          createComment={ this.props.createComment }
+          deleteComment={ this.props.deleteComment } />
 
         { this.props.isOpen && this.state.open ?
-          <ModalComponent closeModal={this.props.closeModal}>
+          <ModalComponent closeModal={ this.props.closeModal }>
             <LikeComponent
-              users={this.props.workout.likers}
-              title={this.props.workout.title}
-              closeState={this.closeState}
-              workout={this.props.workout}
-              commentField={this.state.commentField}
-              createComment={this.props.createComment}
-              deleteComment={this.props.deleteComment}
-              handleLike={this.handleLike}/>
+              users={ this.props.workout.likers }
+              title={ this.props.workout.title }
+              closeState={ this.closeState }
+              workout={ this.props.workout }
+              commentField={ this.state.commentField }
+              createComment={ this.props.createComment }
+              deleteComment={ this.props.deleteComment }
+              handleLike={ this.handleLike } />
           </ModalComponent> : null
         }
       </section>

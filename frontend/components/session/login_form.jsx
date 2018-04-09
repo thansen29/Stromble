@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
     return (
       <div className="alert-errors">
         <div className="alert-message">
-          {this.props.errors.credentials}
+          { this.props.errors.credentials }
         </div>
       </div>
     );
@@ -67,26 +67,26 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <form className="login-form" onSubmit={this.handleSubmit}>
+      <form className="login-form" onSubmit={ this.handleSubmit }>
         <h1>Log In</h1>
         { errorMessage }
 
         <section className="input-container">
           <input
-            onChange={this.handleChange("email")}
-            value={this.state.email}
+            onChange={ this.handleChange("email") }
+            value={ this.state.email }
             className="input" type="text"
             placeholder="Your Email" />
 
           <input
-            onChange={this.handleChange("password")}
-            value={this.state.password}
+            onChange={ this.handleChange("password") }
+            value={ this.state.password }
             className="input" type="password"
             placeholder="Password" />
 
           <button
             className="submit"
-            onClick={this.handleDemoSubmit}>
+            onClick={ this.handleDemoSubmit }>
             Demo Log In
           </button>
 

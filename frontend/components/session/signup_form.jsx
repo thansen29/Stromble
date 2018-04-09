@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import LandingIndex from './landing_index';
 
-//TODO: make the modal fade in
 class SignupForm extends React.Component {
   constructor(props){
     super(props);
@@ -37,7 +36,6 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e){
-    // may need to adjust this to handle the create profile modal
     e.preventDefault();
     const user = Object.assign({}, this.state);
     delete user['hidden'];
@@ -58,7 +56,7 @@ class SignupForm extends React.Component {
 
   handleLoginClick(){
     if(this.props.history.location.pathname === "/login"){
-      return <span onClick={this.props.closeModal}> Log in</span>;
+      return <span onClick={ this.props.closeModal }> Log in</span>;
     } else {
       return (
         <span>
@@ -76,10 +74,10 @@ class SignupForm extends React.Component {
     return (
       <section>
 
-        <form onSubmit={this.handleSubmit} className="signup-form">
+        <form onSubmit={ this.handleSubmit } className="signup-form">
           <div
             className="modal-close"
-            onClick={this.props.closeModal}>
+            onClick={ this.props.closeModal }>
             &times;
           </div>
 
@@ -93,25 +91,25 @@ class SignupForm extends React.Component {
             className={ this.state.emailError ? 'errors' : 'landing-input'}
             id="email"
             type="text"
-            value={this.state.email}
-            onChange={this.handleChange('email')}
+            value={ this.state.email }
+            onChange={ this.handleChange('email') }
           />
 
         <span className="error-message">{ this.props.errors.email }</span>
 
         <label htmlFor="password">New password</label>
           <i
-            className={`${ this.state.hidden ? 'fa fa-eye show' : 'fa fa-eye-slash hide'}`}
-            onClick={this.toggleShow}
+            className={ `${ this.state.hidden ? 'fa fa-eye show' : 'fa fa-eye-slash hide'}` }
+            onClick={ this.toggleShow }
             aria-hidden="true">
           </i>
 
           <input
             className={ this.state.passwordError ? 'errors' : 'landing-input'}
             id="password"
-            type={`${ this.state.hidden ? 'password' : 'text'}`}
-            value={this.state.password}
-            onChange={this.handleChange('password')}
+            type={ `${ this.state.hidden ? 'password' : 'text'}` }
+            value={ this.state.password }
+            onChange={ this.handleChange('password') }
           />
 
         <span className="error-message">{ this.props.errors.password }</span>
@@ -122,17 +120,12 @@ class SignupForm extends React.Component {
 
           <span
             className="after">
-            Already have an account? {this.handleLoginClick()}
+            Already have an account? { this.handleLoginClick() }
           </span>
 
       </section>
     );
   }
-
 }
-// will add in a fun terms at some point in the future
-// <div className="terms">
-//   By signing up to you agree to Stromble's <a href="#">Terms and Conditions</a>
-// </div>
 
 export default SignupForm;

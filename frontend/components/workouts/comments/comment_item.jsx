@@ -21,33 +21,31 @@ class CommentItem extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    // if(newProps.comment.id === this.props.comment.id){
-      this.setState({ hovered: false });
-    // }
+    this.setState({ hovered: false });
   }
 
   handleDelete(){
     this.props.deleteComment(this.props.comment.id);
   }
-  //TODO: fix hover fading
+
   render(){
     const fromNow = moment(this.props.comment.createdAt).fromNow();
 
     return (
       <section
         className="comment-item-wrapper"
-        onMouseEnter={this.handleHover}
-        onMouseLeave={this.handleHover}>
+        onMouseEnter={ this.handleHover }
+        onMouseLeave={ this.handleHover }>
 
-        <Link to={`/users/${this.props.comment.userId}`}>
+        <Link to={ `/users/${this.props.comment.userId}` }>
           <img className="item-sm-avatar" src={ this.props.comment.avatarUrl } />
         </Link>
 
         <div className="comment-item-text">
 
           <span className="comment-text">
-            <Link to={`/users/${this.props.comment.userId}`}>
-                { this.props.comment.fname } { this.props.comment.lname}
+            <Link to={ `/users/${this.props.comment.userId}` }>
+                { this.props.comment.fname } { this.props.comment.lname }
             </Link>
           </span>
 

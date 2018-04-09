@@ -68,7 +68,7 @@ class WorkoutEditForm extends React.Component {
         <section className="workout-edit-form">
           <header className="workout-form-header">
             <h1>Edit Activity</h1>
-            <button className="edit-form-save" onClick={this.handleSubmit}>Save & View Activity</button>
+            <button className="edit-form-save" onClick={ this.handleSubmit }>Save & View Activity</button>
           </header>
 
           <main className="workout-edit-body">
@@ -78,16 +78,16 @@ class WorkoutEditForm extends React.Component {
                 <label>Sport</label>
                 <DropdownComponent
                   items={['Run', 'Ride']}
-                  onChange={this.handleSelection('sport')}
-                  initValue={this.state.sport}
+                  onChange={ this.handleSelection('sport') }
+                  initValue={ this.state.sport }
                   />
               </div>
               <div className="input-wrapper-edit">
-                <label>{this.state.sport} Type</label>
+                <label>{ this.state.sport } Type</label>
                 <DropdownComponent
                   items={['Race', 'Workout']}
-                  onChange={this.handleSelection('activity_type')}
-                  initValue={this.state.activity_type}
+                  onChange={ this.handleSelection('activity_type') }
+                  initValue={ this.state.activity_type }
                   />
               </div>
             </section>
@@ -96,23 +96,23 @@ class WorkoutEditForm extends React.Component {
               <label>Title</label>
               <input
                 className="edit-form-input"
-                onChange={this.handleChange('title')}
-                value={this.state.title}/>
+                onChange={ this.handleChange('title') }
+                value={ this.state.title } />
             </div>
 
             <div className="input-wrapper-edit">
               <label>Description</label>
               <textarea
                 className='edit-form-input'
-                onChange={this.handleChange('description')}
-                value={description}/>
+                onChange={ this.handleChange('description') }
+                value={ description } />
             </div>
           </main>
 
           <div className="edit-form-privacy">
             <label>
               <div className="privacy">
-                <input onClick={this.handleCheck} className="checkbox" type="checkbox" defaultChecked={this.state.private} />
+                <input onClick={ this.handleCheck } className="checkbox" type="checkbox" defaultChecked={ this.state.private } />
                 <span>Private</span>
               </div>
             </label>

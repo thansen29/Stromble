@@ -42,12 +42,12 @@ class CommentSpecs extends React.Component {
       comments = _.values(this.props.workout.comments);
       commentItems = comments.map((comment) => {
         return (
-          <li key={comment.id}>
+          <li key={ comment.id }>
             <CommentSpecsItem
-              comment={comment}
-              currentUser={this.props.currentUser}
-              deleteComment={this.props.deleteComment}
-              closeState={this.props.closeState}/>
+              comment={ comment }
+              currentUser={ this.props.currentUser }
+              deleteComment={ this.props.deleteComment }
+              closeState={ this.props.closeState } />
           </li>
 
         );
@@ -71,11 +71,11 @@ class CommentSpecs extends React.Component {
               autoFocus
               className="comment-spec-input"
               placeholder="Add a comment..."
-              onChange={this.handleChange('body')}
-              value={this.state.body} />
+              onChange={ this.handleChange('body') }
+              value={ this.state.body } />
 
             <button
-              onClick={this.handleSubmit}
+              onClick={ this.handleSubmit }
               className="comment-spec-button">
               Post
             </button>

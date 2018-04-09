@@ -59,7 +59,10 @@ class LikeComponent extends React.Component {
     let likeItems = this.props.users.map((user) => {
       return (
         <li key={ user.id }>
-          <LikeItemContainer user={user} title={this.props.title} closeState={this.props.closeState} />
+          <LikeItemContainer
+            user={ user }
+            title={ this.props.title }
+            closeState={ this.props.closeState } />
         </li>
       );
     });
@@ -79,12 +82,12 @@ class LikeComponent extends React.Component {
       let commentItems =
       <section className="modal-comment">
         <CommentSpecs
-          currentUser={this.props.currentUser}
-          workout={this.props.workout}
-          commentField={this.props.ommentField}
-          createComment={this.props.createComment}
-          deleteComment={this.props.deleteComment}
-          closeState={this.props.closeState}/>
+          currentUser={ this.props.currentUser }
+          workout={ this.props.workout }
+          commentField={ this.props.ommentField }
+          createComment={ this.props.createComment }
+          deleteComment={ this.props.deleteComment }
+          closeState={ this.props.closeState } />
       </section>;
 
       const tabs = [
@@ -100,7 +103,7 @@ class LikeComponent extends React.Component {
             <span className="like-header-title">{ this.props.title }</span>
           </header>
 
-          <Tabs panes={tabs} />
+          <Tabs panes={ tabs } />
 
         <div className='kudos-wrapper'>
           { this.state.ownWorkout ?
@@ -110,7 +113,7 @@ class LikeComponent extends React.Component {
           :
           <button
             className="like-modal-button"
-            onClick={this.handleLike}>
+            onClick={ this.handleLike }>
             Give Kudos
           </button>
           }

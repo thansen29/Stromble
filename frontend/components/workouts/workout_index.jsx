@@ -8,11 +8,11 @@ const WorkoutIndex = ({ createWorkout, userId, workoutId, history, errors }) => 
     <section className="background">
       <Navbar />
       <WorkoutForm
-        createWorkout={createWorkout}
-        userId={userId}
-        workoutId={workoutId}
-        history={history}
-        errors={errors}
+        createWorkout={ createWorkout }
+        userId={ userId }
+        workoutId={ workoutId }
+        history={ history }
+        errors={ errors }
       />
 
     </section>

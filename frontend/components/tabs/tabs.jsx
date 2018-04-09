@@ -20,13 +20,13 @@ class Tabs extends React.Component{
       <section className="tabs-section">
         <div className="tabs">
           <Headers
-            selectedPane={this.state.selectedPane}
-            onTabChosen={this.selectTab}
-            classs={classs}
-            panes={this.props.panes}/>
+            selectedPane={ this.state.selectedPane }
+            onTabChosen={ this.selectTab }
+            classs={ classs }
+            panes={ this.props.panes }/>
         <div className="tab-content">
           <article>
-            {pane.content}
+            { pane.content }
           </article>
         </div>
       </div>

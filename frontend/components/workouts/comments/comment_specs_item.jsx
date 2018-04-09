@@ -21,9 +21,7 @@ class CommentSpecsItem extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    // if(newProps.comment.id === this.props.comment.id){
-      this.setState({ hovered: false });
-    // }
+    this.setState({ hovered: false });
   }
 
   handleDelete(){
@@ -36,17 +34,17 @@ class CommentSpecsItem extends React.Component {
     return (
       <section
         className="comment-spec-item-wrapper"
-        onMouseEnter={this.handleHover}
-        onMouseLeave={this.handleHover}>
+        onMouseEnter={ this.handleHover }
+        onMouseLeave={ this.handleHover }>
 
-        <Link to={`/users/${this.props.comment.userId}`}>
+        <Link to={ `/users/${this.props.comment.userId}` }>
           <img className="item-sm-avatar" src={ this.props.comment.avatarUrl } />
         </Link>
 
         <div className="comment-spec-item-text">
 
           <span className="comment-spec-text">
-            <Link to={`/users/${this.props.comment.userId}`}>
+            <Link to={ `/users/${this.props.comment.userId}` }>
                 { this.props.comment.fname } { this.props.comment.lname}
             </Link>
 
@@ -60,11 +58,11 @@ class CommentSpecsItem extends React.Component {
         </div>
 
         <span
-          className={this.state.ownComment ? "comment-right-hov" : "comment-right" }>
+          className={ this.state.ownComment ? "comment-right-hov" : "comment-right" }>
           { this.state.ownComment && this.state.hovered ?
               <span
                 className="delete-comment"
-                onClick={this.handleDelete}>&times;
+                onClick={ this.handleDelete }>&times;
               </span> : null
           }
 

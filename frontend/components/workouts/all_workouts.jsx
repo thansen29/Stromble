@@ -71,10 +71,10 @@ class AllWorkouts extends React.Component {
                 <th>Elevation</th>
                 <th>Utilities</th>
               </tr>
-              {workoutItems}
+              { workoutItems }
             </tbody>
           </table>
-          <Waypoint onEnter={this.getWorkouts} />
+          <Waypoint onEnter={ this.getWorkouts } />
         </main>
       </section>
     );
