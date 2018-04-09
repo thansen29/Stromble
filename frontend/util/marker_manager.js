@@ -30,7 +30,7 @@ class MarkerManager extends React.Component {
     marker.addListener("click", () => {
       this.removeMarker(marker.id);
     });
-    
+
     if(_.values(this.markers).length === 2){
       this.createRoute();
     }
@@ -95,10 +95,6 @@ class MarkerManager extends React.Component {
       this.endLng = end.lng();
       this.distance = parseFloat(distance);
       this.elevation = parseInt(elevation);
-      // const data = {
-      //   startLat, startLng, endLat, endLng, distance, elevation
-      // };
-      // return data;
     }
   }
 
