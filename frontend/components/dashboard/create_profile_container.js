@@ -12,7 +12,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-
   return {
     closeModal: () => dispatch(closeModal()),
     updateUser: (formData) => dispatch(updateUser(formData)),

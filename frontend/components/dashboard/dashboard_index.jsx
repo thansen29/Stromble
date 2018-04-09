@@ -99,27 +99,27 @@ class DashboardIndex extends React.Component {
     if(this.props.workouts){
       workoutItems =
         <WorkoutItems
-          workouts={this.props.workouts}
-          getWorkouts={this.getWorkouts}
-          currentUser={this.props.currentUser}
-          likeWorkout={this.props.likeWorkout}
-          openModal={this.props.openModal}
-          closeModal={this.props.closeModal}
-          isOpen={this.props.isOpen}
-          createComment={this.props.createComment}
-          deleteComment={this.props.deleteComment}/>;
+          workouts={ this.props.workouts }
+          getWorkouts={ this.getWorkouts }
+          currentUser={ this.props.currentUser }
+          likeWorkout={ this.props.likeWorkout }
+          openModal={ this.props.openModal }
+          closeModal={ this.props.closeModal }
+          isOpen={ this.props.isOpen }
+          createComment={ this.props.createComment }
+          deleteComment={ this.props.deleteComment } />;
 
       followItems =
         <WorkoutItems
-          workouts={this.props.workouts}
-          getWorkouts={this.updateFeed}
-          currentUser={this.props.currentUser}
-          likeWorkout={this.props.likeWorkout}
-          openModal={this.props.openModal}
-          closeModal={this.props.closeModal}
-          isOpen={this.props.isOpen}
-          createComment={this.props.createComment}
-          deleteComment={this.props.deleteComment}/>;
+          workouts={ this.props.workouts }
+          getWorkouts={ this.updateFeed }
+          currentUser={ this.props.currentUser }
+          likeWorkout={ this.props.likeWorkout }
+          openModal={ this.props.openModal }
+          closeModal={ this.props.closeModal }
+          isOpen={ this.props.isOpen }
+          createComment={ this.props.createComment }
+          deleteComment={ this.props.deleteComment } />;
     }
 
     const message =
@@ -138,23 +138,26 @@ class DashboardIndex extends React.Component {
         <Navbar />
 
         <header tabIndex='0' className="dash-header">
-          <div tabIndex='0' className="dash-container" onClick={this.hide}>
+          <div tabIndex='0' className="dash-container" onClick={ this.hide }>
             <span>
               { this.state.selected }
             </span>
+
             <span className="fa fa-angle-down"></span>
+
             <span
               className={ this.state.clicked ? 'hidden dash-content' : "dash-content" }
-              onClick={this.handleSelection}>
+              onClick={ this.handleSelection }>
               { this.state.hidden }
             </span>
+
           </div>
         </header>
 
           <section className="dashboard-container">
             { this.props.isOpen && this.state.newUser ?
               <ModalComponent>
-                <CreateProfileContainer newUser={this.newUser}/>
+                <CreateProfileContainer newUser={ this.newUser }/>
               </ModalComponent> : null
             }
 
@@ -165,7 +168,7 @@ class DashboardIndex extends React.Component {
                 currentUser={ this.props.currentUser }
                 workouts={ this.props.workouts } />
 
-              <Tabs panes={tabs} />
+              <Tabs panes={ tabs } />
             </aside>
 
             <main className="dashboard-main">
@@ -174,8 +177,8 @@ class DashboardIndex extends React.Component {
                   this.state.selected === "Following" && this.state.ready ? followItems :
                     this.props.workouts.length ? workoutItems : null
                 }
-                
-                <div className={!this.props.workouts.length && this.state.ready ? 'visible' : 'none'}>
+
+                <div className={ !this.props.workouts.length && this.state.ready ? 'visible' : 'none' }>
                   { message }
                 </div>
               </ul>
@@ -184,9 +187,7 @@ class DashboardIndex extends React.Component {
               <Waypoint
                 onEnter={ this.state.selected === "Following" ?
                   this.updateFeed :
-                  this.getWorkouts
-                } />
-
+                  this.getWorkouts } />
             </main>
 
             <aside className="dashboard-right">

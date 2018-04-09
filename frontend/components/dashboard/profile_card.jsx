@@ -19,7 +19,7 @@ const ProfileCard = ({ totalRides, totalRuns, currentUser, workouts }) => {
 
   let recent;
   let date;
-  if(workouts.length){
+  if (workouts.length) {
     recent = workouts[0];
     let momentDate = moment(recent.date);
     date = momentDate.format("MMMM D, YYYY");
@@ -27,9 +27,10 @@ const ProfileCard = ({ totalRides, totalRuns, currentUser, workouts }) => {
 
   return (
     <section className="profile-card">
-      <img className="profile-card-avatar" src={currentUser.avatar_url} />
+      <img className="profile-card-avatar" src={ currentUser.avatar_url } />
+
       <span className="card-name">
-        <Link to={`/users/${currentUser.id}`}>
+        <Link to={ `/users/${currentUser.id}` } >
           {currentUser.fname} {currentUser.lname}
         </Link>
       </span>
@@ -42,14 +43,14 @@ const ProfileCard = ({ totalRides, totalRuns, currentUser, workouts }) => {
         </div>
 
         <div className="following-stats">
-          <Link to={`/users/${currentUser.id}`}>
+          <Link to={ `/users/${currentUser.id}` }>
             <div>{ numFollowing }</div>
           </Link>
-          <Link to={`/users/${currentUser.id}`}>
+          <Link to={ `/users/${currentUser.id}` }>
             <div>{ numFollowers }</div>
           </Link>
           <Link to='/workouts'>
-            <div>{numActivities}</div>
+            <div>{ numActivities }</div>
           </Link>
         </div>
       </div>
@@ -57,8 +58,8 @@ const ProfileCard = ({ totalRides, totalRuns, currentUser, workouts }) => {
       <div className="latest">
         <div>Latest Activity</div>
         { recent ?
-          <Link to={`/workouts/${recent.id}`}>
-            <span className="bold">{recent.title}</span> • {date}
+          <Link to={ `/workouts/${recent.id}` }>
+            <span className="bold">{ recent.title }</span> • { date }
           </Link>
           : null
         }
