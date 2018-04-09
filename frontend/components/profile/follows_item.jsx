@@ -58,23 +58,23 @@ class FollowsItem extends React.Component {
       <main className="profile-follow-item">
 
         <div>
-          <img className="profile-follow-avatar"src={this.props.user.avatarUrl} />
+          <img className="profile-follow-avatar"src={ this.props.user.avatarUrl } />
         </div>
 
         <div className="follow-wrapper">
           <div className="search-row">
-            <Link to={`/users/${this.props.user.id}`}
-               onClick={this.fetchNewUser}>
-              {this.props.user.fname} {this.props.user.lname}
+            <Link to={ `/users/${this.props.user.id}` }
+               onClick={ this.fetchNewUser }>
+              { this.props.user.fname } { this.props.user.lname }
             </Link>
 
           </div>
           { this.props.currentUser.id.toString() !== this.props.user.id ?
             <button
-              onClick={this.handleSubmit}
-              className={this.state.isFollowing ? "following-btn" : "follow-btn"}
-              onMouseEnter={this.toggleHover}
-              onMouseLeave={this.toggleHover}>
+              onClick={ this.handleSubmit }
+              className={ this.state.isFollowing ? "following-btn" : "follow-btn" }
+              onMouseEnter={ this.toggleHover }
+              onMouseLeave={ this.toggleHover }>
               { this.state.isFollowing ? this.state.hovered ? "Unfollow" : "Following" : 'Follow' }
 
             </button>

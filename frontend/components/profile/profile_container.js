@@ -28,7 +28,6 @@ const mapStateToProps = (state, ownProps) => {
     id: ownProps.match.params.id,
     user: state.viewedUsers.viewedUser,
     currentUserId: state.session.currentUser.id.toString(),
-    // workouts: _.values(state.workout.workouts).reverse(),
     workouts,
     currentUser: state.session.currentUser,
     followers: state.viewedUsers.followers,

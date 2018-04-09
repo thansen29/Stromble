@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './navbar';
 import SearchResultItemContainer from './search_result_item_container';
+import * as _ from 'lodash';
 
 class SearchResults extends React.Component {
   constructor(props){
@@ -37,10 +38,11 @@ class SearchResults extends React.Component {
   render(){
     let items;
     if(this.props.foundUsers.length){
-      items = this.props.foundUsers.map((user) => {
+      // items = this.props.foundUsers.map((user) => {
+      items = _.map(this.props.foundUsers, user => {
         return (
-          <li key={user.id}>
-            <SearchResultItemContainer user={user} />
+          <li key={ user.id }>
+            <SearchResultItemContainer user={ user } />
           </li>
         );
       });
@@ -53,12 +55,12 @@ class SearchResults extends React.Component {
         <Navbar />
         <section className="form-container">
           <h1>Athlete Search</h1>
-          <form onSubmit={this.handleSubmit} className="search-result-form">
+          <form onSubmit={ this.handleSubmit } className="search-result-form">
           <input
             type="text"
             className="search-form-input"
-            onChange={this.handleChange('content')}
-            value={this.state.content} />
+            onChange={ this.handleChange('content') }
+            value={ this.state.content } />
 
           <button className="search-button">Search</button>
           </form>

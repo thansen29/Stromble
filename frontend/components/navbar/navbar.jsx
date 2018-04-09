@@ -20,13 +20,13 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const Navbar = ({id, logOut, avatarUrl, isOpen, openSearch}) => {
+const Navbar = ({ id, logOut, avatarUrl, isOpen, openSearch }) => {
   return (
     <nav className="global-nav">
       <Link to="/dashboard"><div className="logo-nav">stromble</div></Link>
 
     <div onClick={ openSearch } className="nav-search">
-      <i className={isOpen ? null : "fa fa-search"} aria-hidden="true"></i>
+      <i className={ isOpen ? null : "fa fa-search" } aria-hidden="true"></i>
     </div>
 
     { isOpen ?
@@ -38,10 +38,12 @@ const Navbar = ({id, logOut, avatarUrl, isOpen, openSearch}) => {
             <div className="nav-dropdown-content">
               <Link to="/routes">My Routes</Link>
             </div>
+
             <div className="nav-title">
               <Link to="/dashboard">Dashboard</Link>
               <i className="fa fa-angle-down" aria-hidden="true"></i>
             </div>
+
           </div>
         </div>
 
@@ -61,15 +63,17 @@ const Navbar = ({id, logOut, avatarUrl, isOpen, openSearch}) => {
 
       <div className="nav-profile-container">
         <div className="nav-profile-dropdown">
+
           <div className="nav-profile-dropdown-content">
-            <Link to={`/users/${id}`}>My Profile</Link>
-            <Link to="/login" onClick={logOut}>Log Out</Link>
+            <Link to={ `/users/${id}` }>My Profile</Link>
+            <Link to="/login" onClick={ logOut }>Log Out</Link>
           </div>
 
           <div className="nav-avatar-container">
-            <img className="nav-avatar" src={avatarUrl} />
+            <img className="nav-avatar" src={ avatarUrl } />
             <i className="fa fa-angle-down profile-down nav-title" aria-hidden="true"></i>
           </div>
+
         </div>
       </div>
 

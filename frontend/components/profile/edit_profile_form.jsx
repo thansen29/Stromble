@@ -100,21 +100,21 @@ class EditProfileForm extends React.Component {
 
     let followComponent =
       <FollowComponent
-        followers={this.props.followers}
-        following={this.props.following} />;
+        followers={ this.props.followers }
+        following={ this.props.following } />;
 
     let workoutsComponent =
       <div className="waypoint">
         <WorkoutItems
-          workouts={this.props.workouts}
-          currentUser={this.props.currentUser}
-          getWorkouts={this.getWorkouts}
-          likeWorkout={this.props.likeWorkout}
-          openModal={this.props.openModal}
-          closeModal={this.props.closeModal}
-          isOpen={this.props.isOpen}
-          createComment={this.props.createComment}
-          deleteComment={this.props.deleteComment}/>
+          workouts={ this.props.workouts }
+          currentUser={ this.props.currentUser }
+          getWorkouts={ this.getWorkouts }
+          likeWorkout={ this.props.likeWorkout }
+          openModal={ this.props.openModal }
+          closeModal={ this.props.closeModal }
+          isOpen={ this.props.isOpen }
+          createComment={ this.props.createComment }
+          deleteComment={ this.props.deleteComment } />
       </div>;
 
     const tabs = [
@@ -129,7 +129,7 @@ class EditProfileForm extends React.Component {
 
           <div className="profile-item h1">My Profile</div>
 
-          <form className="profile-form" onSubmit={this.handleSubmit}>
+          <form className="profile-form" onSubmit={ this.handleSubmit }>
             <div className="edit-profile-title">
               <div className="offcenter">
                 <span>Current Photo</span>
@@ -137,35 +137,35 @@ class EditProfileForm extends React.Component {
                 <label>
                   <img
                     className="edit-profile-avatar"
-                    src={this.state.imageUrl} />
-                  <input className="hidden-input" type="file" onChange={this.updateUser} />
+                    src={ this.state.imageUrl } />
+                  <input className="hidden-input" type="file" onChange={ this.updateUser } />
                   <span className="grey-plus"></span>
                 </label>
 
               </div>
             </div>
 
-            <ul className="edit-profile-title" onClick={this.state.clicked ? null : this.triggerChange}>
+            <ul className="edit-profile-title" onClick={ this.state.clicked ? null : this.triggerChange }>
               <li>
                 <span>Name</span>
-                {this.state.clicked ?
+                { this.state.clicked ?
                   <div className="profile-inputs-container">
                     <input
                       type="text"
                       className="profile-inputs"
-                      value={this.state.fname}
-                      onChange={this.handleChange('fname')} />
+                      value={ this.state.fname }
+                      onChange={ this.handleChange('fname') } />
                     <input
                       type="text"
                       className="profile-inputs"
-                      value={this.state.lname}
-                      onChange={this.handleChange('lname')} />
+                      value={ this.state.lname }
+                      onChange={ this.handleChange('lname') } />
                   </div> :
-                  <main className="profile-item-content"><span>{this.state.fname} {this.state.lname}</span>
+                  <main className="profile-item-content"><span>{ this.state.fname } { this.state.lname }</span>
                     <span className="edit-pencil"></span>
                   </main>
                 }
-                {this.state.clicked ? <span onClick={this.triggerChange} className="close-form">&times;</span> : null}
+                { this.state.clicked ? <span onClick={ this.triggerChange } className="close-form">&times;</span> : null }
               </li>
             </ul>
 
@@ -176,7 +176,7 @@ class EditProfileForm extends React.Component {
           <div className="profile-tabs">
 
 
-            <Tabs panes={tabs} />
+            <Tabs panes={ tabs } />
           </div>
 
         </section>

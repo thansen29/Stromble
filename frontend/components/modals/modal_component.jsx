@@ -8,7 +8,7 @@ class ModalComponent extends React.Component {
   render() {
     return (
       <section className="animate-opacity">
-        <section className="modal-screen animate-opacity" onClick={this.props.closeModal}></section>
+        <section className="modal-screen animate-opacity" onClick={ this.props.closeModal }></section>
           { this.props.children }
       </section>
     );

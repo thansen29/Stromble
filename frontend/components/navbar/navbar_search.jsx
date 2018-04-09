@@ -34,15 +34,15 @@ class NavbarSearch extends React.Component {
   render(){
     return (
       <section className="search-component">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={ this.handleSubmit }>
           <input
             autoFocus
             type="text"
             className="search-input"
             placeholder="Search"
-            onChange={this.handleChange('content')} />
-          <span onClick={this.handleSubmit} className="search-icon"></span>
-          <span onClick={this.props.closeSearch} className="close-search">&times;</span>
+            onChange={ this.handleChange('content') } />
+          <span onClick={ this.handleSubmit } className="search-icon"></span>
+          <span onClick={ this.props.closeSearch } className="close-search">&times;</span>
         </form>
       </section>
     );

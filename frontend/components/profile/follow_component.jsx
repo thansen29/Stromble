@@ -9,7 +9,6 @@ class FollowComponent extends React.Component {
       follow: "Following",
       clicked: false,
     };
-
   }
 
   handleSelection(field){
@@ -44,8 +43,8 @@ class FollowComponent extends React.Component {
       followers = this.extractData(this.props.followers);
       followers = followers.map((user) => {
         return (
-            <li key={user.id}>
-              <FollowsContainer user={user} />
+            <li key={ user.id }>
+              <FollowsContainer user={ user } />
             </li>
         );
       });
@@ -69,8 +68,8 @@ class FollowComponent extends React.Component {
         <div className="distance-select">
           <DropdownComponent
             items={[`${"Following"}`, 'Followers']}
-            onChange={this.handleSelection('follow')}
-            initValue={`${"Following"}`} />
+            onChange={ this.handleSelection('follow') }
+            initValue={ `${"Following"}` } />
         </div>
         <ul className="search-result-list">
           { this.state.follow === "Followers" ? followers : following }

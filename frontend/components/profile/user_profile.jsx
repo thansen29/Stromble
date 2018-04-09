@@ -32,6 +32,9 @@ class UserProfile extends React.Component {
       this.setState({
         isFollowing: isFollowing(this.props.currentUser.following_ids, this.props.user.follower_ids)
       });
+      if (!this.props.workouts.length) {
+        this.getWorkouts();
+      }
     });
   }
 
@@ -94,23 +97,23 @@ class UserProfile extends React.Component {
   render(){
     let followComponent =
     <FollowComponent
-      followers={this.props.followers}
-      following={this.props.following} />;
+      followers={ this.props.followers }
+      following={ this.props.following } />;
 
     let workoutsComponent;
     if(this.props.user){
       workoutsComponent =
         <div className="waypoint">
           <WorkoutItems
-            workouts={this.props.workouts}
-            currentUser={this.props.currentUser}
-            getWorkouts={this.getWorkouts}
-            likeWorkout={this.props.likeWorkout}
-            openModal={this.props.openModal}
-            closeModal={this.props.closeModal}
-            isOpen={this.props.isOpen}
-            createComment={this.props.createComment}
-            deleteComment={this.props.deleteComment} />
+            workouts={ this.props.workouts }
+            currentUser={ this.props.currentUser }
+            getWorkouts={ this.getWorkouts }
+            likeWorkout={ this.props.likeWorkout }
+            openModal={ this.props.openModal }
+            closeModal={ this.props.closeModal }
+            isOpen={ this.props.isOpen }
+            createComment={ this.props.createComment }
+            deleteComment={ this.props.deleteComment } />
         </div>;
     }
 
@@ -128,7 +131,7 @@ class UserProfile extends React.Component {
           <section className="profile-background">
             <section className="profile-container">
 
-              <div className="profile-item h1">{this.state.fname}&#39;s Profile</div>
+              <div className="profile-item h1">{ this.state.fname }&#39;s Profile</div>
 
               <form className="profile-form">
 
@@ -136,7 +139,7 @@ class UserProfile extends React.Component {
                   <div className="offcenter">
                     <img
                       className="profile-avatar"
-                      src={this.state.imageUrl} />
+                      src={ this.state.imageUrl } />
                   </div>
                 </div>
 
@@ -144,23 +147,23 @@ class UserProfile extends React.Component {
                   <li>
                     <span>Name</span>
                       <main className="profile-item-content">
-                        <span>{this.state.fname} {this.state.lname}</span>
+                        <span>{ this.state.fname } { this.state.lname }</span>
                       </main>
                   </li>
                 </ul>
 
                 <button
-                  className={this.state.isFollowing ? "following-save" : "follow-save"}
-                  onMouseEnter={this.toggleHover}
-                  onMouseLeave={this.toggleHover}
-                  onClick={this.handleSubmit}>
+                  className={ this.state.isFollowing ? "following-save" : "follow-save" }
+                  onMouseEnter={ this.toggleHover }
+                  onMouseLeave={ this.toggleHover }
+                  onClick={ this.handleSubmit }>
                   { this.state.isFollowing ? this.state.hovered ? "Unfollow" : "Following" : 'Follow' }
                 </button>
 
               </form>
               <div className="profile-tabs">
 
-                <Tabs panes={tabs} />
+                <Tabs panes={ tabs } />
               </div>
 
 
