@@ -23,14 +23,11 @@ class WorkoutForm extends React.Component {
       activity_type: "",
       descripton: "",
       private: false,
-      // startDate: moment(),
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
-
   }
 
   moveCaret(e) {
@@ -85,12 +82,6 @@ class WorkoutForm extends React.Component {
     this.setState({
       private: !this.state.private
     });
-  }
-
-  handleDropdown(component){
-    return e => {
-      this.props.openDropdown(component);
-    };
   }
 
   handleSelection(field){

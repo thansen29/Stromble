@@ -47,21 +47,3 @@ export const logout = () => dispatch => {
     dispatch(receiveErrors(errors));
   });
 };
-
-// export const updateUser = user => dispatch => {
-//   return SessionAPIUtil.updateUser(user).then((resp) => {
-//     dispatch(receiveCurrentUser(resp));
-//   }, (errors) => {
-//     dispatch(receiveErrors(errors));
-//   });
-// };
-
-// export const updateUser = (formData) => dispatch => {
-//   return SessionAPIUtil.updateUser(formData).then((resp) => {
-//     console.log('success');
-//     dispatch(receiveCurrentUser(resp));
-//   }, (errors) => {
-//     console.log('fail');
-//     dispatch(receiveErrors(errors));
-//   });
-// };

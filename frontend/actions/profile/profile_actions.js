@@ -95,15 +95,3 @@ export const likeWorkout = id => dispatch => {
     dispatch(receiveLike(payload));
   });
 };
-
-
-
-// export const toggleFollow = (otherId) => dispatch => {
-//   return ProfileAPIUtil.toggleFollow(otherId).then((user) => {
-//     dispatch(receiveCurrentUser(user));
-//     // dispatch(updateFollows(user));
-//   });//.then(() => {
-//   //   console.log('here');
-//   //   fetchUser(otherId);
-//   // });
-// };
