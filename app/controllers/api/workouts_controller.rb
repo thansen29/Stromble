@@ -6,27 +6,30 @@ class Api::WorkoutsController < ApplicationController
     if params[:location] == '/workouts'
       @workouts = Workout.all
         .where(user_id: current_user.id)
+        .order(time: :desc)
         .page(params[:page].to_i).per(20)
     elsif params[:location] == 'feed'
       ids = current_user.following_ids.map {|id| Follow.where(id: id).pluck(:followed_id) }
       ids = ids.map {|el| el.first unless el.first == params[:id].to_i }
-
       @workouts = Workout.all
         .where('user_id IN (?)', ids)
         .where.not('private = ?', true)
         .includes(comments: :author)
+        .order(time: :desc)
         .page(params[:page].to_i).per(4)
     else
-      if current_user.id != params[:id]
+      if current_user.id != params[:id].to_i
         @workouts = Workout.all
           .where(user_id: params[:id])
           .where.not('private = ?', true)
           .includes(comments: :author)
+          .order(time: :desc)
           .page(params[:page].to_i).per(4)
       else
         @workouts = Workout.all
           .where(user_id: params[:id])
           .includes(comments: :author)
+          .order(time: :desc)
           .page(params[:page].to_i).per(4)
       end
     end
