@@ -9,6 +9,12 @@ class DropdownComponent extends React.Component {
     this.blurSection = this.blurSection.bind(this);
   }
 
+  componentWillMount() {
+    if (this.props.time) {
+      this.time = true;
+    }
+  }
+
   handleSelect(){
     this.setState({ isOpen: true });
   }
@@ -33,7 +39,7 @@ class DropdownComponent extends React.Component {
     return (
       <section className="dropdown-section-element" onBlur={ this.blurSection }  tabIndex="0">
         <div
-          className="workout-input select caret"
+          className={ this.time ? "time workout-input select caret" : "workout-input select caret" }
           onClick={ this.handleSelect }>
             { this.state.selected }
         </div>

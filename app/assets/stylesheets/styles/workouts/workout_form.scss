@@ -95,11 +95,16 @@
 
 .input-wrapper {
   display: flex;
-  margin-top: 10px;
+  // margin-top: 10px;
   input {
     flex: 1;
   }
 
+}
+
+.field-container label {
+  position: relative;
+  bottom: 10px;
 }
 
 .mid-row {
@@ -147,14 +152,21 @@
 .selected-fields {
   // display: flex;
   // flex-direction: column;
+  max-height: 150px;
+  overflow-y: scroll;
   width: 100%;
   box-sizing: border-box;
   display: block;
   position: absolute;
+  z-index: 100;
   background: white;
   border-left: 1px solid #ccccd1;
   border-right: 1px solid #ccccd1;
   border-bottom: 1px solid #ccccd1;
+}
+
+.time {
+   color: #666;
 }
 
 .activity-input {
@@ -202,6 +214,8 @@
 
 .datetime {
   width: 112.5px;
+  font-size: 13px;
+  color: #666;
 }
 
 .title-input {
@@ -211,6 +225,8 @@
 .dropdown-section-element {
   position: relative;
   width: 100%;
+  // max-height: 150px;
+  // overflow-y: scroll;
 }
 
 .dropdown-section-element:focus {
