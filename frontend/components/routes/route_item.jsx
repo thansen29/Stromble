@@ -6,7 +6,7 @@ const RouteItem = ({route}) => {
   const startLng = route.start_lng;
   const endLat = route.end_lat;
   const endLng = route.end_lng;
-
+  console.log(process.env);
   const url = `http://maps.googleapis.com/maps/api/staticmap?&size=350x350&path=color:0x0000ff|weight:5|${startLat},${startLng}|${endLat},${endLng}&key=AIzaSyAzqV02RQ3R5tDuhiUPlhww_AhPN0rukT0`;
   return (
     <li>

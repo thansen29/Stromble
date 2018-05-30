@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Typed from 'typed.js';
 
 class LoginForm extends React.Component {
   constructor(props){
@@ -47,17 +48,34 @@ class LoginForm extends React.Component {
 
   handleDemoSubmit(e){
     e.preventDefault();
+
+    const email = {
+      strings: ["demouser@stromble.com"],
+      typeSpeed: 40
+    }
+
+    const password = {
+      strings: ["password"],
+      typeSpeed: 40
+    }
+
+    new Typed('.email-input', email);
+    new Typed('.password-input', password);
+
     const user = {
       email: "guestaccount1",
       password: "password"
     };
-    this.setState({
-      email: "guestaccount1",
-      password: "password"
-    });
-    this.props.login(user).then(() => {
-      this.props.history.push("/dashboard");
-    });
+
+    // this.setState({
+    //   email: "guestaccount1",
+    //   password: "password"
+    // });
+    setTimeout(() => {
+      this.props.login(user).then(() => {
+        this.props.history.push("/dashboard");
+      });
+    }, 1400);
   }
 
   render(){
@@ -74,14 +92,14 @@ class LoginForm extends React.Component {
         <section className="input-container">
           <input
             onChange={ this.handleChange("email") }
-            value={ this.state.email }
-            className="input" type="text"
+            className="input email-input" type="text"
             placeholder="Your Email" />
 
+            {/* value={ this.state.email } */}
+            {/* value={ this.state.password } */}
           <input
             onChange={ this.handleChange("password") }
-            value={ this.state.password }
-            className="input" type="password"
+            className="input password-input" type="password"
             placeholder="Password" />
 
           <button

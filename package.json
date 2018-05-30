@@ -12,7 +12,7 @@
     "prop-types": "^15.6.0",
     "rc-time-picker": "^3.3.0",
     "react": "^15.6.2",
-    "react-datepicker": "^1.0.4",
+    "react-datepicker": "^1.4.1",
     "react-dom": "^15.6.2",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
@@ -21,6 +21,7 @@
     "react-waypoint": "^8.0.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
+    "typed.js": "^2.0.7",
     "webpack": "^3.10.0"
   },
   "devDependencies": {
